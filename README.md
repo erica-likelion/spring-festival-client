@@ -1,50 +1,75 @@
-# React + TypeScript + Vite
+# Spring-Festival-Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Getting started
 
-Currently, two official plugins are available:
+1. install package dependencies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+  yarn install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Start the dev server.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```
+  yarn run dev
+```
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+3. Build your product.
+
+```
+  yarn build
+```
+
+## Dependencies
+
+<div align="center">
+
+<img alt="NodeJS" src ="https://img.shields.io/badge/Node.js-v23.0.0-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+<img alt="Yarn" src="https://img.shields.io/badge/Yarn-v1.22.22-2C8EBB?style=for-the-badge&logo=Yarn&logoColor=white"/>
+<img alt="React" src="https://img.shields.io/badge/React-v19.0.0-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
+<img alt="React" src="https://img.shields.io/badge/Typescript-v~5.7.2-3178C6?style=for-the-badge&logo=Typescript&logoColor=white"/>
+
+</div>
+
+## Pull-request
+```
+🔥 PR 제목  
+
+📌 작업 내용  
+
+✅ 체크리스트  
+- [ ] 코드가 정상적으로 동작하는지 테스트 완료  
+- [ ] 필요한 경우 문서를 업데이트했는지 확인  
+- [ ] 코드 리뷰어가 이해할 수 있도록 설명을 추가했는지 확인  
+
+📸 스크린샷 (선택)  
+
+🚀 테스트 방법  
+
+💡 추가 논의할 사항  
+
+🙏 리뷰어에게 한마디
+
+```
+
+## Commit convention
+```
+feat: 새로운 기능 추가
+
+docs: 문서 수정
+
+style: 코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우
+
+refactor: 코드 리팩토링
+
+test: 테스트 코드, 리팩토링 테스트 코드 추가
+
+chore: 빌드 업무 수정, 패키지 매니저 수정, production code와 무관한 부분들
+
+comment: 주석 추가 및 변경
+
+remove: 파일, 폴더 삭제
+
+rename: 파일, 폴더명 수정
+
 ```
