@@ -2,6 +2,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import svgr from 'vite-plugin-svgr';
+import tsConfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -15,6 +16,7 @@ export default defineConfig({
         },
       },
     }),
+    tsConfigPaths(),
     VitePWA({
       strategies: 'injectManifest',
       srcDir: 'src',
@@ -46,4 +48,32 @@ export default defineConfig({
       },
     }),
   ],
+  resolve: {
+    alias: [
+      {
+        find: '@',
+        replacement: '/src',
+      },
+      {
+        find: '@app',
+        replacement: '/src/app',
+      },
+      {
+        find: '@features',
+        replacement: '/src/features',
+      },
+      {
+        find: '@pages',
+        replacement: '/src/pages',
+      },
+      {
+        find: '@shared',
+        replacement: '/src/shared',
+      },
+      {
+        find: '@widgets',
+        replacement: '/src/widgets',
+      },
+    ],
+  },
 });
