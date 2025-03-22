@@ -1,7 +1,7 @@
 <div align="center">
 
 
-<img alt="NodeJS" src ="https://img.shields.io/badge/Node.js-v23.0.0-5FA04E?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
+<img alt="NodeJS" src ="https://img.shields.io/badge/Node.js-5FA04E-v23.0.0?style=for-the-badge&logo=nodedotjs&logoColor=white"/>
 
 <img alt="Yarn" src="https://img.shields.io/badge/Yarn-v1.22.22-2C8EBB?style=for-the-badge&logo=Yarn&logoColor=white"/>
 
