@@ -1,0 +1,31 @@
+name: Auto merge develop to Main
+
+on:
+  push:
+    branches: [ "develop" ]
+
+jobs:
+  merge:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout main branch
+      uses: actions/checkout@v2
+      with:
+        ref: 'main'
+        fetch-depth: '0'
+    - name: Configure Git
+      run: |
+        git config user.name sehyun0518
+        git config user.email rla6170@naver.com
+    - name: Merge dev branch # main 브랜치에서 dev 브랜치를 merge
+      run: |
+        git merge origin/develop --no-edit
+          
+    - name: Push changes to main branch # merge 내용들을 main 브랜치로 최종 push
+      uses: ad-m/github-push-action@master
+      with:
+        branch: main
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+          
