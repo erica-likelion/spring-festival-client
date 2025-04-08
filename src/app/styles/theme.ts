@@ -6,7 +6,6 @@ const createFontStyle = (
   lineHeightPercent: number,
   letterSpacing: number = 0,
 ) => css`
-  font-family: SUIT;
   font-size: ${size}px;
   font-style: normal;
   font-weight: ${weight};
@@ -54,13 +53,13 @@ const fonts = {
 const effects = {
   dropShadow: {
     ds100: css`
-      box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 4px 0px rgba(0 0 0 0.2);
     `,
     ds200: css`
-      box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 4px 0px rgba(0 0 0 0.2);
     `,
     ds300: css`
-      box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.2);
+      box-shadow: 0px 0px 4px 0px rgba(0 0 0 0.2);
     `,
   },
   layerBlur: {
