@@ -57,8 +57,8 @@ export default defineConfig({
         replacement: '/src',
       },
       {
-        find: '@app',
-        replacement: '/src/app',
+        find: '@assets',
+        replacement: '/src/assets',
       },
       {
         find: '@features',
@@ -69,12 +69,32 @@ export default defineConfig({
         replacement: '/src/pages',
       },
       {
-        find: '@shared',
-        replacement: '/src/shared',
+        find: '@components',
+        replacement: '/src/components',
       },
       {
-        find: '@widgets',
-        replacement: '/src/widgets',
+        find: '@constants',
+        replacement: '/src/constants',
+      },
+      {
+        find: '@hooks',
+        replacement: '/src/hooks',
+      },
+      {
+        find: '@layout',
+        replacement: '/src/layout',
+      },
+      {
+        find: '@styles',
+        replacement: '/src/styles',
+      },
+      {
+        find: '@types',
+        replacement: '/src/types',
+      },
+      {
+        find: '@utils',
+        replacement: '/src/utils',
       },
     ],
   },
