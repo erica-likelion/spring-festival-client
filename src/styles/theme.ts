@@ -98,6 +98,6 @@ export const theme = {
   media,
   fonts,
   effects,
-};
+} as const;
 
-export type Theme = typeof theme;
+export type ThemeType = typeof theme;
