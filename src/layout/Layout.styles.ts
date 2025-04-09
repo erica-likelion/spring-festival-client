@@ -11,4 +11,5 @@ export const Container = styled.div`
 export const Main = styled(motion.main)`
   flex: 1;
   overflow-y: auto;
+  z-index: 0;
 `;

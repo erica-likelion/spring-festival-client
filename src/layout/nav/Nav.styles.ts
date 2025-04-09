@@ -2,11 +2,18 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Nav = styled.nav`
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   height: 106px;
   padding: 8px 20px 32px;
+  background-color: ${(props) => props.theme.colors.grayScale.black};
   display: flex;
   justify-content: space-between;
   align-items: center;
+  z-index: 1;
 `;
 
 export const NavBtn = styled(motion.button)`
