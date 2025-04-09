@@ -16,6 +16,7 @@
     "postcss-styled-syntax": "^0.7.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-router-dom": "^7.5.0",
     "styled-components": "^6.1.16",
     "vite-tsconfig-paths": "^5.1.4"
   },
