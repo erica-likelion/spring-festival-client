@@ -7,7 +7,8 @@ export const GlobalStyle = createGlobalStyle`
     html, body {
         overscroll-behavior-y: contain;
         user-select: none;
-        -webkit-user-select: none; 
+        -webkit-user-select: none;
+        height: 100%;
     }
     
     html {
@@ -15,6 +16,6 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     #root {
-        height: 100vh;
+        height: 100%;
     }
 `;
