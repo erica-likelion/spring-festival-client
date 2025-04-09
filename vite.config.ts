@@ -35,7 +35,7 @@ export default defineConfig({
         name: 'likelion-spring-festival',
         short_name: 'likelion-spring-festival',
         description: 'HYU-ERICA 2025 spring festival application',
-        theme_color: '#373D3F',
+        theme_color: '#17171B',
       },
 
       injectManifest: {

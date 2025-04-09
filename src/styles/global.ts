@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     ${reset}
     
     body {
+        height: 100vh;
         overscroll-behavior-y: contain; 
         user-select: none;
         -webkit-user-select: none; 
@@ -12,6 +13,6 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     html {
-        background-color: #373D3F;
+        background-color: #17171B;
     }
 `;
