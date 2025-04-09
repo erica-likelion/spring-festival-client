@@ -4,14 +4,17 @@ import reset from 'styled-reset';
 export const GlobalStyle = createGlobalStyle`
     ${reset}
     
-    body {
-        overscroll-behavior-y: contain; 
+    html, body {
+        overscroll-behavior-y: contain;
         user-select: none;
         -webkit-user-select: none; 
-        viewport-fit: cover; 
     }
     
     html {
-        background-color: #373D3F;
+        background-color: ${(props) => props.theme.colors.grayScale.black};
+    }
+
+    #root {
+        height: 100vh;
     }
 `;
