@@ -41,6 +41,12 @@ const fonts = {
   body: {
     large400: createFontStyle(18, 400, 154, -0.36),
     large500: createFontStyle(18, 500, 154, -0.36),
+    medium400: createFontStyle(16, 400, 150, -0.32),
+    medium500: createFontStyle(16, 500, 150, -0.32),
+    small400: createFontStyle(14, 400, 142, -0.32),
+    small500: createFontStyle(14, 500, 142, -0.32),
+    xsmall400: createFontStyle(12, 400, 150, -0.32),
+    xsmall500: createFontStyle(12, 500, 150, -0.32),
   },
   header: {
     h1: createFontStyle(28, 700, 130, -0.56),
