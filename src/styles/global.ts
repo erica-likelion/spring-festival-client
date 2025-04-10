@@ -9,6 +9,7 @@ export const GlobalStyle = createGlobalStyle`
         user-select: none;
         -webkit-user-select: none;
         height: 100%;
+        overflow: hidden
     }
     
     html {
