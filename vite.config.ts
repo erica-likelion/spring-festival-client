@@ -56,46 +56,6 @@ export default defineConfig({
         find: '@',
         replacement: '/src',
       },
-      {
-        find: '@assets',
-        replacement: '/src/assets',
-      },
-      {
-        find: '@features',
-        replacement: '/src/features',
-      },
-      {
-        find: '@pages',
-        replacement: '/src/pages',
-      },
-      {
-        find: '@components',
-        replacement: '/src/components',
-      },
-      {
-        find: '@constants',
-        replacement: '/src/constants',
-      },
-      {
-        find: '@hooks',
-        replacement: '/src/hooks',
-      },
-      {
-        find: '@layout',
-        replacement: '/src/layout',
-      },
-      {
-        find: '@styles',
-        replacement: '/src/styles',
-      },
-      {
-        find: '@types',
-        replacement: '/src/types',
-      },
-      {
-        find: '@utils',
-        replacement: '/src/utils',
-      },
     ],
   },
 });
