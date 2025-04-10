@@ -18,7 +18,7 @@ export default function Layout() {
     const handlePreventEdgeSwipe = (e: TouchEvent) => {
       // 좌우 edge 스와이프 시 이벤트 중지
       const touchX = e.touches[0].pageX; // 시작점
-      if (touchX < 10 || touchX > window.innerWidth - 10) e.preventDefault(); // 좌우 10 이내 판단
+      if (touchX < 20 || touchX > window.innerWidth - 20) e.preventDefault(); // 좌우 10 이내 판단
     };
     document.addEventListener('touchstart', handlePreventEdgeSwipe, { passive: false });
     return () => {
