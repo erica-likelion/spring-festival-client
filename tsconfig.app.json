@@ -26,17 +26,6 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
-      "@/assets": ["src/assets"],
-      "@/components": ["src/components"],
-      "@/constants": ["src/constants"],
-      "@/features": ["src/features"],
-      "@/hooks": ["src/hooks"],
-      "@/layout": ["src/layout"],
-      "@/pages": ["src/pages"],
-      "@/services": ["src/services"],
-      "@/styles": ["src/styles"],
-      "@/types": ["src/types"],
-      "@/utils": ["src/utils"]
     }
   },
   "include": ["src"]
