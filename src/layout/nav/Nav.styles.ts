@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 export const Nav = styled.nav`
   box-sizing: border-box;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -26,6 +26,7 @@ export const NavBtn = styled(motion.button)`
   align-items: center;
   gap: 8px;
   flex-shrink: 0;
+  text-decoration: none;
   text-decoration-line: none;
   ${(props) => props.theme.fonts.body.xsmall500};
   color: ${(props) => props.theme.colors.grayScale.gy100};

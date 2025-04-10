@@ -10,6 +10,8 @@ export default function Layout() {
 
   useEffect(() => {
     const handlePreventEdgeSwipe = (e: TouchEvent) => {
+      // history 스택 항상 초기화
+      history.pushState(null, '', window.location.href);
       // 좌우 edge 스와이프 시 이벤트 중지
       const touchX = e.touches[0].pageX; // 시작점
       if (touchX < 10 || touchX > window.innerHeight - 10) e.preventDefault(); // 좌우 10 이내 판단
