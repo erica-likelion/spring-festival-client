@@ -6,6 +6,8 @@ export const Container = styled.div`
   flex-direction: column-reverse;
   justify-content: space-between;
   height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 `;
 
 export const Main = styled(motion.main)`
