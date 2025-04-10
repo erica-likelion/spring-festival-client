@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
     ${reset}
     
     html, body {
-        overscroll-behavior-y: contain;
+        overscroll-behavior: none contain;
         user-select: none;
         -webkit-user-select: none;
         height: 100%;
