@@ -1,27 +1,58 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import * as S from './Nav.styles';
-import { NAV_ITEMS } from '@/layout/nav/nav.types';
+import { NAV_ITEMS, NAVS } from '@/layout/nav/nav-item';
+import Lottie from 'react-lottie-player';
+import { useLayoutStore } from '@/stores';
 
 /**
  * Nav component
- * - handlePreventEdgeSwipe: 네비게이션 바 뒤로가기 앞으로 가기 스와이프 방지
  * @returns {JSX.Element}
  */
+
 export default function Nav() {
+  const locate = useLocation();
+  const setDirection = useLayoutStore((state) => state.setDirection);
+
+  const handleOnclick = async (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    isLocation: boolean,
+    toPath: string,
+  ) => {
+    if (isLocation) return e.preventDefault();
+    const [prevIndex, nextIndex] = [locate.pathname, toPath].map((path) =>
+      NAVS.findIndex((nav) => nav === path),
+    );
+
+    if (nextIndex > prevIndex) await setDirection('right');
+    else await setDirection('left');
+  };
+
   return (
     <S.Nav>
       {NAV_ITEMS.map((item) => {
+        const isLocation =
+          item.path === '/' ? locate.pathname === '/' : locate.pathname.startsWith(item.path);
         return (
           <NavLink
             to={item.path}
             key={item.id}
             style={{ textDecoration: 'none' }}
             onClick={(e) => {
-              if (window.location.pathname === item.path) e.preventDefault();
+              handleOnclick(e, isLocation, item.path);
             }}
           >
-            <S.NavBtn key={item.path} whileTap={{ scale: 0.92, backgroundColor: '#373D3F' }}>
-              <S.NavImg />
+            <S.NavBtn whileTap={{ scale: 0.92, backgroundColor: '#212526' }}>
+              {!isLocation ? (
+                item.DefaultIcon
+              ) : (
+                <Lottie
+                  key={isLocation ? 'playing' : 'idle'}
+                  animationData={item.icon}
+                  play={isLocation}
+                  loop={false}
+                  style={{ width: '24px', height: '24px' }}
+                />
+              )}
               {item.label}
             </S.NavBtn>
           </NavLink>
