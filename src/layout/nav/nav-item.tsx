@@ -11,8 +11,6 @@ import STAGE_ICON from '@/assets/icons/stage.svg?react';
 import PUB_ICON from '@/assets/icons/pub.svg?react';
 import WAITING_ICON from '@/assets/icons/waiting.svg?react';
 
-export const NAVS: string[] = ['/main', '/map', '/performance', '/booth', '/user'];
-
 export const NAV_ITEMS: navItems = [
   {
     id: 'home',
