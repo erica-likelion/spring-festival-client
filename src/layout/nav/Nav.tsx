@@ -19,12 +19,12 @@ export default function Nav() {
     toPath: string,
   ) => {
     if (isLocation) return e.preventDefault();
-    const [prevIndex, nextIndex] = [locate.pathname, toPath].map((path) =>
+    const prevPath = NAVS.find((nav) => locate.pathname.startsWith(nav));
+    const [prevIndex, nextIndex] = [prevPath, toPath].map((path) =>
       NAVS.findIndex((nav) => nav === path),
     );
-
-    if (nextIndex > prevIndex) await setDirection('right');
-    else await setDirection('left');
+    if (nextIndex > prevIndex) setDirection('right');
+    else setDirection('left');
   };
 
   return (
