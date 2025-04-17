@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Direction } from '@/stores';
 
 export const Main = styled(motion.main)`
   flex: 1;
@@ -8,7 +7,7 @@ export const Main = styled(motion.main)`
   z-index: 0;
 `;
 
-export const getAnimation = (direction: Direction) => {
+export const getAnimation = (direction: 'left' | 'right' | 'center') => {
   if (direction === 'right') {
     // 왼쪽 → 오른쪽 진입
     return {

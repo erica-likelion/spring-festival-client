@@ -1,8 +1,7 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import * as S from './Nav.styles';
-import { NAV_ITEMS, NAVS } from '@/layout/nav/nav-item';
+import { NAV_ITEMS } from '@/layout/nav/nav-item';
 import Lottie from 'react-lottie-player';
-import { useLayoutStore } from '@/stores';
 
 /**
  * Nav component
@@ -11,34 +10,17 @@ import { useLayoutStore } from '@/stores';
 
 export default function Nav() {
   const locate = useLocation();
-  const setDirection = useLayoutStore((state) => state.setDirection);
-
-  const handleOnclick = async (
-    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
-    isLocation: boolean,
-    toPath: string,
-  ) => {
-    if (isLocation) return e.preventDefault();
-    const prevPath = NAVS.find((nav) => locate.pathname.startsWith(nav));
-    const [prevIndex, nextIndex] = [prevPath, toPath].map((path) =>
-      NAVS.findIndex((nav) => nav === path),
-    );
-    if (nextIndex > prevIndex) setDirection('right');
-    else setDirection('left');
-  };
-
   return (
     <S.Nav>
       {NAV_ITEMS.map((item) => {
-        const isLocation =
-          item.path === '/' ? locate.pathname === '/' : locate.pathname.startsWith(item.path);
+        const isLocation = locate.pathname.startsWith(item.path);
         return (
           <NavLink
             to={item.path}
             key={item.id}
             style={{ textDecoration: 'none' }}
             onClick={(e) => {
-              handleOnclick(e, isLocation, item.path);
+              if (isLocation) e.preventDefault();
             }}
           >
             <S.NavBtn whileTap={{ scale: 0.92, backgroundColor: '#212526' }}>
