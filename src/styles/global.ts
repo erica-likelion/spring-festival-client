@@ -9,14 +9,13 @@ export const GlobalStyle = createGlobalStyle`
         user-select: none;
         -webkit-user-select: none;
         height: 100%;
-        overflow: hidden
-    }
-    
-    html {
+        overflow: hidden;
         background-color: ${(props) => props.theme.colors.grayScale.black};
     }
+    
 
     #root {
         height: 100%;
+        background-color: ${(props) => props.theme.colors.grayScale.black};
     }
 `;
