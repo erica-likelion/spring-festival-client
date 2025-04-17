@@ -4,7 +4,7 @@ export default function User() {
   return (
     <>
       {/**나의예약 */}
-      <Link to={'login'}>로그인</Link>
+      <Link to={'/login'}>로그인</Link>
       My Page
     </>
   );

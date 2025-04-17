@@ -1,5 +1,5 @@
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from '@/styles';
 import { Main, Login, Map, Performance, Booth, User } from '@/pages';
@@ -13,7 +13,11 @@ const routes = createBrowserRouter([
     errorElement: <>ERROR</>,
     children: [
       {
-        path: '',
+        index: true,
+        element: <Navigate to={'/main'} replace />,
+      },
+      {
+        path: 'main',
         element: <Main />,
       },
       {
