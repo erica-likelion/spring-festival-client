@@ -1,9 +1,9 @@
 import { navItems } from '@/layout/nav/nav.types';
-import HOME_LOTTIE from '@/assets/lotties/home-filled.json';
-import MAP_LOTTIE from '@/assets/lotties/geopoint-filled.json';
-import STAGE_LOTTIE from '@/assets/lotties/stage-filled.json';
-import PUB_LOTTIE from '@/assets/lotties/pub-filled.json';
-import WAITING_LOTTIE from '@/assets/lotties/waiting-filled.json';
+import HOME_LOTTIE from '@/assets/lotties/home-blue-filled.json';
+import MAP_LOTTIE from '@/assets/lotties/geopoint-blue-filled.json';
+import STAGE_LOTTIE from '@/assets/lotties/stage-blue-filled.json';
+import PUB_LOTTIE from '@/assets/lotties/pub-blue-filled.json';
+import WAITING_LOTTIE from '@/assets/lotties/waiting-blue-filled.json';
 
 import HOME_ICON from '@/assets/icons/home.svg?react';
 import MAP_ICON from '@/assets/icons/geopoint.svg?react';
