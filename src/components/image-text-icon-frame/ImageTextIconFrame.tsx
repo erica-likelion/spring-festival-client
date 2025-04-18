@@ -2,6 +2,14 @@ import * as Frame from './ImageTextIconFrame.styles';
 import RightArrow from '@/assets/icons/right-arrow.svg?react';
 import { ImageTextIconFrameProps } from './ImageTextIconFrame.types';
 
+/**
+ * ImageTextIconFrame component
+ * @param image image URL
+ * @param title title TEXT
+ * @param description description TEXT
+ * @returns {JSX.Element}
+ */
+
 export default function ImageTextIconFrame({ image, title, description }: ImageTextIconFrameProps) {
   const hasImage = Boolean(image);
   return (
