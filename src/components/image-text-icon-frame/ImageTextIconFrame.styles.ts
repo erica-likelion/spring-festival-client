@@ -1,17 +1,23 @@
 import styled from 'styled-components';
 
-interface TextWrapProps {
+interface ImageProps {
   $hasImage?: boolean;
 }
 
-export const Container = styled.div`
+export const Container = styled.div<ImageProps>`
   display: flex;
   width: 20.9375rem;
-  padding: 0.75rem 0.5rem 0.75rem 0.75rem;
+  padding: ${({ $hasImage }) =>
+    $hasImage ? '0.75rem 0.5rem 0.75rem 0.75rem' : '0.875rem 0.5rem 0.875rem 1.125rem'};
   align-items: center;
   gap: 1.25rem;
   border-radius: 0.5rem;
   background-color: ${(props) => props.theme.colors.grayScale.gy950};
+  cursor: pointer;
+
+  &:active {
+    background-color: ${(props) => props.theme.colors.grayScale.black};
+  }
 `;
 
 export const Image = styled.img`
@@ -23,7 +29,7 @@ export const Image = styled.img`
   background-color: ${(props) => props.theme.colors.grayScale.gy300};
 `;
 
-export const TextWrap = styled.div<TextWrapProps>`
+export const TextWrap = styled.div<ImageProps>`
   display: flex;
   flex-direction: column;
   width: ${({ $hasImage }) => ($hasImage ? '12.1875rem' : '16.5625rem')};
