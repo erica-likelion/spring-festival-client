@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+interface TextWrapProps {
+  $hasImage?: boolean;
+}
+
 export const Container = styled.div`
   display: flex;
   width: 20.9375rem;
@@ -19,10 +23,10 @@ export const Image = styled.img`
   background-color: ${(props) => props.theme.colors.grayScale.gy300};
 `;
 
-export const TextWrap = styled.div`
+export const TextWrap = styled.div<TextWrapProps>`
   display: flex;
   flex-direction: column;
-  width: 12.1875rem;
+  width: ${({ $hasImage }) => ($hasImage ? '12.1875rem' : '16.5625rem')};
 `;
 
 export const TitleText = styled.p`
