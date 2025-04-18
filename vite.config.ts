@@ -39,6 +39,7 @@ export default defineConfig({
         background_color: '#17171B',
         start_url: '.',
         display: 'standalone',
+        display_override: ['window-controls-overlay', 'standalone'],
         icons: [
           {
             src: 'icons/icon-48x48.webp',
