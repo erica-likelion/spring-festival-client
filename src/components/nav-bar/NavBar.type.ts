@@ -7,5 +7,5 @@ export interface NavBarProps {
   title?: string;
   onClick?: () => void;
   onChange?: () => void;
-  placeholder: string;
+  placeholder?: string;
 }

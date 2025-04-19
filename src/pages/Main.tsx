@@ -6,7 +6,7 @@ export default function Main() {
     <>
       <NavBar
         placeholder="입력하세요"
-        isBack={true}
+        isBack={false}
         onClick={onClick}
         isSearch={true}
         title="page"

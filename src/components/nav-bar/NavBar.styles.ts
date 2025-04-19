@@ -47,6 +47,10 @@ export const Input = styled.input`
   &::placeholder {
     color: ${(props) => props.theme.colors.grayScale.gy500};
   }
+
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const InputIcon = styled.button`
