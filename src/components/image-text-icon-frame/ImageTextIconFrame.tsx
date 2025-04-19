@@ -7,6 +7,7 @@ import { ImageTextIconFrameProps } from './ImageTextIconFrame.types';
  * @param image image URL
  * @param title title TEXT
  * @param description description TEXT
+ * @param path link path
  * @returns {JSX.Element}
  */
 
