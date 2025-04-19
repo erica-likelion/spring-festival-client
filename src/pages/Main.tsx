@@ -1,16 +1,9 @@
 import NavBar from '@/components/nav-bar/NavBar';
 
 export default function Main() {
-  const onClick = () => {};
   return (
     <>
-      <NavBar
-        placeholder="입력하세요"
-        isBack={false}
-        onClick={onClick}
-        isSearch={true}
-        title="page"
-      ></NavBar>
+      <NavBar isBack={false} isSearch={true}></NavBar>
     </>
   );
 }

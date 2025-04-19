@@ -27,14 +27,7 @@ const NavBar: React.FC<NavBarProps> = ({
 }) => {
   const [isInputVisible, setIsInputVisible] = useState(false);
   const handleBack = () => {
-    window.history.back();
-  };
-  const stopPropagation = (e: React.MouseEvent) => {
-    e.stopPropagation(); // 이벤트 전파 방지
-  };
-
-  const closeSearchInput = () => {
-    setIsInputVisible(false); // 검색창 외부 클릭 시 input창 숨김
+    window.history.back(); // 뒤로가기
   };
 
   const openSearchInput = () => {
@@ -42,7 +35,7 @@ const NavBar: React.FC<NavBarProps> = ({
   };
 
   return (
-    <S.Container onClick={closeSearchInput}>
+    <S.Container>
       {isBack ? (
         <BackIcon width={24} height={24} onClick={handleBack} />
       ) : (
@@ -50,7 +43,7 @@ const NavBar: React.FC<NavBarProps> = ({
       )}
       {!isInputVisible && <S.Title>{title}</S.Title>}
       {isSearch && (
-        <S.InputWrapper onClick={stopPropagation}>
+        <S.InputWrapper>
           {isInputVisible ? (
             <>
               <S.Input placeholder={placeholder} autoFocus onChange={onChange} />
