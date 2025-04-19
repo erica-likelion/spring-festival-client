@@ -43,5 +43,5 @@ export type MenuFrameProps = {
   description: string;
 
   /** 가격 */
-  price: string;
+  price: number;
 };

@@ -10,12 +10,14 @@ export default function ImageTextFrameWithOrganization({
 }: ImageTextFrameWithOrganizationProps) {
   return (
     <S.Container onClick={onClick}>
-      <S.Image src={image} alt={title} />
-      <S.TextWrap>
+      <S.Image src={image} alt="" />
+      <S.ContentsWrap>
         <S.Title>{title}</S.Title>
-        <S.Organization>{organization}</S.Organization>
-      </S.TextWrap>
-      <S.Pickup $canPickup={canPickup} />
+        <S.ContentsFooter>
+          <S.Organization>{organization}</S.Organization>
+          {canPickup && <S.Pickup>포장 가능</S.Pickup>}
+        </S.ContentsFooter>
+      </S.ContentsWrap>
     </S.Container>
   );
 }

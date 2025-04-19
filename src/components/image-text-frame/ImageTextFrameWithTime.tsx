@@ -11,15 +11,25 @@ export default function ImageTextFrameWithTime({
 }: ImageTextFrameWithTimeProps) {
   return (
     <S.Container onClick={onClick}>
-      <S.Image src={image} alt={title} />
-      <S.TextWrap>
-        <S.Title>{title}</S.Title>
-        <S.SubTitle>{subtitle}</S.SubTitle>
-        <S.TimeWrap>
-          <S.Time>{time}</S.Time>
-        </S.TimeWrap>
-        <S.Pickup $canPickup={canPickup} />
-      </S.TextWrap>
+      <S.Image src={image} alt="" />
+      <S.ContentsWrap>
+        <S.TitleWrap>
+          <S.Title>{title}</S.Title>
+          {subtitle && (
+            <>
+              <S.TitleDivider />
+              <S.SubTitle>{subtitle}</S.SubTitle>
+            </>
+          )}
+        </S.TitleWrap>
+        <S.ContentsFooter>
+          <S.TimeWrap>
+            <S.TimeIcon src="/icons/clock.svg" />
+            <S.Time>{time}</S.Time>
+          </S.TimeWrap>
+          {canPickup && <S.Pickup>포장 가능</S.Pickup>}
+        </S.ContentsFooter>
+      </S.ContentsWrap>
     </S.Container>
   );
 }
