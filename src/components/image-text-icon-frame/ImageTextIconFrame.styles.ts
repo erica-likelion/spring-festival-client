@@ -33,6 +33,7 @@ export const TextWrap = styled.div<ImageProps>`
   display: flex;
   flex-direction: column;
   width: ${({ $hasImage }) => ($hasImage ? '12.1875rem' : '16.5625rem')};
+  gap: 0.125rem;
 `;
 
 export const TitleText = styled.p`
