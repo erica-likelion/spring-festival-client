@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from '@/styles';
 import { Main, Login, Map, Performance, Booth, User } from '@/pages';
 import Layout from '@/layout';
+import { Modal as ModalProvider } from '@/components';
 
 const routes = createBrowserRouter([
   {
@@ -47,6 +48,7 @@ const routes = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <>
     <ThemeProvider theme={theme}>
+      <ModalProvider />
       <GlobalStyle />
       <RouterProvider router={routes} />
     </ThemeProvider>
