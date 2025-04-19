@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 interface ImageProps {
   $hasImage?: boolean;
 }
 
+export const LinkWrapper = styled(Link)`
+  text-decoration: none;
+  color: inherit;
+  display: block;
+`;
 export const Container = styled.div<ImageProps>`
   display: flex;
   width: 20.9375rem;
