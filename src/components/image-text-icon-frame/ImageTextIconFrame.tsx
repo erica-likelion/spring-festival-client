@@ -13,7 +13,7 @@ import { ImageTextIconFrameProps } from './ImageTextIconFrame.types';
 export default function ImageTextIconFrame({ image, title, description }: ImageTextIconFrameProps) {
   const hasImage = Boolean(image);
   return (
-    <Frame.Container>
+    <Frame.Container $hasImage={hasImage}>
       {hasImage && <Frame.Image src={image} alt="이미지" />}
       <Frame.TextWrap $hasImage={hasImage}>
         <Frame.TitleText>{title}</Frame.TitleText>
