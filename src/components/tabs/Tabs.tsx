@@ -6,7 +6,7 @@ import { TabsProps } from './Tabs.types';
  * @param tabs tabs string array
  * @param activeTab active tab string
  * @param onTabClick click event handler
- * @returns
+ * @returns {JSX.Element}
  */
 
 export default function Tabs({ tabs, activeTab, onTabClick }: TabsProps) {
