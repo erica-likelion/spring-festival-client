@@ -25,6 +25,10 @@ export const Tab = styled.button<{ isActive: boolean }>`
   border-radius: 1.25rem;
   border: 0.6px solid ${(props) => props.theme.colors.grayScale.white};
   background-color: ${(props) => props.theme.colors.grayScale.black};
+
+  &:active {
+    background-color: ${(props) => props.theme.colors.grayScale.gy950};
+  }
 `;
 
 export const TabText = styled.p<{ isActive: boolean }>`
