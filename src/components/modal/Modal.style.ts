@@ -18,26 +18,26 @@ export const ModalOverlay = styled(motion.div)`
 `;
 
 export const ModalWrapper = styled(motion.div)`
-  width: 335px;
+  min-width: 20.9375rem;
   background-color: ${(props) => props.theme.colors.grayScale.black};
-  border-radius: 12px;
-  margin-top: -105px;
+  border-radius: 0.75rem;
+  margin-top: -6.625rem;
 `;
 
 export const ModalTab = styled.div`
-  height: 48px;
+  height: 3rem;
   border-bottom: 0.6px solid ${(props) => props.theme.colors.grayScale.gy900};
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 16px;
+  padding: 0 0.75rem;
   position: relative;
 `;
 
 export const ModalTitle = styled.div`
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
 `;
 
 export const ModalTitleText = styled.span`
@@ -49,7 +49,7 @@ export const Help = styled(HelpIcon)``;
 
 export const ModalCloseBtn = styled(CloseBtn)`
   position: absolute;
-  right: 16px;
+  right: 1rem;
   display: flex;
   justify-content: center;
   align-items: center;

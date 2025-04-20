@@ -50,10 +50,10 @@ function ModalItem({
       transition={{ duration: 0.25 }}
     >
       <S.ModalWrapper
-        initial={{ scale: 0.9, opacity: 0, y: 100 }}
-        animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, y: 100 }}
-        transition={{ duration: 0.2, ease: easeOut }}
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.8 }}
+        transition={{ delay: 0.2, duration: 0.2, ease: easeOut }}
       >
         <S.ModalTab>
           <S.ModalTitle>
