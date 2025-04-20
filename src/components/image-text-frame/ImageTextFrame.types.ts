@@ -11,7 +11,7 @@ export type ImageTextFrameWithOrganizationProps = {
   /** 픽업 가능 여부 */
   canPickup: boolean;
 
-  /** 클릭 이벤트 핸들러 (선택적) */
+  /** 클릭 이벤트 핸들러 (선택) */
   onClick?: () => void;
 };
 
@@ -31,7 +31,7 @@ export type ImageTextFrameWithTimeProps = {
   /** 픽업 가능 여부 */
   canPickup: boolean;
 
-  /** 클릭 이벤트 핸들러 (선택적) */
+  /** 클릭 이벤트 핸들러 (선택) */
   onClick?: () => void;
 };
 
