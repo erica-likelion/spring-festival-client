@@ -46,6 +46,7 @@ export const ContentsWrap = styled.div`
   text-align: left;
   flex-grow: 1;
   min-width: 0;
+  gap: 0.25rem;
 `;
 
 export const TitleWrap = styled.div`
@@ -142,6 +143,7 @@ export const MenuTextWrap = styled.div`
   text-align: left;
   flex-grow: 1;
   min-width: 0;
+  gap: 0.125rem;
 `;
 
 export const MenuDescription = styled.p`
