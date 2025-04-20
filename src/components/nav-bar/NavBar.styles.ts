@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.header`
   display: flex;
   height: 3.875rem;
   padding: 0rem 1.25rem;
@@ -19,18 +19,18 @@ export const Title = styled.p`
   color: ${(props) => props.theme.colors.grayScale.white};
 `;
 
-export const Empty = styled.image`
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-  aspect-ratio: 1/1;
-`;
-
 export const InputWrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: end;
   align-items: center;
+`;
+
+export const EmptyIcon = styled.image`
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
 `;
 
 export const Input = styled.input`
