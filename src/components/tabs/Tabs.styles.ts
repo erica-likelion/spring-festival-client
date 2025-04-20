@@ -23,8 +23,14 @@ export const Tab = styled.button<{ isActive: boolean }>`
   align-items: center;
   gap: 0.625rem;
   border-radius: 1.25rem;
-  border: 0.6px solid ${(props) => props.theme.colors.grayScale.white};
-  background-color: ${(props) => props.theme.colors.grayScale.black};
+  transition:
+    background-color 0.3s ease,
+    border 0.3s ease;
+  cursor: pointer;
+  border: ${(props) =>
+    props.isActive ? 'none' : `0.6px solid ${props.theme.colors.grayScale.white}`};
+  background-color: ${(props) =>
+    props.isActive ? props.theme.colors.primary.bl400 : props.theme.colors.grayScale.black};
 
   &:active {
     background-color: ${(props) => props.theme.colors.grayScale.gy950};
@@ -32,7 +38,10 @@ export const Tab = styled.button<{ isActive: boolean }>`
 `;
 
 export const TabText = styled.p<{ isActive: boolean }>`
-  color: #fafafa;
+  color: ${(props) =>
+    props.isActive
+      ? `${props.theme.colors.grayScale.black}`
+      : `${props.theme.colors.grayScale.white}`};
   text-align: center;
   text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   font-size: 0.875rem;
@@ -41,4 +50,5 @@ export const TabText = styled.p<{ isActive: boolean }>`
   line-height: 1.2425rem;
   letter-spacing: -0.0175rem;
   white-space: nowrap;
+  transition: color 0.3s ease;
 `;
