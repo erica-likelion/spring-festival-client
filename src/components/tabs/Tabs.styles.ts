@@ -5,6 +5,15 @@ export const TabsContainer = styled.div`
   width: 100%;
   gap: 0.5rem;
   overflow-x: auto;
+
+  /* 스크롤바 안 보이게 설정 */
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 export const Tab = styled.button<{ isActive: boolean }>`
