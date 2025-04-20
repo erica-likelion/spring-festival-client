@@ -32,9 +32,8 @@ const DefaultNavBar: React.FC<DefaultNavBarProps> = ({ isBack, isSearch, title }
         <LogoIcon width={82} height={52} />
       )}
       <S.Title>{title}</S.Title>
-      <S.InputWrapper>
-        {isSearch ? <SearchIcon width={24} height={24} /> : <S.EmptyIcon />}
-      </S.InputWrapper>
+
+      {isSearch ? <SearchIcon width={24} height={24} /> : <S.EmptyIcon />}
     </S.Container>
   );
 };
