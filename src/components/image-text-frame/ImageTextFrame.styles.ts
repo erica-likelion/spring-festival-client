@@ -1,0 +1,168 @@
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 20.938rem;
+  max-width: 20.938rem;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: ${(props) => props.theme.colors.grayScale.black};
+  cursor: pointer;
+  overflow: hidden;
+
+  &:active {
+    background-color: ${(props) => props.theme.colors.grayScale.gy900};
+  }
+`;
+
+export const MenuContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 20.938rem;
+  gap: 1.25rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: ${(props) => props.theme.colors.grayScale.black};
+`;
+
+export const Image = styled.img`
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  border-radius: 0.375rem;
+  background-color: ${(props) => props.theme.colors.grayScale.gy300};
+`;
+
+export const ContentsWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  flex-grow: 1;
+  min-width: 0;
+  gap: 0.25rem;
+`;
+
+export const TitleWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const Title = styled.p`
+  ${(props) => props.theme.fonts.header.h4}
+  color: ${(props) => props.theme.colors.grayScale.white};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+`;
+
+export const TitleDivider = styled.div`
+  width: 0.063rem;
+  height: 1rem;
+  background-color: ${(props) => props.theme.colors.grayScale.gy800};
+`;
+
+export const SubTitle = styled.span`
+  ${(props) => props.theme.fonts.body.medium400}
+  color: ${(props) => props.theme.colors.grayScale.gy700};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`;
+
+export const ContentsFooter = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  overflow: hidden;
+`;
+
+export const Organization = styled.p`
+  ${(props) => props.theme.fonts.body.small400}
+  color: ${(props) => props.theme.colors.grayScale.white};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+`;
+
+export const TimeWrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.25rem;
+`;
+
+export const TimeIcon = styled.img`
+  width: 0.75rem;
+  height: 0.75rem;
+`;
+
+export const Time = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall400}
+  color: ${(props) => props.theme.colors.grayScale.white};
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 10rem;
+`;
+
+export const Pickup = styled.div`
+  display: flex;
+  width: 3.75rem;
+  height: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.625rem;
+  background-color: ${(props) => props.theme.colors.primary.bl400};
+  ${(props) => props.theme.fonts.body.xsmall400};
+  border-radius: 0.375rem;
+  color: ${(props) => props.theme.colors.grayScale.black};
+  flex-shrink: 0;
+`;
+
+export const MenuTextWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  flex-grow: 1;
+  min-width: 0;
+  gap: 0.125rem;
+`;
+
+export const MenuDescription = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall400}
+  color: ${(props) => props.theme.colors.grayScale.white};
+  height: 2.25rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 14rem;
+  text-align: left;
+  margin-bottom: auto;
+`;
+
+export const Price = styled.p`
+  ${(props) => props.theme.fonts.body.small500}
+  color: ${(props) => props.theme.colors.grayScale.white};
+  text-align: right;
+  margin-left: auto;
+  margin-top: auto;
+  flex-shrink: 0;
+`;
