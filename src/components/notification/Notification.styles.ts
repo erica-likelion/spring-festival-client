@@ -31,6 +31,7 @@ export const Title = styled.p`
   margin: 0;
   padding: 0;
   text-align: left;
+  cursor: pointer;
 `;
 
 export const CloseButton = styled.button`
