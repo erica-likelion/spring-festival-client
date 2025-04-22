@@ -30,7 +30,7 @@ export const Tab = styled.button<{ isActive: boolean }>`
   border: ${(props) =>
     props.isActive ? 'none' : `0.6px solid ${props.theme.colors.grayScale.white}`};
   background-color: ${(props) =>
-    props.isActive ? props.theme.colors.primary.bl400 : 'transperent'};
+    props.isActive ? props.theme.colors.primary.bl400 : 'transparent'};
 
   &:active {
     background-color: ${(props) => props.theme.colors.grayScale.gy950};
