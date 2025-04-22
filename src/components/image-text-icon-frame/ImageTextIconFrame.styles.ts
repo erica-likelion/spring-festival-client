@@ -37,23 +37,15 @@ export const TextWrap = styled.div<ImageProps>`
 `;
 
 export const TitleText = styled.p`
+  ${(props) => props.theme.fonts.header.h4};
   align-self: stretch;
   color: ${(props) => props.theme.colors.grayScale.white};
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.5rem;
-  letter-spacing: -0.02rem;
 `;
 
 export const DescriptionText = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall400};
   align-self: stretch;
   color: ${(props) => props.theme.colors.grayScale.white};
-  font-size: 0.75rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.125rem;
-  letter-spacing: -0.015rem;
 `;
 
 export const Icon = styled.img`
