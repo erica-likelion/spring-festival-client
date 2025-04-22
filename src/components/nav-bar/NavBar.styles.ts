@@ -11,10 +11,7 @@ export const Container = styled.header`
 `;
 
 export const Title = styled.p`
-  font-size: 1.25rem;
-  font-weight: 700;
-  line-height: 1.775rem;
-  letter-spacing: -0.025rem;
+  ${(props) => props.theme.fonts.header.h3}
   text-align: center;
   color: ${(props) => props.theme.colors.grayScale.white};
 `;
@@ -34,6 +31,7 @@ export const EmptyIcon = styled.image`
 `;
 
 export const Input = styled.input`
+  ${(props) => props.theme.fonts.body.medium500}
   display: flex;
   width: 18.4375rem;
   height: 2.5rem;
