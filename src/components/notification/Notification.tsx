@@ -25,7 +25,7 @@ export default function Notification({ title, onClick }: NotificationProps) {
     setIsClosing(true);
     setTimeout(() => {
       setIsVisible(false);
-    }, 300); // 3초 후에 사라지는 애니메이션 적용 (css와 일치)
+    }, 300); // 0.3초 후에 사라지는 애니메이션 적용 (css와 일치)
   };
 
   if (!isVisible) return null;
