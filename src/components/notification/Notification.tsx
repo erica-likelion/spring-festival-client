@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import * as S from './Notification.styles';
 import { NotificationProps } from './Notification.types';
 
@@ -7,9 +6,8 @@ import { NotificationProps } from './Notification.types';
  * 클릭하면 확장되어 더 자세한 내용을 볼 수 있고, 닫기 버튼으로 제거할 수 있습니다.
  *
  * @param {string} title - 알림 제목
- * @param {string} contents - 알림 상세 내용
  * @param {function} onClose - 닫기 버튼 클릭 시 호출되는 콜백 함수
- * @param {boolean} initExpanded - 초기 확장 상태 설정 (default: false)
+ * @param {function} onClick - 알림 클릭 시 호출되는 콜백 함수
  * @returns {React.ReactElement} Notification 컴포넌트
  * 
  * @example
@@ -25,33 +23,19 @@ import { NotificationProps } from './Notification.types';
  *   initExpanded={false}
  * /> 
  */
-export default function Notification({
-  title,
-  contents,
-  onClose,
-  initExpanded = false,
-}: NotificationProps) {
-  const [expanded, setExpanded] = useState(initExpanded);
-
-  const handleToggle = () => {
-    setExpanded((prev) => !prev);
-  };
-
+export default function Notification({ title, onClose, onClick }: NotificationProps) {
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
     onClose();
   };
 
   return (
-    <S.Container onClick={handleToggle} expanded={expanded}>
-      <S.Header>
-        <S.Icon src="src/assets/icons/notification.webp" alt="Notification" />
-        <S.Title>{title}</S.Title>
-        <S.CloseButton expanded={expanded} onClick={handleClose}>
-          <img src="src/assets/icons/close.svg" alt="Close" />
-        </S.CloseButton>
-      </S.Header>
-      {expanded && <S.Content expanded={expanded}>{contents}</S.Content>}
+    <S.Container>
+      <S.Icon src="src/assets/icons/notification.webp" alt="Notification" />
+      <S.Title onClick={onClick}>{title}</S.Title>
+      <S.CloseButton onClick={handleClose}>
+        <img src="src/assets/icons/close.svg" alt="Close" />
+      </S.CloseButton>
     </S.Container>
   );
 }
