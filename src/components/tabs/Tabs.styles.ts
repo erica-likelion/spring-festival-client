@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-export const TabsContainer = styled.div`
+export const TabsContainer = styled.div<{ $autoWidth?: boolean }>`
   display: flex;
-  width: 100%;
+  width: ${(props) => (props.$autoWidth ? 'auto' : '100%')};
   gap: 0.5rem;
   overflow-x: auto;
 
