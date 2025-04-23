@@ -15,4 +15,5 @@ export type ChipsProps = {
    * 중앙으로 정렬해서 쓰고 싶은 경우 true를 추천
    */
   autoWidth?: boolean;
+  onChipClick?: (chip: string) => void;
 };
