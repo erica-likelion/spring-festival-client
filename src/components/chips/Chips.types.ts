@@ -25,5 +25,5 @@ export type ChipsProps = {
    * 삭제 시 이벤트
    * 클릭한 칩이 칩 리스트에서 삭제
    */
-  onCHipClose?: (chip: string) => void;
+  onChipClose?: (chip: string) => void;
 };
