@@ -15,5 +15,15 @@ export type ChipsProps = {
    * 중앙으로 정렬해서 쓰고 싶은 경우 true를 추천
    */
   autoWidth?: boolean;
+
+  /**
+   * 클릭 시 이벤트
+   * 클릭한 칩에 대한 지도 페이지로 이동
+   */
   onChipClick?: (chip: string) => void;
+  /**
+   * 삭제 시 이벤트
+   * 클릭한 칩이 칩 리스트에서 삭제
+   */
+  onCHipClose?: (chip: string) => void;
 };
