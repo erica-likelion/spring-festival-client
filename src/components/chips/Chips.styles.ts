@@ -25,6 +25,7 @@ export const Chip = styled.div`
   gap: 0.25rem;
   border-radius: 1rem;
   border: 0.6px solid ${(props) => props.theme.colors.grayScale.white};
+  cursor: pointer;
 `;
 
 export const ChipText = styled.p`
