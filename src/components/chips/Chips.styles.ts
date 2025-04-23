@@ -31,4 +31,5 @@ export const Chip = styled.div`
 export const ChipText = styled.p`
   ${(props) => props.theme.fonts.body.small400};
   text-align: center;
+  white-space: nowrap;
 `;
