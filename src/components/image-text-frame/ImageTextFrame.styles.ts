@@ -20,7 +20,7 @@ export const Container = styled.div<{ $width?: string }>`
   }
 `;
 
-export const MenuContainer = styled.div<{ $width?: string; $fullWidth?: boolean }>`
+export const MenuContainer = styled.div<{ $width?: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
