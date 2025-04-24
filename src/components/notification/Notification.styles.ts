@@ -1,17 +1,6 @@
-import styled, { css, keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-const fadeOut = keyframes`
-  from {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  to {
-    opacity: 0;
-    transform: translateY(-1.25rem);
-  }
-`;
-
-export const Container = styled.div<{ $isClosing?: boolean }>`
+export const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -22,13 +11,6 @@ export const Container = styled.div<{ $isClosing?: boolean }>`
   padding: 0.5rem 1rem;
   background-color: ${(props) => props.theme.colors.grayScale.gy900};
   border-radius: 0.5rem;
-  transition: all 0.3s ease;
-
-  ${(props) =>
-    props.$isClosing &&
-    css`
-      animation: ${fadeOut} 0.3s ease forwards;
-    `}
 `;
 
 export const Icon = styled.img`
