@@ -4,6 +4,11 @@ import { NotificationProps } from './Notification.types';
 import CloseIcon from '@/assets/icons/close.svg?react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+const ANIMATION_VARIANTS = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: '-1.25rem' },
+};
+
 /**
  * 사용자에게 알림 메시지를 표시하는 Notification 컴포넌트입니다.
  * 클릭하면 확장되어 더 자세한 내용을 볼 수 있고, 닫기 버튼으로 제거할 수 있습니다.
@@ -32,12 +37,6 @@ export default function Notification({ title, onClick, width, fullWidth }: Notif
     setIsVisible(false);
   };
 
-  // framer-motion 애니메이션 변수
-  const variants = {
-    visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: '-1.25rem' },
-  };
-
   return (
     <AnimatePresence>
       {isVisible && (
@@ -45,7 +44,7 @@ export default function Notification({ title, onClick, width, fullWidth }: Notif
           initial="visible"
           animate="visible"
           exit="hidden"
-          variants={variants}
+          variants={ANIMATION_VARIANTS}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           <S.Container $width={width} $fullWidth={fullWidth}>
