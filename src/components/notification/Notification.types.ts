@@ -1,3 +1,5 @@
+export type CSSWidthValue = `${number}${'px' | 'rem' | 'em' | '%' | 'vh' | 'vw'}` | 'auto' | '100%';
+
 /**
  * 사용자에게 알림 메시지를 표시하는 Notification 컴포넌트의 Props
  */
@@ -13,4 +15,16 @@ export type NotificationProps = {
    * @returns void
    */
   onClick?: () => void;
+
+  /**
+   * 명시적인 너비 값 (예: '20rem')
+   * @default '20.9375rem'
+   */
+  width?: CSSWidthValue;
+
+  /**
+   * true일 경우 너비를 100%로 설정 (width prop이 없을 때만 적용)
+   * @default false
+   */
+  fullWidth?: boolean;
 };

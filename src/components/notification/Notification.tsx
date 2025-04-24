@@ -11,7 +11,11 @@ import { AnimatePresence, motion } from 'framer-motion';
  *
  * @param {string} title - 알림 제목
  * @param {function} onClick - 알림 클릭 시 호출되는 콜백 함수
+ * @param {string} width - 명시적인 너비 값 (예: '20rem')
+ * @param {boolean} fullWidth - true일 경우 너비를 100%로 설정 (width prop이 없을 때만 적용)
  * @returns {React.ReactElement} Notification 컴포넌트
+ * ...
+ * @note width와 fullWidth를 동시에 사용할 경우, width가 우선 적용됩니다.
  *
  * @example
  * // 기본 사용법
@@ -20,7 +24,7 @@ import { AnimatePresence, motion } from 'framer-motion';
  *   onClick={handleClickNotification}
  * />
  */
-export default function Notification({ title, onClick }: NotificationProps) {
+export default function Notification({ title, onClick, width, fullWidth }: NotificationProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = (e: React.MouseEvent) => {
@@ -44,7 +48,7 @@ export default function Notification({ title, onClick }: NotificationProps) {
           variants={variants}
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
-          <S.Container>
+          <S.Container $width={width} $fullWidth={fullWidth}>
             <S.Icon src="src/assets/images/notification.webp" alt="Notification" />
             <S.Title onClick={() => onClick?.()}>{title}</S.Title>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
