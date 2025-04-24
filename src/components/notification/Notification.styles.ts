@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ $width?: string; $fullWidth?: boolean }>`
+export const Container = styled.div<{ $width?: string }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 0.5rem;
   width: ${(props) => {
     if (props.$width) return props.$width;
-    if (props.$fullWidth) return '100%';
     return '20.9375rem';
   }};
   height: 2.5rem;
