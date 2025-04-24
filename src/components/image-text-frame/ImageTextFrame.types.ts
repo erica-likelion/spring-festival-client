@@ -1,3 +1,5 @@
+import { CSSWidthValue } from '@/types/css-values';
+
 export type ImageTextFrameWithOrganizationProps = {
   /** 이미지 URL */
   image: string;
@@ -13,6 +15,9 @@ export type ImageTextFrameWithOrganizationProps = {
 
   /** 클릭 이벤트 핸들러 (선택) */
   onClick?: () => void;
+
+  /** 너비 (선택) */
+  width?: CSSWidthValue;
 };
 
 export type ImageTextFrameWithTimeProps = {
@@ -33,6 +38,9 @@ export type ImageTextFrameWithTimeProps = {
 
   /** 클릭 이벤트 핸들러 (선택) */
   onClick?: () => void;
+
+  /** 너비 (선택) */
+  width?: CSSWidthValue;
 };
 
 export type MenuFrameProps = {
@@ -44,4 +52,7 @@ export type MenuFrameProps = {
 
   /** 가격 */
   price: number;
+
+  /** 너비 (선택) */
+  width?: CSSWidthValue;
 };
