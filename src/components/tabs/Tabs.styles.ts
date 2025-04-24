@@ -25,10 +25,10 @@ export const Tab = styled.button<{ isActive: boolean }>`
   border-radius: 1.25rem;
   transition:
     background-color 0.3s ease,
-    border 0.3s ease;
+    border-color 0.3s ease;
   cursor: pointer;
-  border: ${(props) =>
-    props.isActive ? 'none' : `0.6px solid ${props.theme.colors.grayScale.white}`};
+  border: 0.6px solid;
+  border-color: ${(props) => (props.isActive ? 'transparent' : props.theme.colors.grayScale.white)};
   background-color: ${(props) =>
     props.isActive ? props.theme.colors.primary.bl400 : 'transparent'};
 
