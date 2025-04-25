@@ -1,4 +1,4 @@
-import { CSSMarginValue } from '@/types/css-values';
+import { CSSMarginValue } from '@/types/css-values.types';
 
 /**
  *   Tabs 컴포넌트의 props 타입
