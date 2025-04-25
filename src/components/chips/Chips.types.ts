@@ -1,3 +1,5 @@
+import { CSSMarginValue } from '@/types/css-values';
+
 /**
  * Chips 컴포넌트의 props 타입
  */
@@ -26,4 +28,9 @@ export type ChipsProps = {
    * 클릭한 칩이 칩 리스트에서 삭제
    */
   onChipClose?: (chip: string) => void;
+  /**
+   * 좌우 여백 지정 (예: "1.25rem")
+   * default: "0"
+   */
+  margin?: CSSMarginValue;
 };

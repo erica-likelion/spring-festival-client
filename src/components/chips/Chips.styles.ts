@@ -24,9 +24,15 @@ export const ChipsContainer = styled.div<{ $autoWidth?: boolean }>`
   }
 `;
 
-export const Chip = styled.div`
+export const Chip = styled.div<{
+  $isFirst?: boolean;
+  $isLast?: boolean;
+  $margin?: string;
+}>`
   display: flex;
   padding: 0.25rem 0.5rem;
+  margin-left: ${(props) => (props.$isFirst ? props.$margin : '0')};
+  margin-right: ${(props) => (props.$isLast ? props.$margin : '0')};
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
