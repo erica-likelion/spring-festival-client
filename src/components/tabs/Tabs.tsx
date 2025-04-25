@@ -8,6 +8,7 @@ import { TabsProps } from './Tabs.types';
  * @param onTabClick click event handler
  * @param autoWidth optional prop to set width to auto
  * @param toggle optional prop to set toggle behavior
+ * @param margin optional prop to set horizontal margin (first and last tab)
  * @returns {JSX.Element}
  */
 
@@ -17,6 +18,7 @@ export default function Tabs({
   onTabClick,
   autoWidth = false,
   toggle = false,
+  margin = '0',
 }: TabsProps) {
   const handleTabClick = (tab: string) => {
     if (toggle && activeTab === tab) {
@@ -28,9 +30,16 @@ export default function Tabs({
 
   return (
     <S.TabsContainer $autoWidth={autoWidth}>
-      {tabs.map((tab) => (
-        <S.Tab key={tab} isActive={tab === activeTab} onClick={() => handleTabClick(tab)}>
-          <S.TabText isActive={tab === activeTab}>{tab}</S.TabText>
+      {tabs.map((tab, index) => (
+        <S.Tab
+          key={tab}
+          $isActive={tab === activeTab}
+          onClick={() => handleTabClick(tab)}
+          $isFirst={index === 0}
+          $isLast={index === tabs.length - 1}
+          $margin={margin}
+        >
+          <S.TabText $isActive={tab === activeTab}>{tab}</S.TabText>
         </S.Tab>
       ))}
     </S.TabsContainer>
