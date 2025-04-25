@@ -1,3 +1,5 @@
+import { CSSMarginValue } from '@/types/css-values.types';
+
 /**
  *   Tabs 컴포넌트의 props 타입
  */
@@ -24,4 +26,10 @@ export type TabsProps = {
    * default: false
    */
   toggle?: boolean;
+
+  /**
+   * 좌우 여백 지정 (예: "1.25rem")
+   * default: "0"
+   */
+  margin?: CSSMarginValue;
 };
