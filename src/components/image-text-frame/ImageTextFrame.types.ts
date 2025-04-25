@@ -1,4 +1,4 @@
-import { CSSWidthValue } from '@/types/css-values';
+import { CSSWidthValue } from '@/types/css-values.types';
 
 export type ImageTextFrameWithOrganizationProps = {
   /** 이미지 URL */
