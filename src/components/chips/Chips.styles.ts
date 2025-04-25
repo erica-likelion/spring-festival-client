@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import CloseIcon from '@/assets/icons/close.svg?react';
+
+export const StyledCloseIcon = styled(CloseIcon)`
+  width: 0.75rem;
+  height: 0.75rem;
+  flex-shrink: 0;
+`;
 
 export const ChipsContainer = styled.div<{ $autoWidth?: boolean }>`
   display: flex;
@@ -26,6 +33,10 @@ export const Chip = styled.div`
   border-radius: 1rem;
   border: 0.0375rem solid ${(props) => props.theme.colors.grayScale.white};
   cursor: pointer;
+
+  &:active {
+    transform: scale(0.95);
+  }
 `;
 
 export const ChipText = styled.p`
