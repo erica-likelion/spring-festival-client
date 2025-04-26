@@ -8,13 +8,17 @@ export const DetailsContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 23.4888rem;
-  height: 29.375rem;
-  aspect-ratio: 375.82/470;
-  background: url('<path-to-image>') lightgray 0px 0px / 100% 100% no-repeat;
+  display: flex;
+  width: 23.4375rem;
+  height: 32.375rem;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  flex-shrink: 0;
 `;
 
 export const TitleSongWrap = styled.div`
+  margin-top: 1rem;
   display: flex;
   width: 20.7011rem;
   flex-direction: column;
