@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyle, theme } from '@/styles';
 import { Main, Login, Map, Performance, Booth, User } from '@/pages';
 import Layout from '@/layout';
+import Details from './pages/performance/Details';
 
 const routes = createBrowserRouter([
   {
@@ -35,6 +36,10 @@ const routes = createBrowserRouter([
       {
         path: 'performance',
         element: <Performance />,
+      },
+      {
+        path: 'performance/details',
+        element: <Details />,
       },
       {
         path: 'booth',
