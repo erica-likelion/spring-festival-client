@@ -9,6 +9,7 @@ import { priceFormatter } from '../../utils/priceFormatter';
  * @param {string} menu - 메뉴 이름
  * @param {string} description - 메뉴에 대한 설명
  * @param {number} price - 메뉴 가격 (숫자 형식)
+ * @param {string} [width] - 프레임 너비 (예: "100%", "10rem" 등)
  * @returns {React.ReactElement} 메뉴 프레임 컴포넌트
  *
  * @example
@@ -19,9 +20,9 @@ import { priceFormatter } from '../../utils/priceFormatter';
  *   price={5500}
  * />
  */
-export default function MenuFrame({ menu, description, price }: MenuFrameProps) {
+export default function MenuFrame({ menu, description, price, width }: MenuFrameProps) {
   return (
-    <S.MenuContainer>
+    <S.MenuContainer $width={width}>
       <S.MenuTextWrap>
         <S.Title>{menu}</S.Title>
         <S.MenuDescription>{description}</S.MenuDescription>
