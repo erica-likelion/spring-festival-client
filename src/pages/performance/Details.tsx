@@ -7,7 +7,7 @@ export default function Details() {
   return (
     // Navbar
     <S.DetailsContainer>
-      <S.Image src={TestImage} alt="newjins" width={'23.4888rem'} height={'29.375rem'} />
+      <S.Image src={TestImage} alt="newjins" />
       <S.TitleSongWrap>
         <S.TitleSongText>대표곡</S.TitleSongText>
         <S.SongWrap>
