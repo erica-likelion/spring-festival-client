@@ -1,10 +1,11 @@
 import TestImage from '@/assets/images/performance/day1-newjins.webp';
+import * as S from './Details.styles';
 
 export default function Details() {
   return (
-    <div>
+    <S.DetailsContainer>
       {/* Navbar back version */}
-      <img src={TestImage} alt="newjins" />
-    </div>
+      <S.Image src={TestImage} alt="newjins" width={'23.4888rem'} height={'29.375rem'} />
+    </S.DetailsContainer>
   );
 }
