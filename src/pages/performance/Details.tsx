@@ -10,6 +10,9 @@ export default function Details({
   description,
   songList,
 }: PerformanceDetailsProps) {
+  const handleClick = () => {
+    alert('곡 재생');
+  };
   return (
     // Navbar
     <S.DetailsContainer>
@@ -35,7 +38,12 @@ export default function Details({
                   <S.SongImage src={song.image} />
                   <S.SongName key={index}>{song.name}</S.SongName>
                 </S.Wrap>
-                <SongIcon width={'1.5rem'} height={'1.5rem'} style={{ cursor: 'pointer' }} />
+                <SongIcon
+                  width={'1.5rem'}
+                  height={'1.5rem'}
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => handleClick()}
+                />
               </S.SongBox>
               <S.SongLine />
             </>
