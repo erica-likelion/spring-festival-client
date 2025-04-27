@@ -101,7 +101,7 @@ export const Wrap = styled.div`
   gap: 0.875rem;
 `;
 
-export const SongImage = styled.div`
+export const SongImage = styled.img`
   width: 3rem;
   height: 3rem;
   aspect-ratio: 1/1;

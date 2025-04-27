@@ -32,8 +32,8 @@ export default function Details({
             <>
               <S.SongBox key={index}>
                 <S.Wrap>
-                  <S.SongImage />
-                  <S.SongName key={index}>{song}</S.SongName>
+                  <S.SongImage src={song.image} />
+                  <S.SongName key={index}>{song.name}</S.SongName>
                 </S.Wrap>
                 <SongIcon width={'1.5rem'} height={'1.5rem'} />
               </S.SongBox>
