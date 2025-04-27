@@ -3,6 +3,16 @@ import ClockIcon from '@/assets/icons/clock.svg?react';
 import * as S from './Details.styles';
 import { PerformanceDetailsProps } from './Details.types';
 
+/**
+ *
+ * @param backgroundUrl 배경 이미지 URL string
+ * @param singer 가수 이름 string
+ * @param time 공연 시간 (ex: "21:00~22:00") string
+ * @param description 가수 설명 string
+ * @param songList 대표곡 리스트 Song[]
+ * @returns {JSX.Element}
+ */
+
 export default function Details({
   backgroundUrl,
   singer,
