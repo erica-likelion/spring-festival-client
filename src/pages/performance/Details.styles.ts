@@ -7,16 +7,63 @@ export const DetailsContainer = styled.div`
   align-items: center;
 `;
 
-export const Image = styled.img`
+export const ImageWrap = styled.div<{ backgroundUrl: string }>`
   display: flex;
   width: 23.4375rem;
   height: 32.375rem;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  flex-shrink: 0;
+  background:
+    linear-gradient(180deg, rgb(23 23 27 / 0%) 0%, #17171b 100%),
+    url(${(props) => props.backgroundUrl}) center/cover no-repeat;
+  background-color: lightgray;
+`;
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 1rem;
+`;
+export const ImageTextWrap = styled.div`
+  display: flex;
+  width: 20.7011rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 `;
 
+export const SingerTimeBox = styled.div`
+  display: flex;
+  height: 3.625rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.1875rem;
+`;
+
+export const Singer = styled.p`
+  ${(props) => props.theme.fonts.header.h1};
+  color: ${(props) => props.theme.colors.grayScale.white};
+`;
+
+export const TimeBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.375rem;
+`;
+
+export const Time = styled.p`
+  ${(props) => props.theme.fonts.body.small400};
+  color: ${(props) => props.theme.colors.grayScale.gy300};
+  text-align: center;
+  white-space: nowrap;
+`;
+
+export const Description = styled.p`
+  ${(props) => props.theme.fonts.body.small400};
+  color: ${(props) => props.theme.colors.grayScale.gy400};
+`;
 export const TitleSongWrap = styled.div`
   margin-top: 1rem;
   display: flex;
@@ -65,4 +112,10 @@ export const SongImage = styled.div`
 export const SongName = styled.p`
   ${(props) => props.theme.fonts.header.h4};
   color: ${(props) => props.theme.colors.grayScale.white};
+`;
+
+export const SongLine = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${(props) => props.theme.colors.grayScale.gy900};
 `;
