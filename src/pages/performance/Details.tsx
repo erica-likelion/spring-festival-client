@@ -35,7 +35,7 @@ export default function Details({
                   <S.SongImage src={song.image} />
                   <S.SongName key={index}>{song.name}</S.SongName>
                 </S.Wrap>
-                <SongIcon width={'1.5rem'} height={'1.5rem'} />
+                <SongIcon width={'1.5rem'} height={'1.5rem'} style={{ cursor: 'pointer' }} />
               </S.SongBox>
               <S.SongLine />
             </>
