@@ -18,11 +18,7 @@ export const ImageWrap = styled.div<{ backgroundUrl: string }>`
     url(${(props) => props.backgroundUrl}) center/cover no-repeat;
   background-color: lightgray;
 `;
-export const Image = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 1rem;
-`;
+
 export const ImageTextWrap = styled.div`
   display: flex;
   width: 20.7011rem;
