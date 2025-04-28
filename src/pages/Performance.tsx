@@ -1,4 +1,4 @@
-import Details from './performance/Details';
+import { Link } from 'react-router-dom';
 import TestImage from '@/assets/images/performance/day1-newjeans.webp';
 
 export default function Performance() {
@@ -16,16 +16,24 @@ export default function Performance() {
       { image: TestImage, name: 'Cookie' },
     ],
   };
+
   return (
     <>
-      {/**공연 */}
-      <Details
-        backgroundUrl={data.backgroundUrl}
-        singer={data.singer}
-        time={data.time}
-        description={data.description}
-        songList={data.songList}
-      />
+      {/* 이동 버튼 */}
+      <Link
+        to="/performance/detail"
+        state={data} // 여기!! data를 같이 넘겨준다
+        style={{
+          display: 'inline-block',
+          padding: '1rem',
+          backgroundColor: '#eee',
+          borderRadius: '0.5rem',
+          textDecoration: 'none',
+          color: 'black',
+        }}
+      >
+        뉴진스 공연 상세 보기
+      </Link>
     </>
   );
 }
