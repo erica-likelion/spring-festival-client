@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ $width?: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 20.938rem;
-  max-width: 20.938rem;
+  width: ${(props) => {
+    if (props.$width) return props.$width;
+    return '20.9375rem';
+  }};
   gap: 0.75rem;
   padding: 0.75rem;
   border-radius: 0.75rem;
@@ -18,12 +20,15 @@ export const Container = styled.div`
   }
 `;
 
-export const MenuContainer = styled.div`
+export const MenuContainer = styled.div<{ $width?: string }>`
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  width: 20.938rem;
+  width: ${(props) => {
+    if (props.$width) return props.$width;
+    return '20.9375rem';
+  }};
   gap: 1.25rem;
   padding: 0.75rem;
   border-radius: 0.75rem;

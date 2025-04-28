@@ -1,14 +1,11 @@
 import { CSSMarginValue } from '@/types/css-values.types';
 
 /**
- *   Tabs 컴포넌트의 props 타입
+ * Chips 컴포넌트의 props 타입
  */
 
-export type TabsProps = {
-  tabs: string[];
-  activeTab: string;
-  onTabClick: (tab: string) => void;
-
+export type ChipsProps = {
+  chips: string[];
   /**
    * 넓이 조정 여부
    * default: false
@@ -22,11 +19,15 @@ export type TabsProps = {
   autoWidth?: boolean;
 
   /**
-   * 토글 가능 여부
-   * default: false
+   * 클릭 시 이벤트
+   * 클릭한 칩에 대한 지도 페이지로 이동
    */
-  toggle?: boolean;
-
+  onChipClick?: (chip: string) => void;
+  /**
+   * 삭제 시 이벤트
+   * 클릭한 칩이 칩 리스트에서 삭제
+   */
+  onChipClose?: (chip: string) => void;
   /**
    * 좌우 여백 지정 (예: "1.25rem")
    * default: "0"

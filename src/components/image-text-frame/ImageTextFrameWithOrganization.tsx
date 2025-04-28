@@ -10,6 +10,7 @@ import { ImageTextFrameWithOrganizationProps } from './ImageTextFrame.types';
  * @param {string} organization - 소속 정보
  * @param {boolean} [canPickup] - 포장 가능 여부 (기본값: false)
  * @param {Function} [onClick] - 프레임 클릭 시 실행할 콜백 함수
+ * @param {string} [width] - 프레임 너비 (예: "100%", "10rem" 등)
  * @returns {React.ReactElement} 이미지와 텍스트, 포장가능 여부가 포함된 프레임 컴포넌트
  *
  * @example
@@ -28,9 +29,10 @@ export default function ImageTextFrameWithOrganization({
   organization,
   canPickup = false,
   onClick,
+  width,
 }: ImageTextFrameWithOrganizationProps) {
   return (
-    <S.Container onClick={onClick}>
+    <S.Container onClick={onClick} $width={width}>
       <S.Image src={image} alt="" />
       <S.ContentsWrap>
         <S.Title>{title}</S.Title>

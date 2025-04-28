@@ -11,6 +11,7 @@ import { ImageTextFrameWithTimeProps } from './ImageTextFrame.types';
  * @param {string} time - 시간 정보 텍스트
  * @param {boolean} [canPickup] - 포장 가능 여부 (기본값: false)
  * @param {Function} [onClick] - 프레임 클릭 시 실행할 콜백 함수
+ * @param {string} [width] - 프레임 너비 (예: "100%", "10rem" 등)
  * @returns {React.ReactElement} 이미지와 텍스트, 시간 정보가 포함된 프레임 컴포넌트
  *
  * @example
@@ -31,9 +32,10 @@ export default function ImageTextFrameWithTime({
   time,
   canPickup = false,
   onClick,
+  width,
 }: ImageTextFrameWithTimeProps) {
   return (
-    <S.Container onClick={onClick}>
+    <S.Container onClick={onClick} $width={width}>
       <S.Image src={image} alt="" />
       <S.ContentsWrap>
         <S.TitleWrap>
