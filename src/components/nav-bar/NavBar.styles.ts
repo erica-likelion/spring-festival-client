@@ -16,44 +16,53 @@ export const Title = styled.p`
   color: ${(props) => props.theme.colors.grayScale.white};
 `;
 
-export const InputWrapper = styled.div`
-  position: relative;
+export const InputWrapper = styled.label`
   display: flex;
-  justify-content: end;
   align-items: center;
-`;
-
-export const EmptyIcon = styled.image`
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-  aspect-ratio: 1/1;
-`;
-
-export const Input = styled.input`
-  ${(props) => props.theme.fonts.body.medium500}
-  display: flex;
+  justify-content: space-between;
   width: 18.4375rem;
   height: 2.5rem;
-  padding: 0.5rem 0.75rem;
-  align-items: center;
-  border-radius: 0.375rem;
   background-color: ${(props) => props.theme.colors.grayScale.gy950};
   border: 1px solid ${(props) => props.theme.colors.grayScale.gy800};
-  color: ${(props) => props.theme.colors.grayScale.white};
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
 
-  &::placeholder {
-    color: ${(props) => props.theme.colors.grayScale.gy500};
+  input {
+    ${(props) => props.theme.fonts.body.medium500}
+    flex: 1;
+    width: 100%;
+    background-color: ${(props) => props.theme.colors.grayScale.gy950};
+    border: none;
+    color: ${(props) => props.theme.colors.grayScale.white};
+
+    &::placeholder {
+      color: ${(props) => props.theme.colors.grayScale.gy500};
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 
-  &:focus {
-    outline: none;
+  button {
+    display: flex;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    padding: 0;
   }
 `;
 
 export const InputIcon = styled.button`
-  position: absolute;
+  display: flex;
   border: 0;
+  align-items: center;
+  justify-content: center;
   background-color: transparent;
-  padding: 0 0.75rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-right: 0.75rem;
 `;

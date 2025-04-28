@@ -27,13 +27,13 @@ const DefaultNavBar: React.FC<DefaultNavBarProps> = ({ isBack, isSearch, title }
   return (
     <S.Container>
       {isBack ? (
-        <BackIcon width={24} height={24} onClick={handleBack} />
+        <BackIcon width={'1.5rem'} height={'1.5rem'} onClick={handleBack} />
       ) : (
-        <LogoIcon width={82} height={52} />
+        <LogoIcon width={'5.125rem'} height={'3.25rem'} />
       )}
       <S.Title>{title}</S.Title>
 
-      {isSearch ? <SearchIcon width={24} height={24} /> : <S.EmptyIcon />}
+      {isSearch && <SearchIcon width={24} height={24} />}
     </S.Container>
   );
 };
@@ -57,12 +57,12 @@ const SearchNavBar: React.FC<SearchNavBarProps> = ({ placeholder, onChange, onCl
 
   return (
     <S.Container>
-      <BackIcon width={24} height={24} onClick={handleBack} />
-      <S.InputWrapper>
-        <S.Input placeholder={placeholder} onChange={onChange} />
-        <S.InputIcon>
-          <SearchIcon width={24} height={24} onClick={onClick} />
-        </S.InputIcon>
+      <BackIcon width={'1.5rem'} height={'1.5rem'} onClick={handleBack} />
+      <S.InputWrapper htmlFor="search">
+        <input id="search" placeholder={placeholder} onChange={onChange} />
+        <button>
+          <SearchIcon width={'1.5rem'} height={'1.5rem'} onClick={onClick} />
+        </button>
       </S.InputWrapper>
     </S.Container>
   );
