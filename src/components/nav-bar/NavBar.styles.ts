@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   display: flex;
+  width: 23.4375rem;
   height: 3.875rem;
   padding: 0rem 1.25rem;
   justify-content: space-between;
@@ -67,4 +68,11 @@ export const InputIcon = styled.button`
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 0.75rem;
+`;
+
+export const EmptyIcon = styled.image`
+  width: 1.5rem;
+  height: 1.5rem;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
 `;

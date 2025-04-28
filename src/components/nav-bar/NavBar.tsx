@@ -27,13 +27,22 @@ const NavBar: React.FC<NavBarProps> = ({ isBack = false, isSearch = false, title
   return (
     <S.Container>
       {isBack ? (
-        <BackIcon width={'1.5rem'} height={'1.5rem'} onClick={handleBack} />
+        <BackIcon
+          style={{ cursor: 'pointer' }}
+          width={'1.5rem'}
+          height={'1.5rem'}
+          onClick={handleBack}
+        />
       ) : (
         <LogoIcon width={'5.125rem'} height={'3.25rem'} />
       )}
       <S.Title>{title}</S.Title>
 
-      {isSearch && <SearchIcon width={24} height={24} />}
+      {isSearch ? (
+        <SearchIcon style={{ cursor: 'pointer' }} width={24} height={24} />
+      ) : (
+        <S.EmptyIcon />
+      )}
     </S.Container>
   );
 };
