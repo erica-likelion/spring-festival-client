@@ -1,6 +1,6 @@
 import * as S from './NavBar.styles';
 import SearchIcon from '@/assets/icons/search.svg?react';
-import BackIcon from '@/assets/icons/nrk_chevron-left.svg?react';
+import BackIcon from '@/assets/icons/left-arrow.svg?react';
 import LogoIcon from '@/assets/icons/Logo_Sample.svg?react';
 
 import { DefaultNavBarProps, SearchNavBarProps } from './NavBar.type';
@@ -59,7 +59,7 @@ const SearchNavBar: React.FC<SearchNavBarProps> = ({ placeholder, onChange, onCl
     <S.Container>
       <BackIcon width={24} height={24} onClick={handleBack} />
       <S.InputWrapper>
-        <S.Input placeholder={placeholder} autoFocus onChange={onChange} />
+        <S.Input placeholder={placeholder} onChange={onChange} />
         <S.InputIcon>
           <SearchIcon width={24} height={24} onClick={onClick} />
         </S.InputIcon>
