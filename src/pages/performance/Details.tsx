@@ -2,6 +2,8 @@ import SongIcon from '@/assets/icons/song.svg?react';
 import ClockIcon from '@/assets/icons/clock.svg?react';
 import * as S from './Details.styles';
 import { PerformanceDetailsProps } from './Details.types';
+import { useLayoutStore } from '@/stores';
+import { useEffect } from 'react';
 
 /**
  *
@@ -20,6 +22,12 @@ export default function Details({
   description,
   songList,
 }: PerformanceDetailsProps) {
+  const setIsNav = useLayoutStore((state) => state.setIsNav);
+
+  useEffect(() => {
+    setIsNav(false);
+  }, [setIsNav]);
+
   const handleClick = () => {
     alert('곡 재생');
   };
