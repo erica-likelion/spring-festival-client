@@ -12,6 +12,20 @@ export const Container = styled.header`
   background-color: ${(props) => props.theme.colors.grayScale.black};
 `;
 
+export const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+`;
+
+export const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+`;
+
 export const Title = styled.p`
   ${(props) => props.theme.fonts.header.h3}
   text-align: center;
@@ -68,11 +82,4 @@ export const InputIcon = styled.button`
   width: 1.5rem;
   height: 1.5rem;
   margin-right: 0.75rem;
-`;
-
-export const EmptyIcon = styled.image`
-  width: 1.5rem;
-  height: 1.5rem;
-  flex-shrink: 0;
-  aspect-ratio: 1/1;
 `;
