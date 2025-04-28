@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import SongIcon from '@/assets/icons/song.svg?react';
-import ClockIcon from '@/assets/icons/clock.svg?react';
+import ClockIcon from '@/assets/icons/nrk_time.svg?react';
 import * as S from './Details.styles';
 import { PerformanceDetailsProps } from './Details.types';
 import { useLayoutStore } from '@/stores';
