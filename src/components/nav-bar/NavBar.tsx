@@ -60,9 +60,9 @@ const SearchNavBar: React.FC<SearchNavBarProps> = ({ placeholder, onChange, onCl
       <BackIcon width={'1.5rem'} height={'1.5rem'} onClick={handleBack} />
       <S.InputWrapper htmlFor="search">
         <input id="search" placeholder={placeholder} onChange={onChange} />
-        <button>
+        <S.Btn whileTap={{ scale: 0.92, backgroundColor: '#212526' }}>
           <SearchIcon width={'1.5rem'} height={'1.5rem'} onClick={onClick} />
-        </button>
+        </S.Btn>
       </S.InputWrapper>
     </S.Container>
   );

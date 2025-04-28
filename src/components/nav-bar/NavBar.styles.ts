@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
 export const Container = styled.header`
@@ -43,17 +44,18 @@ export const InputWrapper = styled.label`
       outline: none;
     }
   }
+`;
 
-  button {
-    display: flex;
-    border: 0;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    flex-shrink: 0;
-    aspect-ratio: 1/1;
-    padding: 0;
-  }
+export const Btn = styled(motion.button)`
+  display: flex;
+  border: 0;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  aspect-ratio: 1/1;
+  padding: 0;
+  scale: 0.92;
+  background-color: '#212526';
 `;
 
 export const InputIcon = styled.button`
