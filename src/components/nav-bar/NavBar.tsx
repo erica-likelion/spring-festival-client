@@ -3,7 +3,7 @@ import SearchIcon from '@/assets/icons/search.svg?react';
 import BackIcon from '@/assets/icons/left-arrow.svg?react';
 import LogoIcon from '@/assets/icons/Logo_Sample.svg?react';
 
-import { DefaultNavBarProps, SearchNavBarProps } from './NavBar.type';
+import { NavBarProps, SearchNavBarProps } from './NavBar.type';
 import { useNavigate } from 'react-router-dom';
 
 /**
@@ -14,11 +14,11 @@ import { useNavigate } from 'react-router-dom';
  * @returns {JSX.Element} DefaultNavBar 컴포넌트
  * @example
  *
- * <DefaultNavBar isBack={true} title="Page" isSearch={true}/>
+ * <NavBar isBack={true} title="Page" isSearch={true}/>
  * />
  */
 
-const DefaultNavBar: React.FC<DefaultNavBarProps> = ({ isBack, isSearch, title }) => {
+const NavBar: React.FC<NavBarProps> = ({ isBack = false, isSearch = false, title }) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
@@ -68,4 +68,4 @@ const SearchNavBar: React.FC<SearchNavBarProps> = ({ placeholder, onChange, onCl
   );
 };
 
-export { DefaultNavBar, SearchNavBar };
+export { NavBar, SearchNavBar };
