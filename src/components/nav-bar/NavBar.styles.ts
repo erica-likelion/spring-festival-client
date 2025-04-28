@@ -55,7 +55,7 @@ export const Btn = styled(motion.button)`
   aspect-ratio: 1/1;
   padding: 0;
   scale: 0.92;
-  background-color: '#212526';
+  background-color: inherit;
 `;
 
 export const InputIcon = styled.button`
