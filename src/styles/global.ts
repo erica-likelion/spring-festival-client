@@ -3,7 +3,19 @@ import reset from 'styled-reset';
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
-    
+
+    :root {
+        font-size: 24px;
+
+        @media screen and (width <= 1024px) {
+            font-size: 20px;
+        }  
+
+        @media screen and (width <= 768px) {
+            font-size: 16px;
+        }
+    }
+
     html, body {
         overscroll-behavior: none contain;
         user-select: none;
@@ -19,8 +31,20 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     #root {
+        width: 100%;
         height: 100%;
         background-color: ${(props) => props.theme.colors.grayScale.black};
+        position: fixed;
+
+        ${(props) => props.theme.media.browser} {
+            @media screen and (width >= 1024px) {
+                width: 1024px;
+                height: 100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
     }
 
     * {
