@@ -7,35 +7,31 @@ export const Nav = styled.nav`
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 106px;
-  padding: 8px 20px 32px;
+  height: 6.625rem;
+  padding: 0.5rem 1.25rem 2rem;
   background-color: ${(props) => props.theme.colors.grayScale.black};
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  z-index: 100;
 `;
 
 export const NavBtn = styled(motion.button)`
   all: unset;
-  width: 60px;
-  padding: 8px 0px;
+  width: 3.75rem;
+  padding: 0.5rem 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   flex-shrink: 0;
   text-decoration: none;
   text-decoration-line: none;
-  ${(props) => props.theme.fonts.body.xsmall500};
-  color: ${(props) => props.theme.colors.grayScale.gy100};
-  border-radius: 8px;
+  border-radius: 0.5rem;
 `;
 
-export const NavImg = styled.div`
-  width: 24px;
-  height: 24px;
-  background-color: aliceblue;
-  border: 12px;
+export const NavBtnText = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall500};
+  color: ${(props) => props.theme.colors.grayScale.gy100};
 `;
