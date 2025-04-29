@@ -5,6 +5,7 @@ export interface NavBarProps {
   isBack?: boolean;
   isSearch?: boolean;
   title?: string;
+  onSearchClick?: () => void;
 }
 
 export interface SearchNavBarProps {

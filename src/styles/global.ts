@@ -1,8 +1,10 @@
+import { fontFaces } from '@/styles/fonts';
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
 
 export const GlobalStyle = createGlobalStyle`
     ${reset}
+    ${fontFaces}
 
     :root {
         font-size: 24px;
@@ -24,6 +26,7 @@ export const GlobalStyle = createGlobalStyle`
         height: 100vh;
         overflow: hidden;
         background-color: ${(props) => props.theme.colors.grayScale.black};
+        font-family: SUIT, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
     
     html {
