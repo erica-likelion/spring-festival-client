@@ -1,4 +1,6 @@
 import ImageTextIconFrame from '@/components/image-text-icon-frame/ImageTextIconFrame';
+import * as S from './Performance.styles';
+import { NavBar } from '@/components/nav-bar/NavBar';
 import Notification from '@/components/notification/Notification';
 import Tabs from '@/components/tabs/Tabs';
 import { useState } from 'react';
@@ -8,8 +10,8 @@ export default function Performance() {
   const navigate = useNavigate();
   const [selectedDay, setSelectedDay] = useState<string>('1일차');
   return (
-    <>
-      {/* top nav */}
+    <S.PerformanceContainer>
+      <NavBar isBack={false} />
       <div>
         <p>오늘의 공연</p>
         <Notification title="미성년자 입장 제한 안내" />
@@ -52,6 +54,6 @@ export default function Performance() {
           onClick={() => navigate('/main/notice/details')}
         />
       </div>
-    </>
+    </S.PerformanceContainer>
   );
 }
