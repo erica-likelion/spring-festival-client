@@ -69,7 +69,6 @@ export const Btn = styled(motion.button)`
   flex-shrink: 0;
   aspect-ratio: 1/1;
   padding: 0;
-  scale: 0.92;
   background-color: inherit;
 `;
 
