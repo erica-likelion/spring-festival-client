@@ -1,11 +1,11 @@
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyle, theme } from '@/styles';
+import { GlobalStyle } from '@/styles/global';
+import { theme } from '@/styles/theme';
 import { Main, Login, Map, Performance, Booth, User } from '@/pages';
 import Layout from '@/layout';
-import { Modal as ModalProvider } from '@/components';
-
+import { Modal as ModalProvider } from '@/components/modal';
 const routes = createBrowserRouter([
   {
     path: '/',
