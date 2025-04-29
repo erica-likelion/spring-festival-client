@@ -53,7 +53,7 @@ const fonts = {
     h1: createFontStyle(1.75, 700, 130, -0.035),
     h2: createFontStyle(1.5, 700, 134, -0.03),
     h3: createFontStyle(1.25, 700, 142, -0.025),
-    h4: createFontStyle(1, 700, 150, -0.2),
+    h4: createFontStyle(1, 700, 150, -0.02),
   },
 };
 
