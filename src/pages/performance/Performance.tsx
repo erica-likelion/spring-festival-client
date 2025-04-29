@@ -6,14 +6,15 @@ import { Notification } from '@/components/notification';
 import { Tabs } from '@/components/tabs';
 import { ImageTextIconFrame } from '@/components/image-text-icon-frame';
 import HelpIcon from '@/assets/icons/help_gy600.svg?react';
-import TimeIcon from '@/assets/icons/time_gy200.svg?react';
-import AlertIcon from '@/assets/icons/alert.svg?react';
 import { Carousel } from '@/features/performance';
+import { performanceData } from '@/constants/performance/SingerInfo';
+
+export type DayType = '1일차' | '2일차' | '3일차';
 
 export default function Performance() {
   const navigate = useNavigate();
-  const [selectedDay, setSelectedDay] = useState<string>('1일차');
-
+  const [selectedDay, setSelectedDay] = useState<DayType>('1일차');
+  const performances = performanceData[selectedDay];
   return (
     <S.PerformanceContainer>
       <NavBar isBack={false} />
@@ -29,23 +30,12 @@ export default function Performance() {
         <Tabs
           tabs={['1일차', '2일차', '3일차']}
           activeTab={selectedDay}
-          onTabClick={setSelectedDay}
+          onTabClick={(tab) => setSelectedDay(tab as DayType)}
         />
       </S.DayWrap>
 
       <S.Carousel>
-        <Carousel />
-        <S.SingerTimeWrap>
-          <S.SingerName>뉴진스</S.SingerName>
-          <S.TimeBox>
-            <TimeIcon width={'1.125rem'} height={'1.125rem'} />
-            <S.TimeText>21:00~22:00</S.TimeText>
-          </S.TimeBox>
-          <S.AlertBox>
-            <AlertIcon width={'1rem'} height={'1rem'} />
-            <S.AlertText>알림 받기</S.AlertText>
-          </S.AlertBox>
-        </S.SingerTimeWrap>
+        <Carousel data={performances} />
       </S.Carousel>
       <S.TableNoteWrap>
         <S.NoteText>공연 유의사항</S.NoteText>

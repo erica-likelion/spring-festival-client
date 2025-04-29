@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const CarouselContainer = styled.div<{ fade: 'in' | 'out' }>`
   position: relative;
   height: 19.875rem;
   display: flex;
@@ -8,6 +13,8 @@ export const Container = styled.div`
   align-items: center;
   perspective: 800px;
   overflow: visible;
+  transition: opacity 0.4s ease;
+  opacity: ${(props) => (props.fade === 'in' ? 1 : 0)};
 `;
 
 export const Card = styled.div`
@@ -59,4 +66,47 @@ export const Card = styled.div`
     z-index: 1;
     pointer-events: none;
   }
+`;
+
+export const SingerTimeWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.375rem;
+  margin-top: 0.75rem;
+`;
+
+export const SingerName = styled.p`
+  ${(props) => props.theme.fonts.header.h1};
+  color: ${(props) => props.theme.colors.grayScale.white};
+  transition: opacity 0.4s ease;
+`;
+
+export const TimeBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.375rem;
+`;
+
+export const TimeText = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall500};
+  color: ${(props) => props.theme.colors.grayScale.gy300};
+  transition: opacity 0.4s ease;
+`;
+
+export const AlertBox = styled.div`
+  display: flex;
+  padding: 0.25rem 0.75rem 0.25rem 0.625rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.375rem;
+`;
+
+export const AlertText = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall500};
+  color: ${(props) => props.theme.colors.grayScale.white};
+  text-align: center;
+  transition: opacity 0.4s ease;
 `;

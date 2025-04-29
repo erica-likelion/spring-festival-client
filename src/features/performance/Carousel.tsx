@@ -1,13 +1,37 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import * as S from './Carousel.styles';
-import TestImage from '@/assets/images/performance/day1-newjeans.webp';
+import TimeIcon from '@/assets/icons/time_gy200.svg?react';
+import AlertIcon from '@/assets/icons/alert.svg?react';
 
-const images = [TestImage, TestImage, TestImage, TestImage, TestImage];
+type PerformanceItem = {
+  backgroundUrl: string;
+  singer: string;
+  time: string;
+  description: string;
+  songList: { image: string; name: string }[];
+};
 
-export default function Carousel() {
+interface CarouselProps {
+  data: PerformanceItem[];
+}
+
+export default function Carousel({ data }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+  const currentSinger = data[currentIndex];
+  const [fade, setFade] = useState<'in' | 'out'>('in');
+
+  useEffect(() => {
+    setFade('out');
+
+    const timeout = setTimeout(() => {
+      setCurrentIndex(0);
+      setFade('in');
+    }, 300);
+
+    return () => clearTimeout(timeout);
+  }, [data]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -23,9 +47,9 @@ export default function Carousel() {
 
     if (Math.abs(deltaX) > 50) {
       if (deltaX > 0) {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
+        setCurrentIndex((prev) => (prev + 1) % data.length);
       } else {
-        setCurrentIndex((prev) => (prev - 1 + images.length) % images.length);
+        setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
       }
     }
 
@@ -34,10 +58,10 @@ export default function Carousel() {
   };
 
   const getPosition = (index: number) => {
-    const left2 = (currentIndex - 2 + images.length) % images.length;
-    const left1 = (currentIndex - 1 + images.length) % images.length;
-    const right1 = (currentIndex + 1) % images.length;
-    const right2 = (currentIndex + 2) % images.length;
+    const left2 = (currentIndex - 2 + data.length) % data.length;
+    const left1 = (currentIndex - 1 + data.length) % data.length;
+    const right1 = (currentIndex + 1) % data.length;
+    const right2 = (currentIndex + 2) % data.length;
 
     if (index === currentIndex) return 'active';
     if (index === left1) return 'left';
@@ -47,16 +71,30 @@ export default function Carousel() {
     return 'hidden';
   };
   return (
-    <S.Container
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-    >
-      {images.map((img, index) => (
-        <S.Card key={index} className={getPosition(index)}>
-          <img src={img} alt={`slide-${index}`} />
-        </S.Card>
-      ))}
+    <S.Container>
+      <S.CarouselContainer
+        fade={fade}
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
+        {data.map((img, index) => (
+          <S.Card key={index} className={getPosition(index)}>
+            <img src={img.backgroundUrl} alt={`slide-${index}`} />
+          </S.Card>
+        ))}
+      </S.CarouselContainer>
+      <S.SingerTimeWrap>
+        <S.SingerName>{currentSinger.singer}</S.SingerName>
+        <S.TimeBox>
+          <TimeIcon width={'1.125rem'} height={'1.125rem'} />
+          <S.TimeText>{currentSinger.time}</S.TimeText>
+        </S.TimeBox>
+        <S.AlertBox>
+          <AlertIcon width={'1rem'} height={'1rem'} />
+          <S.AlertText>알림 받기</S.AlertText>
+        </S.AlertBox>
+      </S.SingerTimeWrap>
     </S.Container>
   );
 }
