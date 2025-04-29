@@ -102,6 +102,7 @@ export const AlertBox = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.375rem;
+  cursor: pointer;
 `;
 
 export const AlertText = styled.p`

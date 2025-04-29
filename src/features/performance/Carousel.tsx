@@ -79,7 +79,7 @@ export default function Carousel({ data }: CarouselProps) {
           <TimeIcon width={'1.125rem'} height={'1.125rem'} />
           <S.TimeText>{currentSinger.time}</S.TimeText>
         </S.TimeBox>
-        <S.AlertBox>
+        <S.AlertBox onClick={() => alert('알림 받기')}>
           <AlertIcon width={'1rem'} height={'1rem'} />
           <S.AlertText>알림 받기</S.AlertText>
         </S.AlertBox>

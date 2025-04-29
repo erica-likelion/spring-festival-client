@@ -5,16 +5,29 @@ import { NavBar } from '@/components/nav-bar';
 import { Notification } from '@/components/notification';
 import { Tabs } from '@/components/tabs';
 import { ImageTextIconFrame } from '@/components/image-text-icon-frame';
-import HelpIcon from '@/assets/icons/help_gy600.svg?react';
 import { Carousel } from '@/features/performance';
 import { performanceData } from '@/constants/performance/SingerInfo';
+import { ModalHelp } from '@/features/performance';
+import useModal from '@/hooks/useModal';
 
 export type DayType = '1일차' | '2일차' | '3일차';
 
 export default function Performance() {
+  const { open } = useModal(ModalHelp);
   const navigate = useNavigate();
   const [selectedDay, setSelectedDay] = useState<DayType>('1일차');
   const performances = performanceData[selectedDay];
+
+  const handleHelpClick = () => {
+    open(
+      {
+        title: '공연 정보 제공 안내',
+      },
+      {
+        isHelpIcon: true,
+      },
+    );
+  };
   return (
     <S.PerformanceContainer>
       <NavBar isBack={false} />
@@ -25,7 +38,7 @@ export default function Performance() {
       <S.DayWrap>
         <S.TextWrap>
           <S.StartText>공연 시작 17:00시</S.StartText>
-          <HelpIcon width={'1.125rem'} height={'1.125rem'} />
+          <S.HelpIconStyled onClick={() => handleHelpClick()} />
         </S.TextWrap>
         <Tabs
           tabs={['1일차', '2일차', '3일차']}
