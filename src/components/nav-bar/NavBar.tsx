@@ -18,12 +18,18 @@ import { useNavigate } from 'react-router-dom';
  * />
  */
 
-const NavBar: React.FC<NavBarProps> = ({ isBack = false, isSearch = false, title }) => {
+const NavBar: React.FC<NavBarProps> = ({
+  isBack = false,
+  isSearch = false,
+  title,
+  onSearchClick,
+}) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate(-1); // 뒤로가기
   };
+
   return (
     <S.Container>
       <S.LeftSection>
@@ -39,9 +45,16 @@ const NavBar: React.FC<NavBarProps> = ({ isBack = false, isSearch = false, title
         )}
       </S.LeftSection>
 
-      <S.Title>{title}</S.Title>
+      {title && <S.Title>{title}</S.Title>}
       <S.RightSection>
-        {isSearch && <SearchIcon style={{ cursor: 'pointer' }} width={24} height={24} />}
+        {isSearch && (
+          <SearchIcon
+            style={{ cursor: 'pointer' }}
+            width={'1.5rem'}
+            height={'1.5rem'}
+            onClick={onSearchClick}
+          />
+        )}
       </S.RightSection>
     </S.Container>
   );
