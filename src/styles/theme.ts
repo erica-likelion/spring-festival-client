@@ -6,11 +6,11 @@ const createFontStyle = (
   lineHeightPercent: number,
   letterSpacing: number = 0,
 ) => css`
-  font-size: ${size}px;
+  font-size: ${size}rem;
   font-style: normal;
   font-weight: ${weight};
   line-height: ${lineHeightPercent}%;
-  letter-spacing: ${letterSpacing}px;
+  letter-spacing: ${letterSpacing}rem;
 `;
 
 const colors = {
@@ -40,20 +40,20 @@ const colors = {
 
 const fonts = {
   body: {
-    large400: createFontStyle(18, 400, 154, -0.36),
-    large500: createFontStyle(18, 500, 154, -0.36),
-    medium400: createFontStyle(16, 400, 150, -0.32),
-    medium500: createFontStyle(16, 500, 150, -0.32),
-    small400: createFontStyle(14, 400, 142, -0.32),
-    small500: createFontStyle(14, 500, 142, -0.32),
-    xsmall400: createFontStyle(12, 400, 150, -0.32),
-    xsmall500: createFontStyle(12, 500, 150, -0.32),
+    large400: createFontStyle(1.125, 400, 154, -0.0225),
+    large500: createFontStyle(1.125, 500, 154, -0.0225),
+    medium400: createFontStyle(1, 400, 150, -0.02),
+    medium500: createFontStyle(1, 500, 150, -0.02),
+    small400: createFontStyle(0.875, 400, 142, -0.0175),
+    small500: createFontStyle(0.875, 500, 142, -0.0175),
+    xsmall400: createFontStyle(0.75, 400, 150, -0.015),
+    xsmall500: createFontStyle(0.75, 500, 150, -0.015),
   },
   header: {
-    h1: createFontStyle(28, 700, 130, -0.56),
-    h2: createFontStyle(24, 700, 134, -0.48),
-    h3: createFontStyle(20, 700, 142, -0.4),
-    h4: createFontStyle(16, 700, 150, -0.32),
+    h1: createFontStyle(1.75, 700, 130, -0.035),
+    h2: createFontStyle(1.5, 700, 134, -0.03),
+    h3: createFontStyle(1.25, 700, 142, -0.025),
+    h4: createFontStyle(1, 700, 150, -0.2),
   },
 };
 
