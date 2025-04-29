@@ -3,7 +3,7 @@ import { AnimatePresence } from 'framer-motion';
 import * as S from './Layout.styles';
 import Nav from '@/layout/nav';
 import Main from '@/layout/main/Main';
-import { useLayoutStore } from '@/stores';
+import { useLayoutStore } from '@/stores/useLayoutStore';
 
 /**
  * Layout component
