@@ -35,7 +35,7 @@ export default function Nav() {
                   style={{ width: '24px', height: '24px' }}
                 />
               )}
-              {item.label}
+              <S.NavBtnText>{item.label}</S.NavBtnText>
             </S.NavBtn>
           </NavLink>
         );
