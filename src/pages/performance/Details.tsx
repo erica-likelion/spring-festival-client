@@ -3,7 +3,7 @@ import SongIcon from '@/assets/icons/song.svg?react';
 import ClockIcon from '@/assets/icons/nrk_time.svg?react';
 import * as S from './Details.styles';
 import { PerformanceDetailsProps } from './Details.types';
-import { useLayoutStore } from '@/stores';
+import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
 import { NavBar } from '@/components/nav-bar/NavBar';
 

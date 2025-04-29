@@ -1,6 +1,6 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import * as S from './Nav.styles';
-import { NAV_ITEMS } from '@/layout/nav/nav-item';
+import { NAV_ITEMS } from './nav-item';
 import Lottie from 'react-lottie-player';
 
 /**
@@ -35,7 +35,7 @@ export default function Nav() {
                   style={{ width: '24px', height: '24px' }}
                 />
               )}
-              {item.label}
+              <S.NavBtnText>{item.label}</S.NavBtnText>
             </S.NavBtn>
           </NavLink>
         );

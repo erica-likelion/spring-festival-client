@@ -7,33 +7,55 @@ import { NavBarProps, SearchNavBarProps } from './NavBar.type';
 import { useNavigate } from 'react-router-dom';
 
 /**
- * DefaultNavBar 컴포넌트
+ * NavBar 컴포넌트
  * @param {boolean} isBack - 뒤로가기 버튼 표시 여부
  * @param {boolean} isSearch - 검색 아이콘 표시 여부
  * @param {string} title - 제목 텍스트
- * @returns {JSX.Element} DefaultNavBar 컴포넌트
+ * @returns {JSX.Element} NavBar 컴포넌트
  * @example
  *
  * <NavBar isBack={true} title="Page" isSearch={true}/>
  * />
  */
 
-const NavBar: React.FC<NavBarProps> = ({ isBack = false, isSearch = false, title }) => {
+const NavBar: React.FC<NavBarProps> = ({
+  isBack = false,
+  isSearch = false,
+  title,
+  onSearchClick,
+}) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
     navigate(-1); // 뒤로가기
   };
+
   return (
     <S.Container>
-      {isBack ? (
-        <BackIcon width={'1.5rem'} height={'1.5rem'} onClick={handleBack} />
-      ) : (
-        <LogoIcon width={'5.125rem'} height={'3.25rem'} />
-      )}
-      <S.Title>{title}</S.Title>
+      <S.LeftSection>
+        {isBack ? (
+          <BackIcon
+            style={{ cursor: 'pointer' }}
+            width={'1.5rem'}
+            height={'1.5rem'}
+            onClick={handleBack}
+          />
+        ) : (
+          <LogoIcon width={'5.125rem'} height={'3.25rem'} />
+        )}
+      </S.LeftSection>
 
-      {isSearch && <SearchIcon width={24} height={24} />}
+      {title && <S.Title>{title}</S.Title>}
+      <S.RightSection>
+        {isSearch && (
+          <SearchIcon
+            style={{ cursor: 'pointer' }}
+            width={'1.5rem'}
+            height={'1.5rem'}
+            onClick={onSearchClick}
+          />
+        )}
+      </S.RightSection>
     </S.Container>
   );
 };
