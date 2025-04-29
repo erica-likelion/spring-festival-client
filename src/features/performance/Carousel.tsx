@@ -2,18 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import * as S from './Carousel.styles';
 import TimeIcon from '@/assets/icons/time_gy200.svg?react';
 import AlertIcon from '@/assets/icons/alert.svg?react';
-
-type PerformanceItem = {
-  backgroundUrl: string;
-  singer: string;
-  time: string;
-  description: string;
-  songList: { image: string; name: string }[];
-};
-
-interface CarouselProps {
-  data: PerformanceItem[];
-}
+import { CarouselProps } from './Carousel.types';
 
 export default function Carousel({ data }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
