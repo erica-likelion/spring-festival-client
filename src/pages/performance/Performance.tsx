@@ -8,6 +8,7 @@ import { ImageTextIconFrame } from '@/components/image-text-icon-frame';
 import HelpIcon from '@/assets/icons/help_gy600.svg?react';
 import TimeIcon from '@/assets/icons/time_gy200.svg?react';
 import AlertIcon from '@/assets/icons/alert.svg?react';
+import { Carousel } from '@/features/performance';
 
 export default function Performance() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ export default function Performance() {
       </S.DayWrap>
 
       <S.Carousel>
-        {/* 캐러셀 */}
+        <Carousel />
         <S.SingerTimeWrap>
           <S.SingerName>뉴진스</S.SingerName>
           <S.TimeBox>

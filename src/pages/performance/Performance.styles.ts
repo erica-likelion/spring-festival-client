@@ -4,6 +4,7 @@ export const PerformanceContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 6.06rem;
 `;
 
 export const InfoWrap = styled.div`
@@ -57,6 +58,7 @@ export const SingerTimeWrap = styled.div`
   justify-content: center;
   align-items: center;
   gap: 0.375rem;
+  margin-top: 0.75rem;
 `;
 
 export const SingerName = styled.p`
