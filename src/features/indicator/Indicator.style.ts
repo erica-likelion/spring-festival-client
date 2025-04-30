@@ -11,11 +11,12 @@ export const Container = styled.ul`
   flex-shrink: 0;
 `;
 
-export const Dots = styled(motion.li)`
+export const Dots = styled(motion.li)<{ $isClickable: boolean }>`
   width: 0.375rem;
   height: 0.375rem;
   border-radius: 50%;
   flex-shrink: 0;
   aspect-ratio: 1/1;
+  cursor: ${(props) => (props.$isClickable ? 'pointer' : 'default')};
   background-color: ${(props) => props.theme.colors.grayScale.gy200};
 `;

@@ -1,7 +1,7 @@
 import { theme } from '@/styles/theme';
 import * as S from './Indicator.style';
 
-const HIDE_INDICATOR_DISTANCE = 5;
+const HIDE_INDICATOR_DISTANCE = 4;
 const SMALL_INDICATOR_DISTANCE = 3;
 const MED_INDICATOR_DISTANCE = 2;
 interface IndicatorProps {
@@ -9,7 +9,7 @@ interface IndicatorProps {
   currentPage: number;
   onClick?: (index: number) => void;
 }
-export default function Indicator({ totalPages, currentPage }: IndicatorProps) {
+export default function Indicator({ totalPages, currentPage, onClick }: IndicatorProps) {
   const dots = [...Array(totalPages).keys()];
 
   return (
@@ -22,6 +22,8 @@ export default function Indicator({ totalPages, currentPage }: IndicatorProps) {
         let scale = 1;
         if (distance > MED_INDICATOR_DISTANCE) scale = 0.75;
         if (distance > SMALL_INDICATOR_DISTANCE) scale = 0.5;
+
+        // 숨김 여부 결정
         const isHidden = distance > HIDE_INDICATOR_DISTANCE;
 
         return (
@@ -41,6 +43,7 @@ export default function Indicator({ totalPages, currentPage }: IndicatorProps) {
               marginLeft: { duration: 0.4, ease: 'easeInOut' },
               backgroundColor: { duration: 0.2, ease: 'easeInOut' },
             }}
+            $isClickable={!!onClick}
           />
         );
       })}
