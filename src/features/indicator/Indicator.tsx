@@ -1,7 +1,7 @@
 import { theme } from '@/styles/theme';
 import * as S from './Indicator.style';
 
-const HIDE_INDICATOR_DISTANCE = 4;
+const HIDE_INDICATOR_DISTANCE = 5;
 const SMALL_INDICATOR_DISTANCE = 3;
 const MED_INDICATOR_DISTANCE = 2;
 interface IndicatorProps {
@@ -11,6 +11,12 @@ interface IndicatorProps {
 }
 export default function Indicator({ totalPages, currentPage, onClick }: IndicatorProps) {
   const dots = [...Array(totalPages).keys()];
+
+  const handleDotClick = (index: number) => {
+    if (onClick) {
+      onClick(index);
+    }
+  };
 
   return (
     <S.Container>
@@ -43,6 +49,7 @@ export default function Indicator({ totalPages, currentPage, onClick }: Indicato
               marginLeft: { duration: 0.4, ease: 'easeInOut' },
               backgroundColor: { duration: 0.2, ease: 'easeInOut' },
             }}
+            onClick={() => handleDotClick(index)}
             $isClickable={!!onClick}
           />
         );
