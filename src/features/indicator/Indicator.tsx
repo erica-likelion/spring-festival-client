@@ -74,36 +74,38 @@ export default function Indicator({ totalPages, currentPage, onClick }: Indicato
     <S.Container>
       <AnimatePresence initial={false} mode="popLayout">
         {visibleDotIndex.map((index) => (
-          <S.Dots
-            key={index}
-            layout
-            initial={{
-              scale: 0,
-              opacity: 0,
-              x: index < currentPage ? -10 : 10,
-            }}
-            animate={{
-              scale: getScale(index),
-              opacity: 1,
-              x: 0,
-              backgroundColor:
-                index === currentPage ? theme.colors.primary.bl400 : theme.colors.grayScale.gy200,
-            }}
-            exit={{
-              scale: 0,
-              opacity: 0,
-              x: index < currentPage ? -10 : 10,
-            }}
-            transition={{
-              type: 'spring',
-              stiffness: 500,
-              damping: 30,
-              scale: { duration: 0.4, ease: 'easeInOut' },
-              backgroundColor: { duration: 0.2, ease: 'easeInOut' },
-            }}
-            onClick={() => handleDotClick(index)}
-            $isClickable={!!onClick}
-          />
+          <S.DotsBox>
+            <S.Dots
+              key={index}
+              layout
+              initial={{
+                scale: 0,
+                opacity: 0,
+                x: index < currentPage ? -10 : 10,
+              }}
+              animate={{
+                scale: getScale(index),
+                opacity: 1,
+                x: 0,
+                backgroundColor:
+                  index === currentPage ? theme.colors.primary.bl400 : theme.colors.grayScale.gy200,
+              }}
+              exit={{
+                scale: 0,
+                opacity: 0,
+                x: index < currentPage ? -10 : 10,
+              }}
+              transition={{
+                type: 'spring',
+                stiffness: 500,
+                damping: 30,
+                scale: { duration: 0.4, ease: 'easeInOut' },
+                backgroundColor: { duration: 0.2, ease: 'easeInOut' },
+              }}
+              onClick={() => handleDotClick(index)}
+              $isClickable={!!onClick}
+            />
+          </S.DotsBox>
         ))}
       </AnimatePresence>
     </S.Container>
