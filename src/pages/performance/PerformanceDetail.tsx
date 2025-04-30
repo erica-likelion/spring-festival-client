@@ -1,8 +1,8 @@
 import { useLocation } from 'react-router-dom';
 import SongIcon from '@/assets/icons/song.svg?react';
 import ClockIcon from '@/assets/icons/nrk_time.svg?react';
-import * as S from './Details.styles';
-import { PerformanceDetailsProps } from './Details.types';
+import * as S from './PerformanceDetail.styles';
+import { PerformanceDetailsProps } from './PerformanceDetail.types';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
 import { NavBar } from '@/components/nav-bar/NavBar';
@@ -22,7 +22,7 @@ import { NavBar } from '@/components/nav-bar/NavBar';
  * @returns JSX.Element
  */
 
-export default function Details() {
+export default function PerformanceDetail() {
   const { state } = useLocation() as { state: PerformanceDetailsProps };
   const { backgroundUrl, singer, time, description, songList } = state;
   const setIsNav = useLayoutStore((state) => state.setIsNav);
