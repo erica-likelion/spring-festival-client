@@ -5,8 +5,8 @@ export const Container = styled.ul`
   display: flex;
   width: 3.5rem;
   height: 0.5rem;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
   gap: 0.25rem;
   flex-shrink: 0;
 `;
