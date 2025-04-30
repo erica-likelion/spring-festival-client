@@ -9,8 +9,8 @@ export const Container = styled.div`
 `;
 
 export const Button = styled(motion.button)`
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border: none;
   background: none;
   display: flex;

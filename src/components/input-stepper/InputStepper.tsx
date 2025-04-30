@@ -58,7 +58,7 @@ export default function InputStepper({ setValue }: { setValue: (value: number) =
     <S.Container>
       <S.Button onClick={handleDecrement} whileTap={{ scale: 0.9 }}>
         <MinusIcon
-          fill={Math.round(value.get()) === 0 ? '#fafafa' : '#17171B'}
+          fill={Math.round(value.get()) === 0 ? '#64686A' : '#fafafa'}
           width={'1.5rem'}
           height={'1.5rem'}
         />
