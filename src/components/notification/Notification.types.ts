@@ -1,4 +1,4 @@
-import { CSSWidthValue } from '@/types/css-values';
+import { CSSWidthValue } from '@/types/css-values.types';
 
 /**
  * 사용자에게 알림 메시지를 표시하는 Notification 컴포넌트의 Props
