@@ -21,18 +21,27 @@ export default function Indicator({ totalPages, currentPage, onClick }: Indicato
 
     const baseSize = 0.375;
 
-    if (currentPage <= 1 || currentPage >= totalPages - 2) {
+    if (currentPage <= 1) {
+      // 첫 페이지 근처
       if (index === 0) return baseSize / baseSize;
       if (index === 1) return 0.3125 / baseSize;
       if (index === 2) return 0.25 / baseSize;
       if (index === 3) return 0.1875 / baseSize;
       if (index === 4) return 0.125 / baseSize;
-      return 0.125 / baseSize; // 기본값
+      return 0.125 / baseSize;
+    } else if (currentPage >= totalPages - 2) {
+      // 마지막 페이지 근처
+      if (index === totalPages - 1) return baseSize / baseSize;
+      if (index === totalPages - 2) return 0.3125 / baseSize;
+      if (index === totalPages - 3) return 0.25 / baseSize;
+      if (index === totalPages - 4) return 0.1875 / baseSize;
+      if (index === totalPages - 5) return 0.125 / baseSize;
+      return 0.125 / baseSize;
     } else {
       if (distance === 0) return baseSize / baseSize;
       if (distance === 1) return 0.3125 / baseSize;
       if (distance >= 2) return 0.1875 / baseSize;
-      return 0.125 / baseSize; // 기본값
+      return 0.125 / baseSize;
     }
   };
 
