@@ -3,12 +3,27 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   display: flex;
+  width: 100%;
   height: 3.875rem;
   padding: 0rem 1.25rem;
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
   background-color: ${(props) => props.theme.colors.grayScale.black};
+`;
+
+export const LeftSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;
+`;
+
+export const RightSection = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
 `;
 
 export const Title = styled.p`
@@ -54,7 +69,6 @@ export const Btn = styled(motion.button)`
   flex-shrink: 0;
   aspect-ratio: 1/1;
   padding: 0;
-  scale: 0.92;
   background-color: inherit;
 `;
 
