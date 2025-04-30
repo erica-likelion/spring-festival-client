@@ -13,10 +13,13 @@ export const ImageWrap = styled.div<{ backgroundUrl: string }>`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background:
+  background-image:
     linear-gradient(180deg, rgb(23 23 27 / 0%) 0%, #17171b 100%),
-    url(${(props) => props.backgroundUrl}) center/cover no-repeat;
-  background-color: lightgray;
+    url(${(props) => props.backgroundUrl});
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 `;
 
 export const ImageTextWrap = styled.div`
