@@ -3,9 +3,8 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '@/styles/global';
 import { theme } from '@/styles/theme';
-import { Main, Login, Map, Performance, Booth, User } from '@/pages';
+import { Main, Login, Map, Performance, Booth, User, Details } from '@/pages';
 import Layout from '@/layout';
-import Details from './pages/performance/Details';
 
 import { Modal as ModalProvider } from '@/components/modal';
 const routes = createBrowserRouter([
