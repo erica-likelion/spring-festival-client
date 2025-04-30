@@ -9,4 +9,5 @@ export type PerformanceDetailsProps = {
 export type Song = {
   image: string; // 노래 썸네일 이미지 URL
   name: string; // 노래 제목
+  url: string; // 노래 링크 (유튜브 링크)
 };

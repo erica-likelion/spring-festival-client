@@ -8,13 +8,18 @@ import { useEffect } from 'react';
 import { NavBar } from '@/components/nav-bar/NavBar';
 
 /**
+ * 공연 상세 페이지 컴포넌트
  *
- * @param backgroundUrl 배경 이미지 URL string
- * @param singer 가수 이름 string
- * @param time 공연 시간 (ex: "21:00~22:00") string
- * @param description 가수 설명 string
- * @param songList 대표곡 리스트 Song[]
- * @returns {JSX.Element}
+ * React Router의 `Link` 컴포넌트에서 `state`로 전달된 공연 정보를 기반으로 렌더링됩니다.
+ *
+ * 전달 데이터 구조 (`PerformanceDetailsProps`):
+ * - backgroundUrl: 배경 이미지 URL
+ * - singer: 가수 이름
+ * - time: 공연 시간 (예: "21:00~22:00")
+ * - description: 가수 설명
+ * - songList: 대표곡 리스트 (이미지, 곡명, 외부 URL 포함)
+ *
+ * @returns JSX.Element
  */
 
 export default function Details() {
@@ -26,9 +31,6 @@ export default function Details() {
     setIsNav(false);
   }, [setIsNav]);
 
-  const handleClick = () => {
-    alert('곡 재생');
-  };
   return (
     <S.DetailsContainer>
       <NavBar isBack={true} title="공연정보" isSearch={false} />
@@ -58,7 +60,7 @@ export default function Details() {
                   width={'1.5rem'}
                   height={'1.5rem'}
                   style={{ cursor: 'pointer' }}
-                  onClick={() => handleClick()}
+                  onClick={() => window.open(song.url, '_blank')}
                 />
               </S.SongBox>
               <S.SongLine />
