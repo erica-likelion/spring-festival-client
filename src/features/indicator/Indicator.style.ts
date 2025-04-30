@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.ul`
   display: flex;
   width: 3.5rem;
   height: 0.5rem;
@@ -10,12 +11,11 @@ export const Container = styled.div`
   flex-shrink: 0;
 `;
 
-export const Dots = styled.div<{ isActive: boolean }>`
+export const Dots = styled(motion.li)`
   width: 0.375rem;
   height: 0.375rem;
   border-radius: 50%;
   flex-shrink: 0;
   aspect-ratio: 1/1;
-  background-color: ${({ isActive, theme }) =>
-    isActive ? theme.colors.primary.bl400 : theme.colors.grayScale.gy200};
+  background-color: ${(props) => props.theme.colors.grayScale.gy200};
 `;
