@@ -3,7 +3,7 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '@/styles/global';
 import { theme } from '@/styles/theme';
-import { Main, Login, Map, Performance, Booth, User } from '@/pages';
+import { Main, Login, Map, Performance, Booth, User, BoothDetail } from '@/pages';
 import Layout from '@/layout';
 import { Modal as ModalProvider } from '@/components/modal';
 const routes = createBrowserRouter([
@@ -40,6 +40,10 @@ const routes = createBrowserRouter([
       {
         path: 'booth',
         element: <Booth />,
+      },
+      {
+        path: 'booth/:id',
+        element: <BoothDetail />,
       },
     ],
   },
