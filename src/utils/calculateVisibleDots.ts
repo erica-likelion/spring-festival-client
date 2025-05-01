@@ -14,17 +14,8 @@ export const calculateVisibleDots = (totalPages: number, currentPage: number, do
 
   // 현재 페이지를 중심으로 표시할 점들 계산
   const halfVisible = Math.floor(dots / 2);
-  let startDot = currentPage - halfVisible;
-
-  if (startDot < 0) {
-    startDot = 0;
-  }
-
-  let endDot = startDot + dots - 1;
-  if (endDot >= totalPages) {
-    endDot = totalPages - 1;
-    startDot = Math.max(0, endDot - dots + 1);
-  }
+  const startDot = Math.max(0, Math.min(currentPage - halfVisible, totalPages - dots));
+  const endDot = startDot + dots - 1;
 
   return Array.from({ length: endDot - startDot + 1 }, (_, i) => startDot + i);
 };
