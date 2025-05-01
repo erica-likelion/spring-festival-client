@@ -1,12 +1,11 @@
 import { ImageTextFrameWithOrganization } from '@/components/image-text-frame';
 import * as S from './RankImageTextFrame.styles';
-import HeartIcon from '@/assets/icons/heart.svg?react';
+import { LikeButton } from '@/features/like';
 
 export default function RankImageTextFrame({
   rank,
   title,
   organization,
-  likeCount,
 }: {
   rank: number;
   title: string;
@@ -26,10 +25,7 @@ export default function RankImageTextFrame({
           canPickup={false}
           width="100%"
         />
-        <S.Like>
-          <HeartIcon width={'1.25rem'} height={'1.25rem'} />
-          <S.LikeCount>{likeCount}</S.LikeCount>
-        </S.Like>
+        <LikeButton id={1} />
       </S.Wrapper>
     </S.Container>
   );

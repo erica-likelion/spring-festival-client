@@ -2,7 +2,10 @@ import { OpenAlert } from '@/features/alarm';
 import * as S from './BoothList.styles';
 import { ImageTextFrameWithOrganization } from '@/components/image-text-frame';
 import { Notification } from '@/components/notification';
+import { useNavigate } from 'react-router-dom';
+
 export default function BoothList() {
+  const navigate = useNavigate();
   return (
     <S.Container>
       <Notification title="[공지] 미성년자 입장 불가" width="100%" />
@@ -18,6 +21,7 @@ export default function BoothList() {
             title={'PubName'}
             organization={'organization Name'}
             canPickup={true}
+            onClick={() => navigate(`/booth/${1}`)}
           />
           <S.HorizontalLine />
         </S.BoothItem>
