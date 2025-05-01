@@ -34,9 +34,8 @@ export default function Indicator({ totalPages, currentPage, onClick }: Indicato
     <S.Container>
       <AnimatePresence initial={false} mode="popLayout">
         {visibleDotIndex.map((index) => (
-          <S.DotsBox>
+          <S.DotsBox key={index}>
             <S.Dots
-              key={index}
               layout
               initial={{
                 scale: 0,
