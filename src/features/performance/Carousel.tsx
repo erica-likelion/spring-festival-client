@@ -89,7 +89,12 @@ export default function Carousel({ data }: CarouselProps) {
         onTouchEnd={handleTouchEnd}
       >
         {data.map((img, index) => (
-          <S.Card key={index} className={getPosition(index)}>
+          <S.Card
+            to="/performance/detail"
+            state={currentSinger}
+            key={index}
+            className={getPosition(index)}
+          >
             <img src={img.backgroundUrl} alt={`slide-${index}`} />
           </S.Card>
         ))}

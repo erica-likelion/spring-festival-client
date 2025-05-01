@@ -1,4 +1,5 @@
 import { styled, keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const popIn = keyframes`
   0% {
@@ -28,7 +29,7 @@ export const CarouselContainer = styled.div<{ fade: 'in' | 'out' }>`
   opacity: ${(props) => (props.fade === 'in' ? 1 : 0)};
 `;
 
-export const Card = styled.div`
+export const Card = styled(Link)`
   position: absolute;
   min-width: 14.375rem;
   min-height: 19.875rem;
