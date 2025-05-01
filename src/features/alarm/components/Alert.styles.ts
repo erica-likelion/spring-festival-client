@@ -12,6 +12,13 @@ export const Button = styled(motion.button)`
   background-color: transparent;
 `;
 
+export const IconButton = styled(motion.button)`
+  padding: 0.5rem 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export const Text = styled.p`
   color: ${(props) => props.theme.colors.grayScale.white};
   ${(props) => props.theme.fonts.body.xsmall500};

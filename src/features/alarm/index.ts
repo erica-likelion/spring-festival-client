@@ -1,1 +1,1 @@
-export { default as OpenAlert } from './components/OpenAlert';
+export { OpenAlert, PerformanceAlert, PerformanceIconAlert } from './components/Alert';
