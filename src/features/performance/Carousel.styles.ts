@@ -2,7 +2,7 @@ import { styled, keyframes } from 'styled-components';
 
 const popIn = keyframes`
   0% {
-    transform: scale(0.99);
+    transform: scale(0.98);
     opacity: 1;
   }
   100% {

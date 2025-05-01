@@ -1,8 +1,20 @@
 import { useState, useRef, useEffect } from 'react';
 import * as S from './Carousel.styles';
 import TimeIcon from '@/assets/icons/time_gy200.svg?react';
-import AlertIcon from '@/assets/icons/alert.svg?react';
 import { CarouselProps } from './Carousel.types';
+import { PerformanceAlert } from '../alarm';
+
+/**
+ * Carousel 컴포넌트
+ *
+ * 주어진 공연 데이터를 기반으로 좌우 슬라이드 가능한 뷰를 제공합니다.
+ * 각 슬라이드는 해당 가수의 배경 이미지, 이름, 시간, 알림 버튼을 표시합니다.
+ * 슬라이드 시 카드 애니메이션 및 텍스트 페이드 인/아웃이 적용됩니다.
+ *
+ * @component
+ * @param {CarouselProps} props - 캐러셀에 표시할 공연 데이터 배열
+ * @returns {JSX.Element} 캐러셀 UI
+ */
 
 export default function Carousel({ data }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -88,9 +100,8 @@ export default function Carousel({ data }: CarouselProps) {
           <TimeIcon width={'1.125rem'} height={'1.125rem'} />
           <S.TimeText fade={textFade}>{currentSinger.time}</S.TimeText>
         </S.TimeBox>
-        <S.AlertBox onClick={() => alert('알림 받기')}>
-          <AlertIcon width={'1rem'} height={'1rem'} />
-          <S.AlertText fade={textFade}>알림 받기</S.AlertText>
+        <S.AlertBox>
+          <PerformanceAlert id={currentSinger.id} />
         </S.AlertBox>
       </S.SingerTimeWrap>
     </S.Container>

@@ -1,5 +1,10 @@
 import * as S from './ModalHelp.styles';
 
+/**
+ * ModalHelp 컴포넌트
+ * @returns {JSX.Element}
+ */
+
 export default function ModalHelp() {
   return (
     <S.ModalContainer>

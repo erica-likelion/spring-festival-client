@@ -12,6 +12,11 @@ import useModal from '@/hooks/useModal';
 
 export type DayType = '1일차' | '2일차' | '3일차';
 
+/**
+ * Performance 페이지
+ * @returns {JSX.Element}
+ */
+
 export default function Performance() {
   const { open } = useModal(ModalHelp);
   const navigate = useNavigate();
