@@ -40,16 +40,16 @@ export const TimeTable = styled.div`
   z-index: -1;
 `;
 
-export const BoxWrap = styled.div<{ isFirst?: boolean; block?: number }>`
+export const BoxWrap = styled.div<{ $isFirst?: boolean; $block?: number }>`
   display: flex;
-  height: ${({ block = 1 }) =>
-    block === 1 ? '5.8125rem' : `calc(5.8125rem + ${(block - 1) * 5.58}rem)`};
+  height: ${({ $block = 1 }) =>
+    $block === 1 ? '5.8125rem' : `calc(5.8125rem + ${($block - 1) * 5.58}rem)`};
   padding: 0.375rem 0rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.625rem;
   align-self: stretch;
-  margin-top: ${({ isFirst }) => (isFirst ? '0' : '-0.375rem')};
+  margin-top: ${({ $isFirst }) => ($isFirst ? '0' : '-0.375rem')};
   animation: ${slideUp} 0.3s ease-in-out;
 `;
 
@@ -59,7 +59,7 @@ export const Wrap = styled.div`
   flex: 1 0 0;
 `;
 
-export const TimeBox = styled.div<{ isActive: boolean; isEmpty?: boolean }>`
+export const TimeBox = styled.div<{ $isActive: boolean; $isEmpty?: boolean }>`
   display: flex;
   width: 3.375rem;
   height: 100%;
@@ -68,8 +68,12 @@ export const TimeBox = styled.div<{ isActive: boolean; isEmpty?: boolean }>`
   gap: 0.625rem;
   align-self: stretch;
   border-radius: 0.75rem 0rem 0rem 0.75rem;
-  background-color: ${({ isActive, isEmpty, theme }) =>
-    isEmpty ? 'transparent' : isActive ? theme.colors.primary.bl400 : theme.colors.grayScale.gy700};
+  background-color: ${({ $isActive, $isEmpty, theme }) =>
+    $isEmpty
+      ? 'transparent'
+      : $isActive
+        ? theme.colors.primary.bl400
+        : theme.colors.grayScale.gy700};
 `;
 
 export const Time = styled.p`
@@ -88,7 +92,7 @@ export const TimeGap = styled.div`
   align-self: stretch;
 `;
 
-export const ContentBox = styled.div<{ isActive: boolean; isEmpty?: boolean }>`
+export const ContentBox = styled.div<{ $isActive: boolean; $isEmpty?: boolean }>`
   display: flex;
   width: 17.0625rem;
   padding: 0.6875rem 1.25rem 0rem;
@@ -97,8 +101,12 @@ export const ContentBox = styled.div<{ isActive: boolean; isEmpty?: boolean }>`
   gap: 0.625rem;
   align-self: stretch;
   border-radius: 0rem 0.75rem 0.75rem 0rem;
-  background-color: ${({ isActive, isEmpty, theme }) =>
-    isEmpty ? 'transparent' : isActive ? 'rgba(79, 117, 249, 0.30)' : theme.colors.grayScale.gy900};
+  background-color: ${({ $isActive, $isEmpty, theme }) =>
+    $isEmpty
+      ? 'transparent'
+      : $isActive
+        ? 'rgba(79, 117, 249, 0.30)'
+        : theme.colors.grayScale.gy900};
 `;
 
 export const PerformanceNameTimeBox = styled.div`
