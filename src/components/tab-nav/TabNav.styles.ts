@@ -18,7 +18,7 @@ export const List = styled.ul`
 `;
 
 export const Item = styled(motion.li)`
-  ${(props) => props.theme.colors.grayScale.gy50};
+  color: ${(props) => props.theme.colors.grayScale.gy50};
   ${(props) => props.theme.fonts.body.large400};
   position: relative;
   height: 2.5rem;
