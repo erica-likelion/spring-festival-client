@@ -10,6 +10,7 @@ export interface NavBarProps {
 
 export interface SearchNavBarProps {
   onClick: () => void;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
+  value?: string;
 }
