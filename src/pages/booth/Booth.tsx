@@ -1,7 +1,9 @@
 import { useFunnel } from '@/hooks/useFunnel';
 import TabNav from '@/components/tab-nav';
 import { NavBar } from '@/components/nav-bar/NavBar';
-import * as S from './booth.styles';
+import { BoothList } from '@/features/booth';
+import * as S from './Booth.styles';
+import PubRank from '@/features/pub-rank/components/PubRank';
 
 const TABS = ['랭킹', '주점 목록'] as const;
 
@@ -14,10 +16,10 @@ export default function Booth() {
         <TabNav tabs={TABS} currentStep={currentStep} setStep={setStep} />
         <Funnel>
           <Funnel.Step name={TABS[0]}>
-            <div>랭킹</div>
+            <PubRank />
           </Funnel.Step>
           <Funnel.Step name={TABS[1]}>
-            <div>주점 목록</div>
+            <BoothList />
           </Funnel.Step>
         </Funnel>
       </S.Main>
