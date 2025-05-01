@@ -10,6 +10,7 @@ export default function Carousel({ data }: CarouselProps) {
   const touchEndX = useRef<number | null>(null);
   const currentSinger = data[currentIndex];
   const [fade, setFade] = useState<'in' | 'out'>('in');
+  const [textFade, setTextFade] = useState<'in' | 'out'>('in');
 
   useEffect(() => {
     setFade('out');
@@ -18,9 +19,17 @@ export default function Carousel({ data }: CarouselProps) {
       setCurrentIndex(0);
       setFade('in');
     }, 300);
-
     return () => clearTimeout(timeout);
   }, [data]);
+
+  useEffect(() => {
+    setTextFade('out');
+    const timeout = setTimeout(() => {
+      setTextFade('in');
+    }, 100);
+
+    return () => clearTimeout(timeout);
+  }, [currentIndex]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
@@ -74,14 +83,14 @@ export default function Carousel({ data }: CarouselProps) {
         ))}
       </S.CarouselContainer>
       <S.SingerTimeWrap>
-        <S.SingerName>{currentSinger.singer}</S.SingerName>
+        <S.SingerName fade={textFade}>{currentSinger.singer}</S.SingerName>
         <S.TimeBox>
           <TimeIcon width={'1.125rem'} height={'1.125rem'} />
-          <S.TimeText>{currentSinger.time}</S.TimeText>
+          <S.TimeText fade={textFade}>{currentSinger.time}</S.TimeText>
         </S.TimeBox>
         <S.AlertBox onClick={() => alert('알림 받기')}>
           <AlertIcon width={'1rem'} height={'1rem'} />
-          <S.AlertText>알림 받기</S.AlertText>
+          <S.AlertText fade={textFade}>알림 받기</S.AlertText>
         </S.AlertBox>
       </S.SingerTimeWrap>
     </S.Container>
