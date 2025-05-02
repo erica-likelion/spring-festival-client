@@ -6,7 +6,7 @@ export const DetailsContainer = styled.div`
   align-items: center;
 `;
 
-export const ImageWrap = styled.div<{ backgroundUrl: string }>`
+export const ImageWrap = styled.div<{ $url: string }>`
   display: flex;
   width: 23.4375rem;
   height: 32.375rem;
@@ -14,8 +14,7 @@ export const ImageWrap = styled.div<{ backgroundUrl: string }>`
   justify-content: flex-end;
   align-items: center;
   background-image:
-    linear-gradient(180deg, rgb(23 23 27 / 0%) 0%, #17171b 100%),
-    url(${(props) => props.backgroundUrl});
+    linear-gradient(180deg, rgb(23 23 27 / 0%) 0%, #17171b 100%), url(${(props) => props.$url});
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

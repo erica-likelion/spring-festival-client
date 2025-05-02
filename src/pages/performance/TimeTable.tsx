@@ -71,10 +71,10 @@ export default function TimeTable() {
             const active = isNowPlaying(performance.start, performance.end);
 
             return (
-              <S.BoxWrap key={index} block={durationBlocks} isFirst={index === 0}>
+              <S.BoxWrap key={index} $block={durationBlocks} $isFirst={index === 0}>
                 <S.Wrap>
-                  <S.TimeBox isActive={active} isEmpty={!performance.name} />
-                  <S.ContentBox isActive={active} isEmpty={!performance.name}>
+                  <S.TimeBox $isActive={active} $isEmpty={!performance.name} />
+                  <S.ContentBox $isActive={active} $isEmpty={!performance.name}>
                     {performance.name && (
                       <S.PerformanceNameTimeBox>
                         <S.PerformanceName>{performance.name}</S.PerformanceName>
