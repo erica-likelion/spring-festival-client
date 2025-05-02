@@ -1,32 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPageHeader } from '@/features/map';
+import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
 import * as S from './MapPage.styles';
 
 export default function Map() {
   const navigate = useNavigate();
 
   // 날짜 및 카테고리 관련 상태
-  const days = ['1일차', '2일차', '3일차'];
-  const [selectedDay, setSelectedDay] = useState<string>(days[0]);
-  const categories = [
-    '주점',
-    '주류 구매 위치',
-    '플리마켓',
-    '프로모션',
-    '공연장',
-    '화장실',
-    '주차장',
-    '기타',
-  ];
-  const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [selectedDay, setSelectedDay] = useState<DAYS>(days[0]);
+  const [selectedCategory, setSelectedCategory] = useState<CATEGORIES | null>(null);
 
   // 헤더 관련 상태
   const [headerExpanded, setHeaderExpanded] = useState<boolean>(false);
   const [showCategory, setShowCategory] = useState<boolean>(true);
 
   // 헤더 핸들러
-  const handleDayChange = (day: string) => {
+  const handleDayChange = (day: DAYS) => {
     setSelectedDay(day);
     setHeaderExpanded(false);
   };
@@ -51,7 +41,7 @@ export default function Map() {
     }
   };
 
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = (category: CATEGORIES | null) => {
     setSelectedCategory(category);
   };
 

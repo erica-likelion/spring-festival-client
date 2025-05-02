@@ -2,17 +2,18 @@ import * as S from './Header.styles';
 import { useEffect } from 'react';
 import { MapPageHeaderProps } from './Header.types';
 import { Tabs } from '@/components/tabs';
+import { DAYS, CATEGORIES } from '@/constants/map'; // 타입 import 추가
 import ArrowIcon from '@/assets/icons/down-arrow.svg?react';
 import SearchIcon from '@/assets/icons/search.svg?react';
 import CircleCheckedIcon from '@/assets/icons/circle-checked.svg?react';
 import CircleUncheckedIcon from '@/assets/icons/circle-unchecked.svg?react';
 
 export default function MapPageHeader({
-  days = [],
-  selectedDay = '',
+  days,
+  selectedDay,
   onDayChange,
-  categories = [],
-  selectedCategory = '',
+  categories,
+  selectedCategory,
   onCategoryChange,
   onSearchClick,
   expanded = false,
@@ -40,7 +41,10 @@ export default function MapPageHeader({
       </S.HeadWrap>
       <S.DropDownWrap expanded={expanded}>
         {days.map((day) => (
-          <S.DaySelectButton key={day} onClick={() => onDayChange?.(day)}>
+          <S.DaySelectButton
+            key={day}
+            onClick={() => onDayChange(day as DAYS)} // 타입 안전성 보장
+          >
             {day} 지도
             {selectedDay === day ? (
               <CircleCheckedIcon width={'1.5rem'} height={'1.5rem'} />
@@ -53,11 +57,19 @@ export default function MapPageHeader({
       {showCategory && (
         <S.CategoryWrap expanded={expanded}>
           <Tabs
-            tabs={categories}
-            activeTab={selectedCategory}
-            onTabClick={(tab) => onCategoryChange?.(tab)}
+            tabs={[...(categories as readonly string[])]}
+            activeTab={selectedCategory || ''}
+            onTabClick={(tab) => {
+              // null이 아닌 경우에만 타입 변환하여 전달
+              if (tab) {
+                onCategoryChange(tab as CATEGORIES);
+              } else {
+                onCategoryChange(null);
+              }
+            }}
             autoWidth={true}
             toggle={true}
+            margin="1.25rem"
           />
         </S.CategoryWrap>
       )}

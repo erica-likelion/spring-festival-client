@@ -1,25 +1,27 @@
+import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
+
 /**
  * 지도 페이지 헤더 컴포넌트의 속성 정의
  * @interface MapPageHeaderProps
  */
 export type MapPageHeaderProps = {
   /** 선택 가능한 일자 목록 */
-  days: string[];
+  days: typeof days;
 
   /** 현재 선택된 일자 */
-  selectedDay: string;
+  selectedDay: DAYS;
 
   /** 일자 선택 변경 시 호출되는 핸들러 함수 */
-  onDayChange: (day: string) => void;
+  onDayChange: (day: DAYS) => void;
 
   /** 선택 가능한 카테고리 목록 */
-  categories: string[];
+  categories: typeof categories;
 
   /** 현재 선택된 카테고리 */
-  selectedCategory: string;
+  selectedCategory: CATEGORIES | null;
 
   /** 카테고리 선택 변경 시 호출되는 핸들러 함수 */
-  onCategoryChange: (category: string) => void;
+  onCategoryChange: (category: CATEGORIES | null) => void;
 
   /** 검색 버튼 클릭 시 호출되는 핸들러 함수 */
   onSearchClick?: () => void;
