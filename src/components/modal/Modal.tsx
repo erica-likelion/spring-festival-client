@@ -15,6 +15,7 @@ import { useSearchParams } from 'react-router-dom';
  */
 export default function Modals() {
   const modals = useModalStore((state) => state.modals);
+  if (modals.length === 0) return null;
   return (
     <React.Fragment>
       <AnimatePresence>
