@@ -10,24 +10,19 @@ import {
   RECOMMENDED_SEARCH_WORDS,
 } from '@/constants/search';
 import { useLayoutStore } from '@/stores/useLayoutStore';
+import { loadSearchHistory, addSearchHistory, removeSearchHistory } from '@/utils/useSearchHistory';
 
 export default function MapSearch() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
   const [searchKeyword, setSearchKeyword] = useState('');
   const [searchHistory, setSearchHistory] = useState<SearchHistoryItem[]>([]);
 
+  // 검색 기록을 로컬 스토리지에서 불러오기
   useEffect(() => {
-    const savedHistory = localStorage.getItem(MAP_SEARCH_HISTORY_KEY);
-    if (savedHistory) {
-      try {
-        setSearchHistory(JSON.parse(savedHistory));
-      } catch (e) {
-        console.error('검색 기록을 불러우는 중 오류가 발생했습니다', e);
-        localStorage.removeItem(MAP_SEARCH_HISTORY_KEY);
-      }
-    }
+    setSearchHistory(loadSearchHistory(MAP_SEARCH_HISTORY_KEY));
   }, []);
 
+  // 내비바 숨기기 및 언마운트 시 내비바 보이기
   useEffect(() => {
     setIsNav(false);
     return () => {
@@ -42,21 +37,14 @@ export default function MapSearch() {
   const handleSearch = () => {
     if (!searchKeyword.trim()) return;
 
-    // 새 검색 기록 생성
-    const newHistoryItem: SearchHistoryItem = {
-      id: Date.now().toString(),
-      keyword: searchKeyword.trim(),
-      timeStamp: Date.now(),
-    };
+    const newHistory = addSearchHistory(
+      searchKeyword,
+      searchHistory,
+      MAP_SEARCH_HISTORY_KEY,
+      MAX_SEARCH_HISTORY,
+    );
 
-    // 중복 검색어 제거 및 최근 검색어를 맨 앞으로 배치
-    const filteredHistory = searchHistory.filter((item) => item.keyword !== newHistoryItem.keyword);
-
-    const newHistory = [newHistoryItem, ...filteredHistory].slice(0, MAX_SEARCH_HISTORY);
-
-    // 상태 및 로컬 스토리지 업데이트
     setSearchHistory(newHistory);
-    localStorage.setItem(MAP_SEARCH_HISTORY_KEY, JSON.stringify(newHistory));
 
     // 검색 로직 실행( TODO: 나중에 구현 )
     console.log('검색어:', searchKeyword);
@@ -71,9 +59,9 @@ export default function MapSearch() {
   };
 
   const handleHistoryItemClose = (keyword: string) => {
-    const updatedHistory = searchHistory.filter((item) => item.keyword !== keyword);
+    // 검색 기록에서 해당 항목을 제거
+    const updatedHistory = removeSearchHistory(keyword, searchHistory, MAP_SEARCH_HISTORY_KEY);
     setSearchHistory(updatedHistory);
-    localStorage.setItem(MAP_SEARCH_HISTORY_KEY, JSON.stringify(updatedHistory));
   };
 
   return (
