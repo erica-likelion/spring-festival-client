@@ -16,7 +16,6 @@ import {
 } from '@/pages';
 import Layout from '@/layout';
 
-import { Modal as ModalProvider } from '@/components/modal';
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -71,7 +70,6 @@ const routes = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <>
     <ThemeProvider theme={theme}>
-      <ModalProvider />
       <GlobalStyle />
       <RouterProvider router={routes} />
     </ThemeProvider>
