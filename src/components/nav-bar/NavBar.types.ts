@@ -6,6 +6,7 @@ export interface NavBarProps {
   isSearch?: boolean;
   title?: string;
   onSearchClick?: () => void;
+  backPath?: number | string;
 }
 
 export interface SearchNavBarProps {
@@ -13,4 +14,5 @@ export interface SearchNavBarProps {
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;
   value?: string;
+  backPath?: number | string;
 }

@@ -23,11 +23,18 @@ const NavBar: React.FC<NavBarProps> = ({
   isSearch = false,
   title,
   onSearchClick,
+  backPath = -1,
 }) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); // 뒤로가기
+    if (typeof backPath === 'number') {
+      navigate(backPath);
+    } else if (typeof backPath === 'string') {
+      navigate(backPath);
+    } else {
+      navigate(-1);
+    }
   };
 
   return (
@@ -71,11 +78,23 @@ const NavBar: React.FC<NavBarProps> = ({
     <SearchNavBar onClick={onClick} placeholder="Text" onChange={onChange} />
  * 
  */
-const SearchNavBar: React.FC<SearchNavBarProps> = ({ placeholder, onChange, onClick, value }) => {
+const SearchNavBar: React.FC<SearchNavBarProps> = ({
+  placeholder,
+  onChange,
+  onClick,
+  value,
+  backPath = -1,
+}) => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); // 뒤로가기
+    if (typeof backPath === 'number') {
+      navigate(backPath);
+    } else if (typeof backPath === 'string') {
+      navigate(backPath);
+    } else {
+      navigate(-1);
+    }
   };
 
   return (
