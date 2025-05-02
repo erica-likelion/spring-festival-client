@@ -1,24 +1,21 @@
 import { StyledButton } from './BlueButton.style';
-import { useNavigate } from 'react-router-dom';
 
 interface BlueButtonProps {
   label: string;
   disabled?: boolean;
   isBigger?: boolean;
-  href?: string;
+  onClick?: () => void;
 }
 
 const BlueButton: React.FC<BlueButtonProps> = ({
   label,
-  disabled = true,
+  disabled = false,
   isBigger = true,
-  href,
+  onClick,
 }) => {
-  const navigate = useNavigate();
-
   const handleClick = () => {
-    if (!disabled && href) {
-      navigate(href);
+    if (!disabled && onClick) {
+      onClick();
     }
   };
 
