@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Z_INDEX } from './MapPage.types';
+import { Z_INDEX } from '@/constants/map';
 
 export const MapContainer = styled.div`
   position: relative;
