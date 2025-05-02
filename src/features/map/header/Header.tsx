@@ -1,0 +1,66 @@
+import * as S from './Header.styles';
+import { useEffect } from 'react';
+import { MapPageHeaderProps } from './Header.types';
+import { Tabs } from '@/components/tabs';
+import ArrowIcon from '@/assets/icons/down-arrow.svg?react';
+import SearchIcon from '@/assets/icons/search.svg?react';
+import CircleCheckedIcon from '@/assets/icons/circle-checked.svg?react';
+import CircleUncheckedIcon from '@/assets/icons/circle-unchecked.svg?react';
+
+export default function MapPageHeader({
+  days = [],
+  selectedDay = '',
+  onDayChange,
+  categories = [],
+  selectedCategory = '',
+  onCategoryChange,
+  onSearchClick,
+  expanded = false,
+  onExpandToggle,
+  showCategory = true,
+  onExpandChange,
+}: MapPageHeaderProps) {
+  // expanded 상태가 변경될 때마다 콜백 호출
+  useEffect(() => {
+    onExpandChange?.(expanded);
+  }, [expanded, onExpandChange]);
+
+  return (
+    <S.Container expanded={expanded}>
+      <S.HeadWrap expanded={expanded}>
+        <S.TitleWrap onClick={onExpandToggle}>
+          <S.Title>{expanded ? '일차 선택' : `${selectedDay} 지도`}</S.Title>
+          <S.DropdownButton expanded={expanded}>
+            <ArrowIcon width={'1.5rem'} height={'1.5rem'} />
+          </S.DropdownButton>
+        </S.TitleWrap>
+        <S.Search expanded={expanded}>
+          <SearchIcon width={'1.5rem'} height={'1.5rem'} onClick={onSearchClick} />
+        </S.Search>
+      </S.HeadWrap>
+      <S.DropDownWrap expanded={expanded}>
+        {days.map((day) => (
+          <S.DaySelectButton key={day} onClick={() => onDayChange?.(day)}>
+            {day} 지도
+            {selectedDay === day ? (
+              <CircleCheckedIcon width={'1.5rem'} height={'1.5rem'} />
+            ) : (
+              <CircleUncheckedIcon width={'1.5rem'} height={'1.5rem'} />
+            )}
+          </S.DaySelectButton>
+        ))}
+      </S.DropDownWrap>
+      {showCategory && (
+        <S.CategoryWrap expanded={expanded}>
+          <Tabs
+            tabs={categories}
+            activeTab={selectedCategory}
+            onTabClick={(tab) => onCategoryChange?.(tab)}
+            autoWidth={true}
+            toggle={true}
+          />
+        </S.CategoryWrap>
+      )}
+    </S.Container>
+  );
+}
