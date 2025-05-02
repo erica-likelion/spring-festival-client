@@ -10,7 +10,11 @@ import {
   RECOMMENDED_SEARCH_WORDS,
 } from '@/constants/search';
 import { useLayoutStore } from '@/stores/useLayoutStore';
-import { loadSearchHistory, addSearchHistory, removeSearchHistory } from '@/utils/useSearchHistory';
+import {
+  loadSearchHistory,
+  addSearchHistory,
+  removeSearchHistory,
+} from '@/utils/searchHistoryUtils';
 
 export default function MapSearch() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
