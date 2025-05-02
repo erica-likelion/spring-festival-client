@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
  * @param {boolean} isBack - 뒤로가기 버튼 표시 여부
  * @param {boolean} isSearch - 검색 아이콘 표시 여부
  * @param {string} title - 제목 텍스트
+ * @param {() => void} [onSearchClick] - 검색 아이콘 클릭 이벤트 핸들러
+ * @param {string | number} [backPath] - 뒤로가기 경로
  * @returns {JSX.Element} NavBar 컴포넌트
  * @example
  *
@@ -73,6 +75,7 @@ const NavBar: React.FC<NavBarProps> = ({
  * @param {(React.ChangeEvent<HTMLInputElement>) => void} [onChange] - 검색창 입력 이벤트 핸들러
  * @param {() => void} [onClick] - Input 내 검색 아이콘 클릭 이벤트 핸들러
  * @param {string} [value] - 검색창의 입력값
+ * @param {string | number} [backPath] - 뒤로가기 경로
  * @returns {JSX.Element} SearchNavBar 컴포넌트
  * @example
     <SearchNavBar onClick={onClick} placeholder="Text" onChange={onChange} />
