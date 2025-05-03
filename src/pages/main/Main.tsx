@@ -1,6 +1,6 @@
 import { NavBar } from '@/components/nav-bar';
 import * as S from './Main.styles';
-import Card from './Card';
+import Card from '../../features/main/components/Card';
 
 export default function Main() {
   return (

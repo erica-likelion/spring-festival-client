@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react';
 import * as S from './Progress.styles';
+import { CardProps } from './Card.types';
 
-export default function Progress({ startTime, endTime }: { startTime: string; endTime: string }) {
+export default function Progress({ startTime, endTime }: CardProps) {
   const [activeCount, setActiveCount] = useState(0);
 
   useEffect(() => {
     const calculateProgress = () => {
+      if (!startTime || !endTime) return;
+
       const now = new Date();
 
       const [startHour, startMinute] = startTime.split(':').map(Number);
@@ -39,7 +42,6 @@ export default function Progress({ startTime, endTime }: { startTime: string; en
 
     calculateProgress();
 
-    // 1분마다 업데이트
     const intervalId = setInterval(calculateProgress, 300000);
 
     return () => clearInterval(intervalId);

@@ -3,15 +3,10 @@ import Sun from '@/assets/icons/pixel_sun.svg?react';
 import Moon from '@/assets/icons/pixel_moon.svg?react';
 import Clock from '@/assets/icons/clock_b.svg?react';
 import Location from '@/assets/icons/geopoint_b.svg?react';
+import { CardProps } from './Card.types';
 import Progress from './Progress';
 
-interface CardProps {
-  isSun: boolean;
-  startTime?: string;
-  endTime?: string;
-}
-
-export default function Card({ isSun = true, startTime = '23:00', endTime = '23:30' }: CardProps) {
+export default function Card({ isSun = true, startTime = '24:00', endTime = '01:30' }: CardProps) {
   return (
     <S.Container>
       <S.HeaderSection>
@@ -36,7 +31,7 @@ export default function Card({ isSun = true, startTime = '23:00', endTime = '23:
             <S.EventText>호수공원</S.EventText>
           </S.TextWrapper>
         </S.TextContainer>
-        <Progress startTime={startTime} endTime={endTime} />
+        <Progress isSun={isSun} startTime={startTime} endTime={endTime} />
       </S.InfoSection>
     </S.Container>
   );
