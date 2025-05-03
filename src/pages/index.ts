@@ -1,4 +1,4 @@
-import Main from '@/pages/Main';
+import Main from '@/pages/main/Main';
 import Map from '@/pages/Map';
 import Login from '@/pages/Login';
 import Performance from '@/pages/performance/Performance';
