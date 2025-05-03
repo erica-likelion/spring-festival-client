@@ -24,9 +24,9 @@ export const InfoSection = styled.div`
   padding: 1.75rem 0rem;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
   align-self: stretch;
   background: linear-gradient(117deg, #a5b6ef 16.05%, #bbcfff 76.33%);
+  border-top: 3px solid ${(props) => props.theme.colors.grayScale.gy50};
 `;
 
 export const TagWrapper = styled.div`
@@ -44,9 +44,10 @@ export const TextContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.25rem;
   align-self: stretch;
   color: ${(props) => props.theme.colors.grayScale.gy950};
+  padding: 0.5rem 0 1.25rem;
 `;
 
 export const TextWrapper = styled.div`

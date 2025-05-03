@@ -6,7 +6,7 @@ import Location from '@/assets/icons/geopoint_b.svg?react';
 import { CardProps } from './Card.types';
 import Progress from './Progress';
 
-export default function Card({ isSun = true, startTime = '24:00', endTime = '01:30' }: CardProps) {
+export default function Card({ isSun = true, startTime = '00:00', endTime = '01:30' }: CardProps) {
   return (
     <S.Container>
       <S.HeaderSection>
