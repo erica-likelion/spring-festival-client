@@ -44,6 +44,16 @@ export const Card = styled(Link)<{ $fadeIn?: boolean }>`
   flex-shrink: 0;
   transition: all 0.5s ease;
 
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: transparent;
+    transition: background-color 0.3s ease;
+    border-radius: 0.5rem;
+  }
+
   &.fade-in {
     animation: ${fadeIn} 0.6s ease forwards;
   }
@@ -57,6 +67,8 @@ export const Card = styled(Link)<{ $fadeIn?: boolean }>`
     height: 100%;
     object-fit: cover;
     border-radius: 0.5rem;
+    position: relative;
+    z-index: 0;
   }
 
   &.active {
@@ -68,7 +80,10 @@ export const Card = styled(Link)<{ $fadeIn?: boolean }>`
   &.left {
     transform: translateX(-3.44rem) scale(0.8) rotateY(0deg);
     z-index: 2;
-    opacity: 0.5;
+  }
+
+  &.left::before {
+    background: linear-gradient(0deg, rgb(0 0 0 / 20%), rgb(0 0 0 / 20%));
   }
 
   &.right {
@@ -77,16 +92,28 @@ export const Card = styled(Link)<{ $fadeIn?: boolean }>`
     opacity: 0.5;
   }
 
+  &.right::before {
+    background: linear-gradient(0deg, rgb(0 0 0 / 20%), rgb(0 0 0 / 20%));
+  }
+
   &.far-left {
     transform: translateX(-6.875rem) scale(0.6) rotateY(0deg);
     z-index: 1;
     opacity: 0.3;
   }
 
+  &.far-left::before {
+    background: linear-gradient(0deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 70%) 100%);
+  }
+
   &.far-right {
     transform: translateX(6.875rem) scale(0.6) rotateY(0deg);
     z-index: 1;
     opacity: 0.3;
+  }
+
+  &.far-right::before {
+    background: linear-gradient(0deg, rgb(0 0 0 / 70%) 0%, rgb(0 0 0 / 70%) 100%);
   }
 
   &.hidden {
