@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import * as S from './Progress.styles';
-import { CardProps } from './Card.types';
+import { ProgressProps } from './Card.types';
 
-export default function Progress({ startTime, endTime }: CardProps) {
+export default function Progress({ startTime, endTime }: ProgressProps) {
   const [activeCount, setActiveCount] = useState(0);
 
   useEffect(() => {
