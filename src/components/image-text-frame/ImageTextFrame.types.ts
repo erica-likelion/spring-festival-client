@@ -18,6 +18,9 @@ export type ImageTextFrameWithOrganizationProps = {
 
   /** 너비 (선택) */
   width?: CSSWidthValue;
+
+  /** 활성화 스타일 여부 */
+  activeStyle?: boolean;
 };
 
 export type ImageTextFrameWithTimeProps = {
@@ -41,6 +44,9 @@ export type ImageTextFrameWithTimeProps = {
 
   /** 너비 (선택) */
   width?: CSSWidthValue;
+
+  /** 활성화 스타일 여부 */
+  activeStyle?: boolean;
 };
 
 export type MenuFrameProps = {
