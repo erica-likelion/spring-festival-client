@@ -5,38 +5,44 @@ export default function Progress({ startTime, endTime }: { startTime: string; en
   const [activeCount, setActiveCount] = useState(0);
 
   useEffect(() => {
-    const now = new Date();
-    const [startHour, startMinute] = startTime.split(':').map(Number);
-    const [endHour, endMinute] = endTime.split(':').map(Number);
+    const calculateProgress = () => {
+      const now = new Date();
 
-    const startDate = new Date();
-    startDate.setHours(startHour, startMinute, 0);
+      const [startHour, startMinute] = startTime.split(':').map(Number);
+      const [endHour, endMinute] = endTime.split(':').map(Number);
 
-    const endDate = new Date();
-    endDate.setHours(endHour, endMinute, 0);
+      const startDate = new Date();
+      startDate.setHours(startHour, startMinute, 0);
 
-    const totalDuration = endDate.getTime() - startDate.getTime();
+      const endDate = new Date();
+      endDate.setHours(endHour, endMinute, 0);
 
-    if (totalDuration <= 0) {
-      setActiveCount(0);
-      return;
-    }
+      // 이벤트가 시작하기 전인 경우
+      if (now.getTime() < startDate.getTime()) {
+        setActiveCount(0);
+        return;
+      }
 
-    const timeDuration = now.getTime() - startDate.getTime();
+      // 이벤트가 끝난 경우
+      if (now.getTime() > endDate.getTime()) {
+        setActiveCount(15);
+        return;
+      }
 
-    if (timeDuration <= 0) {
-      setActiveCount(0);
-      return;
-    }
+      const totalDuration = endDate.getTime() - startDate.getTime();
+      const timeDuration = now.getTime() - startDate.getTime();
+      const progressRatio = timeDuration / totalDuration;
 
-    if (timeDuration >= totalDuration) {
-      setActiveCount(15);
-      return;
-    }
+      const active = Math.floor(progressRatio * 15);
+      setActiveCount(active);
+    };
 
-    const progressRatio = timeDuration / totalDuration;
-    const active = Math.floor(progressRatio * 15);
-    setActiveCount(active);
+    calculateProgress();
+
+    // 1분마다 업데이트
+    const intervalId = setInterval(calculateProgress, 300000);
+
+    return () => clearInterval(intervalId);
   }, [startTime, endTime]);
 
   return (
