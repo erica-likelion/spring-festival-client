@@ -4,11 +4,7 @@ import { Tabs } from '@/components/tabs';
 import { Chips } from '@/components/chips';
 import { SearchNavBar } from '@/components/nav-bar';
 import { SearchHistoryItem } from '@/types/search-history.types';
-import {
-  MAP_SEARCH_HISTORY_KEY,
-  MAX_SEARCH_HISTORY,
-  RECOMMENDED_SEARCH_WORDS,
-} from '@/constants/search';
+import { MAP_SEARCH_HISTORY_KEY, MAX_SEARCH_HISTORY, RECOMMENDED_WORDS } from '@/constants/search';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import {
   loadSearchHistory,
@@ -96,7 +92,7 @@ export default function MapSearch() {
       <S.RecommendedSearchSection>
         <S.RecommendedSearchHeader>추천 검색어</S.RecommendedSearchHeader>
         <Tabs
-          tabs={[...RECOMMENDED_SEARCH_WORDS]}
+          tabs={[...RECOMMENDED_WORDS]}
           activeTab=""
           onTabClick={(tab) => handleHistoryItemClick(tab)}
           autoWidth={true}
