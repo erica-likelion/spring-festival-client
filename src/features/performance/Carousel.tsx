@@ -4,36 +4,36 @@ import TimeIcon from '@/assets/icons/time_gy200.svg?react';
 import { CarouselProps } from './Carousel.types';
 import { PerformanceAlert } from '../alarm';
 
-/**
- * Carousel 컴포넌트
- *
- * 주어진 공연 데이터를 기반으로 좌우 슬라이드 가능한 뷰를 제공합니다.
- * 각 슬라이드는 해당 가수의 배경 이미지, 이름, 시간, 알림 버튼을 표시합니다.
- * 슬라이드 시 카드 애니메이션 및 텍스트 페이드 인/아웃이 적용됩니다.
- *
- * @component
- * @param {CarouselProps} props - 캐러셀에 표시할 공연 데이터 배열
- * @returns {JSX.Element} 캐러셀 UI
- */
-
 export default function Carousel({ data }: CarouselProps) {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
-  const currentSinger = data[currentIndex];
+  const [visibleData, setVisibleData] = useState(data);
+  const [prevData, setPrevData] = useState(data);
+  const [prevCurrentIndex, setPrevCurrentIndex] = useState(0);
   const [fade, setFade] = useState<'in' | 'out'>('in');
   const [textFade, setTextFade] = useState<'in' | 'out'>('in');
 
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+  const currentSinger = visibleData[currentIndex];
+
+  // 탭 변경 감지
   useEffect(() => {
-    setFade('out');
+    if (data !== visibleData) {
+      setFade('out');
+      setPrevData(visibleData);
+      setPrevCurrentIndex(currentIndex);
 
-    const timeout = setTimeout(() => {
-      setCurrentIndex(0);
-      setFade('in');
-    }, 300);
-    return () => clearTimeout(timeout);
-  }, [data]);
+      const timeout = setTimeout(() => {
+        setCurrentIndex(0);
+        setVisibleData(data);
+        setFade('in');
+      }, 300);
 
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, data, visibleData]);
+
+  // 텍스트 fade 처리
   useEffect(() => {
     setTextFade('out');
     const timeout = setTimeout(() => {
@@ -50,16 +50,16 @@ export default function Carousel({ data }: CarouselProps) {
   const handleTouchMove = (e: React.TouchEvent) => {
     touchEndX.current = e.touches[0].clientX;
   };
+
   const handleTouchEnd = () => {
     if (touchStartX.current === null || touchEndX.current === null) return;
-
     const deltaX = touchStartX.current - touchEndX.current;
 
     if (Math.abs(deltaX) > 50) {
       if (deltaX > 0) {
-        setCurrentIndex((prev) => (prev + 1) % data.length);
+        setCurrentIndex((prev) => (prev + 1) % visibleData.length);
       } else {
-        setCurrentIndex((prev) => (prev - 1 + data.length) % data.length);
+        setCurrentIndex((prev) => (prev - 1 + visibleData.length) % visibleData.length);
       }
     }
 
@@ -67,42 +67,58 @@ export default function Carousel({ data }: CarouselProps) {
     touchEndX.current = null;
   };
 
-  const getPosition = (index: number) => {
-    const left2 = (currentIndex - 2 + data.length) % data.length;
-    const left1 = (currentIndex - 1 + data.length) % data.length;
-    const right1 = (currentIndex + 1) % data.length;
-    const right2 = (currentIndex + 2) % data.length;
+  const getPosition = (index: number, centerIndex: number, length: number) => {
+    const left2 = (centerIndex - 2 + length) % length;
+    const left1 = (centerIndex - 1 + length) % length;
+    const right1 = (centerIndex + 1) % length;
+    const right2 = (centerIndex + 2) % length;
 
-    if (index === currentIndex) return 'active';
+    if (index === centerIndex) return 'active';
     if (index === left1) return 'left';
     if (index === left2) return 'far-left';
     if (index === right1) return 'right';
     if (index === right2) return 'far-right';
     return 'hidden';
   };
+
   return (
     <S.Container>
       <S.CarouselContainer
-        fade={fade}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
       >
-        {data.map((img, index) => (
-          <S.Card
-            to="/performance/detail"
-            state={currentSinger}
-            key={index}
-            className={getPosition(index)}
-          >
-            <img src={img.backgroundUrl} alt={`slide-${index}`} />
-          </S.Card>
-        ))}
+        {/* 이전 카드들 (fade-out) */}
+        {fade === 'out' &&
+          prevData.map((img, index) => (
+            <S.Card
+              to="/performance/detail"
+              state={img}
+              key={`prev-${index}`}
+              className={`${getPosition(index, prevCurrentIndex, prevData.length)} fade-out`}
+            >
+              <img src={img.backgroundUrl} alt={`prev-slide-${index}`} />
+            </S.Card>
+          ))}
+
+        {/* 현재 카드들 (fade-in) */}
+        {fade === 'in' &&
+          visibleData.map((img, index) => (
+            <S.Card
+              to="/performance/detail"
+              state={img}
+              key={`current-${index}`}
+              className={`${getPosition(index, currentIndex, visibleData.length)} fade-in`}
+            >
+              <img src={img.backgroundUrl} alt={`slide-${index}`} />
+            </S.Card>
+          ))}
       </S.CarouselContainer>
+
       <S.SingerTimeWrap>
         <S.SingerName fade={textFade}>{currentSinger.singer}</S.SingerName>
         <S.TimeBox>
-          <TimeIcon width={'1.125rem'} height={'1.125rem'} />
+          <TimeIcon width="1.125rem" height="1.125rem" />
           <S.TimeText fade={textFade}>{currentSinger.time}</S.TimeText>
         </S.TimeBox>
         <S.AlertBox>

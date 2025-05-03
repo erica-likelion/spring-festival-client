@@ -23,6 +23,7 @@ const colors = {
   },
   grayScale: {
     white: '#FAFAFA',
+    offwhite: '#F5F5F5',
     gy50: '#F4F4F4',
     gy100: '#E9E9EA',
     gy200: '#D3D4D4',

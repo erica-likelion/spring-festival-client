@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div<{ $width?: string }>`
+export const Container = styled.div<{ $width?: string; $activeStyle?: boolean }>`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -12,12 +12,16 @@ export const Container = styled.div<{ $width?: string }>`
   padding: 0.75rem;
   border-radius: 0.75rem;
   background-color: ${(props) => props.theme.colors.grayScale.black};
-  cursor: pointer;
+  cursor: ${(props) => (props.onClick ? 'pointer' : 'default')};
   overflow: hidden;
 
-  &:active {
-    background-color: ${(props) => props.theme.colors.grayScale.gy900};
-  }
+  ${(props) =>
+    props.$activeStyle &&
+    `
+    &:active {
+      background-color: ${props.theme.colors.grayScale.gy900};
+    }
+  `}
 `;
 
 export const MenuContainer = styled.div<{ $width?: string }>`

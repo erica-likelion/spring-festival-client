@@ -30,6 +30,9 @@ export default function PerformanceDetail() {
 
   useEffect(() => {
     setIsNav(false);
+    return () => {
+      setIsNav(true);
+    };
   }, [setIsNav]);
 
   return (

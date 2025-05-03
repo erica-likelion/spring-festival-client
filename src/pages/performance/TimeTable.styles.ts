@@ -78,7 +78,7 @@ export const TimeBox = styled.div<{ $isActive: boolean; $isEmpty?: boolean }>`
 
 export const Time = styled.p`
   align-self: stretch;
-  width: 23.4375rem;
+  width: 18.75rem;
   height: 4.85rem;
   ${(props) => props.theme.fonts.body.xsmall500};
   color: ${({ theme }) => theme.colors.grayScale.white};

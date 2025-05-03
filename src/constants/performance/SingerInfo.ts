@@ -1,4 +1,5 @@
 import TestImage from '@/assets/images/performance/day1-newjeans.webp';
+import TestImage2 from '@/assets/images/performance/day1-seventeen.webp';
 
 export const performanceData = {
   '1일차': [
@@ -19,7 +20,7 @@ export const performanceData = {
     },
     {
       id: '2',
-      backgroundUrl: TestImage,
+      backgroundUrl: TestImage2,
       singer: '아이브',
       time: '20:00~21:00',
       description:
@@ -81,7 +82,7 @@ export const performanceData = {
   '2일차': [
     {
       id: '6',
-      backgroundUrl: TestImage,
+      backgroundUrl: TestImage2,
       singer: '세븐틴',
       time: '21:00~22:00',
       description:

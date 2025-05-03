@@ -20,6 +20,9 @@ export default function TimeTable() {
   const currentPerformances = singers[selectedDay];
   useEffect(() => {
     setIsNav(false);
+    return () => {
+      setIsNav(true);
+    };
   }, [setIsNav]);
 
   useEffect(() => {
