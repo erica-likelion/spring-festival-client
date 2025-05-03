@@ -12,12 +12,22 @@ const popIn = keyframes`
   }
 `;
 
+const fadeIn = keyframes`
+  from { opacity: 0.7;}
+  to { opacity: 1;}
+`;
+
+const fadeOut = keyframes`
+  from { opacity: 1;}
+  to { opacity: 0.7;}
+`;
+
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
 `;
 
-export const CarouselContainer = styled.div<{ fade: 'in' | 'out' }>`
+export const CarouselContainer = styled.div`
   position: relative;
   height: 19.875rem;
   display: flex;
@@ -25,22 +35,28 @@ export const CarouselContainer = styled.div<{ fade: 'in' | 'out' }>`
   align-items: center;
   perspective: 800px;
   overflow: visible;
-  transition: opacity 0.4s ease;
-  opacity: ${(props) => (props.fade === 'in' ? 1 : 0)};
 `;
 
-export const Card = styled(Link)`
+export const Card = styled(Link)<{ $fadeIn?: boolean }>`
   position: absolute;
   min-width: 14.375rem;
   min-height: 19.875rem;
   flex-shrink: 0;
-  border-radius: 0.5rem;
   transition: all 0.5s ease;
+
+  &.fade-in {
+    animation: ${fadeIn} 0.6s ease forwards;
+  }
+
+  &.fade-out {
+    animation: ${fadeOut} 0.8s ease forwards;
+  }
 
   img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 0.5rem;
   }
 
   &.active {
@@ -75,7 +91,7 @@ export const Card = styled(Link)`
 
   &.hidden {
     opacity: 0;
-    z-index: 1;
+    z-index: 0;
     pointer-events: none;
   }
 `;
