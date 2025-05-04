@@ -6,8 +6,8 @@ export const lostItemsByDay: Record<DayType, LostItem[]> = {
     {
       id: 1,
       imageUrl: defaultImage,
-      name: '아이패드 케이스',
-      location: '운영 부스',
+      name: '아이패드 케이스케이스',
+      location: '운영 부스부스부스부스',
       isDeliveredToStaff: true,
     },
     {

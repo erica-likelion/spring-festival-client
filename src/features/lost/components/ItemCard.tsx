@@ -6,6 +6,12 @@ type ItemCardProps = {
   item: LostItem;
 };
 
+/**
+ * 분실물 카드 컴포넌트
+ * @param item Lostitem
+ * @returns {JSX.Element}
+ */
+
 export default function ItemCard({ item }: ItemCardProps) {
   return (
     <S.Card>

@@ -5,6 +5,11 @@ import { ItemList } from '@/features/lost';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
 
+/**
+ * 분실물 페이지
+ * @returns {JSX.Element}
+ */
+
 export default function Lost() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
   useEffect(() => {

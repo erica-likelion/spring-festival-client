@@ -2,6 +2,12 @@ import { useState } from 'react';
 import * as S from './ModalPost.styles';
 import UnCheckIcon from '@/assets/icons/check_gy400.svg?react';
 import CheckIcon from '@/assets/icons/check_black.svg?react';
+
+/**
+ * Modal_Post 컴포넌트
+ * @returns {JSX.Element}
+ */
+
 export default function ModalPost() {
   const [checked, setChecked] = useState([false, false, false]);
 

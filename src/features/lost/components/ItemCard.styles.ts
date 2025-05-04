@@ -5,6 +5,7 @@ export const Card = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 0.25rem;
+  width: 6.625rem;
 `;
 
 export const ImageBox = styled.div<{ $imageUrl: string }>`
@@ -29,21 +30,27 @@ export const StaffLabel = styled.div`
   border-radius: 0.375rem;
   background-color: ${({ theme }) => theme.colors.grayScale.gy950};
 `;
+
 export const LabelText = styled.div`
   ${(props) => props.theme.fonts.body.xsmall400};
   color: ${({ theme }) => theme.colors.grayScale.white};
 `;
+
 export const ItemInfoBox = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.125rem;
+  width: 6.625rem;
 `;
 
 export const ItemName = styled.div`
   ${(props) => props.theme.fonts.body.small500};
   color: ${({ theme }) => theme.colors.grayScale.gy100};
   align-self: stretch;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const LocationBox = styled.div`
@@ -56,4 +63,7 @@ export const LocationBox = styled.div`
 export const LocationText = styled.div`
   ${(props) => props.theme.fonts.body.xsmall500};
   color: ${({ theme }) => theme.colors.grayScale.gy500};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;

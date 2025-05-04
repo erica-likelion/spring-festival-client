@@ -7,17 +7,22 @@ import { DayType } from '@/features/lost/components/ItemList.types';
 import { ItemCard, ModalNotification } from '@/features/lost';
 import useModal from '@/hooks/useModal';
 
+/**
+ * 분실물 목록 컴포넌트
+ * @returns {JSX.Element}
+ */
+
 export default function ItemList() {
   const [selectedDay, setSelectedDay] = useState<DayType>('1일차');
   const [opacity, setOpacity] = useState(1);
   const { open } = useModal(ModalNotification);
 
   const handleTabChange = (tab: string) => {
-    setOpacity(0.4); // 살짝만 흐리게
+    setOpacity(0.4);
     setTimeout(() => {
-      setSelectedDay(tab as DayType); // 데이터 바꾸고
-      setOpacity(1); // 다시 또렷하게
-    }, 150); // transition 시간보다 약간 짧게
+      setSelectedDay(tab as DayType);
+      setOpacity(1);
+    }, 150);
   };
 
   const handleHelpClick = () => {

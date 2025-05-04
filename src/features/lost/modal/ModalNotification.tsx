@@ -1,5 +1,10 @@
 import * as S from './ModalNotification.styles';
 
+/**
+ * Modal_Notification 컴포넌트
+ * @returns {JSX.Element}
+ */
+
 export default function ModalNotification() {
   return (
     <S.ModalContainer>
