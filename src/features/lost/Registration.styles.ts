@@ -19,6 +19,11 @@ export const Button = styled.button`
   border-radius: 0.75rem;
   border: none;
   background-color: ${(props) => props.theme.colors.grayScale.gy950};
+  cursor: pointer;
+
+  &:active {
+    background-color: ${(props) => props.theme.colors.grayScale.gy900};
+  }
 `;
 
 export const IconTextWrap = styled.div`

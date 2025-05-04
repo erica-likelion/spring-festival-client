@@ -1,10 +1,24 @@
+import useModal from '@/hooks/useModal';
 import * as S from './Registration.styles';
 import PlusIcon from '@/assets/icons/plus_white.svg?react';
+import ModalPost from './ModalPost';
 
 export default function Registration() {
+  const { open } = useModal(ModalPost);
+
+  const handleAddClick = () => {
+    open(
+      {
+        title: '분실물 등록 숙지 사항',
+      },
+      {
+        isHelpIcon: true,
+      },
+    );
+  };
   return (
     <S.Container>
-      <S.Button>
+      <S.Button onClick={() => handleAddClick()}>
         <S.IconTextWrap>
           <S.Icon>
             <PlusIcon width={'1.5rem'} height={'1.5rem'} />
