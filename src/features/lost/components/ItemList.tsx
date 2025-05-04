@@ -9,7 +9,16 @@ import useModal from '@/hooks/useModal';
 
 export default function ItemList() {
   const [selectedDay, setSelectedDay] = useState<DayType>('1일차');
+  const [opacity, setOpacity] = useState(1);
   const { open } = useModal(ModalNotification);
+
+  const handleTabChange = (tab: string) => {
+    setOpacity(0.4); // 살짝만 흐리게
+    setTimeout(() => {
+      setSelectedDay(tab as DayType); // 데이터 바꾸고
+      setOpacity(1); // 다시 또렷하게
+    }, 150); // transition 시간보다 약간 짧게
+  };
 
   const handleHelpClick = () => {
     open(
@@ -21,6 +30,7 @@ export default function ItemList() {
       },
     );
   };
+
   return (
     <S.Container>
       <S.TitleWrap>
@@ -32,11 +42,16 @@ export default function ItemList() {
           <Tabs
             tabs={['1일차', '2일차', '3일차']}
             activeTab={selectedDay}
-            onTabClick={(tab) => setSelectedDay(tab as DayType)}
+            onTabClick={handleTabChange}
           />
-          <HelpIcon width={'1.125rem'} height={'1.125rem'} onClick={() => handleHelpClick()} />
+          <HelpIcon
+            width={'1.125rem'}
+            height={'1.125rem'}
+            onClick={() => handleHelpClick()}
+            style={{ cursor: 'pointer' }}
+          />
         </S.TabIconBox>
-        <S.Grid>
+        <S.Grid style={{ opacity }}>
           {lostItemsByDay[selectedDay].map((item) => (
             <ItemCard key={item.id} item={item} />
           ))}

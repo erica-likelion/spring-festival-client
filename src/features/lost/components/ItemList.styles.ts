@@ -53,4 +53,5 @@ export const Grid = styled.div`
   gap: 1rem 0.5rem;
   align-self: stretch;
   flex-wrap: wrap;
+  transition: opacity 0.4s ease;
 `;
