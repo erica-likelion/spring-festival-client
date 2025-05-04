@@ -1,5 +1,6 @@
 import { NavBar } from '@/components/nav-bar';
-import Registration from '@/features/lost/Registration';
+import { Registration } from '@/features/lost';
+import { ItemList } from '@/features/lost';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
 
@@ -17,7 +18,7 @@ export default function Lost() {
       <NavBar isBack={true} title="분실물 신고하기" isSearch={true} />
       <div>
         <Registration />
-        {/* 분실물 목록 컴포넌트 */}
+        <ItemList />
       </div>
     </div>
   );
