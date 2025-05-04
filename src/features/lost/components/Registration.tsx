@@ -1,7 +1,7 @@
 import useModal from '@/hooks/useModal';
 import * as S from './Registration.styles';
 import PlusIcon from '@/assets/icons/plus_white.svg?react';
-import ModalPost from './ModalPost';
+import ModalPost from '../modal/ModalPost';
 
 export default function Registration() {
   const { open } = useModal(ModalPost);

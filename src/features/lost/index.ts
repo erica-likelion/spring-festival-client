@@ -1,5 +1,5 @@
-export { default as ItemList } from './ItemList';
-export { default as Registration } from './Registration';
-export { default as ItemCard } from './ItemCard';
-export { default as ModalNotification } from './ModalNotification';
-export { default as ModalPost } from './ModalPost';
+export { default as ItemList } from './components/ItemList';
+export { default as Registration } from './components/Registration';
+export { default as ItemCard } from './components/ItemCard';
+export { default as ModalNotification } from './modal/ModalNotification';
+export { default as ModalPost } from './modal/ModalPost';

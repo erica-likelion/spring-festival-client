@@ -3,7 +3,7 @@ import * as S from './ItemList.styles';
 import { useState } from 'react';
 import HelpIcon from '@/assets/icons/help_gy600.svg?react';
 import { lostItemsByDay } from '@/constants/lost/LostItems';
-import { DayType } from '@/features/lost/ItemList.types';
+import { DayType } from '@/features/lost/components/ItemList.types';
 import { ItemCard, ModalNotification } from '@/features/lost';
 import useModal from '@/hooks/useModal';
 
