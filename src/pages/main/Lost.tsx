@@ -1,3 +1,4 @@
+import * as S from './Lost.styles';
 import { NavBar } from '@/components/nav-bar';
 import { Registration } from '@/features/lost';
 import { ItemList } from '@/features/lost';
@@ -14,12 +15,12 @@ export default function Lost() {
   }, [setIsNav]);
 
   return (
-    <div>
+    <S.Container>
       <NavBar isBack={true} title="분실물 신고하기" isSearch={true} />
-      <div>
+      <S.Content>
         <Registration />
         <ItemList />
-      </div>
-    </div>
+      </S.Content>
+    </S.Container>
   );
 }

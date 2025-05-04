@@ -4,10 +4,23 @@ import { useState } from 'react';
 import HelpIcon from '@/assets/icons/help_gy600.svg?react';
 import { lostItemsByDay } from '@/constants/lost/LostItems';
 import { DayType } from '@/features/lost/ItemList.types';
-import { ItemCard } from '@/features/lost';
+import { ItemCard, ModalNotification } from '@/features/lost';
+import useModal from '@/hooks/useModal';
 
 export default function ItemList() {
   const [selectedDay, setSelectedDay] = useState<DayType>('1일차');
+  const { open } = useModal(ModalNotification);
+
+  const handleHelpClick = () => {
+    open(
+      {
+        title: '분실물 전달 상태',
+      },
+      {
+        isHelpIcon: true,
+      },
+    );
+  };
   return (
     <S.Container>
       <S.TitleWrap>
@@ -21,7 +34,7 @@ export default function ItemList() {
             activeTab={selectedDay}
             onTabClick={(tab) => setSelectedDay(tab as DayType)}
           />
-          <HelpIcon width={'1.125rem'} height={'1.125rem'} />
+          <HelpIcon width={'1.125rem'} height={'1.125rem'} onClick={() => handleHelpClick()} />
         </S.TabIconBox>
         <S.Grid>
           {lostItemsByDay[selectedDay].map((item) => (
