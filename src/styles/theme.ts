@@ -20,6 +20,8 @@ const colors = {
   secondary: {
     pk200: '#FBA7FD',
     ye200: '#F9F79F',
+    rd500: '#F55353',
+    gr500: '#45E02A',
   },
   grayScale: {
     white: '#FAFAFA',
