@@ -1,14 +1,20 @@
-import * as S from './Card.styles';
+import * as S from './EventCard.styles';
 import Sun from '@/assets/icons/pixel_sun.svg?react';
 import Moon from '@/assets/icons/pixel_moon.svg?react';
 import Clock from '@/assets/icons/clock_b.svg?react';
 import Location from '@/assets/icons/geopoint_b.svg?react';
-import { CardProps } from './Card.types';
+import { CardProps } from './EventCard.types';
 import Progress from './Progress';
 import { ColorButton } from '@/components/colorbuttons';
 import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
 
-export default function Card({ isSun = true, startTime, endTime, title, tags = [] }: CardProps) {
+export default function EventCard({
+  isSun = true,
+  startTime,
+  endTime,
+  title,
+  tags = [],
+}: CardProps) {
   return (
     <S.Container>
       <S.HeaderSection>

@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import Card from '../Card';
 import { MainEventData } from '@/constants/main/MainEvent';
-import * as S from './Carousels.styles';
-import { sliderTransition, sliderVariants } from './CarouselsMotion';
+import * as S from './EventCarousels.styles';
+import { sliderTransition, sliderVariants } from './EventCarouselsMotion';
 import { Indicator } from '@/components/indicator';
 import Cursor from '@/assets/icons/cursor.svg?react';
+import { EventCard } from '../cards';
 /**
  * Carousels 컴포넌트
  * - MainEventData를 기반으로 UI를 렌더링
@@ -15,7 +15,7 @@ import Cursor from '@/assets/icons/cursor.svg?react';
  * - getVariant: 각 카드의 애니메이션 상태
  */
 
-export default function Carousel() {
+export default function EventCarousels() {
   const [[index, direction], setIndex] = useState<[number, number]>([0, 0]);
 
   /**
@@ -93,7 +93,7 @@ export default function Carousel() {
                   onDragEnd={variant === 'active' ? handleDragEnd : undefined}
                   isHidden={variant === 'hidden'}
                 >
-                  <Card {...card} />
+                  <EventCard {...card} />
                 </S.MotionCard>
               );
             })}

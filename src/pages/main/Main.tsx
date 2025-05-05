@@ -1,6 +1,6 @@
 import { NavBar } from '@/components/nav-bar';
 import * as S from './Main.styles';
-import Carousels from '@/features/main/components/carousels/Carousels';
+import { EventCarousels } from '@/features/main/components/carousels';
 
 export default function Main() {
   return (
@@ -9,7 +9,7 @@ export default function Main() {
       <S.Main>
         <S.Title>진행중인 이벤트</S.Title>
         <S.CarouselsBox>
-          <Carousels />
+          <EventCarousels />
         </S.CarouselsBox>
       </S.Main>
     </>
