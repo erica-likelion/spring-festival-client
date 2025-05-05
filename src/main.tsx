@@ -13,6 +13,7 @@ import {
   User,
   TimeTable,
   PerformanceDetail,
+  Notice,
 } from '@/pages';
 import Layout from '@/layout';
 
@@ -31,6 +32,10 @@ const routes = createBrowserRouter([
       {
         path: 'main',
         element: <Main />,
+      },
+      {
+        path: 'main/notice',
+        element: <Notice />,
       },
       {
         path: 'login',
