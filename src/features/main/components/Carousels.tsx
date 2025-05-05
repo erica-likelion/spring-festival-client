@@ -13,14 +13,16 @@ const sliderVariants = {
   }),
   active: {
     x: 0,
+    y: 0,
     scale: 1,
     opacity: 1,
-    position: 'relative' as const,
+    position: 'absolute' as const,
     zIndex: 5,
   },
   next1: {
     x: 8,
     y: 8,
+    opacity: 0.8,
     position: 'absolute' as const,
     zIndex: 4,
   },
@@ -39,6 +41,7 @@ const sliderVariants = {
     zIndex: 2,
   },
   hidden: {
+    x: '-400%',
     opacity: 0,
     display: 'none',
   },
@@ -48,6 +51,27 @@ const sliderVariants = {
     scale: 0.9,
     position: 'absolute' as const,
   }),
+  prev1: {
+    x: -800,
+    y: 8,
+    opacity: 0.8,
+    position: 'absolute' as const,
+    zIndex: 4,
+  },
+  prev2: {
+    x: -800,
+    y: 16,
+    opacity: 0.3,
+    position: 'absolute' as const,
+    zIndex: 3,
+  },
+  prev3: {
+    x: -800,
+    y: 24,
+    opacity: 0.1,
+    position: 'absolute' as const,
+    zIndex: 2,
+  },
 };
 
 const sliderTransition = {
@@ -74,17 +98,23 @@ export default function CardDeckCarousel() {
     info: { offset: { x: number } },
   ) => {
     const swipe = info.offset.x;
-    if (swipe > 50) swipeTo(-1);
-    else if (swipe < -50) swipeTo(1);
+    const max = MainEventData.length - 1;
+
+    if (swipe > 50 && index > 0) swipeTo(-1);
+    else if (swipe < -50 && index < max) swipeTo(1);
   };
 
   const getVariant = (i: number) => {
-    const relative = (i - index + MainEventData.length) % MainEventData.length;
+    const relative = i - index;
 
     if (relative === 0) return 'active';
     if (relative === 1) return 'next1';
     if (relative === 2) return 'next2';
     if (relative === 3) return 'next3';
+
+    if (relative === -1) return 'prev1';
+    if (relative === -2) return 'prev2';
+    if (relative === -3) return 'prev3';
 
     return 'hidden';
   };
@@ -93,27 +123,27 @@ export default function CardDeckCarousel() {
     <S.Wrapper>
       <S.CardWrap>
         <AnimatePresence initial={false} custom={direction}>
-          {[...MainEventData]
-            .map((card, i) => ({ card, index: i, variant: getVariant(i) }))
-            .filter(({ variant }) => variant !== null)
-            .reverse()
-            .map(({ card, index: realIndex, variant }) => (
+          {MainEventData.map((card, i) => {
+            const variant = getVariant(i);
+            return (
               <S.MotionCard
-                key={realIndex === index ? index : `stack-${realIndex}`}
+                key={i}
                 custom={direction}
                 variants={sliderVariants}
-                initial={variant === 'active' ? 'incoming' : variant || undefined}
-                animate={variant || undefined}
-                exit={variant === 'active' ? 'exit' : undefined}
+                initial={variant === 'active' ? 'incoming' : false}
+                animate={variant || 'hidden'}
                 transition={sliderTransition}
-                drag={variant === 'active' ? 'x' : false}
+                drag={
+                  index === MainEventData.length - 1 ? false : variant === 'active' ? 'x' : false
+                }
                 dragConstraints={{ left: 0, right: 0 }}
                 onDragEnd={variant === 'active' ? handleDragEnd : undefined}
                 isHidden={variant === 'hidden'}
               >
                 <Card {...card} />
               </S.MotionCard>
-            ))}
+            );
+          })}
         </AnimatePresence>
       </S.CardWrap>
     </S.Wrapper>

@@ -6,6 +6,7 @@ import Location from '@/assets/icons/geopoint_b.svg?react';
 import { CardProps } from './Card.types';
 import Progress from './Progress';
 import { ColorButton } from '@/components/colorbuttons';
+import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
 
 export default function Card({ isSun = true, startTime, endTime, title, tags = [] }: CardProps) {
   return (
@@ -13,7 +14,7 @@ export default function Card({ isSun = true, startTime, endTime, title, tags = [
       <S.HeaderSection>
         <S.TagWrapper>
           {tags.map((tag, index) => (
-            <ColorButton key={index} backgroundColor={tag.color} label={tag.text} />
+            <ColorButton key={index} backgroundColor={tag.color as ColorKey} label={tag.text} />
           ))}
         </S.TagWrapper>
 

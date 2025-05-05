@@ -13,6 +13,7 @@ export const Title = styled.div`
 export const CarouselsBox = styled.div`
   display: flex;
   justify-content: center;
-  padding: 1rem 0 2rem;
+  margin: 1rem 0 0.2rem;
+  padding-bottom: 2rem;
   overflow: hidden;
 `;

@@ -9,7 +9,7 @@ export default function Main() {
       <S.Main>
         <S.Title>진행중인 이벤트</S.Title>
         <S.CarouselsBox>
-          <Carousels></Carousels>
+          <Carousels />
         </S.CarouselsBox>
       </S.Main>
     </>
