@@ -1,6 +1,6 @@
 import { NavBar } from '@/components/nav-bar';
 import * as S from './Main.styles';
-import Carousels from '@/features/main/components/Carousels';
+import Carousels from '@/features/main/components/carousels/Carousels';
 
 export default function Main() {
   return (
