@@ -10,6 +10,12 @@ import { ColorButton } from '@/components/colorbuttons';
 import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
 import ReactMarkdown from 'react-markdown';
 
+/**
+ * 공지사항 상세 페이지
+ * @returns {JSX.Element}
+ *
+ */
+
 export default function NoticeDetail() {
   const { id } = useParams<{ id: string }>();
   const notice = NoticeData.find((item) => item.id === Number(id));
