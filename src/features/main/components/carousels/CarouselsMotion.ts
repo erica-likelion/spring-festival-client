@@ -48,7 +48,7 @@ export const sliderVariants = {
   exit: (direction: number) => ({
     x: direction > 0 ? '-100%' : '100%',
     opacity: 0,
-    scale: 0.9,
+    scale: 1.3,
     position: 'absolute' as const,
   }),
   prev1: {
@@ -79,5 +79,5 @@ export const sliderVariants = {
  */
 export const sliderTransition = {
   duration: 0.5,
-  ease: [0.56, 0.03, 0.12, 1.04],
+  ease: [0.45, 0, 0.55, 1],
 };
