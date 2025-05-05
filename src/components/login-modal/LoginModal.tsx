@@ -1,6 +1,6 @@
 import React from 'react';
 import { LoginModalProps } from './LoginModal.types';
-// import BlueButton from '@/components/BlueButton';
+import { BlueButton } from '@/components/bluebuttons';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -39,7 +39,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
           지금 로그인하고 주점 웨이팅, 분실물 등록 <br />
           기능들을 모두 이용해보세요!
         </Description2>
-        <button onClick={handleLoginClick}>로그인 하러가기</button>
+        <BlueButton label={'로그인 하러가기'} onClick={handleLoginClick} />
         <SubText onClick={onClose}>불편해도 그냥 이용하기</SubText>
       </ModalBox>
     </Overlay>,
