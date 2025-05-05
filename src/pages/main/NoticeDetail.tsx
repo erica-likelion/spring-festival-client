@@ -5,6 +5,7 @@ import * as S from './NoticeDetail.styles';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLayoutStore } from '@/stores/useLayoutStore';
+import { Indicator } from '@/components/indicator';
 
 export default function NoticeDetail() {
   const { id } = useParams<{ id: string }>();
@@ -63,6 +64,7 @@ export default function NoticeDetail() {
             />
           </AnimatePresence>
         </S.Carousel>
+        <Indicator currentPage={currentPage} totalPages={notice.img.length} />
         <S.Main>
           <S.Title>{notice.title}</S.Title>
           <S.Body>{notice.body}</S.Body>

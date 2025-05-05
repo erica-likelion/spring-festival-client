@@ -12,11 +12,12 @@ export const Carousel = styled.div`
   width: 100%;
   height: 29.19rem;
   overflow: hidden;
+  margin-bottom: 0.75rem;
 `;
 
 export const Title = styled.h1`
   ${(props) => props.theme.fonts.header.h3}
-  margin-top: 1rem;
+  margin-top: 1.78rem;
   text-align: start;
 `;
 
