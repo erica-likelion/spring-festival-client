@@ -8,7 +8,9 @@ export default function Main() {
       <NavBar />
       <S.Main>
         <S.Title>진행중인 이벤트</S.Title>
-        <Carousels></Carousels>
+        <S.CarouselsBox>
+          <Carousels></Carousels>
+        </S.CarouselsBox>
       </S.Main>
     </>
   );
