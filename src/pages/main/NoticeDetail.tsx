@@ -76,7 +76,17 @@ export default function NoticeDetail() {
             ))}
           </S.TagWrapper>
           <S.Body>
-            <ReactMarkdown>{notice.body}</ReactMarkdown>
+            <ReactMarkdown
+              components={{
+                a: ({ href, children }) => (
+                  <S.CustomLink href={href} target="_blank" rel="noopener noreferrer">
+                    {children}
+                  </S.CustomLink>
+                ),
+              }}
+            >
+              {notice.body}
+            </ReactMarkdown>
           </S.Body>
         </S.Main>
       </S.Container>

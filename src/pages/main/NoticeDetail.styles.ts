@@ -23,6 +23,7 @@ export const Title = styled.h1`
 export const Body = styled.p`
   ${(props) => props.theme.fonts.body.xsmall400}
   text-align: start;
+  white-space: pre-wrap;
 `;
 
 export const Main = styled.main`
@@ -35,4 +36,9 @@ export const TagWrapper = styled.div`
   align-items: center;
   gap: 0.5rem;
   margin: 0.75rem 0 1.5rem;
+`;
+
+export const CustomLink = styled.a`
+  color: ${(props) => props.theme.colors.grayScale.white};
+  text-decoration: underline;
 `;
