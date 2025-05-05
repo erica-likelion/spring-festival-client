@@ -2,10 +2,23 @@ import { useParams } from 'react-router-dom';
 import { NoticeData } from '@/constants/main/Notice';
 import { NavBar } from '@/components/nav-bar';
 import * as S from './NoticeDetail.styles';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useLayoutStore } from '@/stores/useLayoutStore';
 
 export default function NoticeDetail() {
   const { id } = useParams<{ id: string }>();
   const notice = NoticeData.find((item) => item.id === Number(id));
+  const [currentPage, setCurrentPage] = useState(0);
+  const [direction, setDirection] = useState(0);
+  const setIsNav = useLayoutStore((state) => state.setIsNav);
+
+  useEffect(() => {
+    setIsNav(false);
+    return () => {
+      setIsNav(true);
+    };
+  }, [setIsNav]);
 
   if (!notice) {
     return (
@@ -16,13 +29,44 @@ export default function NoticeDetail() {
     );
   }
 
+  const handleDragEnd = (_: never, info: { offset: { x: number } }) => {
+    if (info.offset.x > 80) {
+      setDirection(-1);
+      setCurrentPage((prev) => (prev - 1 + notice.img.length) % notice.img.length);
+    } else if (info.offset.x < -80) {
+      setDirection(1);
+      setCurrentPage((prev) => (prev + 1) % notice.img.length);
+    }
+  };
+
   return (
     <>
       <NavBar title="공지사항" isBack={true} />
       <S.Container>
-        <S.Image src={notice.img} alt="" />
-        <S.Title>{notice.title}</S.Title>
-        <S.Body>{notice.body}</S.Body>
+        <S.Carousel>
+          <AnimatePresence initial={false} mode="wait">
+            <motion.img
+              key={currentPage}
+              src={notice.img[currentPage]}
+              alt={`Notice Image ${currentPage + 1}`}
+              initial={{ x: direction === 1 ? 100 : -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: direction === 1 ? -100 : 100, opacity: 0 }}
+              transition={{
+                x: { type: 'spring', stiffness: 300, damping: 30 },
+                opacity: { duration: 0.2 },
+              }}
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              onDragEnd={handleDragEnd}
+              style={{ width: '100%', height: 'auto', objectFit: 'cover' }}
+            />
+          </AnimatePresence>
+        </S.Carousel>
+        <S.Main>
+          <S.Title>{notice.title}</S.Title>
+          <S.Body>{notice.body}</S.Body>
+        </S.Main>
       </S.Container>
     </>
   );

@@ -28,7 +28,7 @@ export default function Notice() {
         <S.Flex>
           {NoticeData.map((notice) => (
             <S.NoticeBox key={`notice-${notice.id}`} onClick={() => handleDetail(notice.id)}>
-              <NoticeText image={notice.img} title={notice.title} body={notice.body} />
+              <NoticeText image={notice.img[0]} title={notice.title} body={notice.body} />
               <S.HorizontalLine>
                 <S.Line />
               </S.HorizontalLine>
