@@ -4,6 +4,9 @@ export type LostItem = {
   name: string;
   location: string;
   isDeliveredToStaff: boolean;
+  description: string;
+  day: DayType;
+  time: string;
 };
 
 export type DayType = '1일차' | '2일차' | '3일차';
