@@ -1,11 +1,21 @@
-import { NavBar } from '@/components/nav-bar';
 import * as S from './NoticeText.styles';
 
-export default function Notice() {
+interface NoticeTextProps {
+  image: string;
+  title: string;
+  body: string;
+}
+
+export default function NoticeText({ image, title, body }: NoticeTextProps) {
   return (
     <>
-      <NavBar title="공지사항" isBack={true} />
-      <S.Container></S.Container>
+      <S.Container>
+        <S.Image src={image} alt="notice" />
+        <S.TextWrapper>
+          <S.Title>{title}</S.Title>
+          <S.body>{body}</S.body>
+        </S.TextWrapper>
+      </S.Container>
     </>
   );
 }
