@@ -11,5 +11,6 @@ export const StyledKakaoButton = styled.button`
   background: #ffec00;
   box-shadow: 0px 0px 12px 0px rgb(30 30 30 / 32%);
   color: #3c1e1e;
+  border: none;
   ${(props) => props.theme.fonts.header.h4};
 `;
