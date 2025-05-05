@@ -17,7 +17,6 @@ export const Carousel = styled.div`
 
 export const Title = styled.h1`
   ${(props) => props.theme.fonts.header.h3}
-  margin-top: 1.78rem;
   text-align: start;
 `;
 
@@ -27,7 +26,8 @@ export const Body = styled.p`
 `;
 
 export const Main = styled.main`
-  padding: 0 1.25rem 4.35rem;
+  padding: 1.78rem 1.25rem 4.35rem;
+  width: 100%;
 `;
 
 export const TagWrapper = styled.div`

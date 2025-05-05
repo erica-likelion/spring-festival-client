@@ -8,6 +8,7 @@ import { useLayoutStore } from '@/stores/useLayoutStore';
 import { Indicator } from '@/components/indicator';
 import { ColorButton } from '@/components/colorbuttons';
 import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
+import ReactMarkdown from 'react-markdown';
 
 export default function NoticeDetail() {
   const { id } = useParams<{ id: string }>();
@@ -56,7 +57,7 @@ export default function NoticeDetail() {
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: direction === 1 ? -100 : 100, opacity: 0 }}
               transition={{
-                x: { type: 'spring', stiffness: 300, damping: 30 },
+                x: { type: 'tween', duration: 0.3, ease: 'easeInOut' },
                 opacity: { duration: 0.2 },
               }}
               drag="x"
@@ -74,8 +75,9 @@ export default function NoticeDetail() {
               <ColorButton key={index} backgroundColor={tag.color as ColorKey} label={tag.text} />
             ))}
           </S.TagWrapper>
-
-          <S.Body>{notice.body}</S.Body>
+          <S.Body>
+            <ReactMarkdown>{notice.body}</ReactMarkdown>
+          </S.Body>
         </S.Main>
       </S.Container>
     </>
