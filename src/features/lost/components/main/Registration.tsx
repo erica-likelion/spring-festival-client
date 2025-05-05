@@ -1,7 +1,7 @@
 import useModal from '@/hooks/useModal';
 import * as S from './Registration.styles';
 import PlusIcon from '@/assets/icons/plus_white.svg?react';
-import ModalPost from '../modal/ModalPost';
+import ModalPost from '../../modal/ModalPost';
 
 /**
  * 분실물 등록 컴포넌트

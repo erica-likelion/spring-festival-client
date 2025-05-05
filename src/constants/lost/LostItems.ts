@@ -1,4 +1,4 @@
-import { LostItem, DayType } from '@/features/lost/components/ItemList.types';
+import { LostItem, DayType } from '@/features/lost/components/main/ItemList.types';
 import defaultImage from '@/assets/images/performance/day1-newjeans.webp';
 
 export const lostItemsByDay: Record<DayType, LostItem[]> = {

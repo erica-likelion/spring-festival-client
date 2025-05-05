@@ -1,4 +1,4 @@
-import StaffLabel from '../components/StaffLabel';
+import StaffLabel from '../components/main/StaffLabel';
 import * as S from './ModalNotification.styles';
 
 /**
