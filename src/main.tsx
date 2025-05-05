@@ -13,6 +13,7 @@ import {
   User,
   TimeTable,
   PerformanceDetail,
+  LostSearch,
 } from '@/pages';
 import Layout from '@/layout';
 
@@ -31,6 +32,10 @@ const routes = createBrowserRouter([
       {
         path: 'main',
         element: <Main />,
+      },
+      {
+        path: 'main/lost/search',
+        element: <LostSearch />,
       },
       {
         path: 'login',
