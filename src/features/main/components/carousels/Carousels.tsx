@@ -4,7 +4,8 @@ import Card from '../Card';
 import { MainEventData } from '@/constants/main/MainEvent';
 import * as S from './Carousels.styles';
 import { sliderTransition, sliderVariants } from './CarouselsMotion';
-
+import { Indicator } from '@/components/indicator';
+import Cursor from '@/assets/icons/cursor.svg?react';
 /**
  * Carousels 컴포넌트
  * - MainEventData를 기반으로 UI를 렌더링
@@ -98,6 +99,10 @@ export default function Carousel() {
             })}
         </AnimatePresence>
       </S.CardWrap>
+      <S.CursorBox>
+        <Cursor width={'12.625rem'} height={'3.72063rem'} />
+      </S.CursorBox>
+      <Indicator currentPage={index} totalPages={MainEventData.length} />
     </S.Wrapper>
   );
 }

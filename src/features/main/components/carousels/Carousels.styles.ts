@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
 `;
 
 export const CardWrap = styled.div`
@@ -22,4 +21,13 @@ export const MotionCard = styled(motion.div)<{ isHidden: boolean }>`
   display: ${(props) => (props.isHidden ? 'none' : 'block')};
   will-change: transform;
   cursor: ${(props) => (props.isHidden ? 'default' : 'pointer')};
+`;
+
+export const CursorBox = styled.div`
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 3rem;
+  margin-bottom: 0.88rem;
 `;
