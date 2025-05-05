@@ -1,6 +1,6 @@
 import LoginButton from '@/pages/login/LoginButton';
 import React, { useEffect } from 'react';
-import { Container, NotLoginText, ContentWrapper, TextWrapper, Wrapper } from './Login.style';
+import { Container, NotLoginText, ContentWrapper, TextWrapper, Wrapper } from './login.style';
 import HyLightXLikeLion from '@/assets/images/hylight-likelion.svg?react';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useNavigate } from 'react-router-dom';
