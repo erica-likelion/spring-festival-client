@@ -15,6 +15,23 @@ import {
 
 import Close from '@/assets/icons/close.svg?react';
 
+/**
+ * 로그인 모달 컴포넌트입니다.
+ *
+ * 사용자가 로그인하지 않은 상태에서 기능을 사용하려 할 때 노출되며,
+ * 카카오톡 로그인 유도 및 기능 설명, 로그인 없이도 이용 가능한 선택지를 제공합니다.
+ *
+ * @component
+ * @param {LoginModalProps} props - 모달 표시 여부 및 닫기 함수 props
+ * @param {boolean} props.isOpen - 모달이 열려 있는지 여부
+ * @param {() => void} props.onClose - 모달 닫기 시 실행되는 함수
+ *
+ * @example
+ * <LoginModal isOpen={true} onClose={() => setOpen(false)} />
+ *
+ * @returns {JSX.Element | null} 로그인 모달 엘리먼트 또는 null
+ */
+
 const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   const navigate = useNavigate();
 
