@@ -44,7 +44,7 @@ export const TextContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.25rem;
+  gap: 0.5rem;
   align-self: stretch;
   color: ${(props) => props.theme.colors.grayScale.gy950};
   padding: 0.5rem 0 1.25rem;
@@ -54,7 +54,7 @@ export const TextWrapper = styled.div`
   ${(props) => props.theme.fonts.header.h3}
   display: flex;
   text-align: center;
-  gap: 0.375rem;
+  gap: 0.25rem;
 `;
 
 export const EventText = styled.div`
