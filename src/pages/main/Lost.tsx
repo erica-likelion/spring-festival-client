@@ -4,6 +4,7 @@ import { Registration } from '@/features/lost';
 import { ItemList } from '@/features/lost';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * 분실물 페이지
@@ -11,7 +12,9 @@ import { useEffect } from 'react';
  */
 
 export default function Lost() {
+  const navigate = useNavigate();
   const setIsNav = useLayoutStore((state) => state.setIsNav);
+
   useEffect(() => {
     setIsNav(false);
     return () => {
@@ -21,7 +24,12 @@ export default function Lost() {
 
   return (
     <S.Container>
-      <NavBar isBack={true} title="분실물 신고하기" isSearch={true} />
+      <NavBar
+        isBack={true}
+        title="분실물 신고하기"
+        isSearch={true}
+        onSearchClick={() => navigate('/main/lost/search')}
+      />
       <S.Content>
         <Registration />
         <ItemList />

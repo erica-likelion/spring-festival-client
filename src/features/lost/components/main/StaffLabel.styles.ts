@@ -1,12 +1,8 @@
 import styled from 'styled-components';
 
-interface StaffLabelProps {
-  absolute?: boolean;
-}
-
-export const StaffLabel = styled.div<StaffLabelProps>`
-  ${({ absolute }) =>
-    absolute &&
+export const StaffLabel = styled.div<{ $absolute?: boolean }>`
+  ${({ $absolute }) =>
+    $absolute &&
     `
     position: absolute;
     bottom: 0.37rem;

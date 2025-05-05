@@ -41,7 +41,15 @@ export default function ModalPost() {
           </S.TextBox>
         ))}
       </S.TextWrap>
-      <S.Button disabled={!allChecked} $active={allChecked}>
+      <S.Button
+        disabled={!allChecked}
+        $active={allChecked}
+        onClick={() => {
+          if (allChecked) {
+            window.location.href = '/main/lost/upload';
+          }
+        }}
+      >
         <S.ButtonText>등록하러 가기</S.ButtonText>
       </S.Button>
     </S.ModalContainer>

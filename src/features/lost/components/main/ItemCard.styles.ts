@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
