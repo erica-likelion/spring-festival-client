@@ -5,22 +5,15 @@ import Clock from '@/assets/icons/clock_b.svg?react';
 import Location from '@/assets/icons/geopoint_b.svg?react';
 import { CardProps } from './Card.types';
 import Progress from './Progress';
+import { ColorButton } from '@/components/colorbuttons';
 
-export default function Card({
-  isSun = true,
-  startTime = '00:00',
-  endTime = '01:30',
-  title,
-  tags = [],
-}: CardProps) {
+export default function Card({ isSun = true, startTime, endTime, title, tags = [] }: CardProps) {
   return (
     <S.Container>
       <S.HeaderSection>
         <S.TagWrapper>
           {tags.map((tag, index) => (
-            <div key={index} style={{ backgroundColor: tag.color }}>
-              {tag.text}
-            </div>
+            <ColorButton key={index} backgroundColor={tag.color} label={tag.text} />
           ))}
         </S.TagWrapper>
 

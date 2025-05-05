@@ -1,8 +1,10 @@
+import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
+
 export interface CardProps {
   isSun: boolean;
   startTime?: string;
   endTime?: string;
-  tags?: { color: string; text: string }[];
+  tags?: { color: ColorKey; text: string }[];
   title: string;
 }
 
