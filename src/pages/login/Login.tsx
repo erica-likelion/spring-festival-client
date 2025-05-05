@@ -1,0 +1,66 @@
+import LoginButton from '@/pages/login/LoginButton';
+import React, { useEffect } from 'react';
+import {
+  Container,
+  NotLoginText,
+  ContentWrapper,
+  TextWrapper,
+  Wrapper,
+  HeaderText,
+  Right,
+} from './login.style';
+import HyLightXLikeLion from '@/assets/images/hylight-likelion.svg?react';
+import LeftArrowIcon from '@/assets/icons/left-arrow.svg?react';
+import { useLayoutStore } from '@/stores/useLayoutStore';
+
+/**
+ * 카카오 로그인 화면입니다.
+ * - 상단 헤더, 로고와 설명 문구, 카카오 로그인 버튼과 '로그인하지 않고 둘러보기'로 구성됩니다.
+ * - 해당 페이지 진입 시 네비게이션 바를 숨기고, 페이지를 벗어날 경우 다시 보이게 합니다.
+ *
+ * @returns {React.ReactElement} KakaoLoginPage 컴포넌트
+ *
+ */
+
+const KakaoLoginPage: React.FC = () => {
+  const setIsNav = useLayoutStore((state) => state.setIsNav);
+
+  useEffect(() => {
+    setIsNav(false); // 로그인 화면일 땐 네비게이션 숨김
+
+    return () => {
+      setIsNav(true); // 화면 떠날 때 다시 네비게이션 보이게
+    };
+  }, [setIsNav]);
+
+  const handleLoginClick = () => {
+    console.log('카카오 로그인 버튼 클릭');
+  };
+
+  const handleNotLoginClick = () => {
+    console.log('로그인하지 않고 둘러보기 클릭');
+  };
+
+  return (
+    <Container>
+      <HeaderText>
+        <LeftArrowIcon width={'1.5rem'} height={'1.5rem'} />
+        로그인
+        <Right /> {/* 빈 공간 */}
+      </HeaderText>
+      <ContentWrapper>
+        <HyLightXLikeLion />
+        <TextWrapper>
+          <p>카카오톡으로 간편하게 시작해</p>
+          <p>지금 바로 축제를 즐겨보세요!</p>
+        </TextWrapper>
+      </ContentWrapper>
+      <Wrapper>
+        <LoginButton onClick={handleLoginClick} />
+        <NotLoginText onClick={handleNotLoginClick}>로그인하지 않고 둘러보기</NotLoginText>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default KakaoLoginPage;
