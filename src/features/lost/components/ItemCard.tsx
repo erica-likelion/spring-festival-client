@@ -1,6 +1,7 @@
 import { LostItem } from './ItemList.types';
 import LocationIcon from '@/assets/icons/geopoint_gy200.svg?react';
 import * as S from './ItemCard.styles';
+import StaffLabel from './StaffLabel';
 
 type ItemCardProps = {
   item: LostItem;
@@ -16,11 +17,7 @@ export default function ItemCard({ item }: ItemCardProps) {
   return (
     <S.Card>
       <S.ImageBox $imageUrl={item.imageUrl}>
-        {item.isDeliveredToStaff && (
-          <S.StaffLabel>
-            <S.LabelText>STAFF 전달</S.LabelText>
-          </S.StaffLabel>
-        )}
+        {item.isDeliveredToStaff && <StaffLabel absolute={true} />}
       </S.ImageBox>
       <S.ItemInfoBox>
         <S.ItemName>{item.name}</S.ItemName>

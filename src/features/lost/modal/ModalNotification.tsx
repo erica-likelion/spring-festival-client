@@ -1,3 +1,4 @@
+import StaffLabel from '../components/StaffLabel';
 import * as S from './ModalNotification.styles';
 
 /**
@@ -8,9 +9,7 @@ import * as S from './ModalNotification.styles';
 export default function ModalNotification() {
   return (
     <S.ModalContainer>
-      <S.StaffLabel>
-        <S.LabelText>STAFF 전달</S.LabelText>
-      </S.StaffLabel>
+      <StaffLabel absolute={false} />
       <S.ModalText>
         위 상태가 표시된 분실물은 현장에서
         <br />
