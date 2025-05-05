@@ -1,6 +1,9 @@
 // LocalStorage에 저장할 검색 기록 키들
 export const MAP_SEARCH_HISTORY_KEY = 'mapSearchHistory';
 
+// LocalStorage에 저장할 검색 기록 키들
+export const LOST_SEARCH_HISTORY_KEY = 'lostSearchHistory';
+
 // 최대 검색 기록 개수
 export const MAX_SEARCH_HISTORY = 10;
 
