@@ -1,3 +1,9 @@
+/**
+ * 애니메이션 설정
+ * @param {number} direction - 이동 방향
+ * @returns {object} - 애니메이션 설정
+ */
+
 export const sliderVariants = {
   incoming: (direction: number) => ({
     x: direction > 0 ? '100%' : '-100%',
@@ -68,6 +74,9 @@ export const sliderVariants = {
   },
 };
 
+/**
+ * 지속 시간, 가속도 곡선 설정
+ */
 export const sliderTransition = {
   duration: 0.5,
   ease: [0.56, 0.03, 0.12, 1.04],
