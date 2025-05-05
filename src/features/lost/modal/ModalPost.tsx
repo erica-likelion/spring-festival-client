@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as S from './ModalPost.styles';
 import UnCheckIcon from '@/assets/icons/check_gy400.svg?react';
 import CheckIcon from '@/assets/icons/check_black.svg?react';
+import { BlueButton } from '@/components/bluebuttons';
 
 /**
  * Modal_Post 컴포넌트
@@ -25,6 +26,12 @@ export default function ModalPost() {
     '이미지에 민감한 개인정보가 포함되어  있다면 가려서 업로드해주세요!',
   ];
 
+  const handleLink = () => {
+    if (allChecked) {
+      window.location.href = '/main/lost/upload';
+    }
+  };
+
   return (
     <S.ModalContainer>
       <S.TextWrap>
@@ -41,17 +48,7 @@ export default function ModalPost() {
           </S.TextBox>
         ))}
       </S.TextWrap>
-      <S.Button
-        disabled={!allChecked}
-        $active={allChecked}
-        onClick={() => {
-          if (allChecked) {
-            window.location.href = '/main/lost/upload';
-          }
-        }}
-      >
-        <S.ButtonText>등록하러 가기</S.ButtonText>
-      </S.Button>
+      <BlueButton label="등록하러 가기" disabled={!allChecked} onClick={() => handleLink()} />
     </S.ModalContainer>
   );
 }
