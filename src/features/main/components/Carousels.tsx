@@ -100,8 +100,11 @@ export default function CardDeckCarousel() {
     const swipe = info.offset.x;
     const max = MainEventData.length - 1;
 
-    if (swipe > 50 && index > 0) swipeTo(-1);
-    else if (swipe < -50 && index < max) swipeTo(1);
+    if (swipe > 50 && index > 0) {
+      swipeTo(-1);
+    } else if (swipe < -50 && index < max) {
+      swipeTo(1);
+    }
   };
 
   const getVariant = (i: number) => {
@@ -123,27 +126,27 @@ export default function CardDeckCarousel() {
     <S.Wrapper>
       <S.CardWrap>
         <AnimatePresence initial={false} custom={direction}>
-          {MainEventData.map((card, i) => {
-            const variant = getVariant(i);
-            return (
-              <S.MotionCard
-                key={i}
-                custom={direction}
-                variants={sliderVariants}
-                initial={variant === 'active' ? 'incoming' : false}
-                animate={variant || 'hidden'}
-                transition={sliderTransition}
-                drag={
-                  index === MainEventData.length - 1 ? false : variant === 'active' ? 'x' : false
-                }
-                dragConstraints={{ left: 0, right: 0 }}
-                onDragEnd={variant === 'active' ? handleDragEnd : undefined}
-                isHidden={variant === 'hidden'}
-              >
-                <Card {...card} />
-              </S.MotionCard>
-            );
-          })}
+          {MainEventData.map((card, i) => ({ card, index: i, relative: i - index }))
+            .filter(({ relative }) => Math.abs(relative) <= 3) // ✅ ±3까지만 렌더링
+            .map(({ card, index: i }) => {
+              const variant = getVariant(i);
+              return (
+                <S.MotionCard
+                  key={i}
+                  custom={direction}
+                  variants={sliderVariants}
+                  initial={variant === 'active' ? 'incoming' : false}
+                  animate={variant || 'hidden'}
+                  transition={sliderTransition}
+                  drag={variant === 'active' ? 'x' : false}
+                  dragConstraints={{ left: 0, right: 0 }}
+                  onDragEnd={variant === 'active' ? handleDragEnd : undefined}
+                  isHidden={variant === 'hidden'}
+                >
+                  <Card {...card} />
+                </S.MotionCard>
+              );
+            })}
         </AnimatePresence>
       </S.CardWrap>
     </S.Wrapper>
