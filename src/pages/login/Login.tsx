@@ -1,18 +1,10 @@
 import LoginButton from '@/pages/login/LoginButton';
 import React, { useEffect } from 'react';
-import {
-  Container,
-  NotLoginText,
-  ContentWrapper,
-  TextWrapper,
-  Wrapper,
-  HeaderText,
-  Right,
-} from './login.style';
+import { Container, NotLoginText, ContentWrapper, TextWrapper, Wrapper } from './Login.style';
 import HyLightXLikeLion from '@/assets/images/hylight-likelion.svg?react';
-import LeftArrowIcon from '@/assets/icons/left-arrow.svg?react';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useNavigate } from 'react-router-dom';
+import { NavBar } from '@/components/nav-bar';
 
 /**
  * 카카오 로그인 화면입니다.
@@ -46,11 +38,7 @@ const KakaoLoginPage: React.FC = () => {
 
   return (
     <Container>
-      <HeaderText>
-        <LeftArrowIcon width={'1.5rem'} height={'1.5rem'} onClick={handleNotLoginClick} />
-        로그인
-        <Right /> {/* 빈 공간 */}
-      </HeaderText>
+      <NavBar isBack={true} title="로그인" backPath={-1} />
       <ContentWrapper>
         <HyLightXLikeLion />
         <TextWrapper>

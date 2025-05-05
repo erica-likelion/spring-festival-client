@@ -23,7 +23,7 @@ export const TextWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  color: ${(props) => props.theme.colors.grayScale.offwhite};
+  color: ${(props) => props.theme.colors.grayScale.white};
   ${(props) => props.theme.fonts.body.medium400};
 `;
 
@@ -43,19 +43,4 @@ export const NotLoginText = styled.p`
   justify-content: center;
   text-decoration: underline;
   cursor: pointer;
-`;
-
-export const HeaderText = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 23.4375rem;
-  height: 3.875rem;
-  padding: 0rem 1.25rem;
-  color: ${(props) => props.theme.colors.grayScale.white};
-  ${(props) => props.theme.fonts.header.h3};
-`;
-
-export const Right = styled.div`
-  width: 1.5rem; /* 왼쪽과 균형 맞추기 위한 빈 영역 */
 `;
