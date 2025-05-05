@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Carousel = styled.div`
   position: relative;
   width: 100%;
-  height: 29.19rem;
+  height: 100%;
   overflow: hidden;
   margin-bottom: 0.75rem;
 `;
@@ -23,11 +23,16 @@ export const Title = styled.h1`
 
 export const Body = styled.p`
   ${(props) => props.theme.fonts.body.xsmall400}
-  margin-top: 0.5rem;
   text-align: start;
-  line-height: 1.5;
 `;
 
 export const Main = styled.main`
-  padding: 0 1.25rem;
+  padding: 0 1.25rem 4.35rem;
+`;
+
+export const TagWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1.5rem;
 `;

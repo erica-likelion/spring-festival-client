@@ -6,6 +6,8 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { Indicator } from '@/components/indicator';
+import { ColorButton } from '@/components/colorbuttons';
+import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
 
 export default function NoticeDetail() {
   const { id } = useParams<{ id: string }>();
@@ -67,6 +69,12 @@ export default function NoticeDetail() {
         <Indicator currentPage={currentPage} totalPages={notice.img.length} />
         <S.Main>
           <S.Title>{notice.title}</S.Title>
+          <S.TagWrapper>
+            {notice.tags.map((tag, index) => (
+              <ColorButton key={index} backgroundColor={tag.color as ColorKey} label={tag.text} />
+            ))}
+          </S.TagWrapper>
+
           <S.Body>{notice.body}</S.Body>
         </S.Main>
       </S.Container>
