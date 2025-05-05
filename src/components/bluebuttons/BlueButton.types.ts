@@ -31,5 +31,5 @@ export interface BlueButtonProps {
 
 export interface StyledButtonProps {
   $isBigger: boolean;
-  $disabled?: boolean;
+  disabled?: boolean;
 }

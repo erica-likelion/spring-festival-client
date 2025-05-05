@@ -35,7 +35,7 @@ const BlueButton: React.FC<BlueButtonProps> = ({
   };
 
   return (
-    <StyledButton $isBigger={isBigger} $disabled={disabled} onClick={handleClick}>
+    <StyledButton $isBigger={isBigger} disabled={disabled} onClick={handleClick}>
       {label}
     </StyledButton>
   );

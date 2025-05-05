@@ -9,8 +9,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
   width: ${({ $isBigger }) => ($isBigger ? '15rem' : '7.5rem')};
   border: none;
   border-radius: ${({ $isBigger }) => ($isBigger ? '0.75rem' : '0.5rem')};
-  background-color: ${({ $disabled, theme }) =>
-    $disabled ? theme.colors.grayScale.gy700 : theme.colors.primary.bl400};
+  background-color: ${({ disabled, theme }) =>
+    disabled ? theme.colors.grayScale.gy700 : theme.colors.primary.bl400};
   ${({ $isBigger, theme }) =>
     $isBigger == true ? theme.fonts.body.medium500 : theme.fonts.body.small500};
   color: ${(props) => props.theme.colors.grayScale.white};
