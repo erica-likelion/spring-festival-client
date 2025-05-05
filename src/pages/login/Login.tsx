@@ -12,13 +12,11 @@ import {
 import HyLightXLikeLion from '@/assets/images/hylight-likelion.svg?react';
 import LeftArrowIcon from '@/assets/icons/left-arrow.svg?react';
 import { useLayoutStore } from '@/stores/useLayoutStore';
-import { useNavigate } from 'react-router-dom';
 
 /**
  * 카카오 로그인 화면입니다.
  * - 상단 헤더, 로고와 설명 문구, 카카오 로그인 버튼과 '로그인하지 않고 둘러보기'로 구성됩니다.
  * - 해당 페이지 진입 시 네비게이션 바를 숨기고, 페이지를 벗어날 경우 다시 보이게 합니다.
- * - "로그인하지 않고 둘러보기" 혹은 뒤로가기 버튼 클릭시 전 페이지로 돌아갑니다.
  *
  * @returns {React.ReactElement} KakaoLoginPage 컴포넌트
  *
@@ -26,7 +24,6 @@ import { useNavigate } from 'react-router-dom';
 
 const KakaoLoginPage: React.FC = () => {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setIsNav(false); // 로그인 화면일 땐 네비게이션 숨김
@@ -41,13 +38,13 @@ const KakaoLoginPage: React.FC = () => {
   };
 
   const handleNotLoginClick = () => {
-    navigate(-1);
+    console.log('로그인하지 않고 둘러보기 클릭');
   };
 
   return (
     <Container>
       <HeaderText>
-        <LeftArrowIcon width={'1.5rem'} height={'1.5rem'} onClick={handleNotLoginClick} />
+        <LeftArrowIcon width={'1.5rem'} height={'1.5rem'} />
         로그인
         <Right /> {/* 빈 공간 */}
       </HeaderText>
