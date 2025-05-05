@@ -14,6 +14,7 @@ import {
   TimeTable,
   PerformanceDetail,
   Notice,
+  NoticeDetail,
 } from '@/pages';
 import Layout from '@/layout';
 
@@ -36,6 +37,10 @@ const routes = createBrowserRouter([
       {
         path: 'main/notice',
         element: <Notice />,
+      },
+      {
+        path: 'main/notice/:id',
+        element: <NoticeDetail />,
       },
       {
         path: 'login',

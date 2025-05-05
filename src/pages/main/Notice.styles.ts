@@ -10,7 +10,7 @@ export const Flex = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  width: 20.9375rem;
+  width: 20.94rem;
   gap: 0.375rem;
 `;
 export const HorizontalLine = styled.div`
@@ -20,6 +20,8 @@ export const HorizontalLine = styled.div`
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
+  justify-content: center;
+  margin-top: 0.375rem;
 `;
 
 export const Line = styled.div`
@@ -27,4 +29,8 @@ export const Line = styled.div`
   height: 1px;
   width: 100%;
   align-self: stretch;
+`;
+
+export const NoticeBox = styled.div`
+  cursor: pointer;
 `;

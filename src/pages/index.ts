@@ -8,6 +8,7 @@ import User from '@/pages/User';
 import TimeTable from '@/pages/performance/TimeTable';
 import PerformanceDetail from '@/pages/performance/PerformanceDetail';
 import Notice from '@/pages/main/Notice';
+import NoticeDetail from '@/pages/main/NoticeDetail';
 export {
   Main,
   Map,
@@ -19,4 +20,5 @@ export {
   TimeTable,
   PerformanceDetail,
   Notice,
+  NoticeDetail,
 };
