@@ -8,14 +8,21 @@ export default function Notice() {
     <>
       <NavBar title="공지사항" isBack={true} />
       <S.Container>
-        {NoticeData.map((notice) => (
-          <NoticeText
-            key={'notice${notice.id}'}
-            image={notice.img}
-            title={notice.title}
-            body={notice.body}
-          />
-        ))}
+        <S.Flex>
+          {NoticeData.map((notice) => (
+            <>
+              <NoticeText
+                key={'notice${notice.id}'}
+                image={notice.img}
+                title={notice.title}
+                body={notice.body}
+              />
+              <S.HorizontalLine>
+                <S.Line />
+              </S.HorizontalLine>
+            </>
+          ))}
+        </S.Flex>
       </S.Container>
     </>
   );

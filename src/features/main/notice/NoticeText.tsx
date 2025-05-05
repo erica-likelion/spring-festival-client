@@ -20,7 +20,7 @@ const truncateText = (text: string, maxLength: number) => {
 };
 
 export default function NoticeText({ image, title, body }: NoticeTextProps) {
-  const truncatedBody = truncateText(body, 55);
+  const truncatedBody = truncateText(body, 40);
 
   return (
     <>
