@@ -5,6 +5,7 @@ import { ColorButton } from '@/components/colorbuttons';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
 import { LostItemDetailProps } from './LostPost.types';
+import { useLocation } from 'react-router-dom';
 
 /**
  * 분실물 상세 정보를 보여주는 컴포넌트
@@ -25,16 +26,10 @@ import { LostItemDetailProps } from './LostPost.types';
  * @returns {JSX.Element} 분실물 상세 페이지 UI
  */
 
-export default function LostPost({
-  imageUrl,
-  name,
-  isDeliveredToStaff,
-  location,
-  day,
-  time,
-  description,
-}: LostItemDetailProps) {
+export default function LostPost() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
+  const { state } = useLocation();
+  const item = state as LostItemDetailProps;
 
   useEffect(() => {
     setIsNav(false);
@@ -45,17 +40,17 @@ export default function LostPost({
       <NavBar isBack={true} title="분실물 보기" isSearch={false} />
       <S.LostPostContent>
         <S.ImageNameWrap>
-          <S.LostImageBox $image={imageUrl as string} />
+          <S.LostImageBox $image={item.imageUrl as string} />
           <S.NameBox>
-            <S.NameText>{name}</S.NameText>
-            {isDeliveredToStaff && <p>staff전달</p>}
+            <S.NameText>{item.name}</S.NameText>
+            {item.isDeliveredToStaff && <p>staff전달</p>}
           </S.NameBox>
         </S.ImageNameWrap>
         <S.LocationWrap>
           <S.LocationTitle>습득 장소</S.LocationTitle>
           <S.LocationBox>
             <LocationIcon width={'1.125rem'} height={'1.125rem'} />
-            <S.LocationText>{location}</S.LocationText>
+            <S.LocationText>{item.location}</S.LocationText>
           </S.LocationBox>
         </S.LocationWrap>
         <S.TimeWrap>
@@ -63,18 +58,18 @@ export default function LostPost({
           <S.TimeDayWrap>
             <S.DayBox>
               <S.DayTitle>습득 일자</S.DayTitle>
-              <ColorButton label={day} backgroundColor="bl400" />
+              <ColorButton label={item.day} backgroundColor="bl400" />
             </S.DayBox>
             <S.TimeBox>
               <S.TimeTitle>습득 시간</S.TimeTitle>
-              <S.TimeText>{time}</S.TimeText>
+              <S.TimeText>{item.time}</S.TimeText>
             </S.TimeBox>
           </S.TimeDayWrap>
         </S.TimeWrap>
         <S.LostItemDescriptionWrap>
           <S.DescriptionTitle>물건 설명</S.DescriptionTitle>
           <S.DescriptionBox>
-            <S.DescriptionText>{description}</S.DescriptionText>
+            <S.DescriptionText>{item.description}</S.DescriptionText>
           </S.DescriptionBox>
           <S.InfoText>
             * 분실물은 본인만 수령할 수 있습니다.
