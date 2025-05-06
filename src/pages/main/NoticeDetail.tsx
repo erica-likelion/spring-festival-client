@@ -2,7 +2,7 @@ import { useParams } from 'react-router-dom';
 import { NoticeData } from '@/constants/main/Notice';
 import { NavBar } from '@/components/nav-bar';
 import * as S from './NoticeDetail.styles';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { Indicator } from '@/components/indicator';
@@ -16,7 +16,7 @@ import NoticeBody from '../../features/main/notice/NoticeBody';
 
 export default function NoticeDetail() {
   const { id } = useParams<{ id: string }>();
-  const notice = NoticeData.find((item) => item.id === Number(id));
+  const notice = useMemo(() => NoticeData.find((item) => item.id === Number(id)), [id]);
   const [currentPage, setCurrentPage] = useState(0);
   const [direction, setDirection] = useState(0);
   const setIsNav = useLayoutStore((state) => state.setIsNav);
