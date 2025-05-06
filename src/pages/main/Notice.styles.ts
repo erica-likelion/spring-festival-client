@@ -10,6 +10,6 @@ export const Flex = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 1rem;
-  width: 20.94rem;
+  width: 21rem;
   gap: 0.375rem;
 `;
