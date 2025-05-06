@@ -6,9 +6,7 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { Indicator } from '@/components/indicator';
-import { ColorButton } from '@/components/colorbuttons';
-import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
-import ReactMarkdown from 'react-markdown';
+import NoticeBody from '../../features/main/notice/NoticeBody';
 
 /**
  * 공지사항 상세 페이지
@@ -74,27 +72,7 @@ export default function NoticeDetail() {
           </AnimatePresence>
         </S.Carousel>
         <Indicator currentPage={currentPage} totalPages={notice.img.length} />
-        <S.Main>
-          <S.Title>{notice.title}</S.Title>
-          <S.TagWrapper>
-            {notice.tags.map((tag, index) => (
-              <ColorButton key={index} backgroundColor={tag.color as ColorKey} label={tag.text} />
-            ))}
-          </S.TagWrapper>
-          <S.Body>
-            <ReactMarkdown
-              components={{
-                a: ({ href, children }) => (
-                  <S.CustomLink href={href} target="_blank" rel="noopener noreferrer">
-                    {children}
-                  </S.CustomLink>
-                ),
-              }}
-            >
-              {notice.body}
-            </ReactMarkdown>
-          </S.Body>
-        </S.Main>
+        <NoticeBody title={notice.title} tags={notice.tags} body={notice.body} />
       </S.Container>
     </>
   );

@@ -3,7 +3,7 @@ import * as S from './Notice.styles';
 import NoticeText from '@/features/main/notice/NoticeText';
 import { NoticeData } from '@/constants/main/Notice';
 import { useLayoutStore } from '@/stores/useLayoutStore';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export default function Notice() {
@@ -21,12 +21,14 @@ export default function Notice() {
     navigate(`/main/notice/${id}`);
   };
 
+  const memoNoticeData = useMemo(() => NoticeData, []);
+
   return (
     <>
       <NavBar title="공지사항" isBack={true} />
       <S.Container>
         <S.Flex>
-          {NoticeData.map((notice) => (
+          {memoNoticeData.map((notice) => (
             <S.NoticeBox key={`notice-${notice.id}`} onClick={() => handleDetail(notice.id)}>
               <NoticeText image={notice.img[0]} title={notice.title} body={notice.body} />
               <S.HorizontalLine>

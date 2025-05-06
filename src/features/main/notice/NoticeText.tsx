@@ -34,7 +34,7 @@ export default function NoticeText({ image, title, body }: NoticeTextProps) {
   return (
     <>
       <S.Container>
-        <S.Image src={image} alt="notice" />
+        <S.Image src={image} alt="notice" loading="lazy" />
         <S.TextWrapper>
           <S.Title>{title}</S.Title>
           <S.body>{truncatedBody}</S.body>
