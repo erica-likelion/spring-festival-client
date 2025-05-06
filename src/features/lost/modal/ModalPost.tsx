@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import * as S from './ModalPost.styles';
-import UnCheckIcon from '@/assets/icons/check_gy400.svg?react';
-import CheckIcon from '@/assets/icons/check_black.svg?react';
+import CheckIcon from '@/assets/icons/check.svg?react';
 import { BlueButton } from '@/components/bluebuttons';
+import { theme } from '@/styles/theme';
 
 /**
  * Modal_Post 컴포넌트
@@ -38,12 +38,14 @@ export default function ModalPost() {
         {texts.map((text, index) => (
           <S.TextBox key={index}>
             <S.Text dangerouslySetInnerHTML={{ __html: text.replace('  ', '<br />') }} />
-            <S.Icon $checked={checked[index]} onClick={() => toggleCheck(index)}>
-              {checked[index] ? (
-                <CheckIcon width="0.9536rem" height="0.6922rem" />
-              ) : (
-                <UnCheckIcon width="0.9536rem" height="0.6922rem" />
-              )}
+            <S.Icon
+              $checked={checked[index]}
+              onClick={() => toggleCheck(index)}
+              style={{
+                color: checked[index] ? theme.colors.grayScale.black : theme.colors.grayScale.gy400,
+              }}
+            >
+              <CheckIcon width="0.9536rem" height="0.6922rem" />
             </S.Icon>
           </S.TextBox>
         ))}

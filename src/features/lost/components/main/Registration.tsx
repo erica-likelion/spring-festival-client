@@ -1,7 +1,8 @@
 import useModal from '@/hooks/useModal';
 import * as S from './Registration.styles';
-import PlusIcon from '@/assets/icons/plus_white.svg?react';
+import PlusIcon from '@/assets/icons/plus.svg?react';
 import ModalPost from '../../modal/ModalPost';
+import { theme } from '@/styles/theme';
 
 /**
  * 분실물 등록 컴포넌트
@@ -26,7 +27,7 @@ export default function Registration() {
       <S.Button onClick={() => handleAddClick()}>
         <S.IconTextWrap>
           <S.Icon>
-            <PlusIcon width={'1.5rem'} height={'1.5rem'} />
+            <PlusIcon width={'1.5rem'} height={'1.5rem'} fill={theme.colors.grayScale.white} />
           </S.Icon>
           <S.ButtonText>분실물 등록하기</S.ButtonText>
         </S.IconTextWrap>

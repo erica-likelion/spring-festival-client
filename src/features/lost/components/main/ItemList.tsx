@@ -1,11 +1,12 @@
 import { Tabs } from '@/components/tabs';
 import * as S from './ItemList.styles';
 import { useState } from 'react';
-import HelpIcon from '@/assets/icons/help_gy600.svg?react';
+import HelpIcon from '@/assets/icons/nrk_help.svg?react';
 import { lostItemsByDay } from '@/constants/lost/LostItems';
 import { DayType } from '@/features/lost/components/main/ItemList.types';
 import { ItemCard, ModalNotification } from '@/features/lost';
 import useModal from '@/hooks/useModal';
+import { theme } from '@/styles/theme';
 
 /**
  * 분실물 목록 컴포넌트
@@ -54,6 +55,7 @@ export default function ItemList() {
             height={'1.125rem'}
             onClick={() => handleHelpClick()}
             style={{ cursor: 'pointer' }}
+            fill={theme.colors.grayScale.gy600}
           />
         </S.TabIconBox>
         <S.Grid style={{ opacity }}>
