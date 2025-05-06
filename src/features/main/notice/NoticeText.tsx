@@ -1,10 +1,5 @@
+import { NoticeTextProps } from './Notice.types';
 import * as S from './NoticeText.styles';
-
-interface NoticeTextProps {
-  image: string;
-  title: string;
-  body: string;
-}
 
 /**
  * 텍스트 40자 까지만 허용
