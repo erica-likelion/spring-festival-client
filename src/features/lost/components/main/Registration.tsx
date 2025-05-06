@@ -17,7 +17,7 @@ export default function Registration() {
         title: '분실물 등록 숙지 사항',
       },
       {
-        isHelpIcon: true,
+        isHelpIcon: false,
       },
     );
   };
