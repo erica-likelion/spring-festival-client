@@ -1,8 +1,8 @@
 import * as S from './EventCard.styles';
 import Sun from '@/assets/icons/pixel_sun.svg?react';
 import Moon from '@/assets/icons/pixel_moon.svg?react';
-import Clock from '@/assets/icons/clock_b.svg?react';
-import Location from '@/assets/icons/geopoint_b.svg?react';
+import Clock from '@/assets/icons/clock.svg?react';
+import Location from '@/assets/icons/geopoint.svg?react';
 import { CardProps } from './EventCard.types';
 import Progress from './Progress';
 import { ColorButton } from '@/components/colorbuttons';
@@ -25,13 +25,13 @@ function EventCard({ isSun = true, startTime, endTime, title, tags = [] }: CardP
         <S.EventTitle>{title}</S.EventTitle>
         <S.TextContainer>
           <S.TextWrapper>
-            <Clock width={'1.125rem'} height={'1.125rem'} />
+            <Clock width={'1.125rem'} height={'1.125rem'} fill="#212526" />
             <S.EventText>
               {startTime}~{endTime}
             </S.EventText>
           </S.TextWrapper>
           <S.TextWrapper>
-            <Location width={'1.125rem'} height={'1.125rem'} />
+            <Location width={'1.125rem'} height={'1.125rem'} fill="#212526" />
             <S.EventText>호수공원</S.EventText>
           </S.TextWrapper>
         </S.TextContainer>
