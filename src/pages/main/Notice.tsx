@@ -1,10 +1,10 @@
 import { NavBar } from '@/components/nav-bar';
 import * as S from './Notice.styles';
-import NoticeText from '@/features/main/notice/NoticeText';
 import { NoticeData } from '@/constants/main/Notice';
 import { useLayoutStore } from '@/stores/useLayoutStore';
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import NoticeBox from '@/features/main/notice/NoticeBox';
 
 export default function Notice() {
   const navigate = useNavigate();
@@ -17,24 +17,27 @@ export default function Notice() {
     };
   }, [setIsNav]);
 
-  const handleDetail = (id: number) => {
-    navigate(`/main/notice/${id}`);
-  };
-
-  const memoNoticeData = useMemo(() => NoticeData, []);
+  const handleDetail = useCallback(
+    (id: string) => {
+      navigate(`/main/notice/${id}`);
+    },
+    [navigate],
+  );
 
   return (
     <>
       <NavBar title="공지사항" isBack={true} />
       <S.Container>
         <S.Flex>
-          {memoNoticeData.map((notice) => (
-            <S.NoticeBox key={`notice-${notice.id}`} onClick={() => handleDetail(notice.id)}>
-              <NoticeText image={notice.img[0]} title={notice.title} body={notice.body} />
-              <S.HorizontalLine>
-                <S.Line />
-              </S.HorizontalLine>
-            </S.NoticeBox>
+          {NoticeData.map((notice) => (
+            <NoticeBox
+              key={notice.id}
+              id={notice.id}
+              img={notice.img[0]}
+              title={notice.title}
+              body={notice.body}
+              onClick={handleDetail}
+            />
           ))}
         </S.Flex>
       </S.Container>

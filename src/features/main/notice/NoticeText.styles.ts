@@ -20,6 +20,7 @@ export const Image = styled.img`
   aspect-ratio: 1/1;
   border-radius: 0.375rem;
   background-color: ${(props) => props.theme.colors.grayScale.gy300};
+  object-fit: cover;
 `;
 
 export const TextWrapper = styled.div`
