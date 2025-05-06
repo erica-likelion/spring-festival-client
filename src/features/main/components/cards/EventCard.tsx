@@ -7,14 +7,9 @@ import { CardProps } from './EventCard.types';
 import Progress from './Progress';
 import { ColorButton } from '@/components/colorbuttons';
 import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
+import React from 'react';
 
-export default function EventCard({
-  isSun = true,
-  startTime,
-  endTime,
-  title,
-  tags = [],
-}: CardProps) {
+function EventCard({ isSun = true, startTime, endTime, title, tags = [] }: CardProps) {
   return (
     <S.Container>
       <S.HeaderSection>
@@ -45,3 +40,5 @@ export default function EventCard({
     </S.Container>
   );
 }
+
+export default React.memo(EventCard);

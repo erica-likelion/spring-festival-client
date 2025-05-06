@@ -35,7 +35,7 @@ export const TagWrapper = styled.div`
   gap: 0.5rem;
 `;
 
-export const EventTitle = styled.div`
+export const EventTitle = styled.p`
   ${(props) => props.theme.fonts.header.h3}
   text-align: center;
 `;
@@ -57,6 +57,6 @@ export const TextWrapper = styled.div`
   gap: 0.25rem;
 `;
 
-export const EventText = styled.div`
+export const EventText = styled.p`
   ${(props) => props.theme.fonts.body.xsmall500}
 `;

@@ -77,7 +77,7 @@ export default function EventCarousels() {
       <S.CardWrap>
         <AnimatePresence initial={false} custom={direction}>
           {MainEventData.map((card, i) => ({ card, index: i, relative: i - index }))
-            .filter(({ relative }) => Math.abs(relative) <= 3)
+            .slice(Math.max(0, index - 3), index + 4)
             .map(({ card, index: i }) => {
               const variant = getVariant(i);
               return (
