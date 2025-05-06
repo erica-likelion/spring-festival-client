@@ -38,6 +38,7 @@ export const TagWrapper = styled.div`
 export const EventTitle = styled.p`
   ${(props) => props.theme.fonts.header.h3}
   text-align: center;
+  color: ${(props) => props.theme.colors.grayScale.gy950};
 `;
 
 export const TextContainer = styled.div`

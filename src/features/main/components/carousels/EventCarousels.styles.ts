@@ -14,13 +14,13 @@ export const CardWrap = styled.div`
   height: 13.3rem;
 `;
 
-export const MotionCard = styled(motion.div)<{ isHidden: boolean }>`
+export const MotionCard = styled(motion.div)<{ $isHidden: boolean }>`
   position: absolute;
   width: 100%;
   height: 100%;
-  display: ${(props) => (props.isHidden ? 'none' : 'block')};
+  display: ${(props) => (props.$isHidden ? 'none' : 'block')};
   will-change: transform;
-  cursor: ${(props) => (props.isHidden ? 'default' : 'pointer')};
+  cursor: ${(props) => (props.$isHidden ? 'default' : 'pointer')};
 `;
 
 export const CursorBox = styled.div`

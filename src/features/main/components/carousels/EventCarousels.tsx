@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { MainEventData } from '@/constants/main/MainEvent';
 import * as S from './EventCarousels.styles';
-import { sliderTransition, sliderVariants } from './EventCarouselsMotion';
+import { sliderTransition, sliderVariants } from './EventCarouselsMotion.styles.ts';
 import { Indicator } from '@/components/indicator';
 import Cursor from '@/assets/icons/cursor.svg?react';
 import { EventCard } from '../cards';
@@ -91,7 +91,7 @@ export default function EventCarousels() {
                   drag={variant === 'active' ? 'x' : false}
                   dragConstraints={{ left: 0, right: 0 }}
                   onDragEnd={variant === 'active' ? handleDragEnd : undefined}
-                  isHidden={variant === 'hidden'}
+                  $isHidden={variant === 'hidden'}
                 >
                   <EventCard {...card} />
                 </S.MotionCard>
