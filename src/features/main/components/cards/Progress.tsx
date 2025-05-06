@@ -50,7 +50,11 @@ export default function Progress({ startTime, endTime }: ProgressProps) {
   return (
     <S.Container>
       {Array.from({ length: 15 }, (_, index) =>
-        index < activeCount ? <S.Active key={index} /> : <S.InActive key={index} />,
+        index < activeCount ? (
+          <S.Active key={`active-${index}`} />
+        ) : (
+          <S.InActive key={`inactive-${index}`} />
+        ),
       )}
     </S.Container>
   );
