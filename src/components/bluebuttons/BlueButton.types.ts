@@ -1,4 +1,12 @@
 /**
+ * 버튼 크기 타입
+ * - 'small': 작은 버튼 (폰트 small500)
+ * - 'large-body': 큰 버튼 (폰트 medium500)
+ * - 'large-header': 큰 버튼 (폰트 header.h4)
+ */
+export type BlueButtonSize = 'small' | 'large' | 'large-header';
+
+/**
  * 공통 BlueButton 컴포넌트의 Props
  */
 export interface BlueButtonProps {
@@ -9,26 +17,26 @@ export interface BlueButtonProps {
 
   /**
    * 버튼 비활성화 여부
-   * true일 경우 클릭이 비활성화되고 회색 스타일로 표시됨
    * @default false
    */
   disabled?: boolean;
 
   /**
-   * 버튼 크기 조정 여부
-   * true이면 기본 크기(더 큰 버튼), false이면 작아진 버튼
-   * @default true
+   * 버튼 사이즈 및 스타일
+   * @default 'large'
    */
-  isBigger?: boolean;
+  size?: BlueButtonSize;
 
   /**
    * 버튼 클릭 시 실행되는 함수
    * 예: 페이지 이동, 모달 열기 등 사용자 정의 동작
-   * @returns void
    */
   onClick?: () => void;
 }
 
+/**
+ * 스타일 전용 Props
+ */
 export interface StyledButtonProps {
-  $isBigger: boolean;
+  size: BlueButtonSize;
 }
