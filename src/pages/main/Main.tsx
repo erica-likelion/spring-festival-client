@@ -1,7 +1,7 @@
 import { NavBar } from '@/components/nav-bar';
 import * as S from './Main.styles';
 import { EventCarousels } from '@/features/main/components/carousels';
-
+        
 export default function Main() {
   return (
     <>
