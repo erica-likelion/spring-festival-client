@@ -54,7 +54,7 @@ export const LocationWrap = styled.div`
   align-self: stretch;
 `;
 
-export const LocationTitle = styled.p`
+export const Title = styled.p`
   ${(props) => props.theme.fonts.header.h4};
   color: ${(props) => props.theme.colors.grayScale.white};
 `;
@@ -80,7 +80,8 @@ export const TimeWrap = styled.div`
 `;
 
 export const TimeTitle = styled.p`
-  ${(props) => props.theme.fonts.header.h4};
+  align-self: stretch;
+  ${(props) => props.theme.fonts.body.small500};
   color: ${(props) => props.theme.colors.grayScale.white};
 `;
 
@@ -106,12 +107,22 @@ export const DayTitle = styled.p`
   color: ${(props) => props.theme.colors.grayScale.white};
 `;
 
-export const DayText = styled.span`
-  background-color: #3578e5;
-  color: white;
-  padding: 0.375rem 0.75rem;
-  border-radius: 999px;
-  font-size: 0.875rem;
+export const DayBorder = styled.div`
+  display: flex;
+  padding: 0.25rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+  border-radius: 1.25rem;
+  background-color: ${(props) => props.theme.colors.primary.bl400};
+`;
+
+export const DayText = styled.p`
+  color: ${(props) => props.theme.colors.grayScale.black};
+  text-align: center;
+  text-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  ${(props) => props.theme.fonts.body.small400};
 `;
 
 export const TimeBox = styled.div`

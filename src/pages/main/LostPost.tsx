@@ -1,11 +1,12 @@
 import { NavBar } from '@/components/nav-bar';
 import * as S from './LostPost.styles';
-import LocationIcon from '@/assets/icons/geopoint_56.svg?react';
-import { ColorButton } from '@/components/colorbuttons';
+import LocationIcon from '@/assets/icons/geopoint.svg?react';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
 import { LostItemDetailProps } from './LostPost.types';
 import { useLocation } from 'react-router-dom';
+import { StaffLabel } from '@/features/lost';
+import { theme } from '@/styles/theme';
 
 /**
  * 분실물 상세 정보를 보여주는 컴포넌트
@@ -43,22 +44,28 @@ export default function LostPost() {
           <S.LostImageBox $image={item.imageUrl as string} />
           <S.NameBox>
             <S.NameText>{item.name}</S.NameText>
-            {item.isDeliveredToStaff && <p>staff전달</p>}
+            {item.isDeliveredToStaff && <StaffLabel absolute={false} />}
           </S.NameBox>
         </S.ImageNameWrap>
         <S.LocationWrap>
-          <S.LocationTitle>습득 장소</S.LocationTitle>
+          <S.Title>습득 장소</S.Title>
           <S.LocationBox>
-            <LocationIcon width={'1.125rem'} height={'1.125rem'} />
+            <LocationIcon
+              width={'1.125rem'}
+              height={'1.125rem'}
+              fill={theme.colors.grayScale.gy400}
+            />
             <S.LocationText>{item.location}</S.LocationText>
           </S.LocationBox>
         </S.LocationWrap>
         <S.TimeWrap>
-          <S.TimeTitle>습득 시간</S.TimeTitle>
+          <S.Title>습득 시간</S.Title>
           <S.TimeDayWrap>
             <S.DayBox>
               <S.DayTitle>습득 일자</S.DayTitle>
-              <ColorButton label={item.day} backgroundColor="bl400" />
+              <S.DayBorder>
+                <S.DayText>{item.day}</S.DayText>
+              </S.DayBorder>
             </S.DayBox>
             <S.TimeBox>
               <S.TimeTitle>습득 시간</S.TimeTitle>
@@ -67,7 +74,7 @@ export default function LostPost() {
           </S.TimeDayWrap>
         </S.TimeWrap>
         <S.LostItemDescriptionWrap>
-          <S.DescriptionTitle>물건 설명</S.DescriptionTitle>
+          <S.Title>물건 설명</S.Title>
           <S.DescriptionBox>
             <S.DescriptionText>{item.description}</S.DescriptionText>
           </S.DescriptionBox>
