@@ -60,15 +60,22 @@ export default function EventCarousels() {
   const getVariant = (i: number) => {
     const relative = i - index;
 
-    if (relative === 0) return 'active';
-    if (relative === 1) return 'next1';
-    if (relative === 2) return 'next2';
-    if (relative === 3) return 'next3';
-
-    if (relative === -1) return 'prev1';
-    if (relative === -2) return 'prev2';
-    if (relative === -3) return 'prev3';
-
+    switch (relative) {
+      case 0:
+        return 'active';
+      case 1:
+        return 'next1';
+      case 2:
+        return 'next2';
+      case 3:
+        return 'next3';
+      case -1:
+        return 'prev1';
+      case -2:
+        return 'prev2';
+      case -3:
+        return 'prev3';
+    }
     return 'hidden';
   };
 
