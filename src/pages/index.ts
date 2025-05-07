@@ -1,5 +1,5 @@
 import Main from '@/pages/Main';
-import Map from '@/pages/Map';
+import Map from '@/pages/map/MapPage';
 import MapSearch from '@/pages/map/SearchPage';
 import Login from '@/pages/Login';
 import Performance from '@/pages/performance/Performance';
