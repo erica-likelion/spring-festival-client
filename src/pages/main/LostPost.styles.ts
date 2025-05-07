@@ -170,6 +170,19 @@ export const DescriptionBox = styled.div`
   align-self: stretch;
   border-radius: 0.75rem;
   background-color: ${(props) => props.theme.colors.grayScale.gy950};
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  & {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 `;
 
 export const DescriptionText = styled.p`

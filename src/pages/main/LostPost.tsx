@@ -40,6 +40,7 @@ export default function LostPost() {
     <S.LostPostContainer>
       <NavBar isBack={true} title="분실물 보기" isSearch={false} />
       <S.LostPostContent>
+        {/* 이미지 및 제목 */}
         <S.ImageNameWrap>
           <S.LostImageBox $image={item.imageUrl as string} />
           <S.NameBox>
@@ -47,6 +48,7 @@ export default function LostPost() {
             {item.isDeliveredToStaff && <StaffLabel absolute={false} />}
           </S.NameBox>
         </S.ImageNameWrap>
+        {/* 습득 장소 */}
         <S.LocationWrap>
           <S.Title>습득 장소</S.Title>
           <S.LocationBox>
@@ -58,6 +60,7 @@ export default function LostPost() {
             <S.LocationText>{item.location}</S.LocationText>
           </S.LocationBox>
         </S.LocationWrap>
+        {/* 습득 시간 */}
         <S.TimeWrap>
           <S.Title>습득 시간</S.Title>
           <S.TimeDayWrap>
@@ -73,6 +76,7 @@ export default function LostPost() {
             </S.TimeBox>
           </S.TimeDayWrap>
         </S.TimeWrap>
+        {/* 물건 설명 */}
         <S.LostItemDescriptionWrap>
           <S.Title>물건 설명</S.Title>
           <S.DescriptionBox>
