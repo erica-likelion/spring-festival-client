@@ -25,7 +25,7 @@ export const ImageNameWrap = styled.div`
 `;
 
 export const LostImageBox = styled.div<{ $image: string }>`
-  width: 20.25rem;
+  width: 20.9846rem;
   height: 27rem;
   border-radius: 0.75rem;
   background-image: url('${({ $image }) => $image}');
@@ -134,6 +134,15 @@ export const TimeBox = styled.div`
 `;
 
 export const TimeText = styled.div`
+  display: flex;
+  height: 2.75rem;
+  padding: 0.625rem 1.5rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 14.4375rem;
+  border-radius: 0.75rem;
+  background-color: ${(props) => props.theme.colors.grayScale.gy900};
   align-self: stretch;
   ${(props) => props.theme.fonts.body.small500};
   color: ${(props) => props.theme.colors.grayScale.white};
