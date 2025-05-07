@@ -1,5 +1,5 @@
 import Main from '@/pages/main/Main';
-import Map from '@/pages/Map';
+import Map from '@/pages/map/MapPage';
 import MapSearch from '@/pages/map/SearchPage';
 import Login from '@/pages/Login';
 import Performance from '@/pages/performance/Performance';
@@ -9,6 +9,8 @@ import TimeTable from '@/pages/performance/TimeTable';
 import PerformanceDetail from '@/pages/performance/PerformanceDetail';
 import Notice from '@/pages/main/Notice';
 import NoticeDetail from '@/pages/main/NoticeDetail';
+import Lost from './main/Lost';
+
 export {
   Main,
   Map,
@@ -21,4 +23,5 @@ export {
   PerformanceDetail,
   Notice,
   NoticeDetail,
+  Lost,
 };

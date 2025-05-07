@@ -15,6 +15,7 @@ import {
   PerformanceDetail,
   Notice,
   NoticeDetail,
+  Lost,
 } from '@/pages';
 import Layout from '@/layout';
 
@@ -41,6 +42,10 @@ const routes = createBrowserRouter([
       {
         path: 'main/notice/:id',
         element: <NoticeDetail />,
+      },
+      {
+        path: 'main/lost',
+        element: <Lost />,
       },
       {
         path: 'login',
