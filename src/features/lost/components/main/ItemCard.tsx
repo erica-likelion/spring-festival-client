@@ -3,6 +3,7 @@ import LocationIcon from '@/assets/icons/geopoint.svg?react';
 import * as S from './ItemCard.styles';
 import StaffLabel from './StaffLabel';
 import { theme } from '@/styles/theme';
+import { useNavigate } from 'react-router-dom';
 
 type ItemCardProps = {
   item: LostItem;
@@ -15,8 +16,17 @@ type ItemCardProps = {
  */
 
 export default function ItemCard({ item }: ItemCardProps) {
+  const navigate = useNavigate();
+
+  const handleLink = () => {
+    navigate('/main/lost/post', { state: item });
+  };
   return (
-    <S.Card>
+    <S.Card
+      onClick={() => {
+        handleLink();
+      }}
+    >
       <S.ImageBox $imageUrl={item.imageUrl}>
         {item.isDeliveredToStaff && <StaffLabel absolute={true} />}
       </S.ImageBox>
