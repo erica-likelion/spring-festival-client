@@ -6,3 +6,4 @@ export { default as ModalPost } from './modal/ModalPost';
 export { default as StaffLabel } from './components/main/StaffLabel';
 export { default as Title } from './components/upload/Title';
 export { default as Description } from './components/upload/Description';
+export { default as ImageSection } from './components/upload/ImageSection';

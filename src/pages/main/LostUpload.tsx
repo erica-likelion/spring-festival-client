@@ -2,9 +2,8 @@
 import { useEffect, useState } from 'react';
 import * as S from './LostUpload.styles';
 import { useLayoutStore } from '@/stores/useLayoutStore';
-import CameraIcon from '@/assets/icons/nrk_camera.svg?react';
 import CheckIcon from '@/assets/icons/check.svg?react';
-import { Description, Title } from '@/features/lost';
+import { Description, ImageSection, Title } from '@/features/lost';
 import { theme } from '@/styles/theme';
 import { NavBar } from '@/components/nav-bar';
 import { Tabs } from '@/components/tabs';
@@ -33,20 +32,7 @@ export default function LostUpload() {
         <S.InputContainer>
           <S.InputWrap>
             {/* 이미지 */}
-            <S.ImageBox>
-              <Title title="분실물 사진" />
-              <S.ImageButton>
-                <CameraIcon width={'1.5rem'} height={'1.5rem'} fill={theme.colors.grayScale.gy50} />
-                <S.ImageButtonText>이미지 업로드 (1장)</S.ImageButtonText>
-              </S.ImageButton>
-              <S.CommentBox>
-                <Description
-                  text={`* 잘 알아볼 수 있도록 밝은 곳에서 전체 모습이 나오게 촬영한 
-                    이미지를 올려주세요.`}
-                />
-                <Description text="* 이미지에 민감한 개인정보가 포함되어 있다면 가려서 업로드해주세요!" />
-              </S.CommentBox>
-            </S.ImageBox>
+            <ImageSection />
             {/* 이름 */}
             <S.NameBox>
               <Title title="분실물 이름" />
