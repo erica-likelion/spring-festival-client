@@ -1,36 +1,31 @@
 import { NavBar } from '@/components/nav-bar';
 import * as S from './LostPost.styles';
 import LocationIcon from '@/assets/icons/geopoint.svg?react';
+import { lostItemsByDay } from '@/constants/lost/LostItems';
 import { useLayoutStore } from '@/stores/useLayoutStore';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import { LostItemDetailProps } from './LostPost.types';
-import { useLocation } from 'react-router-dom';
 import { StaffLabel } from '@/features/lost';
 import { theme } from '@/styles/theme';
+import { useParams } from 'react-router-dom';
 
 /**
- * 분실물 상세 정보를 보여주는 컴포넌트
+ * 분실물 상세 정보를 보여주는 페이지 컴포넌트
  *
- * 이미지, 물건 이름, 습득 장소, 시간, 설명 등을 표시하며
- * STAFF 전달 여부에 따라 뱃지를 조건부로 렌더링합니다.
- *
- * @component
- * @param {LostItemDetailProps} props - 분실물 상세 데이터
- * @param {string} props.imageUrl - 분실물 이미지 경로
- * @param {string} props.name - 분실물 이름
- * @param {boolean} props.isDeliveredToStaff - STAFF에게 전달 여부
- * @param {string} props.location - 습득 장소
- * @param {string} props.day - 습득 일자 (예: "1일차")
- * @param {string} props.time - 습득 시간 범위 (예: "16:00~18:00")
- * @param {string} props.description - 분실물 상세 설명
+ * - `/main/lost/post/:id` 형식의 경로로 접근
+ * - URL 파라미터로 받은 `id`를 기반으로 분실물 데이터를 조회함
+ * - 이미지, 이름, 장소, 시간, 설명, STAFF 여부 등을 표시
  *
  * @returns {JSX.Element} 분실물 상세 페이지 UI
  */
 
 export default function LostPost() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
-  const { state } = useLocation();
-  const item = state as LostItemDetailProps;
+  const { id } = useParams();
+  const item = useMemo(() => {
+    const allItems = Object.values(lostItemsByDay).flat();
+    return allItems.find((i) => i.id === Number(id));
+  }, [id]) as LostItemDetailProps;
 
   useEffect(() => {
     setIsNav(false);
@@ -42,9 +37,9 @@ export default function LostPost() {
       <S.LostPostContent>
         {/* 이미지 및 제목 */}
         <S.ImageNameWrap>
-          <S.LostImageBox $image={item.imageUrl as string} />
+          <S.LostImageBox $image={item?.imageUrl as string} />
           <S.NameBox>
-            <S.NameText>{item.name}</S.NameText>
+            <S.NameText>{item?.name}</S.NameText>
             {item.isDeliveredToStaff && <StaffLabel absolute={false} />}
           </S.NameBox>
         </S.ImageNameWrap>
@@ -57,7 +52,7 @@ export default function LostPost() {
               height={'1.125rem'}
               fill={theme.colors.grayScale.gy400}
             />
-            <S.LocationText>{item.location}</S.LocationText>
+            <S.LocationText>{item?.location}</S.LocationText>
           </S.LocationBox>
         </S.LocationWrap>
         {/* 습득 시간 */}
@@ -67,12 +62,12 @@ export default function LostPost() {
             <S.DayBox>
               <S.DayTitle>습득 일자</S.DayTitle>
               <S.DayBorder>
-                <S.DayText>{item.day}</S.DayText>
+                <S.DayText>{item?.day}</S.DayText>
               </S.DayBorder>
             </S.DayBox>
             <S.TimeBox>
               <S.TimeTitle>습득 시간</S.TimeTitle>
-              <S.TimeText>{item.time}</S.TimeText>
+              <S.TimeText>{item?.time}</S.TimeText>
             </S.TimeBox>
           </S.TimeDayWrap>
         </S.TimeWrap>

@@ -39,7 +39,7 @@ const routes = createBrowserRouter([
         element: <Lost />,
       },
       {
-        path: 'main/lost/post',
+        path: 'main/lost/post/:id',
         element: <LostPost />,
       },
       {
