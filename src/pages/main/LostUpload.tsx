@@ -37,6 +37,7 @@ export default function LostUpload() {
               <Title title="분실물 이름" />
               <S.Input
                 placeholder="ex) 학생증, 후드집업 (최대 20자)"
+                maxLength={20}
                 onChange={(e) => setName(e.target.value)}
               />
             </S.NameBox>
@@ -58,6 +59,7 @@ export default function LostUpload() {
               <Title title="습득 장소" />
               <S.Input
                 placeholder="ex) 대운동장, 제 1공학관 앞 (최대 20자)"
+                maxLength={20}
                 onChange={(e) => setLocation(e.target.value)}
               />
             </S.LocationBox>
@@ -75,6 +77,7 @@ export default function LostUpload() {
               <Title title="물건 설명" />
               <S.DescriptionInput
                 placeholder="ex) 분실물에 대한 자세한 설명이 필요하다면 적어주세요! (최대 100자)"
+                maxLength={100}
                 onChange={(e) => setDescription(e.target.value)}
               />
               <Description text="* 축제와 무관한 내용이나 동일 정보의 반복 등 부적절한 내용은 삭제될 수 있습니다." />
