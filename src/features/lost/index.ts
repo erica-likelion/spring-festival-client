@@ -5,3 +5,4 @@ export { default as ModalNotification } from './modal/ModalNotification';
 export { default as ModalPost } from './modal/ModalPost';
 export { default as StaffLabel } from './components/main/StaffLabel';
 export { default as Title } from './components/upload/Title';
+export { default as Description } from './components/upload/Description';

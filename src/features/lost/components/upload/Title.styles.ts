@@ -8,5 +8,5 @@ export const Container = styled.div`
 
 export const Text = styled.h1`
   ${(props) => props.theme.fonts.header.h4};
-  ${(props) => props.theme.colors.grayScale.white};
+  color: ${(props) => props.theme.colors.grayScale.white};
 `;
