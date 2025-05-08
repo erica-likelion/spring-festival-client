@@ -3,7 +3,18 @@ import { createBrowserRouter, Navigate, RouterProvider } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components';
 import { GlobalStyle } from '@/styles/global';
 import { theme } from '@/styles/theme';
-import { Main, Login, Map, Performance, Booth, User, TimeTable, PerformanceDetail } from '@/pages';
+import {
+  Main,
+  Login,
+  Map,
+  MapSearch,
+  Performance,
+  Booth,
+  User,
+  TimeTable,
+  PerformanceDetail,
+  Lost,
+} from '@/pages';
 import Layout from '@/layout';
 
 import { Modal as ModalProvider } from '@/components/modal';
@@ -23,6 +34,10 @@ const routes = createBrowserRouter([
         element: <Main />,
       },
       {
+        path: 'main/lost',
+        element: <Lost />,
+      },
+      {
         path: 'login',
         element: <Login />,
       },
@@ -33,6 +48,10 @@ const routes = createBrowserRouter([
       {
         path: 'map',
         element: <Map />,
+      },
+      {
+        path: 'map/search',
+        element: <MapSearch />,
       },
       {
         path: 'performance',

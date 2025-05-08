@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import HelpIcon from '@/assets/icons/help_gy600.svg?react';
+import HelpIcon from '@/assets/icons/nrk_help.svg?react';
 
 export const PerformanceContainer = styled.div`
   display: flex;
@@ -48,6 +48,7 @@ export const HelpIconStyled = styled(HelpIcon)`
   width: 1.125rem;
   height: 1.125rem;
   cursor: pointer;
+  fill: ${(props) => props.theme.colors.grayScale.gy600};
 `;
 
 export const Carousel = styled.div`
