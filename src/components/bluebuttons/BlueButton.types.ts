@@ -38,5 +38,5 @@ export interface BlueButtonProps {
  * 스타일 전용 Props
  */
 export interface StyledButtonProps {
-  size: BlueButtonSize;
+  $size: BlueButtonSize;
 }

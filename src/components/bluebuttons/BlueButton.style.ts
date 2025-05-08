@@ -8,13 +8,12 @@ export const StyledButton = styled.button<StyledButtonProps>`
   border: none;
   color: ${({ theme }) => theme.colors.grayScale.white};
   white-space: nowrap;
-  margin-bottom: 1rem;
   cursor: pointer;
-  padding: ${({ size }) => (size === 'small' ? '0.25rem 1rem' : '0.5rem 1.25rem')};
-  width: ${({ size }) => (size === 'small' ? '7.5rem' : '15rem')};
-  border-radius: ${({ size }) => (size === 'small' ? '0.5rem' : '0.75rem')};
-  ${({ size, theme }) => {
-    switch (size) {
+  padding: ${({ $size }) => ($size === 'small' ? '0.25rem 1rem' : '0.5rem 1.25rem')};
+  width: ${({ $size }) => ($size === 'small' ? '7.5rem' : '15rem')};
+  border-radius: ${({ $size }) => ($size === 'small' ? '0.5rem' : '0.75rem')};
+  ${({ $size, theme }) => {
+    switch ($size) {
       case 'large-header':
         return theme.fonts.header.h4;
       case 'large':
@@ -30,4 +29,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
     background-color: ${({ theme }) => theme.colors.grayScale.gy700};
     cursor: not-allowed;
   }
+
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 `;
