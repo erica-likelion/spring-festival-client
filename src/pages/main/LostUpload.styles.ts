@@ -1,3 +1,4 @@
+import { theme } from '@/styles/theme';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -63,8 +64,7 @@ export const StaffButton = styled.button<{ $active?: boolean }>`
   background-color: ${(props) =>
     props.$active ? props.theme.colors.secondary.bl500 : 'transparent'};
   border: 1px dashed
-    ${(props) =>
-      props.$active ? props.theme.colors.secondary.bl500 : props.theme.colors.grayscale.gy600};
+    ${(props) => (props.$active ? theme.colors.secondary.bl500 : theme.colors.grayScale.gy600)};
   transition: background-color 0.5s ease;
   cursor: pointer;
 `;
