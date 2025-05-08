@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useEffect, useState } from 'react';
 import * as S from './LostUpload.styles';
 import { useLayoutStore } from '@/stores/useLayoutStore';
@@ -6,8 +5,8 @@ import CheckIcon from '@/assets/icons/check.svg?react';
 import { Description, ImageSection, Title } from '@/features/lost';
 import { theme } from '@/styles/theme';
 import { NavBar } from '@/components/nav-bar';
-import { Tabs } from '@/components/tabs';
 import { BlueButton } from '@/components/bluebuttons';
+import TimeSelect from '@/features/lost/components/upload/TimeSelect';
 
 export default function LostUpload() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
@@ -32,7 +31,7 @@ export default function LostUpload() {
         <S.InputContainer>
           <S.InputWrap>
             {/* 이미지 */}
-            <ImageSection />
+            <ImageSection image={image} setImage={setImage} />
             {/* 이름 */}
             <S.NameBox>
               <Title title="분실물 이름" />
@@ -63,32 +62,14 @@ export default function LostUpload() {
               />
             </S.LocationBox>
             {/* 시간 */}
-            <S.TimeBox>
-              <Title title="습득 시간" />
-              <S.DayTimeBox>
-                <S.DayButton>
-                  <S.DayTimeText>습득 일자</S.DayTimeText>
-                  <Tabs
-                    tabs={['1일차', '2일차', '3일차']}
-                    activeTab={selectedDay}
-                    onTabClick={(tabs) => setSelectedDay(tabs)}
-                  />
-                </S.DayButton>
-                <S.TimeSelect>
-                  <S.DayTimeText>습득 시간</S.DayTimeText>
-                  <S.TimeSelectBox>
-                    <S.TimeSelectOption>16:00 - 18:00</S.TimeSelectOption>
-                    <S.ArrowIcon
-                      width="1.5rem"
-                      height="1.5rem"
-                      fill={theme.colors.grayScale.white}
-                      onClick={() => setSelectOpen((prev) => !prev)}
-                      $rotated={selectOpen}
-                    />
-                  </S.TimeSelectBox>
-                </S.TimeSelect>
-              </S.DayTimeBox>
-            </S.TimeBox>
+            <TimeSelect
+              selectedDay={selectedDay}
+              setSelectedDay={setSelectedDay}
+              time={time}
+              setTime={setTime}
+              selectOpen={selectOpen}
+              setSelectOpen={setSelectOpen}
+            />
             {/* 설명 */}
             <S.DescriptionBox>
               <Title title="물건 설명" />

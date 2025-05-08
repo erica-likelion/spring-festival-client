@@ -10,6 +10,7 @@ export const ImageBox = styled.div`
 
 export const ImageButton = styled.button`
   display: flex;
+  width: 100%;
   height: 4rem;
   padding: 0.625rem;
   justify-content: center;
