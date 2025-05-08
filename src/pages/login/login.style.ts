@@ -39,6 +39,7 @@ export const NotLoginText = styled.p`
   color: ${(props) => props.theme.colors.grayScale.gy500};
   padding: 0.25rem 0.75rem;
   margin-top: 1rem;
+  margin-bottom: 0.65rem;
   align-items: center;
   justify-content: center;
   text-decoration: underline;
