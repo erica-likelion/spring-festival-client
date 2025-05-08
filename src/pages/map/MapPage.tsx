@@ -1,11 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLayoutStore } from '@/stores/useLayoutStore';
 import { MapPageHeader } from '@/features/map';
+import { MapPageBottomSheet } from '@/features/map';
+import { DEFAULT_BOTTOM_SHEET_HEIGHT_REM } from '@/constants/map/BottomSheet.constants';
 import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
 import * as S from './MapPage.styles';
 
 export default function Map() {
   const navigate = useNavigate();
+  const setIsNav = useLayoutStore((state) => state.setIsNav);
 
   // 날짜 및 카테고리 관련 상태
   const [selectedDay, setSelectedDay] = useState<DAYS>(days[0]);
@@ -14,6 +18,21 @@ export default function Map() {
   // 헤더 관련 상태
   const [headerExpanded, setHeaderExpanded] = useState<boolean>(false);
   const [showCategory, setShowCategory] = useState<boolean>(true);
+
+  // 바텀시트 관련 상태
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState<boolean>(false);
+  const [currentHeightRem, setCurrentHeightRem] = useState<number>(DEFAULT_BOTTOM_SHEET_HEIGHT_REM); // 초기 높이
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [startY, setStartY] = useState<number>(0);
+
+  useEffect(() => {
+    if (isBottomSheetOpen) {
+      setIsNav(false);
+    } else {
+      setIsNav(true);
+      setSelectedCategory(null);
+    }
+  }, [isBottomSheetOpen, setIsNav]);
 
   // 헤더 핸들러
   const handleDayChange = (day: DAYS) => {
@@ -26,10 +45,11 @@ export default function Map() {
       setHeaderExpanded(false);
     } else {
       setHeaderExpanded(true);
+      setIsBottomSheetOpen(false);
     }
   };
 
-  // useEffect와 동일한 로직을 함수로 변환
+  // 헤더 펼쳐질 때 카테고리 숨기기
   const handleHeaderExpandChange = (expanded: boolean) => {
     if (expanded) {
       setShowCategory(false);
@@ -43,10 +63,30 @@ export default function Map() {
 
   const handleCategoryChange = (category: CATEGORIES | null) => {
     setSelectedCategory(category);
+    if (category) {
+      setIsBottomSheetOpen(true);
+    } else {
+      // 카테고리 선택 해제 시 바텀시트 닫기
+      setIsBottomSheetOpen(false);
+    }
   };
 
   const handleSearchClick = () => {
     navigate('search');
+  };
+
+  // 바텀시트 높이 관련 핸들러
+  const updateBottomSheetHeight = useCallback((newHeight: number) => {
+    setCurrentHeightRem(newHeight);
+  }, []);
+
+  const handleBottomSheetDragStart = (y: number) => {
+    setIsDragging(true);
+    setStartY(y);
+  };
+
+  const handleBottomSheetDragEnd = () => {
+    setIsDragging(false);
   };
 
   return (
@@ -66,6 +106,19 @@ export default function Map() {
           showCategory={showCategory}
           onExpandChange={handleHeaderExpandChange}
         />
+        {isBottomSheetOpen && (
+          <MapPageBottomSheet
+            isBottomSheetOpen={true}
+            selectedDay={selectedDay}
+            selectedCategory={selectedCategory}
+            currentHeight={currentHeightRem}
+            onHeightChange={updateBottomSheetHeight}
+            isDragging={isDragging}
+            startY={startY}
+            onDragStart={handleBottomSheetDragStart}
+            onDragEnd={handleBottomSheetDragEnd}
+          />
+        )}
       </S.ContentContainer>
     </S.MapContainer>
   );
