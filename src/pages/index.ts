@@ -8,6 +8,7 @@ import User from '@/pages/User';
 import TimeTable from '@/pages/performance/TimeTable';
 import PerformanceDetail from '@/pages/performance/PerformanceDetail';
 import Lost from './main/Lost';
+import LostUpload from './main/LostUpload';
 
 export {
   Main,
@@ -20,4 +21,5 @@ export {
   TimeTable,
   PerformanceDetail,
   Lost,
+  LostUpload,
 };

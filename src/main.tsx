@@ -14,6 +14,7 @@ import {
   TimeTable,
   PerformanceDetail,
   Lost,
+  LostUpload,
 } from '@/pages';
 import Layout from '@/layout';
 
@@ -36,6 +37,10 @@ const routes = createBrowserRouter([
       {
         path: 'main/lost',
         element: <Lost />,
+      },
+      {
+        path: 'main/lost/upload',
+        element: <LostUpload />,
       },
       {
         path: 'login',
