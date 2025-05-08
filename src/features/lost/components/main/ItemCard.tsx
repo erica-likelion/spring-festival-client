@@ -19,7 +19,7 @@ export default function ItemCard({ item }: ItemCardProps) {
   const navigate = useNavigate();
 
   const handleLink = () => {
-    navigate('/main/lost/post', { state: item });
+    navigate(`/main/lost/post/${item.id}`);
   };
   return (
     <S.Card
