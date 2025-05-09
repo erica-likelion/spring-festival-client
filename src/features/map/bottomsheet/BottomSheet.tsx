@@ -9,6 +9,7 @@
  * - 최소/최대 높이 제한
  * - 카테고리별 콘텐츠 필터링
  * - 빈 데이터 상태 처리
+ * - 카테고리별 알림 표시 및 관리
  *
  * @example
  * <MapPageBottomSheet
@@ -23,7 +24,15 @@
  *   onDragEnd={handleBottomSheetDragEnd}
  * />
  */
-import { useRef, useEffect, useCallback, TouchEvent, MouseEvent as ReactMouseEvent } from 'react';
+import {
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  TouchEvent,
+  MouseEvent as ReactMouseEvent,
+} from 'react';
+import { useNavigate } from 'react-router-dom';
 import { MapPageBottomSheetProps } from './BottomSheet.types';
 import { Notification } from '@/components/notification';
 import * as S from './BottomSheet.styles';
@@ -33,6 +42,8 @@ import {
   TOP_NAVIGATION_HEIGHT_REM,
 } from '@/constants/map/BottomSheet';
 import { useUnitConversion } from '@/hooks/useUnitConversion';
+import { CATEGORY_NOTIFICATIONS } from '@/constants/map/CategoryNotifications';
+import { useNotificationStore } from '@/stores/useCategoryNotificationStore';
 
 import { DummyData } from '@/constants/map/DummyData';
 
@@ -48,10 +59,26 @@ export default function MapPageBottomSheet({
   onDragEnd,
 }: MapPageBottomSheetProps) {
   const sheetRef = useRef<HTMLDivElement>(null);
-
   const minHeightRem = MIN_BOTTOM_SHEET_HEIGHT_REM;
-
   const { pxToRem, remToPx } = useUnitConversion();
+  const navigate = useNavigate();
+
+  // Zustand 스토어에서 Notification 관련 상태 및 액션 가져오기
+  const { isNotificationClosed, closeNotification } = useNotificationStore();
+
+  // 현재 카테고리에 대한 notification 표시 여부 상태
+  const [showNotification, setShowNotification] = useState<boolean>(false);
+
+  // 선택된 카테고리의 알림 표시 상태 관리
+  useEffect(() => {
+    if (selectedCategory) {
+      const notification = CATEGORY_NOTIFICATIONS[selectedCategory];
+      const isClosed = isNotificationClosed(selectedCategory);
+      setShowNotification(!!notification && !isClosed);
+    } else {
+      setShowNotification(false);
+    }
+  }, [selectedCategory, isNotificationClosed]);
 
   // 최대 높이 계산 함수
   const calculateMaxHeightRem = useCallback(() => {
@@ -124,9 +151,27 @@ export default function MapPageBottomSheet({
     e.preventDefault(); // 텍스트 선택 방지
   };
 
+  // 알림 클릭 핸들러 - 경로로 이동
+  const handleNotificationClick = useCallback(() => {
+    if (selectedCategory && CATEGORY_NOTIFICATIONS[selectedCategory]?.path) {
+      navigate(CATEGORY_NOTIFICATIONS[selectedCategory].path);
+    }
+  }, [selectedCategory, navigate]);
+
+  // 알림 닫기 핸들러
+  const handleCloseNotification = useCallback(() => {
+    if (selectedCategory) {
+      closeNotification(selectedCategory);
+      setShowNotification(false);
+    }
+  }, [selectedCategory, closeNotification]);
+
   if (!isBottomSheetOpen || !selectedCategory) return null;
 
   const filteredData = DummyData[selectedDay][selectedCategory] || [];
+
+  // 카테고리별 알림 데이터 가져오기
+  const notification = CATEGORY_NOTIFICATIONS[selectedCategory];
 
   return (
     <S.BottomSheetOverlay>
@@ -139,7 +184,15 @@ export default function MapPageBottomSheet({
         >
           <S.DragHandle />
         </S.Header>
-        <Notification title="bottomsheetnotification" />
+        {/* 카테고리별 공지사항 - onClick으로 경로 이동 처리 */}
+        {showNotification && notification && (
+          <Notification
+            title={notification.title}
+            onClick={handleNotificationClick}
+            onClose={handleCloseNotification}
+            width="20.9375rem"
+          />
+        )}
         <S.Body>
           {filteredData.length > 0 ? (
             filteredData.map((item, index) => (
