@@ -79,12 +79,53 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: false,
       },
     ],
-    주차장: [
+    셔틀콕: [
       {
         image: '',
-        title: '주차장 A',
-        subtitle: '주차장',
+        title: '셔틀버스 탑승장 1',
+        subtitle: '셔틀콕',
+        time: '09:00-23:00',
+        canPickup: false,
+      },
+      {
+        image: '',
+        title: '셔틀버스 탑승장 2',
+        subtitle: '셔틀콕',
+        time: '10:00-22:00',
+        canPickup: false,
+      },
+    ],
+    푸트트럭: [
+      {
+        image: '',
+        title: '[1일차] 푸드트럭 존 A',
+        subtitle: '푸드트럭',
+        time: '11:00-23:00',
+        canPickup: true,
+      },
+      {
+        image: '',
+        title: '[1일차] 분식 트럭',
+        subtitle: '푸드트럭',
+        time: '11:00-22:00',
+        canPickup: true,
+      },
+    ],
+    흡연실: [
+      {
+        image: '',
+        title: '지정 흡연구역 1',
+        subtitle: '흡연실',
         time: '24시간',
+        canPickup: false,
+      },
+    ],
+    의무실: [
+      {
+        image: '',
+        title: '축제 의무실',
+        subtitle: '의무실',
+        time: '10:00-22:00',
         canPickup: false,
       },
     ],
@@ -168,12 +209,74 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: false,
       },
     ],
-    주차장: [
+    셔틀콕: [
       {
         image: '',
-        title: '주차장 B',
-        subtitle: '주차장',
+        title: '셔틀버스 탑승장 1',
+        subtitle: '셔틀콕',
+        time: '09:00-23:00',
+        canPickup: false,
+      },
+      {
+        image: '',
+        title: '셔틀버스 탑승장 2',
+        subtitle: '셔틀콕',
+        time: '10:00-22:00',
+        canPickup: false,
+      },
+      {
+        image: '',
+        title: '셔틀버스 탑승장 3',
+        subtitle: '셔틀콕',
+        time: '11:00-21:00',
+        canPickup: false,
+      },
+    ],
+    푸트트럭: [
+      {
+        image: '',
+        title: '[2일차] 푸드트럭 존 B',
+        subtitle: '푸드트럭',
+        time: '11:00-23:00',
+        canPickup: true,
+      },
+      {
+        image: '',
+        title: '[2일차] 디저트 트럭',
+        subtitle: '푸드트럭',
+        time: '12:00-22:00',
+        canPickup: true,
+      },
+    ],
+    흡연실: [
+      {
+        image: '',
+        title: '지정 흡연구역 1',
+        subtitle: '흡연실',
         time: '24시간',
+        canPickup: false,
+      },
+      {
+        image: '',
+        title: '지정 흡연구역 2',
+        subtitle: '흡연실',
+        time: '24시간',
+        canPickup: false,
+      },
+    ],
+    의무실: [
+      {
+        image: '',
+        title: '축제 의무실',
+        subtitle: '의무실',
+        time: '10:00-22:00',
+        canPickup: false,
+      },
+      {
+        image: '',
+        title: '응급 처치소',
+        subtitle: '의무실',
+        time: '10:00-24:00',
         canPickup: false,
       },
     ],
@@ -271,12 +374,67 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: false,
       },
     ],
-    주차장: [
+    셔틀콕: [
       {
         image: '',
-        title: '주차장 A',
-        subtitle: '주차장',
+        title: '셔틀버스 탑승장 1',
+        subtitle: '셔틀콕',
+        time: '09:00-23:00',
+        canPickup: false,
+      },
+      {
+        image: '',
+        title: '셔틀버스 탑승장 2',
+        subtitle: '셔틀콕',
+        time: '10:00-22:00',
+        canPickup: false,
+      },
+    ],
+    푸트트럭: [
+      {
+        image: '',
+        title: '[3일차] 푸드트럭 존 C',
+        subtitle: '푸드트럭',
+        time: '11:00-22:00',
+        canPickup: true,
+      },
+      {
+        image: '',
+        title: '[3일차] 커피 & 음료 트럭',
+        subtitle: '푸드트럭',
+        time: '10:00-21:00',
+        canPickup: true,
+      },
+      {
+        image: '',
+        title: '[3일차] 디저트 카페',
+        subtitle: '푸드트럭',
+        time: '11:00-21:00',
+        canPickup: true,
+      },
+    ],
+    흡연실: [
+      {
+        image: '',
+        title: '지정 흡연구역 1',
+        subtitle: '흡연실',
         time: '24시간',
+        canPickup: false,
+      },
+      {
+        image: '',
+        title: '지정 흡연구역 2',
+        subtitle: '흡연실',
+        time: '24시간',
+        canPickup: false,
+      },
+    ],
+    의무실: [
+      {
+        image: '',
+        title: '축제 의무실',
+        subtitle: '의무실',
+        time: '10:00-22:00',
         canPickup: false,
       },
     ],
