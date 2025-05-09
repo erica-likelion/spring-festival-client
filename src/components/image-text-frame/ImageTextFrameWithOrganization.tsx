@@ -35,7 +35,7 @@ export default function ImageTextFrameWithOrganization({
 }: ImageTextFrameWithOrganizationProps) {
   return (
     <S.Container onClick={onClick} $width={width} $activeStyle={activeStyle}>
-      <S.Image src={image} alt="" />
+      <S.Image src={image} alt={title} />
       <S.ContentsWrap>
         <S.Title>{title}</S.Title>
         <S.ContentsFooter>
