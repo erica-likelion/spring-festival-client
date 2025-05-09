@@ -82,7 +82,6 @@ export default function MapPageBottomSheet({
         const diff = startY - e.clientY;
         const diffRem = pxToRem(diff);
         updateHeight(currentHeight + diffRem);
-        onDragStart(e.clientY);
       };
 
       const handleMouseUp = () => {
