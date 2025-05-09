@@ -7,12 +7,17 @@ import {
   Main,
   Login,
   Map,
+  MapSearch,
   Performance,
   Booth,
   BoothDetail,
   User,
   TimeTable,
   PerformanceDetail,
+  LostPost,
+  Notice,
+  NoticeDetail,
+  Lost,
 } from '@/pages';
 import Layout from '@/layout';
 
@@ -32,6 +37,22 @@ const routes = createBrowserRouter([
         element: <Main />,
       },
       {
+        path: 'main/notice',
+        element: <Notice />,
+      },
+      {
+        path: 'main/notice/:id',
+        element: <NoticeDetail />,
+      },
+      {
+        path: 'main/lost',
+        element: <Lost />,
+      },
+      {
+        path: 'main/lost/post/:id',
+        element: <LostPost />,
+      },
+      {
         path: 'login',
         element: <Login />,
       },
@@ -42,6 +63,10 @@ const routes = createBrowserRouter([
       {
         path: 'map',
         element: <Map />,
+      },
+      {
+        path: 'map/search',
+        element: <MapSearch />,
       },
       {
         path: 'performance',

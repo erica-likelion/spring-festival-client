@@ -12,6 +12,7 @@ import { ImageTextFrameWithTimeProps } from './ImageTextFrame.types';
  * @param {boolean} [canPickup] - 포장 가능 여부 (기본값: false)
  * @param {Function} [onClick] - 프레임 클릭 시 실행할 콜백 함수
  * @param {string} [width] - 프레임 너비 (예: "100%", "10rem" 등)
+ * @param {boolean} [activeStyle] - 활성화 스타일 여부 (기본값: true)
  * @returns {React.ReactElement} 이미지와 텍스트, 시간 정보가 포함된 프레임 컴포넌트
  *
  * @example
@@ -33,9 +34,10 @@ export default function ImageTextFrameWithTime({
   canPickup = false,
   onClick,
   width,
+  activeStyle = true,
 }: ImageTextFrameWithTimeProps) {
   return (
-    <S.Container onClick={onClick} $width={width}>
+    <S.Container onClick={onClick} $width={width} $activeStyle={activeStyle}>
       <S.Image src={image} alt="" />
       <S.ContentsWrap>
         <S.TitleWrap>

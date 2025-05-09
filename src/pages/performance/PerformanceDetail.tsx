@@ -6,6 +6,7 @@ import { PerformanceDetailsProps } from './PerformanceDetail.types';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
 import { NavBar } from '@/components/nav-bar/NavBar';
+import React from 'react';
 
 /**
  * 공연 상세 페이지 컴포넌트
@@ -29,12 +30,15 @@ export default function PerformanceDetail() {
 
   useEffect(() => {
     setIsNav(false);
+    return () => {
+      setIsNav(true);
+    };
   }, [setIsNav]);
 
   return (
     <S.DetailsContainer>
       <NavBar isBack={true} title="공연정보" isSearch={false} />
-      <S.ImageWrap backgroundUrl={backgroundUrl}>
+      <S.ImageWrap $url={backgroundUrl}>
         <S.ImageTextWrap>
           <S.SingerTimeBox>
             <S.Singer>{singer}</S.Singer>
@@ -50,7 +54,7 @@ export default function PerformanceDetail() {
         <S.TitleSongText>대표곡</S.TitleSongText>
         <S.SongWrap>
           {songList.map((song, index) => (
-            <>
+            <React.Fragment key={index}>
               <S.SongBox key={index}>
                 <S.Wrap>
                   <S.SongImage src={song.image} />
@@ -64,7 +68,7 @@ export default function PerformanceDetail() {
                 />
               </S.SongBox>
               <S.SongLine />
-            </>
+            </React.Fragment>
           ))}
         </S.SongWrap>
       </S.TitleSongWrap>

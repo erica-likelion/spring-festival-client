@@ -2,6 +2,7 @@ import { useState } from 'react';
 import * as S from './Notification.styles';
 import { NotificationProps } from './Notification.types';
 import CloseIcon from '@/assets/icons/close.svg?react';
+import NotificationIcon from '@/assets/images/notification.webp';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const ANIMATION_VARIANTS = {
@@ -47,7 +48,7 @@ export default function Notification({ title, onClick, width }: NotificationProp
           transition={{ duration: 0.3, ease: 'easeOut' }}
         >
           <S.Container $width={width}>
-            <S.Icon src="src/assets/images/notification.webp" alt="Notification" />
+            <S.Icon src={NotificationIcon} alt="Notification" />
             <S.Title onClick={() => onClick?.()}>{title}</S.Title>
             <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <S.CloseButton onClick={handleClose}>
