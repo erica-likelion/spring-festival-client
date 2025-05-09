@@ -13,6 +13,7 @@ import {
   User,
   TimeTable,
   PerformanceDetail,
+  LostPost,
   Notice,
   NoticeDetail,
   Lost,
@@ -46,6 +47,10 @@ const routes = createBrowserRouter([
       {
         path: 'main/lost',
         element: <Lost />,
+      },
+      {
+        path: 'main/lost/post/:id',
+        element: <LostPost />,
       },
       {
         path: 'login',
