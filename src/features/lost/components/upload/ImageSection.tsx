@@ -37,7 +37,7 @@ export default function ImageSection({ image, setImage }: ImageSectionProps) {
         </S.Wrap>
       ) : (
         <>
-          <S.ImageButton as="div">
+          <S.ImageButton as="div" onClick={handleReUpload}>
             <CameraIcon width="1.5rem" height="1.5rem" fill={theme.colors.grayScale.gy50} />
             <S.ImageButtonText>이미지 업로드 (1장)</S.ImageButtonText>
           </S.ImageButton>
@@ -57,13 +57,7 @@ export default function ImageSection({ image, setImage }: ImageSectionProps) {
         accept="image/*"
         ref={fileInputRef}
         onChange={handleImageChange}
-        style={{
-          position: 'absolute',
-          width: 0,
-          height: 0,
-          overflow: 'hidden',
-          opacity: 0,
-        }}
+        hidden
       />
     </S.ImageBox>
   );
