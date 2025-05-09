@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { BOTTOM_SHEET_TRANSITION_MS } from '@/constants/map/BottomSheet.constants';
+import { BOTTOM_SHEET_TRANSITION_MS } from '@/constants/map/BottomSheet';
 import { Z_INDEX } from '@/constants/map';
 
 export const BottomSheetOverlay = styled.div`

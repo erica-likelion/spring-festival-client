@@ -31,8 +31,8 @@ import { ImageTextFrameWithTime } from '@/components/image-text-frame';
 import {
   MIN_BOTTOM_SHEET_HEIGHT_REM,
   TOP_NAVIGATION_HEIGHT_REM,
-} from '@/constants/map/BottomSheet.constants';
-import { useUnitConversion } from '@/utils/unitConversion';
+} from '@/constants/map/BottomSheet';
+import { useUnitConversion } from '@/hooks/useUnitConversion';
 
 import { DummyData } from '@/constants/map/DummyData';
 

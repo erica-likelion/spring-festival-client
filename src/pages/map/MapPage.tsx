@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { MapPageHeader } from '@/features/map';
 import { MapPageBottomSheet } from '@/features/map';
-import { DEFAULT_BOTTOM_SHEET_HEIGHT_REM } from '@/constants/map/BottomSheet.constants';
+import { DEFAULT_BOTTOM_SHEET_HEIGHT_REM } from '@/constants/map/BottomSheet';
 import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
 import * as S from './MapPage.styles';
 
