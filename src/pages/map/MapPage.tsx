@@ -101,7 +101,7 @@ export default function Map() {
           selectedCategory={selectedCategory}
           onCategoryChange={handleCategoryChange}
           onSearchClick={handleSearchClick}
-          expanded={headerExpanded}
+          $expanded={headerExpanded}
           onExpandToggle={handleHeaderToggle}
           showCategory={showCategory}
           onExpandChange={handleHeaderExpandChange}

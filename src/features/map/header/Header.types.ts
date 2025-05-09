@@ -27,7 +27,7 @@ export type MapPageHeaderProps = {
   onSearchClick?: () => void;
 
   /** 헤더가 확장된 상태인지 여부 */
-  expanded: boolean;
+  $expanded: boolean;
 
   /** 헤더 확장/축소 토글 핸들러 함수 */
   onExpandToggle: () => void;
