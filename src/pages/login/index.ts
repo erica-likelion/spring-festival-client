@@ -1,1 +1,1 @@
-export { default as KakaoLoginPage } from './Login';
+export { default as Login } from './Login';

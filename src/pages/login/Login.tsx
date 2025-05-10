@@ -12,9 +12,9 @@ import { NavBar } from '@/components/nav-bar';
  * - 해당 페이지 진입 시 네비게이션 바를 숨기고, 페이지를 벗어날 경우 다시 보이게 합니다.
  * - "로그인하지 않고 둘러보기" 혹은 뒤로가기 버튼 클릭시 전 페이지로 돌아갑니다.
  *
- * @returns {React.ReactElement} KakaoLoginPage 컴포넌트
+ * @returns {React.ReactElement} Login 컴포넌트
  */
-const KakaoLoginPage: React.FC = () => {
+const Login: React.FC = () => {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
   const navigate = useNavigate();
 
@@ -49,4 +49,4 @@ const KakaoLoginPage: React.FC = () => {
   );
 };
 
-export default KakaoLoginPage;
+export default Login;
