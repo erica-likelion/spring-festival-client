@@ -18,6 +18,7 @@ import {
   NoticeDetail,
   Lost,
   LostUpload,
+  LostComplete,
 } from '@/pages';
 import Layout from '@/layout';
 
@@ -52,6 +53,10 @@ const routes = createBrowserRouter([
       {
         path: 'main/lost/upload',
         element: <LostUpload />,
+      },
+      {
+        path: 'main/lost/upload/complete',
+        element: <LostComplete />,
       },
       {
         path: 'main/lost/post/:id',
