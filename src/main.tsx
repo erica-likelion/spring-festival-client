@@ -13,6 +13,9 @@ import {
   User,
   TimeTable,
   PerformanceDetail,
+  LostPost,
+  Notice,
+  NoticeDetail,
   Lost,
   LostUpload,
 } from '@/pages';
@@ -35,12 +38,24 @@ const routes = createBrowserRouter([
         element: <Main />,
       },
       {
+        path: 'main/notice',
+        element: <Notice />,
+      },
+      {
+        path: 'main/notice/:id',
+        element: <NoticeDetail />,
+      },
+      {
         path: 'main/lost',
         element: <Lost />,
       },
       {
         path: 'main/lost/upload',
         element: <LostUpload />,
+      },
+      {
+        path: 'main/lost/post/:id',
+        element: <LostPost />,
       },
       {
         path: 'login',
