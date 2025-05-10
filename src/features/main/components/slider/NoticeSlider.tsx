@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { NoticeData } from '@/constants/main/Notice';
 import NoticeCard from '../cards/NoticeCard';
 import * as S from './NoticeSlider.styles';
@@ -14,10 +14,37 @@ import { useNavigate } from 'react-router-dom';
 
 function NoticeSlicer() {
   const navigate = useNavigate();
+  const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const updateConstraints = () => {
+      if (sliderRef.current && wrapperRef.current) {
+        const visible = wrapperRef.current.clientWidth; // 보이는부분 화면에
+        const total = sliderRef.current.scrollWidth; // 슬라이더 전체 너비
+        const padding = 1.21 * 16 * 2; // (1.21rem * 16px * 2)
+
+        setDragConstraints({
+          left: visible - total - padding,
+          right: 0,
+        });
+      }
+    };
+
+    updateConstraints();
+
+    //크기 자동 감지
+    const resize = new ResizeObserver(updateConstraints);
+    if (wrapperRef.current) {
+      resize.observe(wrapperRef.current);
+    }
+
+    return () => resize.disconnect();
+  }, []);
 
   return (
-    <S.SliderWrapper>
-      <S.Container drag="x" dragConstraints={{ left: -10000, right: 0 }}>
+    <S.SliderWrapper ref={wrapperRef}>
+      <S.Container ref={sliderRef} drag="x" dragConstraints={dragConstraints}>
         <S.Box>
           {NoticeData.map((notice) => (
             <NoticeCard
