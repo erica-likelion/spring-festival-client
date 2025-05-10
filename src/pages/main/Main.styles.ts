@@ -15,13 +15,14 @@ export const Contents = styled.div`
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  justify-content: center;
 `;
 
 export const Title = styled.p`
   ${(props) => props.theme.fonts.header.h3}
   color: ${(props) => props.theme.colors.grayScale.white};
   margin: 1rem 1.21rem;
+  width: 21rem;
 `;
 
 export const CarouselsBox = styled.section`
