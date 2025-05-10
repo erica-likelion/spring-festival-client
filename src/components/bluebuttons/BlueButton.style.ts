@@ -16,10 +16,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
         return '0.25rem 1rem';
       case 'larger':
         return '0.75rem 1.25rem';
-      case 'large-header':
-        return '0.5rem 1.25rem';
-      case 'large':
-      default:
+      default: // large, large-header 공통
         return '0.5rem 1.25rem';
     }
   }};
