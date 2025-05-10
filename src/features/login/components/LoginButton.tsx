@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyledKakaoButton } from './LoginButton.style';
 import { LoginButtonProps } from './LoginButton.types';
-import KaKaoTalk from '../../assets/icons/kakaotalk.svg?react';
+import KaKaoTalk from '@/assets/icons/kakaotalk.svg?react';
 
 /**
  * 카카오 로그인 버튼 컴포넌트입니다.
