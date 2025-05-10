@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import * as S from './Menu.styles';
 import { ImageTextIconFrame } from '@/components/image-text-icon-frame';
 
 export default function Menu() {
+  const navigate = useNavigate();
   return (
     <S.SectionContainer>
       <S.Section>
@@ -11,11 +13,13 @@ export default function Menu() {
             image="./"
             title="총학생회 인스타그램 바로가기"
             description="축제 공지를 한눈에 보아요"
+            onClick={() => (window.location.href = 'https://www.instagram.com/hanyang_erica_stu/')}
           />
           <ImageTextIconFrame
             image="./"
             title="멋사 보러가볼까"
             description="멋사 인스타그램 바로가기"
+            onClick={() => (window.location.href = 'https://www.instagram.com/likelion_erica/')}
           />
         </S.Frame>
       </S.Section>
@@ -26,11 +30,7 @@ export default function Menu() {
             image="./"
             title="분실물 신고하기"
             description="여기서 습득한 분실물을 신고할 수 있어요"
-          />
-          <ImageTextIconFrame
-            image="./"
-            title="멋사 보러가볼까"
-            description="멋사 인스타그램 바로가기"
+            onClick={() => navigate('/main/lost')}
           />
         </S.Frame>
       </S.Section>
@@ -41,13 +41,30 @@ export default function Menu() {
             image="./"
             title="축제 문의사항 남기기"
             description="축기단 구글폼으로 이동"
+            onClick={() =>
+              (window.location.href =
+                'https://linktr.ee/hanyangericastu?fbclid=PAZXh0bgNhZW0CMTEAAadthHc2bzHYTJpR9bKdWqWf5dkrhAQ4keGj3co0OaEQFbvxfv_pwv7r_6pQLw_aem_cSOQAKzd9acl-2z3bVSdmQ')
+            }
           />
-          <ImageTextIconFrame image="./" title="축제 FAQ" description="총학생회 인스타그램" />
+          <ImageTextIconFrame
+            image="./"
+            title="축제 FAQ"
+            description="총학생회 인스타그램"
+            onClick={() =>
+              (window.location.href =
+                'https://linktr.ee/hanyangericastu?fbclid=PAZXh0bgNhZW0CMTEAAadthHc2bzHYTJpR9bKdWqWf5dkrhAQ4keGj3co0OaEQFbvxfv_pwv7r_6pQLw_aem_cSOQAKzd9acl-2z3bVSdmQ')
+            }
+          />
         </S.Frame>
       </S.Section>
 
       <S.Section>
-        <ImageTextIconFrame image="./" title="축제 웹앱 사용후기" description="구글폼 링크" />
+        <ImageTextIconFrame
+          image="./"
+          title="축제 웹앱 사용후기"
+          description="구글폼 링크"
+          onClick={() => (window.location.href = 'https://forms.gle/2YmD7kKm1YJSmQSF7')}
+        />
       </S.Section>
     </S.SectionContainer>
   );

@@ -12,20 +12,10 @@ export const Contents = styled.div`
   padding-bottom: 6.25rem;
 `;
 
-export const SectionContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-`;
-
 export const Main = styled.main`
   display: flex;
   flex-direction: column;
   width: 100%;
-`;
-
-export const Section = styled.section`
-  width: 21rem;
 `;
 
 export const Title = styled.p`
@@ -34,27 +24,8 @@ export const Title = styled.p`
   margin: 1rem 1.21rem;
 `;
 
-export const SubTitle = styled.p`
-  ${(props) => props.theme.fonts.header.h3}
-  color: ${(props) => props.theme.colors.grayScale.white};
-  margin: 1rem 0;
-`;
-
 export const CarouselsBox = styled.section`
   display: flex;
   justify-content: center;
   overflow: hidden;
-`;
-
-export const Menu = styled.div`
-  display: flex;
-  justify-content: center;
-  width: 21rem;
-  margin: 1rem 1.21rem;
-`;
-
-export const Frame = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
 `;
