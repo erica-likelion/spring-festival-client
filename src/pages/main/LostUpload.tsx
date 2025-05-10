@@ -11,18 +11,23 @@ import useModal from '@/hooks/useModal';
 import { useNavigate } from 'react-router-dom';
 import { useModalStore } from '@/stores/useModalStore';
 
+/**
+ * 분실물 등록 페이지
+ * @returns {JSX.Element}
+ */
+
 export default function LostUpload() {
   const navigate = useNavigate();
   const setIsNav = useLayoutStore((state) => state.setIsNav);
-  const [selectedDay, setSelectedDay] = useState<string>('1일차');
-  const [selectOpen, setSelectOpen] = useState(false);
-  const [name, setName] = useState('');
-  const [location, setLocation] = useState('');
-  const [isDeliveredToStaff, setIsDeliveredToStaff] = useState(false);
-  const [description, setDescription] = useState('');
-  const [image, setImage] = useState<File | null>(null);
-  const [time, setTime] = useState<string>('16:00 - 18:00');
-  const [checked, setChecked] = useState(false);
+  const [selectedDay, setSelectedDay] = useState<string>('1일차'); //날짜 선택 변수
+  const [selectOpen, setSelectOpen] = useState(false); //시간 height값 변수 여부
+  const [name, setName] = useState(''); //분실물 이름 변수
+  const [location, setLocation] = useState(''); //습득 장소 변수
+  const [isDeliveredToStaff, setIsDeliveredToStaff] = useState(false); //스태프 전달 여부 변수
+  const [description, setDescription] = useState(''); //분실물 설명 변수
+  const [image, setImage] = useState<File | null>(null); //분실물 이미지 파일 변수
+  const [time, setTime] = useState<string>('16:00 - 18:00'); //습득 시간 변수
+  const [checked, setChecked] = useState(false); //체크박스 체크 여부 변수
   const toggleCheck = () => setChecked((prev) => !prev);
   const { open, key } = useModal(ModalCaution);
   const closeModal = useModalStore((state) => state.closeModal);

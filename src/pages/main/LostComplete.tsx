@@ -7,6 +7,11 @@ import TestImage from '@/assets/images/notification.webp';
 import { Description } from '@/features/lost';
 import * as S from './LostComplete.styles';
 
+/**
+ * 분실물 등록 완료 페이지
+ * @returns {JSX.Element}
+ */
+
 export default function LostComplete() {
   const navigate = useNavigate();
   const setIsNav = useLayoutStore((state) => state.setIsNav);

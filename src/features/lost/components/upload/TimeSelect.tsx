@@ -14,6 +14,18 @@ const TIME_OPTIONS = [
   '22:00 ~ 24:00',
 ];
 
+/**
+ * 분실물 등록하기 TimeSelect 컴포넌트
+ * @param {TimeSelectProps} props - Props for the TimeSelect component
+ * @param {string} selectedDay - 선택된 날짜
+ * @param {React.Dispatch<React.SetStateAction<string>>} setSelectedDay - 날짜 선택 함수
+ * @param {string} time - 선택된 시간
+ * @param {React.Dispatch<React.SetStateAction<string>>} setTime - 시간 선택 함수
+ * @param {boolean} selectOpen - 드롭다운 열림 여부
+ * @param {React.Dispatch<React.SetStateAction<boolean>>} setSelectOpen - 드롭다운 열림 함수
+ * @returns {JSX.Element}
+ */
+
 export default function TimeSelect({
   selectedDay,
   setSelectedDay,

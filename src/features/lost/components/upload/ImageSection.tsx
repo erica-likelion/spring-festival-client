@@ -6,6 +6,14 @@ import CameraIcon from '@/assets/icons/nrk_camera.svg?react';
 import { ImageSectionProps } from './ImageSection.types';
 import { useRef } from 'react';
 
+/**
+ * 분실물 등록하기 ImageSection 컴포넌트
+ * @param {ImageSectionProps} props - Props for the ImageSection component
+ * @param {File | null} props.image - 업로드된 이미지 파일
+ * @param {(file: File) => void} props.setImage - 이미지 파일을 설정하는 함수
+ * @returns {JSX.Element} - Rendered ImageSection component
+ */
+
 export default function ImageSection({ image, setImage }: ImageSectionProps) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {

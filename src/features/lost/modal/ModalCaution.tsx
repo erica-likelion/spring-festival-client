@@ -1,10 +1,14 @@
 import { BlueButton } from '@/components/bluebuttons';
 import * as S from './ModalCaution.styles';
+import { ModalCautionProps } from './ModalCaution.types';
 
-interface ModalCautionProps {
-  title: string;
-  onConfirm: () => void;
-}
+/**
+ * ModalCaution 컴포넌트
+ * @param {ModalCautionProps} props - Props for the ModalCaution component
+ * @param {string} title - 제목
+ * @param {() => void} props.onConfirm - 클릭 이벤트 핸들러
+ * @returns {JSX.Element} - Rendered ModalCaution component
+ */
 
 export default function ModalCaution({ onConfirm }: ModalCautionProps) {
   return (
