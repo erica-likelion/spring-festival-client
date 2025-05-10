@@ -3,6 +3,7 @@ export const Z_INDEX = {
   MAP_OVERLAY: 100,
   CONTENTS: 200,
   HEADER: 300,
+  BOTTOM_SHEET: 400,
 } as const;
 
 type Z_INDEX_VALUES = (typeof Z_INDEX)[keyof typeof Z_INDEX];

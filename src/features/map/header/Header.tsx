@@ -16,30 +16,30 @@ export default function MapPageHeader({
   selectedCategory,
   onCategoryChange,
   onSearchClick,
-  expanded = false,
+  $expanded = false,
   onExpandToggle,
   showCategory = true,
   onExpandChange,
 }: MapPageHeaderProps) {
-  // expanded 상태가 변경될 때마다 콜백 호출
+  // $expanded 상태가 변경될 때마다 콜백 호출
   useEffect(() => {
-    onExpandChange?.(expanded);
-  }, [expanded, onExpandChange]);
+    onExpandChange?.($expanded);
+  }, [$expanded, onExpandChange]);
 
   return (
-    <S.Container expanded={expanded}>
-      <S.HeadWrap expanded={expanded}>
+    <S.Container $expanded={$expanded}>
+      <S.HeadWrap $expanded={$expanded}>
         <S.TitleWrap onClick={onExpandToggle}>
-          <S.Title>{expanded ? '일차 선택' : `${selectedDay} 지도`}</S.Title>
-          <S.DropdownButton expanded={expanded}>
+          <S.Title>{$expanded ? '일차 선택' : `${selectedDay} 지도`}</S.Title>
+          <S.DropdownButton $expanded={$expanded}>
             <ArrowIcon width={'1.5rem'} height={'1.5rem'} />
           </S.DropdownButton>
         </S.TitleWrap>
-        <S.Search expanded={expanded}>
+        <S.Search $expanded={$expanded}>
           <SearchIcon width={'1.5rem'} height={'1.5rem'} onClick={onSearchClick} />
         </S.Search>
       </S.HeadWrap>
-      <S.DropDownWrap expanded={expanded}>
+      <S.DropDownWrap $expanded={$expanded}>
         {days.map((day) => (
           <S.DaySelectButton
             key={day}
@@ -55,7 +55,7 @@ export default function MapPageHeader({
         ))}
       </S.DropDownWrap>
       {showCategory && (
-        <S.CategoryWrap expanded={expanded}>
+        <S.CategoryWrap $expanded={$expanded}>
           <Tabs
             tabs={[...(categories as readonly string[])]}
             activeTab={selectedCategory || ''}

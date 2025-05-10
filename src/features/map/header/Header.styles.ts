@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 interface HeaderProps {
-  expanded: boolean;
+  $expanded: boolean;
 }
 
 export const Container = styled.div<HeaderProps>`
@@ -19,11 +19,11 @@ export const HeadWrap = styled.div<HeaderProps>`
   padding: 1.19rem 0.88rem 1.44rem;
   position: relative;
   background-color: ${(props) =>
-    props.expanded ? props.theme.colors.grayScale.black : 'transparent'};
+    props.$expanded ? props.theme.colors.grayScale.black : 'transparent'};
   transition: background-color 0.2s ease-in-out;
 `;
 
-export const TitleWrap = styled.button`
+export const TitleWrap = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -55,14 +55,14 @@ export const DropdownButton = styled.button<HeaderProps>`
   cursor: pointer;
 
   svg {
-    transform: ${(props) => (props.expanded ? 'rotate(-180deg)' : 'rotate(0deg)')};
+    transform: ${(props) => (props.$expanded ? 'rotate(-180deg)' : 'rotate(0deg)')};
     transition: transform 0.2s ease-in-out;
   }
 `;
 
 export const Search = styled.button<HeaderProps>`
-  opacity: ${(props) => (props.expanded ? '0' : '1')};
-  visibility: ${(props) => (props.expanded ? 'hidden' : 'visible')};
+  opacity: ${(props) => (props.$expanded ? '0' : '1')};
+  visibility: ${(props) => (props.$expanded ? 'hidden' : 'visible')};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -86,14 +86,14 @@ export const DropDownWrap = styled.div<HeaderProps>`
   box-shadow: 0px 3px 5.9px 0px rgb(255 255 255 / 10%);
 
   /* 애니메이션 */
-  max-height: ${(props) => (props.expanded ? '20rem' : '0')};
+  max-height: ${(props) => (props.$expanded ? '20rem' : '0')};
   overflow: hidden;
   transition:
     max-height 0.2s ease-in-out,
     opacity 0.2s ease-in-out,
     padding 0.2s ease-in-out;
-  opacity: ${(props) => (props.expanded ? '1' : '0')};
-  padding: ${(props) => (props.expanded ? '0 1.25rem 1.25rem 1.25rem' : '0 1.25rem 0 1.25rem')};
+  opacity: ${(props) => (props.$expanded ? '1' : '0')};
+  padding: ${(props) => (props.$expanded ? '0 1.25rem 1.25rem 1.25rem' : '0 1.25rem 0 1.25rem')};
 `;
 
 export const DaySelectButton = styled.button`
