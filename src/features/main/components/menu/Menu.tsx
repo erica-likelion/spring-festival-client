@@ -2,6 +2,13 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './Menu.styles';
 import { ImageTextIconFrame } from '@/components/image-text-icon-frame';
 
+/**
+ * Menu 컴포넌트
+ * 메뉴 클릭시 내부 경로 이동 또는 외부 URL로 연결
+ * @component
+ * @returns {JSX.Element}
+ */
+
 export default function Menu() {
   const navigate = useNavigate();
   return (
