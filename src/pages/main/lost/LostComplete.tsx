@@ -22,7 +22,7 @@ export default function LostComplete() {
 
   return (
     <S.Container>
-      <NavBar title="작성 완료" isBack={true} backPath={-2} />
+      <NavBar title="작성 완료" isBack={true} backPath={'/main/lost'} />
       <S.Title>분실물 등록이 완료되었습니다.</S.Title>
       <S.Image src={TestImage} alt="완료 이미지" />
       <S.TextBox>

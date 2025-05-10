@@ -19,22 +19,27 @@ import { useModalStore } from '@/stores/useModalStore';
 export default function LostUpload() {
   const navigate = useNavigate();
   const setIsNav = useLayoutStore((state) => state.setIsNav);
-  const [selectedDay, setSelectedDay] = useState<string>('1일차'); //날짜 선택 변수
-  const [selectOpen, setSelectOpen] = useState(false); //시간 height값 변수 여부
-  const [name, setName] = useState(''); //분실물 이름 변수
-  const [location, setLocation] = useState(''); //습득 장소 변수
-  const [isDeliveredToStaff, setIsDeliveredToStaff] = useState(false); //스태프 전달 여부 변수
-  const [description, setDescription] = useState(''); //분실물 설명 변수
-  const [image, setImage] = useState<File | null>(null); //분실물 이미지 파일 변수
-  const [time, setTime] = useState<string>('16:00 - 18:00'); //습득 시간 변수
-  const [checked, setChecked] = useState(false); //체크박스 체크 여부 변수
-  const toggleCheck = () => setChecked((prev) => !prev);
+  const [formState, setFormState] = useState({
+    selectedDay: '1일차', //날짜 선택 변수
+    selectOpen: false, //시간 height값 변수 여부
+    name: '', //분실물 이름 변수
+    location: '', //습득 장소 변수
+    isDeliveredToStaff: false, //스태프 전달 여부
+    description: '', //분실물 설명 변수
+    image: null as File | null, //분실물 이미지 파일 변수
+    time: '16:00 - 18:00', //습득 시간 변수
+    checked: false, //체크박스 체크 여부 변수
+  });
   const { open, key } = useModal(ModalCaution);
   const closeModal = useModalStore((state) => state.closeModal);
 
   useEffect(() => {
     setIsNav(false);
   }, [setIsNav]);
+
+  const updateForm = <K extends keyof typeof formState>(key: K, value: (typeof formState)[K]) => {
+    setFormState((prev) => ({ ...prev, [key]: value }));
+  };
 
   const handleAddClick = () => {
     open(
@@ -58,25 +63,25 @@ export default function LostUpload() {
         <S.InputContainer>
           <S.InputWrap>
             {/* 이미지 */}
-            <ImageSection image={image} setImage={setImage} />
+            <ImageSection image={formState.image} setImage={(file) => updateForm('image', file)} />
             {/* 이름 */}
             <S.NameBox>
               <Title title="분실물 이름" />
               <S.Input
                 placeholder="ex) 학생증, 후드집업 (최대 20자)"
                 maxLength={20}
-                onChange={(e) => setName(e.target.value)}
+                onChange={(e) => updateForm('name', e.target.value)}
               />
             </S.NameBox>
             {/* 스태프 전달 여부 */}
             <S.StaffBox>
               <Title title="스태프 전달 여부" />
               <S.StaffButton
-                onClick={() => setIsDeliveredToStaff((prev) => !prev)}
-                $active={isDeliveredToStaff}
+                onClick={() => updateForm('isDeliveredToStaff', !formState.isDeliveredToStaff)}
+                $active={formState.isDeliveredToStaff}
               >
-                <S.StaffButtonText $active={isDeliveredToStaff}>
-                  {isDeliveredToStaff ? '전달 완료' : '전달 안함'}
+                <S.StaffButtonText $active={formState.isDeliveredToStaff}>
+                  {formState.isDeliveredToStaff ? '전달 완료' : '전달 안함'}
                 </S.StaffButtonText>
                 <CheckIcon width={'1rem'} height={'1rem'} fill={theme.colors.grayScale.white} />
               </S.StaffButton>
@@ -87,17 +92,17 @@ export default function LostUpload() {
               <S.Input
                 placeholder="ex) 대운동장, 제 1공학관 앞 (최대 20자)"
                 maxLength={20}
-                onChange={(e) => setLocation(e.target.value)}
+                onChange={(e) => updateForm('location', e.target.value)}
               />
             </S.LocationBox>
             {/* 시간 */}
             <TimeSelect
-              selectedDay={selectedDay}
-              setSelectedDay={setSelectedDay}
-              time={time}
-              setTime={setTime}
-              selectOpen={selectOpen}
-              setSelectOpen={setSelectOpen}
+              selectedDay={formState.selectedDay}
+              setSelectedDay={(val) => updateForm('selectedDay', val)}
+              time={formState.time}
+              setTime={(val) => updateForm('time', val)}
+              selectOpen={formState.selectOpen}
+              setSelectOpen={(val) => updateForm('selectOpen', val)}
             />
             {/* 설명 */}
             <S.DescriptionBox>
@@ -105,7 +110,7 @@ export default function LostUpload() {
               <S.DescriptionInput
                 placeholder="ex) 분실물에 대한 자세한 설명이 필요하다면 적어주세요! (최대 100자)"
                 maxLength={100}
-                onChange={(e) => setDescription(e.target.value)}
+                onChange={(e) => updateForm('description', e.target.value)}
               />
               <Description text="* 축제와 무관한 내용이나 동일 정보의 반복 등 부적절한 내용은 삭제될 수 있습니다." />
             </S.DescriptionBox>
@@ -116,10 +121,12 @@ export default function LostUpload() {
               보관이나 수령과 관련된 책임은 지지 않습니다.
             </S.CheckText>
             <S.Icon
-              $checked={checked}
-              onClick={toggleCheck}
+              $checked={formState.checked}
+              onClick={() => updateForm('checked', !formState.checked)}
               style={{
-                color: checked ? theme.colors.grayScale.black : theme.colors.grayScale.gy400,
+                color: formState.checked
+                  ? theme.colors.grayScale.black
+                  : theme.colors.grayScale.gy400,
               }}
             >
               <CheckIcon width="2.0625rem" height="2.0625rem" />
@@ -129,7 +136,17 @@ export default function LostUpload() {
         <BlueButton
           label="작성 완료"
           size="larger"
-          disabled={!(image && name && location && selectedDay && time && description && checked)}
+          disabled={
+            !(
+              formState.image &&
+              formState.name &&
+              formState.location &&
+              formState.selectedDay &&
+              formState.time &&
+              formState.description &&
+              formState.checked
+            )
+          }
           onClick={handleAddClick}
         />
       </S.Container>
