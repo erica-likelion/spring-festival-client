@@ -1,6 +1,6 @@
-import LoginButton from '@/pages/login/LoginButton';
-import React, { useEffect } from 'react';
-import { Container, NotLoginText, ContentWrapper, TextWrapper, Wrapper } from './login.style';
+import { LoginButton } from '@/features/login/components';
+import { useEffect } from 'react';
+import * as S from './login.style';
 import HyLightXLikeLion from '@/assets/images/hylight-likelion.svg?react';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useNavigate } from 'react-router-dom';
@@ -13,19 +13,14 @@ import { NavBar } from '@/components/nav-bar';
  * - "로그인하지 않고 둘러보기" 혹은 뒤로가기 버튼 클릭시 전 페이지로 돌아갑니다.
  *
  * @returns {React.ReactElement} KakaoLoginPage 컴포넌트
- *
  */
-
 const KakaoLoginPage: React.FC = () => {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
   const navigate = useNavigate();
 
   useEffect(() => {
-    setIsNav(false); // 로그인 화면일 땐 네비게이션 숨김
-
-    return () => {
-      setIsNav(true); // 화면 떠날 때 다시 네비게이션 보이게
-    };
+    setIsNav(false);
+    return () => setIsNav(true);
   }, [setIsNav]);
 
   const handleLoginClick = () => {
@@ -37,20 +32,20 @@ const KakaoLoginPage: React.FC = () => {
   };
 
   return (
-    <Container>
+    <S.Container>
       <NavBar isBack={true} title="로그인" backPath={-1} />
-      <ContentWrapper>
+      <S.ContentWrapper>
         <HyLightXLikeLion />
-        <TextWrapper>
+        <S.TextWrapper>
           <p>카카오톡으로 간편하게 시작해</p>
           <p>지금 바로 축제를 즐겨보세요!</p>
-        </TextWrapper>
-      </ContentWrapper>
-      <Wrapper>
+        </S.TextWrapper>
+      </S.ContentWrapper>
+      <S.Wrapper>
         <LoginButton onClick={handleLoginClick} />
-        <NotLoginText onClick={handleNotLoginClick}>로그인하지 않고 둘러보기</NotLoginText>
-      </Wrapper>
-    </Container>
+        <S.NotLoginText onClick={handleNotLoginClick}>로그인하지 않고 둘러보기</S.NotLoginText>
+      </S.Wrapper>
+    </S.Container>
   );
 };
 
