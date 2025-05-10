@@ -14,20 +14,23 @@ import { useNavigate } from 'react-router-dom';
 
 function NoticeSlicer() {
   const navigate = useNavigate();
+
   return (
-    <>
-      <S.Container>
-        {NoticeData.map((notice) => (
-          <NoticeCard
-            key={`notice${notice.id}`}
-            title={notice.title}
-            tags={notice.tags}
-            body={notice.body}
-            onClick={() => navigate(`/main/notice/${notice.id}`)}
-          />
-        ))}
+    <S.SliderWrapper>
+      <S.Container drag="x" dragConstraints={{ left: -10000, right: 0 }}>
+        <S.Box>
+          {NoticeData.map((notice) => (
+            <NoticeCard
+              key={`notice${notice.id}`}
+              title={notice.title}
+              tags={notice.tags}
+              body={notice.body}
+              onClick={() => navigate(`/main/notice/${notice.id}`)}
+            />
+          ))}
+        </S.Box>
       </S.Container>
-    </>
+    </S.SliderWrapper>
   );
 }
 
