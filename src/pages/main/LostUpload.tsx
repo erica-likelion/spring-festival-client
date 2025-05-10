@@ -2,13 +2,17 @@ import { useEffect, useState } from 'react';
 import * as S from './LostUpload.styles';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import CheckIcon from '@/assets/icons/check.svg?react';
-import { Description, ImageSection, Title } from '@/features/lost';
+import { Description, ImageSection, ModalCaution, Title } from '@/features/lost';
 import { theme } from '@/styles/theme';
 import { NavBar } from '@/components/nav-bar';
 import { BlueButton } from '@/components/bluebuttons';
 import TimeSelect from '@/features/lost/components/upload/TimeSelect';
+import useModal from '@/hooks/useModal';
+import { useNavigate } from 'react-router-dom';
+import { useModalStore } from '@/stores/useModalStore';
 
 export default function LostUpload() {
+  const navigate = useNavigate();
   const setIsNav = useLayoutStore((state) => state.setIsNav);
   const [selectedDay, setSelectedDay] = useState<string>('1일차');
   const [selectOpen, setSelectOpen] = useState(false);
@@ -20,9 +24,27 @@ export default function LostUpload() {
   const [time, setTime] = useState<string>('16:00 - 18:00');
   const [checked, setChecked] = useState(false);
   const toggleCheck = () => setChecked((prev) => !prev);
+  const { open, key } = useModal(ModalCaution);
+  const closeModal = useModalStore((state) => state.closeModal);
+
   useEffect(() => {
     setIsNav(false);
   }, [setIsNav]);
+
+  const handleAddClick = () => {
+    open(
+      {
+        title: '분실물 등록 숙지 사항',
+        onConfirm: () => {
+          closeModal({ key, clearTime: 200 });
+          navigate('/main/lost/upload/complete');
+        },
+      },
+      {
+        isHelpIcon: false,
+      },
+    );
+  };
 
   return (
     <>
@@ -102,18 +124,8 @@ export default function LostUpload() {
         <BlueButton
           label="작성 완료"
           isBigger={true}
-          disabled={
-            !(
-              image &&
-              name &&
-              isDeliveredToStaff &&
-              location &&
-              selectedDay &&
-              time &&
-              description &&
-              checked
-            )
-          }
+          disabled={!(image && name && location && selectedDay && time && description && checked)}
+          onClick={handleAddClick}
         />
       </S.Container>
     </>
