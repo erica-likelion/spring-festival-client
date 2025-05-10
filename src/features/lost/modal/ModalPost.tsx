@@ -50,7 +50,12 @@ export default function ModalPost() {
           </S.TextBox>
         ))}
       </S.TextWrap>
-      <BlueButton label="등록하러 가기" disabled={!allChecked} onClick={() => handleLink()} />
+      <BlueButton
+        label="등록하러 가기"
+        size="large"
+        disabled={!allChecked}
+        onClick={() => handleLink()}
+      />
     </S.ModalContainer>
   );
 }

@@ -7,10 +7,12 @@ import Booth from '@/pages/booth/Booth';
 import User from '@/pages/User';
 import TimeTable from '@/pages/performance/TimeTable';
 import PerformanceDetail from '@/pages/performance/PerformanceDetail';
-import LostPost from './main/LostPost';
+import LostPost from './main/lost/LostPost';
 import Notice from '@/pages/main/Notice';
 import NoticeDetail from '@/pages/main/NoticeDetail';
-import Lost from './main/Lost';
+import Lost from './main/lost/Lost';
+import LostUpload from './main/lost/LostUpload';
+import LostComplete from './main/lost/LostComplete';
 
 export {
   Main,
@@ -26,4 +28,6 @@ export {
   Notice,
   NoticeDetail,
   Lost,
+  LostUpload,
+  LostComplete,
 };
