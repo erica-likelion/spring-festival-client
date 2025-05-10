@@ -5,12 +5,12 @@ import React from 'react';
 import { NoticeBodyProps } from '../../notice/Notice.types';
 import { truncateText } from '@/utils/truncateText';
 
-function NoticeCard({ title, body, tags = [] }: NoticeBodyProps) {
+function NoticeCard({ title, body, tags = [], onClick }: NoticeBodyProps) {
   const truncatedTitle = truncateText(title, 30);
   const truncatedBody = truncateText(body, 35);
 
   return (
-    <S.Container>
+    <S.Container onClick={onClick}>
       <S.HeaderSection>
         <S.TagWrapper>
           {tags.map((tag, index) => (
