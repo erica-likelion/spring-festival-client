@@ -54,15 +54,8 @@ export const useModalStore = create<ModalStateType & ModalActionType>((set) => (
   },
 
   clearModals: () => {
-    const clearTime = 3000;
-    set((state) => ({
-      modals: state.modals.map((modal) => ({ ...modal, props: { ...modal.props, isOpen: false } })),
+    set(() => ({
+      modals: [],
     }));
-
-    setTimeout(() => {
-      set((state) => ({
-        modals: state.modals.filter((modal) => modal.props.isOpen),
-      }));
-    }, clearTime);
   },
 }));

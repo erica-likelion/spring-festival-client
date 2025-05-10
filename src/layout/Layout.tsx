@@ -4,6 +4,7 @@ import * as S from './Layout.styles';
 import Nav from '@/layout/nav';
 import Main from '@/layout/main/Main';
 import { useLayoutStore } from '@/stores/useLayoutStore';
+import { Modal as ModalProvider } from '@/components/modal';
 
 /**
  * Layout component
@@ -19,6 +20,7 @@ export default function Layout() {
           <Outlet />
         </Main>
       </AnimatePresence>
+      <ModalProvider />
     </S.Container>
   );
 }

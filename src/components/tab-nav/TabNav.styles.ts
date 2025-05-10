@@ -17,8 +17,9 @@ export const List = styled.ul`
   gap: 0.5rem;
 `;
 
-export const Item = styled(motion.li)`
-  color: ${(props) => props.theme.colors.grayScale.gy50};
+export const Item = styled(motion.li)<{ $current: boolean }>`
+  color: ${(props) =>
+    props.$current ? props.theme.colors.grayScale.gy50 : props.theme.colors.grayScale.gy700};
   ${(props) => props.theme.fonts.body.large400};
   position: relative;
   height: 2.5rem;

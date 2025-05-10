@@ -4,6 +4,7 @@ import { useModalStore } from '@/stores/useModalStore';
 import { ModalItemProps } from '@/types/modal.type';
 import * as S from './Modal.style';
 import { easeOut, AnimatePresence } from 'framer-motion';
+import { useSearchParams } from 'react-router-dom';
 
 /**
  * Modals component
@@ -14,6 +15,7 @@ import { easeOut, AnimatePresence } from 'framer-motion';
  */
 export default function Modals() {
   const modals = useModalStore((state) => state.modals);
+  if (modals.length === 0) return null;
   return (
     <React.Fragment>
       <AnimatePresence>
@@ -58,10 +60,14 @@ function ModalItem({
 }: ModalItemProps) {
   const [portalElement, setPortalElement] = useState<HTMLElement | null>(null);
   const closeModal = useModalStore((state) => state.closeModal);
+  const [, setSearchParams] = useSearchParams();
   useEffect(() => {
     setPortalElement(portalTarget ? portalTarget : document.body);
   }, [portalTarget]);
-
+  const onHandleClose = () => {
+    closeModal({ key: modalKey, clearTime: 300 });
+    setSearchParams({});
+  };
   if (!portalElement) return null;
   return createPortal(
     <S.ModalOverlay
@@ -81,12 +87,7 @@ function ModalItem({
             {isHelp && <S.Help fill="#e9e9ea" width={18} height={18} />}
             <S.ModalTitleText>{props.title}</S.ModalTitleText>
           </S.ModalTitle>
-          <S.ModalCloseBtn
-            onClick={() => closeModal({ key: modalKey, clearTime: 300 })}
-            fill="#fafafa"
-            width={18}
-            height={18}
-          />
+          <S.ModalCloseBtn onClick={onHandleClose} fill="#fafafa" width={18} height={18} />
         </S.ModalTab>
         <Component {...props}></Component>
       </S.ModalWrapper>
