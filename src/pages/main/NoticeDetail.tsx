@@ -4,8 +4,8 @@ import { NavBar } from '@/components/nav-bar';
 import * as S from './NoticeDetail.styles';
 import { useEffect, useMemo } from 'react';
 import { useLayoutStore } from '@/stores/useLayoutStore';
-import NoticeBody from '../../features/main/notice/NoticeBody';
-import NoticeDetailCarousels from '@/features/main/notice/NoticeDetailCarousels';
+import NoticeBody from '../../features/main/components/notice/NoticeBody';
+import NoticeDetailCarousels from '@/features/main/components/notice/NoticeDetailCarousels';
 
 /**
  * 공지사항 상세 페이지 - 인스타그램 스타일 캐러셀

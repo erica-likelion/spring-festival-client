@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './NoticeBox.styles';
-import NoticeText from '@/features/main/notice/NoticeText';
+import NoticeText from '@/features/main/components/notice/NoticeText';
 import { NoticeBoxProps } from './Notice.types';
 
 function NoticeBox({ id, img, title, body, onClick }: NoticeBoxProps) {
