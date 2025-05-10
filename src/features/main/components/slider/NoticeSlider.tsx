@@ -17,6 +17,7 @@ function NoticeSlicer() {
   const [dragConstraints, setDragConstraints] = useState({ left: 0, right: 0 });
   const sliderRef = useRef<HTMLDivElement>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     const updateConstraints = () => {
       if (sliderRef.current && wrapperRef.current) {
