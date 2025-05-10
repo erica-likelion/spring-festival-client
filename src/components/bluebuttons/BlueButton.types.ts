@@ -4,7 +4,7 @@
  * - 'large-body': 큰 버튼 (폰트 medium500)
  * - 'large-header': 큰 버튼 (폰트 header.h4)
  */
-export type BlueButtonSize = 'small' | 'large' | 'large-header';
+export type BlueButtonSize = 'small' | 'large' | 'large-header' | 'larger';
 
 /**
  * 공통 BlueButton 컴포넌트의 Props

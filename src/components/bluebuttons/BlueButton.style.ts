@@ -9,11 +9,33 @@ export const StyledButton = styled.button<StyledButtonProps>`
   color: ${({ theme }) => theme.colors.grayScale.white};
   white-space: nowrap;
   cursor: pointer;
-  padding: ${({ $size }) => ($size === 'small' ? '0.25rem 1rem' : '0.5rem 1.25rem')};
-  width: ${({ $size }) => ($size === 'small' ? '7.5rem' : '15rem')};
   border-radius: ${({ $size }) => ($size === 'small' ? '0.5rem' : '0.75rem')};
+  padding: ${({ $size }) => {
+    switch ($size) {
+      case 'small':
+        return '0.25rem 1rem';
+      case 'larger':
+        return '0.75rem 1.25rem';
+      case 'large-header':
+        return '0.5rem 1.25rem';
+      case 'large':
+      default:
+        return '0.5rem 1.25rem';
+    }
+  }};
+  width: ${({ $size }) => {
+    switch ($size) {
+      case 'small':
+        return '7.5rem';
+      case 'larger':
+        return '20.9375rem';
+      default:
+        return '15rem';
+    }
+  }};
   ${({ $size, theme }) => {
     switch ($size) {
+      case 'larger':
       case 'large-header':
         return theme.fonts.header.h4;
       case 'large':
