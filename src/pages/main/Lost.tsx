@@ -27,6 +27,7 @@ export default function Lost() {
       <NavBar
         isBack={true}
         title="분실물 신고하기"
+        backPath={'/main'}
         isSearch={true}
         onSearchClick={() => navigate('/main/lost/search')}
       />

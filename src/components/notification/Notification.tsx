@@ -17,6 +17,7 @@ const ANIMATION_VARIANTS = {
  *
  * @param {string} title - 알림 제목
  * @param {function} onClick - 알림 클릭 시 호출되는 콜백 함수
+ * @param {function} onClose - 알림 닫기 시 호출되는 콜백 함수
  * @param {string} width - 명시적인 너비 값 (예: '20rem')
  * @returns {React.ReactElement} Notification 컴포넌트
  * ...
@@ -26,15 +27,21 @@ const ANIMATION_VARIANTS = {
  * <Notification
  *   title="Notification Title"
  *   onClick={handleClickNotification}
+ *   onClose={handleCloseNotification}
  *   width="100%"
  * />
  */
-export default function Notification({ title, onClick, width }: NotificationProps) {
+export default function Notification({ title, onClick, onClose, width }: NotificationProps) {
   const [isVisible, setIsVisible] = useState(true);
 
   const handleClose = (e: React.MouseEvent) => {
     e.stopPropagation();
     setIsVisible(false);
+
+    // 애니메이션이 끝난 후에 onClose 콜백 호출
+    setTimeout(() => {
+      onClose?.();
+    }, 300); // 애니메이션 지속 시간과 동일하게 설정
   };
 
   return (
