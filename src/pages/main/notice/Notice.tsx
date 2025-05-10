@@ -4,7 +4,7 @@ import { NoticeData } from '@/constants/main/Notice';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import NoticeBox from '@/features/main/notice/NoticeBox';
+import { NoticeBox } from '@/features/main/components/notice/index';
 
 export default function Notice() {
   const navigate = useNavigate();
