@@ -128,7 +128,7 @@ export default function LostUpload() {
         </S.InputContainer>
         <BlueButton
           label="작성 완료"
-          size="large-header"
+          size="larger"
           disabled={!(image && name && location && selectedDay && time && description && checked)}
           onClick={handleAddClick}
         />

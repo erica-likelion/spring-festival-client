@@ -36,7 +36,7 @@ export default function LostComplete() {
         />
         <BlueButton
           label="분실물 페이지로 돌아가기"
-          size="large-header"
+          size="larger"
           onClick={() => {
             navigate('/main/lost');
           }}
