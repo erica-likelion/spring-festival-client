@@ -32,7 +32,7 @@ export default function Nav() {
                   animationData={item.icon}
                   play={isLocation}
                   loop={false}
-                  style={{ width: '24px', height: '24px' }}
+                  style={{ width: '1.5rem', height: '1.5rem' }}
                 />
               )}
               <S.NavBtnText>{item.label}</S.NavBtnText>
