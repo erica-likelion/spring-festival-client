@@ -21,7 +21,7 @@ import { useCallback, useMemo } from 'react';
  * () => close();
  * ```
  */
-export default function useModal<T extends { title: string }>(Component: React.ComponentType) {
+export default function useModal<T extends { title: string }>(Component: React.ComponentType<T>) {
   const openModal = useModalStore((state) => state.openModal);
   const closeModal = useModalStore((state) => state.closeModal);
 

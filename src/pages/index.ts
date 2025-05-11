@@ -11,6 +11,8 @@ import LostPost from './main/LostPost';
 import Notice from '@/pages/main/notice/Notice';
 import NoticeDetail from '@/pages/main/notice/NoticeDetail';
 import Lost from './main/Lost';
+import LostUpload from './main/lost/LostUpload';
+import LostComplete from './main/lost/LostComplete';
 
 export {
   Main,
@@ -26,4 +28,6 @@ export {
   Notice,
   NoticeDetail,
   Lost,
+  LostUpload,
+  LostComplete,
 };
