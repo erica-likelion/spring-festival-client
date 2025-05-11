@@ -1,3 +1,4 @@
+import { NotWaiting } from '@/features/tabling/components';
 import { Link } from 'react-router-dom';
 
 export default function User() {
@@ -5,7 +6,7 @@ export default function User() {
     <>
       {/**나의예약 */}
       <Link to={'/login'}>로그인</Link>
-      My Page
+      <NotWaiting />
     </>
   );
 }
