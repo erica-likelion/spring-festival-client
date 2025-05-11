@@ -1,4 +1,4 @@
-import { AnimatePresence, useMotionValue, animate } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import * as S from './InputStepper.styles';
 import MinusIcon from '@/assets/icons/minus.svg?react';
@@ -18,50 +18,31 @@ import PlusIcon from '@/assets/icons/plus.svg?react';
  * <InputStepper setValue={setValue} />
  * ```
  */
-export default function InputStepper({ setValue }: { setValue: (value: number) => void }) {
-  const value = useMotionValue(0);
-  const [displayValue, setDisplayValue] = useState(0);
-  const [direction, setDirection] = useState(1);
+export default function InputStepper({
+  setValue,
+  value,
+}: {
+  setValue: (value: number) => void;
+  value: number;
+}) {
   const [isEdit, setIsEdit] = useState(false);
 
   const handleIncrement = () => {
-    const current = Math.round(value.get());
-    if (current < 12) {
-      setDirection(1);
-      animate(value, current + 1, {
-        type: 'spring',
-        stiffness: 500,
-        damping: 30,
-      });
-      setValue(current + 1);
+    if (value < 12) {
+      setValue(value + 1);
     }
   };
 
   const handleDecrement = () => {
-    const current = Math.round(value.get());
-    if (current > 0) {
-      setDirection(-1);
-      animate(value, current - 1, {
-        type: 'spring',
-        stiffness: 500,
-        damping: 30,
-      });
-      setValue(current - 1);
+    if (value > 0) {
+      setValue(value - 1);
     }
   };
-
-  value.on('change', (v) => {
-    setDisplayValue(Math.round(v));
-  });
 
   return (
     <S.Container>
       <S.Button onClick={handleDecrement} whileTap={{ scale: 0.9 }}>
-        <MinusIcon
-          fill={Math.round(value.get()) === 0 ? '#64686A' : '#fafafa'}
-          width={'1.5rem'}
-          height={'1.5rem'}
-        />
+        <MinusIcon fill={value === 0 ? '#64686A' : '#fafafa'} width={'1.5rem'} height={'1.5rem'} />
       </S.Button>
       <AnimatePresence mode="wait">
         <S.InputField onClick={() => setIsEdit(true)}>
@@ -69,11 +50,10 @@ export default function InputStepper({ setValue }: { setValue: (value: number) =
             <S.InputFieldInput
               type="number"
               autoFocus
-              value={displayValue}
+              value={value}
               onChange={(e) => {
                 const val = Number(e.target.value);
                 if (!isNaN(val) && val >= 0 && val <= 12) {
-                  value.set(val);
                   setValue(val);
                 }
               }}
@@ -83,8 +63,7 @@ export default function InputStepper({ setValue }: { setValue: (value: number) =
             />
           ) : (
             <S.InputFieldText
-              key={displayValue}
-              custom={direction}
+              key={value}
               variants={{
                 initial: (custom: number) => ({ y: custom > 0 ? -10 : 10, opacity: 0 }),
                 animate: { y: 0, opacity: 1 },
@@ -95,13 +74,13 @@ export default function InputStepper({ setValue }: { setValue: (value: number) =
               exit="exit"
               transition={{ type: 'spring', stiffness: 500, damping: 30 }}
             >
-              {displayValue}
+              {value}
             </S.InputFieldText>
           )}
         </S.InputField>
       </AnimatePresence>
       <S.Button onClick={handleIncrement} whileTap={{ scale: 0.9 }}>
-        <PlusIcon fill="#fafafa" />
+        <PlusIcon fill={value === 12 ? '#64686A' : '#fafafa'} />
       </S.Button>
     </S.Container>
   );
