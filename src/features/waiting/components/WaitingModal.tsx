@@ -1,6 +1,6 @@
 import { InputStepper } from '@/components/input-stepper';
 import { useFunnel } from '@/hooks/useFunnel';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useModalStore } from '@/stores/useModalStore';
 import * as S from './WaitingModal.styles';
 
@@ -74,6 +74,19 @@ const PhoneStep = ({
     setWaitingForm({ people: waitingForm.people, phone: currentPhone });
     setStep(STEPS[2]);
   };
+
+  useEffect(() => {
+    if (currentPhone.length === 11) {
+      setCurrentPhone(currentPhone.replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'));
+    } else if (currentPhone.length === 13) {
+      setCurrentPhone(
+        currentPhone
+          //하이픈이 입력되면 공백으로 변경되고 하이픈이 다시 생성됨
+          .replace(/-/g, '')
+          .replace(/(\d{3})(\d{4})(\d{4})/, '$1-$2-$3'),
+      );
+    }
+  }, [currentPhone]);
   return (
     <S.Container animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>
       <S.MediumText>전화드릴 번호를 입력해주세요!</S.MediumText>
@@ -88,7 +101,7 @@ const PhoneStep = ({
         <S.SmallText>최대 3회까지 가능합니다.</S.SmallText>
       </S.SmallTextFrame>
       <S.Button
-        disabled={currentPhone.length !== 11}
+        disabled={currentPhone.length !== 13}
         onClick={handleNext}
         whileTap={{ scale: 0.9 }}
       >
