@@ -10,6 +10,7 @@ import {
   MapSearch,
   Performance,
   Booth,
+  BoothDetail,
   User,
   TimeTable,
   PerformanceDetail,
@@ -22,7 +23,6 @@ import {
 } from '@/pages';
 import Layout from '@/layout';
 
-import { Modal as ModalProvider } from '@/components/modal';
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -94,6 +94,10 @@ const routes = createBrowserRouter([
         path: 'booth',
         element: <Booth />,
       },
+      {
+        path: 'booth/:id',
+        element: <BoothDetail />,
+      },
     ],
   },
 ]);
@@ -101,7 +105,6 @@ const routes = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <>
     <ThemeProvider theme={theme}>
-      <ModalProvider />
       <GlobalStyle />
       <RouterProvider router={routes} />
     </ThemeProvider>

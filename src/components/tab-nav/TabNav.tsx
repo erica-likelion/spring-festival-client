@@ -34,6 +34,7 @@ export default function TabNav<T extends readonly string[]>({
         <S.List>
           {tabs.map((tab) => (
             <S.Item
+              $current={tab === currentStep}
               key={tab}
               onClick={() => {
                 setStep(tab);

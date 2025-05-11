@@ -5,6 +5,7 @@ import Login from '@/pages/login/Login';
 import Performance from '@/pages/performance/Performance';
 import Booth from '@/pages/booth/Booth';
 import User from '@/pages/User';
+import BoothDetail from '@/pages/booth/BoothDetail';
 import TimeTable from '@/pages/performance/TimeTable';
 import PerformanceDetail from '@/pages/performance/PerformanceDetail';
 import LostPost from './main/lost/LostPost';
@@ -28,6 +29,7 @@ export {
   Notice,
   NoticeDetail,
   Lost,
+  BoothDetail,
   LostUpload,
   LostComplete,
 };
