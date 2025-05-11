@@ -35,8 +35,12 @@ export const Button = styled.button`
   background-color: ${(props) => props.theme.colors.grayScale.black};
   border-radius: 0.375rem;
   border: none;
-  ${(props) => props.theme.fonts.body.xsmall500};
   position: absolute;
   right: 0.75rem;
   bottom: 0.75rem;
+`;
+
+export const ButtonText = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall500};
+  color: ${(props) => props.theme.colors.grayScale.white};
 `;
