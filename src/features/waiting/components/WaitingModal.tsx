@@ -3,6 +3,7 @@ import { useFunnel } from '@/hooks/useFunnel';
 import { useEffect, useState } from 'react';
 import { useModalStore } from '@/stores/useModalStore';
 import * as S from './WaitingModal.styles';
+import { BlueButton } from '@/components/bluebuttons';
 
 const STEPS = ['people', 'phone', 'complete'] as const;
 
@@ -53,9 +54,7 @@ const PeopleStep = ({
         <S.SmallText>웨이팅 남용을 방지하기 위해 동시 웨이팅 횟수는</S.SmallText>
         <S.SmallText>최대 3회까지 가능합니다.</S.SmallText>
       </S.SmallTextFrame>
-      <S.Button disabled={currentPeople === 0} onClick={handleNext} whileTap={{ scale: 0.9 }}>
-        다음으로
-      </S.Button>
+      <BlueButton disabled={currentPeople === 0} onClick={handleNext} label="다음으로" />
     </S.Container>
   );
 };
@@ -100,13 +99,7 @@ const PhoneStep = ({
         <S.SmallText>웨이팅 남용을 방지하기 위해 동시 웨이팅 횟수는</S.SmallText>
         <S.SmallText>최대 3회까지 가능합니다.</S.SmallText>
       </S.SmallTextFrame>
-      <S.Button
-        disabled={currentPhone.length !== 13}
-        onClick={handleNext}
-        whileTap={{ scale: 0.9 }}
-      >
-        다음으로
-      </S.Button>
+      <BlueButton disabled={currentPhone.length !== 13} onClick={handleNext} label="다음으로" />
     </S.Container>
   );
 };
@@ -131,9 +124,7 @@ const CompleteStep = ({
         <S.SmallText>N번째 대기팀이 되면, 웹앱 푸시를 통해</S.SmallText>
         <S.SmallText>입장 알림을 보내드리니 꼭 확인해주세요.</S.SmallText>
       </S.SmallTextFrame>
-      <S.Button onClick={handleClose} whileTap={{ scale: 0.9 }}>
-        내 웨이팅 보러가기
-      </S.Button>
+      <BlueButton onClick={handleClose} label="내 웨이팅 보러가기" />
     </S.Container>
   );
 };
