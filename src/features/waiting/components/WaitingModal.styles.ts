@@ -36,6 +36,7 @@ export const Button = styled(motion.button)`
   align-items: center;
   border: none;
   border-radius: 0.75rem;
+  color: ${(props) => props.theme.colors.grayScale.white};
   background: ${(props) => props.theme.colors.primary.bl400};
 
   &:disabled {
@@ -53,6 +54,7 @@ export const PhoneInput = styled.input`
   border-radius: 0.5rem;
   border: 0.0625rem solid ${(props) => props.theme.colors.grayScale.gy600};
   ${(props) => props.theme.fonts.body.medium500};
+  background-color: ${(props) => props.theme.colors.grayScale.black};
   color: ${(props) => props.theme.colors.grayScale.white};
 
   &:placeholder-shown {

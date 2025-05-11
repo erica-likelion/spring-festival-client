@@ -29,7 +29,7 @@ export const Text = styled.span<{ $isBlue?: boolean }>`
 `;
 
 export const HeaderText = styled(Text)`
-  ${(props) => props.theme.fonts.header.h2};
+  ${(props) => props.theme.fonts.header.h4};
 `;
 
 export const MediumText = styled(Text)`
