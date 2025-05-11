@@ -19,6 +19,7 @@ export const Image = styled.img`
   height: 6.25rem;
   background: ${(props) => props.theme.colors.grayScale.gy800};
   border-radius: 0.75rem;
+  border: 0.5px solid ${(props) => props.theme.colors.grayScale.gy800};
 `;
 
 export const TextSection = styled.div`
