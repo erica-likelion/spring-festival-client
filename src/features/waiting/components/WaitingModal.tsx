@@ -99,7 +99,7 @@ const PhoneStep = ({
         <S.SmallText>웨이팅 남용을 방지하기 위해 동시 웨이팅 횟수는</S.SmallText>
         <S.SmallText>최대 3회까지 가능합니다.</S.SmallText>
       </S.SmallTextFrame>
-      <BlueButton disabled={currentPhone.length !== 13} onClick={handleNext} label="다음으로" />
+      <BlueButton disabled={currentPhone.length !== 13} onClick={handleNext} label="등록하기" />
     </S.Container>
   );
 };
