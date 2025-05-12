@@ -1,6 +1,19 @@
 import { useRef, useEffect } from 'react';
 import { MIN_Y, MAX_Y } from '@/constants/map/BottomSheetOptions';
 
+/**
+ * 바텀시트 동작 추적을 위한 메트릭 인터페이스
+ *
+ * @interface BottomSheetMetrics
+ * @property {Object} touchStart - 터치/드래그 시작 위치 정보
+ * @property {number} touchStart.sheetY - 시트의 초기 Y 위치
+ * @property {number} touchStart.touchY - 터치/마우스 이벤트의 초기 Y 위치
+ * @property {Object} touchMove - 터치/드래그 이동 관련 정보
+ * @property {number} [touchMove.prevTouchY] - 이전 터치/마우스 이벤트의 Y 위치
+ * @property {('none'|'down'|'up')} touchMove.movingDirection - 현재 이동 방향
+ * @property {boolean} isContentAreaTouched - 콘텐츠 영역 터치 여부
+ * @property {number} currentTranslateY - 현재 시트의 translateY 값
+ */
 interface BottomSheetMetrics {
   touchStart: {
     sheetY: number;
@@ -14,6 +27,33 @@ interface BottomSheetMetrics {
   currentTranslateY: number;
 }
 
+/**
+ * 바텀시트 기능을 제공하는 커스텀 훅
+ *
+ * 헤더 영역에서의 드래그를 통한 시트 이동, 콘텐츠 영역의 스크롤 기능을 제공합니다.
+ * 모바일 터치 이벤트와 데스크톱 마우스 이벤트를 모두 지원합니다.
+ *
+ * @returns {Object} 바텀시트 제어에 필요한 객체와 함수들
+ * @returns {RefObject<HTMLDivElement>} sheet - 바텀시트 전체 요소에 대한 ref
+ * @returns {RefObject<HTMLDivElement>} header - 바텀시트 헤더 요소에 대한 ref (드래그 가능 영역)
+ * @returns {RefObject<HTMLDivElement>} content - 바텀시트 콘텐츠 요소에 대한 ref (스크롤 영역)
+ * @returns {Function} resetBottomSheet - 바텀시트를 초기 위치로 되돌리는 함수
+ * @returns {Function} closeBottomSheet - 바텀시트를 완전히 닫는 함수
+ *
+ * @example
+ * const { sheet, header, content, resetBottomSheet, closeBottomSheet } = useBottomSheet();
+ *
+ * return (
+ *   <div ref={sheet} className="bottom-sheet">
+ *     <div ref={header} className="bottom-sheet-header">
+ *       <div className="handle" />
+ *     </div>
+ *     <div ref={content} className="bottom-sheet-content">
+ *       // 콘텐츠 내용
+ *     </div>
+ *   </div>
+ * );
+ */
 export const useBottomSheet = () => {
   const sheet = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);

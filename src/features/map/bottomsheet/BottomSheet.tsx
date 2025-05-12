@@ -6,6 +6,29 @@ import { DummyData } from '@/constants/map/DummyData';
 import { ImageTextFrameWithTime } from '@/components/image-text-frame';
 import { days } from '@/constants/map';
 
+/**
+ * 바텀시트 컴포넌트
+ *
+ * 모바일 인터페이스에서 화면 하단에서 올라오는 시트 컴포넌트입니다.
+ * 헤더 부분을 드래그하여 위아래로 이동 가능하며, 콘텐츠 영역은 스크롤이 가능합니다.
+ * 카테고리 선택 시 관련 정보를 표시하거나 커스텀 콘텐츠를 children으로 전달할 수 있습니다.
+ *
+ * @component
+ * @param {Object} props - 컴포넌트 속성
+ * @param {CATEGORIES|null} props.selectedCategory - 선택된 카테고리
+ * @param {DAYS} [props.selectedDay=days[0]] - 선택된 날짜 (기본값: 첫 번째 날)
+ * @param {ReactNode} [props.children] - 바텀시트 내부에 표시할 커스텀 컨텐츠
+ *
+ * @example
+ * // 기본 사용법
+ * <BottomSheet selectedCategory="주점" selectedDay="1일차" />
+ *
+ * @example
+ * // 커스텀 콘텐츠를 포함한 사용법
+ * <BottomSheet selectedCategory="주점" selectedDay="1일차">
+ *   <CustomContent />
+ * </BottomSheet>
+ */
 export default function BottomSheet({
   selectedCategory,
   selectedDay = days[0],
