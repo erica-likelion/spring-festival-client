@@ -1,8 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import * as S from './TablingCardList.styles';
 import { Reorder } from 'framer-motion';
 import RightIcon from '@/assets/icons/right-arrow.svg?react';
 import { BlueButton } from '@/components/bluebuttons';
+import useModal from '@/hooks/useModal';
+import WaitingCancelModal from '@/features/waiting/components/WaitingCancelModal';
 
 export type TablingCard = {
   id: number;
@@ -22,16 +24,25 @@ interface TablingCardListProps {
 export default function TablingCardList({ tablingCards }: TablingCardListProps) {
   const [items, setItems] = useState<TablingCard[]>(tablingCards);
   const [openId, setOpenId] = useState<number | null>(null);
+  const { open } = useModal(WaitingCancelModal);
 
-  const handleClick = (id: number) => {
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>, id: number) => {
+    e.stopPropagation();
     setOpenId((prev) => (prev === id ? null : id));
+  };
+
+  const handleCancelClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+    open({
+      title: '웨이팅 취소',
+    });
   };
 
   return (
     <Reorder.Group values={items} onReorder={setItems} axis="y">
       {items.map((item) => (
         <S.Card key={item.id} value={item}>
-          <S.CardWrapper layout onClick={() => handleClick(item.id)}>
+          <S.CardWrapper layout onClick={(e) => handleClick(e, item.id)}>
             <S.Header style={openId === item.id ? { height: '8.75rem' } : {}}>
               {openId === item.id && (
                 <S.CardImage
@@ -103,7 +114,7 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
                     <S.Small>{item.watingTime}</S.Small>
                     <S.Small>등록</S.Small>
                   </S.TextFrame>
-                  <BlueButton label="웨이팅 취소" size="small" />
+                  <BlueButton label="웨이팅 취소" size="small" onClick={handleCancelClick} />
                 </S.SelectedFrame>
               </S.Expendable>
             )}
