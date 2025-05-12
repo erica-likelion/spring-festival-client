@@ -14,7 +14,6 @@ import { useNavigate } from 'react-router-dom';
 import { LostItem } from '@/features/lost/components/main/ItemList.types';
 import { lostItemsByDay } from '@/constants/lost/LostItems';
 import { ItemCard } from '@/features/lost';
-import { motion } from 'framer-motion';
 
 export default function LostSearch() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
@@ -77,53 +76,36 @@ export default function LostSearch() {
         value={searchKeyword}
       />
       {step === 'input' ? (
-        <motion.div
-          key="input"
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -40 }}
-          transition={{ duration: 0.5 }}
-          style={{ width: '100%' }}
-        >
-          <S.RecentSearchSection>
-            <S.RecentSearchHeader>최근 검색어</S.RecentSearchHeader>
-            {loginStatus === 0 ? (
-              <S.LoginInfoBox>
-                <S.LoginInfoText>최근 검색어를 확인하려면 로그인해주세요!</S.LoginInfoText>
-                <S.LoginInfoButton onClick={() => navigate('/login')}>
-                  로그인 하러가기
-                </S.LoginInfoButton>
-              </S.LoginInfoBox>
-            ) : searchHistory.length > 0 ? (
-              <S.HistoryItemsContainer>
-                <Chips
-                  chips={searchHistory.map((item) => item.keyword)}
-                  onChipClick={handleHistoryItemClick}
-                  onChipClose={handleHistoryItemClose}
-                  margin="1.25rem"
-                />
-              </S.HistoryItemsContainer>
-            ) : (
-              <S.EmptyHistoryMessage>최근 검색 내역이 없습니다.</S.EmptyHistoryMessage>
-            )}
-          </S.RecentSearchSection>
-        </motion.div>
+        <S.RecentSearchSection>
+          <S.RecentSearchHeader>최근 검색어</S.RecentSearchHeader>
+          {loginStatus === 0 ? (
+            <S.LoginInfoBox>
+              <S.LoginInfoText>최근 검색어를 확인하려면 로그인해주세요!</S.LoginInfoText>
+              <S.LoginInfoButton onClick={() => navigate('/login')}>
+                로그인 하러가기
+              </S.LoginInfoButton>
+            </S.LoginInfoBox>
+          ) : searchHistory.length > 0 ? (
+            <S.HistoryItemsContainer>
+              <Chips
+                chips={searchHistory.map((item) => item.keyword)}
+                onChipClick={handleHistoryItemClick}
+                onChipClose={handleHistoryItemClose}
+                margin="1.25rem"
+              />
+            </S.HistoryItemsContainer>
+          ) : (
+            <S.EmptyHistoryMessage>최근 검색 내역이 없습니다.</S.EmptyHistoryMessage>
+          )}
+        </S.RecentSearchSection>
       ) : (
-        <motion.div
-          key="result"
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -40 }}
-          transition={{ duration: 0.5 }}
-        >
-          <S.ResultSection>
-            <S.GridList>
-              {filteredItems.map((item) => (
-                <ItemCard key={item.id} item={item} />
-              ))}
-            </S.GridList>
-          </S.ResultSection>
-        </motion.div>
+        <S.ResultSection>
+          <S.GridList>
+            {filteredItems.map((item) => (
+              <ItemCard key={item.id} item={item} />
+            ))}
+          </S.GridList>
+        </S.ResultSection>
       )}
     </S.SearchPageContainer>
   );
