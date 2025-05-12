@@ -13,7 +13,9 @@ export default function Card({ image, label, backgroundColor, name, description 
             <ColorButton label={label} backgroundColor={backgroundColor as ColorKey} />
             <S.Name>{name}</S.Name>
           </S.ColorButtonWrap>
-          <S.Description>{description}</S.Description>
+          <S.Description
+            dangerouslySetInnerHTML={{ __html: description.replace(/\n/g, '<br/>') }}
+          />
         </S.TextWrap>
       </S.Wrap>
     </S.Container>

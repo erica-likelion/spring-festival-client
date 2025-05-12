@@ -24,6 +24,7 @@ export const Image = styled.img`
   width: 4rem;
   height: 4rem;
   aspect-ratio: 1/1;
+  border-radius: 50%;
 `;
 
 export const TextWrap = styled.div`
