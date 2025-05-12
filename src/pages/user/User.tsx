@@ -41,11 +41,13 @@ export default function User() {
   return (
     <S.Container>
       <NavBar />
-      <Notification title="잠깐! 노쇼는 안 돼요ㅠ" width="100%" />
-      <S.RefreshHeader>
-        <RefreshButton onClick={() => {}} />
-      </S.RefreshHeader>
-      <WaitingList tablingCards={LIST} />
+      <S.Wrapper>
+        <Notification title="잠깐! 노쇼는 안 돼요ㅠ" width="100%" />
+        <S.RefreshHeader>
+          <RefreshButton onClick={() => {}} />
+        </S.RefreshHeader>
+        <WaitingList tablingCards={LIST} />
+      </S.Wrapper>
     </S.Container>
   );
 }
