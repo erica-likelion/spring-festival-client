@@ -6,6 +6,11 @@ import { useLayoutStore } from '@/stores/useLayoutStore';
 import { useEffect } from 'react';
 import { NavBar } from '@/components/nav-bar';
 
+/**
+ * MadeBy 컴포넌트
+ * @returns {JSX.Element}
+ */
+
 export default function MadeBy() {
   const parts = ['기획&디자인', '프론트', '백엔드'];
   const setIsNav = useLayoutStore((state) => state.setIsNav);
