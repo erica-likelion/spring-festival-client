@@ -60,3 +60,21 @@ export const BottomSheetContent = styled.div`
     display: none;
   }
 `;
+
+export const ContentUnitWrap = styled.div<{ $isLastItem?: boolean }>`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.5988rem 0;
+  border-bottom: ${(props) =>
+    props.$isLastItem ? 'none' : `0.0625rem solid ${props.theme.colors.grayScale.gy900}`};
+`;
+
+export const NoDataMessage = styled.div`
+  color: ${(props) => props.theme.colors.grayScale.gy500};
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+`;
