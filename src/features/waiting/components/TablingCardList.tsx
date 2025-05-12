@@ -3,6 +3,7 @@ import * as S from './TablingCardList.styles';
 import { Reorder } from 'framer-motion';
 import RightIcon from '@/assets/icons/right-arrow.svg?react';
 import { BlueButton } from '@/components/bluebuttons';
+import { useNavigate } from 'react-router-dom';
 
 export type TablingCard = {
   id: number;
@@ -22,6 +23,7 @@ interface TablingCardListProps {
 export default function TablingCardList({ tablingCards }: TablingCardListProps) {
   const [items, setItems] = useState<TablingCard[]>(tablingCards);
   const [openId, setOpenId] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   const handleClick = (id: number) => {
     setOpenId((prev) => (prev === id ? null : id));
@@ -48,8 +50,21 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
                   }}
                 />
               )}
-              <S.HeaderText>{item.boothName}</S.HeaderText>
-              <RightIcon width={'1.5rem'} height={'1.5rem'} fill="#FAFAFA" style={{ zIndex: 1 }} />
+              <S.HeaderFrame
+                key={`fade-${item.id}-${openId === item.id ? 'open' : 'close'}`}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.4, ease: 'easeInOut' }}
+              >
+                <S.HeaderText>{item.boothName}</S.HeaderText>
+                <RightIcon
+                  width={'1.5rem'}
+                  height={'1.5rem'}
+                  fill="#FAFAFA"
+                  style={{ zIndex: 1 }}
+                  onClick={() => navigate(`/booth/${item.id}`)}
+                />
+              </S.HeaderFrame>
             </S.Header>
             <S.HorizontalLine />
             <S.TextSection>
