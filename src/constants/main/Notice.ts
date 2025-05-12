@@ -110,24 +110,4 @@ export const NoticeData = [
     ],
     body: '축제 기간 동안 안전 사고 예방을 위해 반드시 안전 수칙을 준수해 주시기 바랍니다.',
   },
-  {
-    id: 7,
-    img: [notice1_0, notice1_1, notice1_2, notice1_3, notice1_4, notice1_5],
-    title: '이벤트 참여 안내',
-    tags: [
-      { color: 'pk200', text: 'LIVE' },
-      { color: 'rd500', text: '공연무대' },
-    ],
-    body: '축제 기간 동안 진행되는 다양한 이벤트에 참여해 보세요! 자세한 내용은 홈페이지를 참고하세요.',
-  },
-  {
-    id: 8,
-    img: [notice1_0, notice1_1, notice1_2, notice1_3, notice1_4, notice1_5],
-    title: '주차장 이용 제한 안내',
-    tags: [
-      { color: 'pk200', text: 'LIVE' },
-      { color: 'rd500', text: '공연무대' },
-    ],
-    body: '대중교통을 이용해 주세요.',
-  },
 ];

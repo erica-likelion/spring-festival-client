@@ -15,7 +15,7 @@ import { ColorButtonProps } from './ColorButton.types';
  */
 
 const ColorButton: React.FC<ColorButtonProps> = ({ label, backgroundColor }) => {
-  return <StyledColorButton backgroundColor={backgroundColor}>{label}</StyledColorButton>;
+  return <StyledColorButton $backgroundColor={backgroundColor}>{label}</StyledColorButton>;
 };
 
 export default ColorButton;

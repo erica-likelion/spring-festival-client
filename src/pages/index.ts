@@ -15,6 +15,7 @@ import NoticeDetail from '@/pages/main/notice/NoticeDetail';
 import Lost from './main/lost/Lost';
 import LostUpload from './main/lost/LostUpload';
 import LostComplete from './main/lost/LostComplete';
+import MadeBy from './main/notice/MadeBy';
 
 export {
   Main,
@@ -34,4 +35,5 @@ export {
   BoothDetail,
   LostUpload,
   LostComplete,
+  MadeBy,
 };

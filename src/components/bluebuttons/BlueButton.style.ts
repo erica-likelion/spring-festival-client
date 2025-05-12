@@ -32,12 +32,10 @@ export const StyledButton = styled.button<StyledButtonProps>`
   }};
   ${({ $size, theme }) => {
     switch ($size) {
-      case 'larger':
       case 'large-header':
         return theme.fonts.header.h4;
       case 'large':
         return theme.fonts.body.medium500;
-      case 'small':
       default:
         return theme.fonts.body.small500;
     }
