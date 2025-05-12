@@ -94,7 +94,9 @@ export default function Map() {
           showCategory={showCategory}
           onExpandChange={handleHeaderExpandChange}
         />
-        {isBottomSheetOpen && <MapPageBottomSheet />}
+        {isBottomSheetOpen && (
+          <MapPageBottomSheet selectedCategory={selectedCategory} selectedDay={selectedDay} />
+        )}
       </S.ContentContainer>
     </S.MapContainer>
   );
