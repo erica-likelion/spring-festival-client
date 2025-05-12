@@ -65,7 +65,7 @@ function ModalItem({
     setPortalElement(portalTarget ? portalTarget : document.body);
   }, [portalTarget]);
   const onHandleClose = () => {
-    closeModal({ key: modalKey, clearTime: 300 });
+    closeModal({ key: modalKey, clearTime: 0 });
     setSearchParams({});
   };
   if (!portalElement) return null;
