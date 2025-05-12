@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 export const SearchPageContainer = styled.div`
   display: flex;
@@ -144,4 +145,8 @@ export const GridList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 0.5rem;
+`;
+
+export const AnimatedSection = styled(motion.div)`
+  width: 100%;
 `;

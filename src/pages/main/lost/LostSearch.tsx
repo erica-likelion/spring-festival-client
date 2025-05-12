@@ -76,36 +76,52 @@ export default function LostSearch() {
         value={searchKeyword}
       />
       {step === 'input' ? (
-        <S.RecentSearchSection>
-          <S.RecentSearchHeader>최근 검색어</S.RecentSearchHeader>
-          {loginStatus === 0 ? (
-            <S.LoginInfoBox>
-              <S.LoginInfoText>최근 검색어를 확인하려면 로그인해주세요!</S.LoginInfoText>
-              <S.LoginInfoButton onClick={() => navigate('/login')}>
-                로그인 하러가기
-              </S.LoginInfoButton>
-            </S.LoginInfoBox>
-          ) : searchHistory.length > 0 ? (
-            <S.HistoryItemsContainer>
-              <Chips
-                chips={searchHistory.map((item) => item.keyword)}
-                onChipClick={handleHistoryItemClick}
-                onChipClose={handleHistoryItemClose}
-                margin="1.25rem"
-              />
-            </S.HistoryItemsContainer>
-          ) : (
-            <S.EmptyHistoryMessage>최근 검색 내역이 없습니다.</S.EmptyHistoryMessage>
-          )}
-        </S.RecentSearchSection>
+        <S.AnimatedSection
+          key="input"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <S.RecentSearchSection>
+            <S.RecentSearchHeader>최근 검색어</S.RecentSearchHeader>
+            {loginStatus === 0 ? (
+              <S.LoginInfoBox>
+                <S.LoginInfoText>최근 검색어를 확인하려면 로그인해주세요!</S.LoginInfoText>
+                <S.LoginInfoButton onClick={() => navigate('/login')}>
+                  로그인 하러가기
+                </S.LoginInfoButton>
+              </S.LoginInfoBox>
+            ) : searchHistory.length > 0 ? (
+              <S.HistoryItemsContainer>
+                <Chips
+                  chips={searchHistory.map((item) => item.keyword)}
+                  onChipClick={handleHistoryItemClick}
+                  onChipClose={handleHistoryItemClose}
+                  margin="1.25rem"
+                />
+              </S.HistoryItemsContainer>
+            ) : (
+              <S.EmptyHistoryMessage>최근 검색 내역이 없습니다.</S.EmptyHistoryMessage>
+            )}
+          </S.RecentSearchSection>
+        </S.AnimatedSection>
       ) : (
-        <S.ResultSection>
-          <S.GridList>
-            {filteredItems.map((item) => (
-              <ItemCard key={item.id} item={item} />
-            ))}
-          </S.GridList>
-        </S.ResultSection>
+        <S.AnimatedSection
+          key="result"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <S.ResultSection>
+            <S.GridList>
+              {filteredItems.map((item) => (
+                <ItemCard key={item.id} item={item} />
+              ))}
+            </S.GridList>
+          </S.ResultSection>
+        </S.AnimatedSection>
       )}
     </S.SearchPageContainer>
   );
