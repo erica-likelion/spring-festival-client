@@ -78,7 +78,7 @@ export const RecentSearchSection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: center;
+  align-self: start;
   margin-top: 1.69rem;
 `;
 
@@ -132,4 +132,16 @@ export const EmptyHistoryMessage = styled.div`
   height: 1.856rem;
   ${(props) => props.theme.fonts.body.medium400};
   color: ${(props) => props.theme.colors.grayScale.gy500};
+`;
+
+export const ResultSection = styled.section`
+  padding-top: 1rem;
+  padding-left: 1.44rem;
+  padding-right: 1.44rem;
+`;
+
+export const GridList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
 `;
