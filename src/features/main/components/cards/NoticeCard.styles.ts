@@ -1,11 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  cursor: grab;
   display: flex;
   width: 12.25rem;
   flex-direction: column;
   align-items: flex-start;
-  background-color: ${(props) => props.theme.colors.primary.bl400};
+  background-color: ${(props) => props.theme.colors.secondary.ye200};
   box-shadow: 3px 3px 0px 0px #e6ab12;
 `;
 
