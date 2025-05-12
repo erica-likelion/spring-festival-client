@@ -31,7 +31,7 @@ export interface BlueButtonProps {
    * 버튼 클릭 시 실행되는 함수
    * 예: 페이지 이동, 모달 열기 등 사용자 정의 동작
    */
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 /**
