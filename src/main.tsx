@@ -20,6 +20,7 @@ import {
   Lost,
   LostUpload,
   LostComplete,
+  MadeBy,
 } from '@/pages';
 import Layout from '@/layout';
 
@@ -61,6 +62,10 @@ const routes = createBrowserRouter([
       {
         path: 'main/lost/post/:id',
         element: <LostPost />,
+      },
+      {
+        path: 'main/about',
+        element: <MadeBy />,
       },
       {
         path: 'login',
