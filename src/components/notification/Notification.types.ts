@@ -21,4 +21,10 @@ export type NotificationProps = {
    * @default '20.9375rem'
    */
   width?: CSSWidthValue;
+
+  /**
+   * 알림 닫기 버튼 클릭 시 호출되는 콜백 함수
+   * @returns void
+   */
+  onClose?: () => void;
 };

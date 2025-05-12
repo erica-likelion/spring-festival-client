@@ -28,6 +28,8 @@ export const InputField = styled.span`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  ${(props) => props.theme.fonts.body.medium500};
+  color: ${(props) => props.theme.colors.grayScale.white};
 `;
 
 export const InputFieldInput = styled.input`
