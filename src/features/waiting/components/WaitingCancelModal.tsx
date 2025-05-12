@@ -2,6 +2,7 @@ import * as S from './WaitingCancelModal.styles';
 import { BlueButton } from '@/components/bluebuttons';
 import { useFunnel } from '@/hooks/useFunnel';
 import { useModalStore } from '@/stores/useModalStore';
+import { useSearchParams } from 'react-router-dom';
 
 const step = ['confirm', 'complete'] as const;
 type StepType = (typeof step)[number];
@@ -40,6 +41,11 @@ const ConfirmStep = (setStep: { setStep: (step: StepType) => void }) => {
 
 const CompleteStep = () => {
   const clearModal = useModalStore((state) => state.clearModals);
+  const [, setParams] = useSearchParams();
+  const handleComplete = () => {
+    setParams({});
+    clearModal();
+  };
   return (
     <S.Container>
       <S.HeaderText>웨이팅이 취소되었습니다.</S.HeaderText>
@@ -47,7 +53,7 @@ const CompleteStep = () => {
         <S.MediumText>웨이팅이 취소되었습니다.</S.MediumText>
         <S.MediumText>2025 ESPERO:HYLIGHT에서 즐거운 시간 보내세요!</S.MediumText>
       </S.TextFrame>
-      <BlueButton label="확인" onClick={clearModal} />
+      <BlueButton label="확인" onClick={handleComplete} />
     </S.Container>
   );
 };
