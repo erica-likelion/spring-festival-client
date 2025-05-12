@@ -1,6 +1,7 @@
 import { NavBar } from '@/components/nav-bar';
 import * as S from './Main.styles';
 import { EventCarousels } from '@/features/main/components/carousels';
+import { Menu } from '@/features/main/components/menu/index';
 
 export default function Main() {
   return (
@@ -13,6 +14,7 @@ export default function Main() {
             <EventCarousels />
           </S.CarouselsBox>
         </S.Main>
+        <Menu />
       </S.Contents>
     </S.Container>
   );

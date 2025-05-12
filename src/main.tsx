@@ -10,6 +10,7 @@ import {
   MapSearch,
   Performance,
   Booth,
+  BoothDetail,
   User,
   TimeTable,
   PerformanceDetail,
@@ -17,10 +18,11 @@ import {
   Notice,
   NoticeDetail,
   Lost,
+  LostUpload,
+  LostComplete,
 } from '@/pages';
 import Layout from '@/layout';
 
-import { Modal as ModalProvider } from '@/components/modal';
 const routes = createBrowserRouter([
   {
     path: '/',
@@ -47,6 +49,14 @@ const routes = createBrowserRouter([
       {
         path: 'main/lost',
         element: <Lost />,
+      },
+      {
+        path: 'main/lost/upload',
+        element: <LostUpload />,
+      },
+      {
+        path: 'main/lost/upload/complete',
+        element: <LostComplete />,
       },
       {
         path: 'main/lost/post/:id',
@@ -84,6 +94,10 @@ const routes = createBrowserRouter([
         path: 'booth',
         element: <Booth />,
       },
+      {
+        path: 'booth/:id',
+        element: <BoothDetail />,
+      },
     ],
   },
 ]);
@@ -91,7 +105,6 @@ const routes = createBrowserRouter([
 createRoot(document.getElementById('root')!).render(
   <>
     <ThemeProvider theme={theme}>
-      <ModalProvider />
       <GlobalStyle />
       <RouterProvider router={routes} />
     </ThemeProvider>

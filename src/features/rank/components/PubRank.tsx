@@ -1,6 +1,6 @@
 import * as S from './PubRank.styles';
 import { RefreshButton } from '@/components/refresh-button';
-import RankImageTextFrame from '@/features/pub-rank/components/RankImageTextFrame';
+import RankImageTextFrame from '@/features/rank/components/RankImageTextFrame';
 import { AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
