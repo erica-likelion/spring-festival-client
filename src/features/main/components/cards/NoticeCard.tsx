@@ -2,7 +2,7 @@ import * as S from './NoticeCard.styles';
 import { ColorButton } from '@/components/colorbuttons';
 import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
 import React from 'react';
-import { NoticeBodyProps } from '../../notice/Notice.types';
+import { NoticeBodyProps } from '../notice/Notice.types';
 import { truncateText } from '@/utils/truncateText';
 
 function NoticeCard({ title, body, tags = [], onClick }: NoticeBodyProps) {
