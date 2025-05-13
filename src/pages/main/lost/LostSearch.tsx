@@ -13,7 +13,7 @@ import { LOST_SEARCH_HISTORY_KEY, MAX_SEARCH_HISTORY } from '@/constants/search'
 import { useNavigate } from 'react-router-dom';
 import { LostItem } from '@/features/lost/components/main/ItemList.types';
 import { lostItemsByDay } from '@/constants/lost/LostItems';
-import { ItemCard, SkeletonCard } from '@/features/lost';
+import { ItemCard, NoResultMessage, SkeletonCard } from '@/features/lost';
 
 export default function LostSearch() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
@@ -34,6 +34,12 @@ export default function LostSearch() {
       setSearchHistory(loadSearchHistory(LOST_SEARCH_HISTORY_KEY));
     }
   }, []);
+
+  useEffect(() => {
+    if (searchKeyword.trim() === '') {
+      setStep('input');
+    }
+  }, [searchKeyword]);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchKeyword(e.target.value);
@@ -57,9 +63,8 @@ export default function LostSearch() {
         (item) => item.name.includes(searchKeyword) || item.description.includes(searchKeyword),
       );
       setFilteredItems(matchedItems);
-      setSearchKeyword('');
       setLoading(false);
-    }, 5000);
+    }, 4000);
   };
 
   const handleHistoryItemClick = (keyword: string) => {
@@ -125,7 +130,7 @@ export default function LostSearch() {
                 <SkeletonCard />
               </S.GridList>
             ) : filteredItems.length === 0 ? (
-              <S.NoResultMessage>검색 결과가 없습니다.</S.NoResultMessage>
+              <NoResultMessage />
             ) : (
               <S.GridList>
                 {filteredItems.map((item) => (

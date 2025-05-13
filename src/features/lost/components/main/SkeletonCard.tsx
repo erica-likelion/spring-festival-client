@@ -5,16 +5,16 @@ export default function SkeletonCard() {
     <S.Card>
       <S.SkeletonImage
         animate={{ opacity: [1, 0.3, 1] }}
-        transition={{ duration: 2, repeat: Infinity }}
+        transition={{ duration: 3, repeat: Infinity }}
       />
       <S.SkeletonInfo>
         <S.SkeletonName
           animate={{ opacity: [1, 0.3, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          transition={{ duration: 3, repeat: Infinity }}
         />
         <S.SkeletonText
           animate={{ opacity: [1, 0.3, 1] }}
-          transition={{ duration: 2, repeat: Infinity }}
+          transition={{ duration: 3, repeat: Infinity }}
         />
       </S.SkeletonInfo>
     </S.Card>
