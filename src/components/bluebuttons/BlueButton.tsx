@@ -25,9 +25,9 @@ const BlueButton: React.FC<BlueButtonProps> = ({
   size = 'large',
   onClick,
 }) => {
-  const handleClick = () => {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     if (!disabled && onClick) {
-      onClick();
+      onClick(e);
     }
   };
 

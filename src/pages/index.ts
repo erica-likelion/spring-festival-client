@@ -4,7 +4,7 @@ import MapSearch from '@/pages/map/SearchPage';
 import Login from '@/pages/login/Login';
 import Performance from '@/pages/performance/Performance';
 import Booth from '@/pages/booth/Booth';
-import User from '@/pages/User';
+import User from '@/pages/user/User';
 import BoothDetail from '@/pages/booth/BoothDetail';
 import TimeTable from '@/pages/performance/TimeTable';
 import PerformanceDetail from '@/pages/performance/PerformanceDetail';
@@ -14,6 +14,7 @@ import NoticeDetail from '@/pages/main/notice/NoticeDetail';
 import Lost from './main/lost/Lost';
 import LostUpload from './main/lost/LostUpload';
 import LostComplete from './main/lost/LostComplete';
+import MadeBy from './main/notice/MadeBy';
 
 export {
   Main,
@@ -32,4 +33,5 @@ export {
   BoothDetail,
   LostUpload,
   LostComplete,
+  MadeBy,
 };

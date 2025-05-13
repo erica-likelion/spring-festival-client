@@ -10,6 +10,7 @@ export const Button = styled.button`
   padding: 0.5rem 0;
   background: transparent;
   border: none;
+  position: relative;
 `;
 
 export const Text = styled.p`
