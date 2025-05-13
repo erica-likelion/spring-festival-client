@@ -33,9 +33,7 @@ export const CardImage = styled(motion.div)<{ image: string }>`
 
 export const Header = styled(motion.div)`
   width: 100%;
-  display: flex;
-  align-items: flex-end;
-  gap: 0.5rem;
+  min-height: 2rem;
   position: relative;
 `;
 
@@ -130,4 +128,15 @@ export const Expendable = styled(motion.div)`
   flex-direction: column;
   gap: 0.5rem;
   overflow: hidden;
+`;
+
+export const HeaderFrame = styled(motion.div)`
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+  position: absolute;
+  bottom: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
 `;
