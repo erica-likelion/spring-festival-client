@@ -150,3 +150,9 @@ export const GridList = styled.div`
 export const AnimatedSection = styled(motion.div)`
   width: 100%;
 `;
+
+export const NoResultMessage = styled.p`
+  ${(props) => props.theme.fonts.body.medium400};
+  color: ${(props) => props.theme.colors.grayScale.gy500};
+  text-align: start;
+`;

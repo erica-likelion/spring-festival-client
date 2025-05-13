@@ -115,11 +115,15 @@ export default function LostSearch() {
           transition={{ duration: 0.3 }}
         >
           <S.ResultSection>
-            <S.GridList>
-              {filteredItems.map((item) => (
-                <ItemCard key={item.id} item={item} />
-              ))}
-            </S.GridList>
+            {filteredItems.length === 0 ? (
+              <S.NoResultMessage>검색 결과가 없습니다.</S.NoResultMessage>
+            ) : (
+              <S.GridList>
+                {filteredItems.map((item) => (
+                  <ItemCard key={item.id} item={item} />
+                ))}
+              </S.GridList>
+            )}
           </S.ResultSection>
         </S.AnimatedSection>
       )}
