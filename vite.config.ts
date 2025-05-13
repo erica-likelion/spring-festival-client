@@ -53,6 +53,7 @@ export default defineConfig({
         start_url: '.',
         display: 'standalone',
         display_override: ['window-controls-overlay', 'standalone'],
+        orientation: 'portrait',
         icons: [
           {
             src: 'icons/icon-48x48.webp',

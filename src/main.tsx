@@ -115,3 +115,8 @@ createRoot(document.getElementById('root')!).render(
     </ThemeProvider>
   </>,
 );
+
+window.addEventListener('DOMContentLoaded', () => {
+  const splash = document.getElementById('splash-screen');
+  if (splash) splash.remove();
+});
