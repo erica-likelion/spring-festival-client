@@ -7,7 +7,7 @@ export default function BoothInfo({ id }: { id: number }) {
     <S.Container>
       <S.ImageBtnFrame>
         <S.Image />
-        <LikeButton id={id} />
+        <LikeButton id={id} left="-1.17rem" />
       </S.ImageBtnFrame>
       <S.TextSection>
         <S.TextFrame>
