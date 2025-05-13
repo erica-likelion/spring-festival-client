@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { MapPageHeader } from '@/features/map';
+import { MapPageHeader, MapPageBottomSheet } from '@/features/map';
 import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
 import * as S from './MapPage.styles';
+import { useLayoutStore } from '@/stores/useLayoutStore';
 
 export default function Map() {
   const navigate = useNavigate();
@@ -14,6 +15,33 @@ export default function Map() {
   // 헤더 관련 상태
   const [headerExpanded, setHeaderExpanded] = useState<boolean>(false);
   const [showCategory, setShowCategory] = useState<boolean>(true);
+
+  // 바텀 시트 관련 상태
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState<boolean>(false);
+  useEffect(() => {
+    if (selectedCategory) {
+      setIsBottomSheetOpen(true);
+    } else {
+      setIsBottomSheetOpen(false);
+    }
+  }, [selectedCategory]);
+
+  // 바텀시트가 열리면 하단 네비게이션 숨김
+  useEffect(() => {
+    if (isBottomSheetOpen) {
+      useLayoutStore.getState().setIsNav(false);
+    } else {
+      useLayoutStore.getState().setIsNav(true);
+    }
+  }, [isBottomSheetOpen]);
+
+  useEffect(() => {
+    if (headerExpanded) {
+      setIsBottomSheetOpen(false);
+    } else if (selectedCategory) {
+      setIsBottomSheetOpen(true);
+    }
+  }, [headerExpanded, selectedCategory]);
 
   // 헤더 핸들러
   const handleDayChange = (day: DAYS) => {
@@ -66,6 +94,9 @@ export default function Map() {
           showCategory={showCategory}
           onExpandChange={handleHeaderExpandChange}
         />
+        {isBottomSheetOpen && (
+          <MapPageBottomSheet selectedCategory={selectedCategory} selectedDay={selectedDay} />
+        )}
       </S.ContentContainer>
     </S.MapContainer>
   );
