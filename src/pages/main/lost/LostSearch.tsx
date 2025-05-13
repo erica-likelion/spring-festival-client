@@ -13,7 +13,7 @@ import { LOST_SEARCH_HISTORY_KEY, MAX_SEARCH_HISTORY } from '@/constants/search'
 import { useNavigate } from 'react-router-dom';
 import { LostItem } from '@/features/lost/components/main/ItemList.types';
 import { lostItemsByDay } from '@/constants/lost/LostItems';
-import { ItemCard } from '@/features/lost';
+import { ItemCard, SkeletonCard } from '@/features/lost';
 
 export default function LostSearch() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
@@ -22,6 +22,7 @@ export default function LostSearch() {
   const [searchHistory, setSearchHistory] = useState<SearchHistoryItem[]>([]);
   const [filteredItems, setFilteredItems] = useState<LostItem[]>([]);
   const [step, setStep] = useState<'input' | 'result'>('input');
+  const [loading, setLoading] = useState(false);
   const loginStatus: number = 1; // 0: 로그아웃, 1: 로그인
 
   useEffect(() => {
@@ -40,7 +41,8 @@ export default function LostSearch() {
 
   const handleSearch = () => {
     if (!searchKeyword.trim()) return;
-
+    setLoading(true);
+    setStep('result');
     const newHistory = addSearchHistory(
       searchKeyword,
       searchHistory,
@@ -49,13 +51,15 @@ export default function LostSearch() {
     );
     setSearchHistory(newHistory);
 
-    const allItems: LostItem[] = Object.values(lostItemsByDay).flat();
-    const matchedItems = allItems.filter(
-      (item) => item.name.includes(searchKeyword) || item.description.includes(searchKeyword),
-    );
-    setFilteredItems(matchedItems);
-    setSearchKeyword('');
-    setStep('result');
+    setTimeout(() => {
+      const allItems: LostItem[] = Object.values(lostItemsByDay).flat();
+      const matchedItems = allItems.filter(
+        (item) => item.name.includes(searchKeyword) || item.description.includes(searchKeyword),
+      );
+      setFilteredItems(matchedItems);
+      setSearchKeyword('');
+      setLoading(false);
+    }, 5000);
   };
 
   const handleHistoryItemClick = (keyword: string) => {
@@ -115,7 +119,12 @@ export default function LostSearch() {
           transition={{ duration: 0.3 }}
         >
           <S.ResultSection>
-            {filteredItems.length === 0 ? (
+            {loading ? (
+              <S.GridList>
+                <SkeletonCard />
+                <SkeletonCard />
+              </S.GridList>
+            ) : filteredItems.length === 0 ? (
               <S.NoResultMessage>검색 결과가 없습니다.</S.NoResultMessage>
             ) : (
               <S.GridList>
