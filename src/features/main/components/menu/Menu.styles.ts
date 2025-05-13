@@ -3,6 +3,8 @@ export const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
 `;
 
 export const Section = styled.section`
