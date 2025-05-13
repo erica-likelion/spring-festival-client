@@ -49,6 +49,7 @@ export const sliderVariants = {
     x: direction > 0 ? '-100%' : '100%',
     opacity: 0,
     scale: 1.3,
+    zIndex: 5,
     position: 'absolute' as const,
   }),
   prev1: {
