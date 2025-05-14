@@ -1,9 +1,13 @@
+import { useState, useEffect, useCallback } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useBottomSheet } from '@/hooks/useBottomSheet';
 import * as S from './BottomSheet.styles';
 import { BottomSheetProps } from './BottomSheet.types';
 import { Notification } from '@/components/notification';
 import { DummyData } from '@/constants/map/DummyData';
 import { ImageTextFrameWithTime } from '@/components/image-text-frame';
+import { useNotificationStore } from '@/stores/useNotificationStore';
+import { CATEGORY_NOTIFICATIONS } from '@/constants/map/CategoryNotifications';
 import { days } from '@/constants/map';
 
 /**
@@ -34,10 +38,48 @@ export default function BottomSheet({
   selectedDay = days[0],
   children,
 }: BottomSheetProps) {
+  const navigate = useNavigate();
   const { sheet, content, header } = useBottomSheet();
+  // Zustand 스토어에서 Notification 관련 상태 및 액션 가져오기
+
+  // 알림이 닫혔는지 여부를 확인하는 상태
+  const { isNotificationClosed, closeNotification } = useNotificationStore();
+  // 현재 카테고리에 대한 notification 표시 여부 상태
+  const [showNotification, setShowNotification] = useState<boolean>(false);
+
+  // 선택된 카테고리의 알림 표시 상태 관리
+  useEffect(() => {
+    if (selectedCategory) {
+      const notification = CATEGORY_NOTIFICATIONS[selectedCategory];
+      const isClosed = isNotificationClosed(selectedCategory);
+      setShowNotification(!!notification && !isClosed);
+    } else {
+      setShowNotification(false);
+    }
+  }, [selectedCategory, isNotificationClosed]);
 
   // selectedCategory가 null이 아닌 경우에만 데이터 필터링
   const filteredData = selectedCategory ? DummyData[selectedDay]?.[selectedCategory] || [] : [];
+
+  // 알림 클릭 핸들러 - 경로로 이동
+  const handleNotificationClick = useCallback(() => {
+    if (selectedCategory && CATEGORY_NOTIFICATIONS[selectedCategory]?.path) {
+      navigate(CATEGORY_NOTIFICATIONS[selectedCategory].path);
+    }
+  }, [selectedCategory, navigate]);
+
+  // 알림 닫기 핸들러
+  const handleCloseNotification = useCallback(() => {
+    if (selectedCategory) {
+      closeNotification(selectedCategory);
+      setShowNotification(false);
+    }
+  }, [selectedCategory, closeNotification]);
+
+  if (!selectedCategory) return null;
+
+  // 카테고리별 알림 데이터 가져오기
+  const notification = CATEGORY_NOTIFICATIONS[selectedCategory];
 
   return (
     <>
@@ -51,7 +93,15 @@ export default function BottomSheet({
           ) : (
             <>
               {/* 기본 바텀시트 내용 (children이 없을 경우) */}
-              {selectedCategory && <Notification title={selectedCategory} width="100%" />}
+              {/* 카테고리별 공지사항 - onClick으로 경로 이동 처리 */}
+              {showNotification && notification && (
+                <Notification
+                  title={notification.title}
+                  onClick={handleNotificationClick}
+                  onClose={handleCloseNotification}
+                  width="20.9375rem"
+                />
+              )}
 
               {filteredData.length > 0
                 ? filteredData.map((item, index) => (
