@@ -24,7 +24,7 @@ export default function Main() {
         <UserLogin />
         <S.TitleWrapper>
           <S.Title>공지사항</S.Title>
-          <S.BlackButton onClick={() => navigate('/main/notice')}>
+          <S.BlackButton whileTap={{ scale: 0.95 }} onClick={() => navigate('/main/notice')}>
             <S.BtnText>모두 보기</S.BtnText>
             <Right width={'1rem'} height={'1rem'} />
           </S.BlackButton>

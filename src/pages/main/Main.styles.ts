@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import BackLayout from '@/assets/icons/Background-main.svg';
+import { motion } from 'framer-motion';
 
 export const Container = styled.div`
   background-image: url(${BackLayout});
@@ -48,7 +49,7 @@ export const TitleWrapper = styled.div`
   margin: 1rem 1.21rem;
 `;
 
-export const BlackButton = styled.div`
+export const BlackButton = styled(motion.div)`
   display: flex;
   padding: 0.25rem 0.625rem 0.25rem 0.75rem;
   justify-content: center;

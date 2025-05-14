@@ -23,7 +23,7 @@ function NoticeSlicer() {
       if (sliderRef.current && wrapperRef.current) {
         const visible = wrapperRef.current.clientWidth; // 보이는부분 화면에
         const total = sliderRef.current.scrollWidth; // 슬라이더 전체 너비
-        const padding = 1.21 * 16 * 2; // (1.21rem * 16px * 2)
+        const padding = 5;
 
         setDragConstraints({
           left: visible - total - padding,

@@ -8,9 +8,7 @@ export const Container = styled(motion.div)`
 `;
 
 export const SliderWrapper = styled.div`
-  width: 100%;
-  padding: 0 1.25rem;
-  overflow: hidden;
+  width: 21rem;
 `;
 
 export const Box = styled(motion.div)`
