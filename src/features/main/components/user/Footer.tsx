@@ -1,24 +1,20 @@
-import { BlueButton } from '@/components/bluebuttons';
-import * as S from './UserLogin.styles';
-import { useNavigate } from 'react-router-dom';
+import * as S from './Footer.styles';
+import Instagram from '@/assets/icons/instagram.svg?react';
 export default function Footer() {
-  const navigate = useNavigate();
   return (
-    <>
-      <S.Container>
-        <S.Title>
-          로그인하고 모든 기능을 <br />
-          UN-LOCKLOCK❤️하기
-        </S.Title>
-        <S.Sub>
-          지금 로그인하고 주점 웨이팅, 분실물 등록
-          <br />
-          기능들을 모두 이용해보세요!
-        </S.Sub>
-        <S.ButtonWrap>
-          <BlueButton label={'로그인 하러가기'} onClick={() => navigate('/login')} size="large" />
-        </S.ButtonWrap>
-      </S.Container>
-    </>
+    <S.Container>
+      <Instagram width={'2.5rem'} height={'2.5rem'} />
+      <S.Sub>
+        이메일 : hyuerica@likelion.org
+        <br />
+        한양대학교 ERICA 멋쟁이사자처럼
+        <br />
+        <br />
+        @LIKELION ERICA. All Rights Reserved.
+      </S.Sub>
+      <S.Btn>
+        <S.Out>로그인하기</S.Out>
+      </S.Btn>
+    </S.Container>
   );
 }

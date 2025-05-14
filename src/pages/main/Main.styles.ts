@@ -1,4 +1,14 @@
 import styled from 'styled-components';
+import BackLayout from '@/assets/icons/Background-main.svg';
+
+export const Container = styled.div`
+  background-image: url(${BackLayout});
+  background-repeat: no-repeat;
+  background-position: top right;
+  background-size: 100% auto;
+  position: relative;
+  padding-bottom: 6.25rem;
+`;
 
 export const Main = styled.main`
   display: flex;

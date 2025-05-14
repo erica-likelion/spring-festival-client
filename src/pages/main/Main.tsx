@@ -4,7 +4,6 @@ import { EventCarousels } from '@/features/main/components/carousels';
 import { Menu } from '@/features/main/components/menu/index';
 import { NoticeSlider } from '@/features/main/components/slider';
 import Right from '@/assets/icons/right-arrow.svg?react';
-import BackLayout from '@/assets/icons/Background-main.svg';
 import Backeffct from '@/assets/icons/Background-Reflect.svg?react';
 import { useNavigate } from 'react-router-dom';
 import UserLogin from '@/features/main/components/user/UserLogin';
@@ -13,15 +12,7 @@ import Footer from '@/features/main/components/user/Footer';
 export default function Main() {
   const navigate = useNavigate();
   return (
-    <div
-      style={{
-        backgroundImage: `url(${BackLayout})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundPosition: 'top right',
-        backgroundSize: '100% auto',
-        position: 'relative',
-      }}
-    >
+    <S.Container>
       <NavBar />
       <S.Main>
         <S.TitleWrapper>
@@ -45,6 +36,6 @@ export default function Main() {
       <S.Effect>
         <Backeffct />
       </S.Effect>
-    </div>
+    </S.Container>
   );
 }
