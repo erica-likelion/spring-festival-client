@@ -13,7 +13,7 @@ export default function Main() {
   const navigate = useNavigate();
   return (
     <S.Container>
-      <NavBar />
+      <NavBar opacity={true} />
       <S.Main>
         <S.TitleWrapper>
           <S.Title>진행중인 이벤트</S.Title>
