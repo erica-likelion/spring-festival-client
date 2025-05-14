@@ -76,6 +76,19 @@ export default function BottomSheet({
     }
   }, [selectedCategory, closeNotification]);
 
+  /**
+   * 개발 모드에서 모든 알림 상태 초기화 핸들러
+   * 모든 알림을 다시 표시 가능한 상태로 초기화합니다.
+   */
+  const handleResetAllNotifications = useCallback(() => {
+    useNotificationStore.getState().resetAllNotifications();
+    // 모든 알림 초기화 후 현재 카테고리 알림 상태 업데이트
+    if (selectedCategory) {
+      setShowNotification(!!CATEGORY_NOTIFICATIONS[selectedCategory]);
+    }
+    alert('모든 알림 상태가 초기화되었습니다.');
+  }, [selectedCategory]);
+
   if (!selectedCategory) return null;
 
   // 카테고리별 알림 데이터 가져오기
@@ -118,6 +131,15 @@ export default function BottomSheet({
                 : selectedCategory && (
                     <S.NoDataMessage>해당 카테고리의 데이터가 없습니다.</S.NoDataMessage>
                   )}
+
+              {/* 개발 환경에서만 표시되는 디버그 기능 */}
+              {import.meta.env.DEV && (
+                <S.DevSection>
+                  <S.DevButton onClick={handleResetAllNotifications}>
+                    🔄 개발자: 알림 상태 초기화
+                  </S.DevButton>
+                </S.DevSection>
+              )}
             </>
           )}
         </S.BottomSheetContent>

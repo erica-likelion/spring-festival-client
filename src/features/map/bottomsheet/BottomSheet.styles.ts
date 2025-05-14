@@ -78,3 +78,39 @@ export const NoDataMessage = styled.div`
   text-align: center;
   padding: 1rem;
 `;
+
+/**
+ * 개발 환경에서만 표시되는 기능을 위한 섹션
+ *
+ * 개발 모드에서만 표시되며 디버깅이나 상태 초기화 등의 기능을 제공합니다.
+ */
+export const DevSection = styled.div`
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-top: 0.0625rem solid ${(props) => props.theme.colors.grayScale.gy900};
+  text-align: center;
+`;
+
+/**
+ * 개발 환경에서 사용하는 버튼 스타일
+ *
+ * 알림 상태 초기화와 같은 개발 시 필요한 기능에 사용합니다.
+ */
+export const DevButton = styled.button`
+  background-color: #2d2d2d;
+  color: #f0f0f0;
+  border: 0.0625rem solid ${(props) => props.theme.colors.grayScale.gy800};
+  border-radius: 0.25rem;
+  padding: 0.625rem 1rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: #3d3d3d;
+  }
+
+  &:active {
+    background-color: #333;
+  }
+`;
