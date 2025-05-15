@@ -1,5 +1,6 @@
 import * as S from './ImageTextFrame.styles';
 import { ImageTextFrameWithTimeProps } from './ImageTextFrame.types';
+import TimeIcon from '@/assets/icons/clock.svg?react';
 
 /**
  * 이미지와 텍스트, 시간, 포장가능 여부를 함께 표시하는 프레임 컴포넌트
@@ -51,7 +52,7 @@ export default function ImageTextFrameWithTime({
         </S.TitleWrap>
         <S.ContentsFooter>
           <S.TimeWrap>
-            <S.TimeIcon src="src/assets/icons/clock.svg" />
+            <TimeIcon width={`1.25rem`} height={`1.25rem`} />
             <S.Time>{time}</S.Time>
           </S.TimeWrap>
           {canPickup && <S.Pickup>포장 가능</S.Pickup>}

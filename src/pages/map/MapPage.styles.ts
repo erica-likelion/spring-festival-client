@@ -5,6 +5,9 @@ export const MapContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
+
+  /* 임시로 지도 영역을 단색으로 표현 */
+  background-color: gray;
 `;
 
 export const MapOverlay = styled.div<{ $headerExpanded?: boolean }>`
