@@ -43,6 +43,11 @@ export default function Map() {
     }
   }, [headerExpanded, selectedCategory]);
 
+  // 날짜 바꾸면 카테고리 초기화
+  useEffect(() => {
+    setSelectedCategory(null);
+  }, [selectedDay]);
+
   // 헤더 핸들러
   const handleDayChange = (day: DAYS) => {
     setSelectedDay(day);

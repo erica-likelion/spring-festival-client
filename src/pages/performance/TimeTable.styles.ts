@@ -42,8 +42,17 @@ export const TimeTable = styled.div`
 
 export const BoxWrap = styled.div<{ $isFirst?: boolean; $block?: number }>`
   display: flex;
-  height: ${({ $block = 1 }) =>
-    $block === 1 ? '5.8125rem' : `calc(5.8125rem + ${($block - 1) * 5.58}rem)`};
+  height: ${({ $block = 1 }) => {
+    let h;
+    if ($block <= 6) {
+      h = 0.99 * $block;
+    } else if ($block <= 15) {
+      h = 0.948 * $block;
+    } else {
+      h = 0.6 * Math.pow($block, 1.13);
+    }
+    return `${h}rem`;
+  }};
   padding: 0.375rem 0rem;
   flex-direction: column;
   align-items: flex-start;
@@ -96,6 +105,7 @@ export const ContentBox = styled.div<{ $isActive: boolean; $isEmpty?: boolean }>
   display: flex;
   width: 17.0625rem;
   padding: 0.6875rem 1.25rem 0rem;
+  padding-top: 0rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.625rem;
@@ -118,7 +128,6 @@ export const PerformanceNameTimeBox = styled.div`
 `;
 
 export const PerformanceName = styled.p`
-  align-self: stretch;
   color: ${({ theme }) => theme.colors.grayScale.white};
   ${(props) => props.theme.fonts.body.large500};
 `;

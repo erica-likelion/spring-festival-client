@@ -53,7 +53,7 @@ export default function TimeTable() {
 
     const diffMinutes = endTotalMinutes - startTotalMinutes;
 
-    return diffMinutes / 30;
+    return Math.round(diffMinutes / 5);
   };
 
   return (

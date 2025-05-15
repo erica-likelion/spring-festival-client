@@ -8,6 +8,7 @@ import User from '@/pages/user/User';
 import BoothDetail from '@/pages/booth/BoothDetail';
 import TimeTable from '@/pages/performance/TimeTable';
 import PerformanceDetail from '@/pages/performance/PerformanceDetail';
+import LostSearch from './main/lost/LostSearch';
 import LostPost from './main/lost/LostPost';
 import Notice from '@/pages/main/notice/Notice';
 import NoticeDetail from '@/pages/main/notice/NoticeDetail';
@@ -26,6 +27,7 @@ export {
   User,
   TimeTable,
   PerformanceDetail,
+  LostSearch,
   LostPost,
   Notice,
   NoticeDetail,
