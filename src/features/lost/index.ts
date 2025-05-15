@@ -8,3 +8,5 @@ export { default as Title } from './components/upload/Title';
 export { default as Description } from './components/upload/Description';
 export { default as ImageSection } from './components/upload/ImageSection';
 export { default as ModalCaution } from './modal/ModalCaution';
+export { default as SkeletonCard } from './components/main/SkeletonCard';
+export { default as NoResultMessage } from './components/main/NoResultMessage';

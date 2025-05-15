@@ -14,6 +14,7 @@ import {
   User,
   TimeTable,
   PerformanceDetail,
+  LostSearch,
   LostPost,
   Notice,
   NoticeDetail,
@@ -38,6 +39,10 @@ const routes = createBrowserRouter([
       {
         path: 'main',
         element: <Main />,
+      },
+      {
+        path: 'main/lost/search',
+        element: <LostSearch />,
       },
       {
         path: 'main/notice',
