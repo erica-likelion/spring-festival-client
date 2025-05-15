@@ -1,4 +1,4 @@
-import { CATEGORIES } from '@/constants/map/Categories';
+import { CATEGORIES } from '@/constants/map';
 import { DAYS } from '@/constants/map';
 import { ReactNode } from 'react';
 

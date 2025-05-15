@@ -79,12 +79,39 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: false,
       },
     ],
-    주차장: [
+    셔틀콕: [
       {
         image: '',
-        title: '주차장 A',
-        subtitle: '주차장',
+        title: '[1일차] 셔틀콕 정류장 A',
+        subtitle: '셔틀콕',
+        time: '08:00-22:00',
+        canPickup: false,
+      },
+    ],
+    푸트트럭: [
+      {
+        image: '',
+        title: '[1일차] 푸드존 A',
+        subtitle: '푸트트럭',
+        time: '11:00-22:00',
+        canPickup: true,
+      },
+    ],
+    흡연실: [
+      {
+        image: '',
+        title: '지정 흡연구역 A',
+        subtitle: '흡연실',
         time: '24시간',
+        canPickup: false,
+      },
+    ],
+    의무실: [
+      {
+        image: '',
+        title: '응급 의무실',
+        subtitle: '의무실',
+        time: '09:00-22:00',
         canPickup: false,
       },
     ],
@@ -168,12 +195,39 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: false,
       },
     ],
-    주차장: [
+    셔틀콕: [
       {
         image: '',
-        title: '주차장 B',
-        subtitle: '주차장',
+        title: '[2일차] 셔틀콕 정류장 B',
+        subtitle: '셔틀콕',
+        time: '08:00-22:00',
+        canPickup: false,
+      },
+    ],
+    푸트트럭: [
+      {
+        image: '',
+        title: '[2일차] 푸드존 B',
+        subtitle: '푸트트럭',
+        time: '11:00-22:00',
+        canPickup: true,
+      },
+    ],
+    흡연실: [
+      {
+        image: '',
+        title: '지정 흡연구역 B',
+        subtitle: '흡연실',
         time: '24시간',
+        canPickup: false,
+      },
+    ],
+    의무실: [
+      {
+        image: '',
+        title: '응급 의무실',
+        subtitle: '의무실',
+        time: '09:00-22:00',
         canPickup: false,
       },
     ],
@@ -271,12 +325,39 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: false,
       },
     ],
-    주차장: [
+    셔틀콕: [
       {
         image: '',
-        title: '주차장 A',
-        subtitle: '주차장',
+        title: '[3일차] 셔틀콕 정류장 C',
+        subtitle: '셔틀콕',
+        time: '08:00-22:00',
+        canPickup: false,
+      },
+    ],
+    푸트트럭: [
+      {
+        image: '',
+        title: '[3일차] 푸드존 C',
+        subtitle: '푸트트럭',
+        time: '11:00-22:00',
+        canPickup: true,
+      },
+    ],
+    흡연실: [
+      {
+        image: '',
+        title: '지정 흡연구역 C',
+        subtitle: '흡연실',
         time: '24시간',
+        canPickup: false,
+      },
+    ],
+    의무실: [
+      {
+        image: '',
+        title: '응급 의무실',
+        subtitle: '의무실',
+        time: '09:00-22:00',
         canPickup: false,
       },
     ],
