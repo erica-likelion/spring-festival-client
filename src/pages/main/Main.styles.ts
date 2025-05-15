@@ -5,7 +5,9 @@ import { motion } from 'framer-motion';
 export const Container = styled.div`
   background-image: url(${BackLayout});
   background-repeat: no-repeat;
+  background-size: cover;
   width: 100%;
+  height: 28rem;
   position: relative;
   padding-bottom: 6.25rem;
 `;
@@ -44,8 +46,8 @@ export const BackEffect = styled.div`
   position: absolute;
   display: flex;
   top: 0;
-  justify-content: flex-end;
-  z-index: -10;
+  justify-content: flex-start;
+  z-index: -10000;
   width: 100%;
   pointer-events: none;
 `;
