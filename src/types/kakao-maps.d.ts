@@ -28,20 +28,6 @@ declare global {
         mapTypeId?: MapTypeId;
       }
 
-      class MapTypeControl implements MapControl {}
-      class ZoomControl implements MapControl {}
-
-      enum ControlPosition {
-        TOPRIGHT = 2,
-        RIGHT = 4,
-      }
-
-      enum MapTypeId {
-        ROADMAP = 'ROADMAP',
-        SKYVIEW = 'SKYVIEW',
-        HYBRID = 'HYBRID',
-      }
-
       class LatLng {
         constructor(latitude: number, longitude: number);
         toString(): string;
@@ -84,7 +70,7 @@ declare global {
 
       namespace event {
         function addListener(
-          target: object, // 'any' 대신 'object' 사용
+          target: object,
           type: string,
           handler: (e?: unknown) => void, // Function 대신 구체적인 함수 타입
         ): void;
@@ -100,6 +86,26 @@ declare global {
   interface Window {
     kakao: typeof kakao;
   }
+}
+
+/**
+ * Kakao Map 훅에서 사용하는 옵션 타입
+ * 지도 옵션을 더 간단하게 전달하기 위한 인터페이스
+ */
+export interface KakaoMapOptions {
+  /** 지도 중심 좌표 (위도/경도) */
+  center?: {
+    lat: number;
+    lng: number;
+  };
+  /** 지도 확대 레벨 */
+  level?: number;
+  /** 지도 드래그 가능 여부 */
+  draggable?: boolean;
+  /** 지도 확대/축소 가능 여부 */
+  zoomable?: boolean;
+  /** 마우스 휠로 확대/축소 가능 여부 */
+  scrollwheel?: boolean;
 }
 
 export {};
