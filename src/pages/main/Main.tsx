@@ -13,6 +13,7 @@ export default function Main() {
   const navigate = useNavigate();
   return (
     <S.Container>
+      <S.Layout />
       <NavBar opacity={true} />
       <S.Main>
         <S.TitleWrapper>

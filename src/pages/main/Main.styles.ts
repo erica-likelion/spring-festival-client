@@ -2,14 +2,19 @@ import styled from 'styled-components';
 import BackLayout from '@/assets/icons/Background-main.svg';
 import { motion } from 'framer-motion';
 
-export const Container = styled.div`
+export const Layout = styled.div`
   background-image: url(${BackLayout});
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
   height: 28rem;
+  position: absolute;
+`;
+export const Container = styled.div`
+  width: 100%;
+  height: auto;
   position: relative;
-  padding-bottom: 6.25rem;
+  margin-bottom: 5.37rem;
 `;
 
 export const Main = styled.main`

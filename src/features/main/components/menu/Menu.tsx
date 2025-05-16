@@ -20,7 +20,7 @@ export default function Menu() {
   return (
     <S.SectionContainer>
       <S.Section>
-        <S.SubTitle>SNS</S.SubTitle>
+        <S.SubTitle>SNS 바로가기</S.SubTitle>
         <S.Frame>
           <ImageTextIconFrame
             image={Student}
@@ -78,7 +78,7 @@ export default function Menu() {
             image={Make}
             title="만든 이들"
             description="멋쟁이사자처럼 운영진 제작 후기"
-            onClick={() => window.open(externalLinks.googleForm, '_blank')}
+            onClick={() => navigate('/main/about')}
           />
         </S.Frame>
       </S.Section>
