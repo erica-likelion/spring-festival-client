@@ -31,7 +31,7 @@ export const Title = styled.p`
   ${(props) => props.theme.fonts.header.h3}
 `;
 
-export const CarouselsBox = styled.section`
+export const CarouselsBox = styled.div`
   display: flex;
   justify-content: center;
   padding-bottom: 2.5rem;

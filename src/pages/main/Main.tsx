@@ -16,21 +16,28 @@ export default function Main() {
       <S.Layout />
       <NavBar opacity={true} />
       <S.Main>
-        <S.TitleWrapper>
-          <S.Title>진행중인 이벤트</S.Title>
-        </S.TitleWrapper>
-        <S.CarouselsBox>
-          <EventCarousels />
-        </S.CarouselsBox>
+        <section>
+          {' '}
+          <S.TitleWrapper>
+            <S.Title>진행중인 이벤트</S.Title>
+          </S.TitleWrapper>
+          <S.CarouselsBox>
+            <EventCarousels />
+          </S.CarouselsBox>
+        </section>
+
         <UserLogin />
-        <S.TitleWrapper>
-          <S.Title>공지사항</S.Title>
-          <S.BlackButton whileTap={{ scale: 0.95 }} onClick={() => navigate('/main/notice')}>
-            <S.BtnText>모두 보기</S.BtnText>
-            <Right width={'1rem'} height={'1rem'} />
-          </S.BlackButton>
-        </S.TitleWrapper>
-        <NoticeSlider />
+        <section>
+          <S.TitleWrapper>
+            <S.Title>공지사항</S.Title>
+            <S.BlackButton whileTap={{ scale: 0.95 }} onClick={() => navigate('/main/notice')}>
+              <S.BtnText>모두 보기</S.BtnText>
+              <Right width={'1rem'} height={'1rem'} />
+            </S.BlackButton>
+          </S.TitleWrapper>
+          <NoticeSlider />
+        </section>
+
         <Menu />
         <Footer />
       </S.Main>

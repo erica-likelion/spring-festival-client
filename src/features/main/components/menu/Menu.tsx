@@ -20,7 +20,7 @@ export default function Menu() {
   return (
     <S.SectionContainer>
       <S.Section>
-        <S.SubTitle>SNS 바로가기</S.SubTitle>
+        <S.SubTitle aria-label="SNS 바로가기">SNS 바로가기</S.SubTitle>
         <S.Frame>
           <ImageTextIconFrame
             image={Student}
@@ -37,7 +37,7 @@ export default function Menu() {
         </S.Frame>
       </S.Section>
       <S.Section>
-        <S.SubTitle>분실물</S.SubTitle>
+        <S.SubTitle aria-label="분실물">분실물</S.SubTitle>
         <S.Frame>
           <ImageTextIconFrame
             image={Lost}
@@ -49,7 +49,7 @@ export default function Menu() {
       </S.Section>
       <S.Section>
         {/* 링크 수정필요 */}
-        <S.SubTitle>문의사항</S.SubTitle>
+        <S.SubTitle aria-label="문의사항">문의사항</S.SubTitle>
         <S.Frame>
           <ImageTextIconFrame
             image={Form}
