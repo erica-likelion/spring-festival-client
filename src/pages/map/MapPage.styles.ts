@@ -50,3 +50,24 @@ export const ContentContainer = styled.div`
   position: relative;
   z-index: ${Z_INDEX.CONTENTS};
 `;
+
+export const ReCenterButton = styled.div<{ $isBottomSheetOpen?: boolean }>`
+  position: fixed;
+  bottom: ${(props) => (props.$isBottomSheetOpen ? '18rem' : '8rem')};
+  left: 1.25rem;
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  background-color: transparent;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: ${Z_INDEX.MAP_OVERLAY};
+  cursor: pointer;
+  transition: bottom 0.3s ease-in-out;
+`;
