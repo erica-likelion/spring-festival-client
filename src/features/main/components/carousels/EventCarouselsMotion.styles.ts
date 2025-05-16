@@ -16,8 +16,8 @@ export const sliderVariants = {
     y: 0,
     scale: 1,
     opacity: 1,
-    position: 'absolute' as const,
     zIndex: 5,
+    position: 'absolute' as const,
   },
   next1: {
     x: 8,
@@ -25,7 +25,6 @@ export const sliderVariants = {
     opacity: 0.6,
     position: 'absolute' as const,
     zIndex: 4,
-    transition: { opacity: { delay: 0.5 } },
   },
   next2: {
     x: 16,
@@ -58,21 +57,21 @@ export const sliderVariants = {
     y: 8,
     opacity: 0.8,
     position: 'absolute' as const,
-    zIndex: 4,
+    zIndex: 6,
   },
   prev2: {
     x: -800,
     y: 16,
     opacity: 0.3,
     position: 'absolute' as const,
-    zIndex: 3,
+    zIndex: 6,
   },
   prev3: {
     x: -800,
     y: 24,
     opacity: 0.1,
     position: 'absolute' as const,
-    zIndex: 2,
+    zIndex: 6,
   },
 };
 
