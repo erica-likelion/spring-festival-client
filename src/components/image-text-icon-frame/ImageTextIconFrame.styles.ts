@@ -26,7 +26,7 @@ export const Image = styled.img`
   flex-shrink: 0;
   aspect-ratio: 1/1;
   border-radius: 2.5rem;
-  background-color: ${(props) => props.theme.colors.grayScale.gy300};
+  background-color: none;
 `;
 
 export const TextWrap = styled.div<ImageProps>`

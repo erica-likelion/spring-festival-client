@@ -22,9 +22,10 @@ export const sliderVariants = {
   next1: {
     x: 8,
     y: 8,
-    opacity: 0.8,
+    opacity: 0.6,
     position: 'absolute' as const,
     zIndex: 4,
+    transition: { opacity: { delay: 0.5 } },
   },
   next2: {
     x: 16,
