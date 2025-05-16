@@ -6,8 +6,7 @@ import { NoticeSlider } from '@/features/main/components/slider';
 import Right from '@/assets/icons/right-arrow.svg?react';
 import Backeffct from '@/assets/icons/Background-Reflect.svg?react';
 import { useNavigate } from 'react-router-dom';
-import UserLogin from '@/features/main/components/user/UserLogin';
-import Footer from '@/features/main/components/user/Footer';
+import { UserLogin, Footer } from '@/features/main/components/user';
 
 export default function Main() {
   const navigate = useNavigate();
