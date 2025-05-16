@@ -52,7 +52,7 @@ export const TextWrapper = styled.div`
   color: ${(props) => props.theme.colors.grayScale.gy950};
   display: flex;
   text-align: left;
-  gap: 0.25rem;
+  gap: 0.5rem;
   flex-direction: column;
 `;
 
