@@ -3,9 +3,12 @@ import { KakaoMapOptions } from '@/types/kakao-maps';
 import MyLocationIcon from '@/assets/icons/my-location.svg';
 
 export function useKakaoMap(options: KakaoMapOptions = {}) {
-  const mapRef = useRef<HTMLDivElement>(null);
+  const internalMapRef = useRef<HTMLDivElement>(null);
   const kakaoMapRef = useRef<kakao.maps.Map | null>(null);
   const myLocationMarkerRef = useRef<kakao.maps.Marker | null>(null);
+
+  // 타입 안전성을 위해 mapRef를 정의
+  const mapRef = options.mapRef || internalMapRef;
 
   useEffect(() => {
     const loadKakaoMap = () => {
@@ -17,6 +20,7 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
         notInitializedYet: !kakaoMapRef.current,
       });
 
+      // 카카오맵이 준비되었는지 확인
       if (window.kakao && window.kakao.maps && mapRef.current && !kakaoMapRef.current) {
         try {
           console.log('[KakaoMap] 지도 옵션 설정 시작');
@@ -74,19 +78,48 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
       };
     };
 
-    // 카카오 맵 스크립트 로드
+    // index.html에 추가했던 스크립트에 의존하지 않고 직접 로드
+    const waitForKakaoMap = () => {
+      if (window.kakao && window.kakao.maps) {
+        console.log('[KakaoMap] 카카오맵 객체 감지됨');
+
+        if (typeof window.kakao.maps.load === 'function') {
+          console.log('[KakaoMap] 카카오맵 load 함수로 로드');
+          window.kakao.maps.load(loadKakaoMap);
+        } else {
+          console.log('[KakaoMap] 카카오맵 직접 로드');
+          loadKakaoMap();
+        }
+      } else {
+        console.log('[KakaoMap] 카카오맵 객체 없음, 1초 후 재시도');
+        setTimeout(waitForKakaoMap, 1000); // 1초마다 확인
+      }
+    };
+
+    // 카카오맵 스크립트 동적 로드
     if (!window.kakao) {
       console.log('[KakaoMap] 카카오맵 스크립트 로드 시작');
+
+      // 기존 스크립트가 있다면 제거 (중복 로드 방지)
+      const existingScript = document.querySelector('script[src*="dapi.kakao.com"]');
+      if (existingScript) {
+        document.head.removeChild(existingScript);
+      }
+
       const script = document.createElement('script');
       const apiKey = import.meta.env.VITE_KAKAO_MAP_API_KEY;
-      console.log('[KakaoMap] API 키 확인:', apiKey ? '설정됨' : '설정되지 않음');
 
-      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&libraries=services,clusterer,drawing&autoload=false`;
-      script.async = true;
+      // 스크립트 속성 설정
+      script.type = 'text/javascript';
+      script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&libraries=services,clusterer,drawing&autoload=false`;
+      script.async = false; // 비동기 로드 사용하지 않음 (동기적으로 로드)
 
+      // 로드 이벤트 핸들러
       script.onload = () => {
-        console.log('[KakaoMap] 스크립트 로드 성공, 지도 초기화 시작');
-        window.kakao.maps.load(loadKakaoMap);
+        console.log('[KakaoMap] 스크립트 로드 성공');
+        if (window.kakao && window.kakao.maps) {
+          window.kakao.maps.load(loadKakaoMap);
+        }
       };
 
       script.onerror = (error) => {
@@ -94,10 +127,9 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
       };
 
       document.head.appendChild(script);
-      console.log('[KakaoMap] 스크립트 태그 추가됨');
     } else {
       console.log('[KakaoMap] 이미 로드된 kakao 객체 사용');
-      loadKakaoMap();
+      waitForKakaoMap();
     }
 
     // 컴포넌트 언마운트 시 이벤트 리스너 제거
@@ -105,7 +137,7 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
     return () => {
       if (cleanup) cleanup();
     };
-  }, [options]);
+  }, [options, mapRef]);
 
   const moveToCurrentLocation = useCallback(() => {
     console.log('[KakaoMap] 현재 위치로 이동 요청');
