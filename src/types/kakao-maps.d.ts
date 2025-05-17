@@ -93,6 +93,8 @@ declare global {
  * 지도 옵션을 더 간단하게 전달하기 위한 인터페이스
  */
 export interface KakaoMapOptions {
+  /** 지도 컨테이너에 대한 참조 */
+  mapRef?: React.RefObject<HTMLDivElement | null> | undefined;
   /** 지도 중심 좌표 (위도/경도) */
   center?: {
     lat: number;
