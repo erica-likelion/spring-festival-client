@@ -23,8 +23,12 @@ const Login: React.FC = () => {
     return () => setIsNav(true);
   }, [setIsNav]);
 
-  const handleLoginClick = () => {
-    console.log('카카오 로그인 버튼 클릭');
+  const REST_API_KEY = '6bb8a461e86aef8b6d76895faf0b348a';
+  const REDIRECT_URI = 'http://211.188.62.189:8080/auth/login/kakao/auth-code';
+  const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
+
+  const handleKakaoLogin = () => {
+    window.location.href = link;
   };
 
   const handleNotLoginClick = () => {
@@ -42,7 +46,7 @@ const Login: React.FC = () => {
         </S.TextWrapper>
       </S.ContentWrapper>
       <S.Wrapper>
-        <LoginButton onClick={handleLoginClick} />
+        <LoginButton onClick={handleKakaoLogin} />
         <S.NotLoginText onClick={handleNotLoginClick}>로그인하지 않고 둘러보기</S.NotLoginText>
       </S.Wrapper>
     </S.Container>
