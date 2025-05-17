@@ -68,6 +68,16 @@ export default function Carousel({ data }: CarouselProps) {
   };
 
   const getPosition = (index: number, centerIndex: number, length: number) => {
+    if (length <= 3) {
+      const left = (centerIndex - 1 + length) % length;
+      const right = (centerIndex + 1) % length;
+
+      if (index === centerIndex) return 'active';
+      if (index === left) return 'left';
+      if (index === right) return 'right';
+      return 'hidden';
+    }
+
     const left2 = (centerIndex - 2 + length) % length;
     const left1 = (centerIndex - 1 + length) % length;
     const right1 = (centerIndex + 1) % length;

@@ -1,235 +1,275 @@
-import TestImage from '@/assets/images/performance/day1-newjeans.webp';
-import TestImage2 from '@/assets/images/performance/day1-seventeen.webp';
-
+import { imageMap } from './ImageMap';
 export const performanceData = {
   '1일차': [
     {
       id: '1',
-      backgroundUrl: TestImage,
-      singer: '뉴진스',
-      time: '21:00~22:00',
+      backgroundUrl: imageMap.Kino,
+      singer: 'KINO',
+      time: '17:00~17:30',
       description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
+        '키노는 대한민국의 가수로 보이 그룹 펜타곤의 서브보컬, 메인댄서를 맡고 있다. 현재는 1인 기획사 NAKED를 설립하여 솔로 아티스트로서의 행보를 이어가고 있다.',
       songList: [
-        { image: TestImage, name: 'OMG', url: 'https://www.youtube.com/watch?v=hc32lb0po9U' },
-        { image: TestImage, name: 'Hype', url: 'https://www.youtube.com/watch?v=hc32lb0po9U' },
-        { image: TestImage, name: 'Ditto', url: 'https://www.youtube.com/watch?v=hc32lb0po9U' },
-        { image: TestImage, name: 'Attention', url: 'https://www.youtube.com/watch?v=hc32lb0po9U' },
-        { image: TestImage, name: 'Cookie', url: 'https://www.youtube.com/watch?v=hc32lb0po9U' },
+        {
+          image: imageMap.Kino1,
+          name: '빛나리 (SHINE)',
+          url: 'https://www.youtube.com/watch?v=Nu2yQ1zYDYU',
+        },
+        { image: imageMap.Kino2, name: 'POSE', url: 'https://www.youtube.com/watch?v=NspDERHZ-O4' },
+        {
+          image: imageMap.Kino3,
+          name: 'Broke My Heart',
+          url: 'https://www.youtube.com/watch?v=_pqdJ2c56l0',
+        },
       ],
     },
     {
       id: '2',
-      backgroundUrl: TestImage2,
-      singer: '아이브',
-      time: '20:00~21:00',
+      backgroundUrl: imageMap.TenCm,
+      singer: '10CM',
+      time: '20:00~20:30',
       description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
+        "10CM는 홍대 버스킹에서 출발해 '아메리카노'로 이름을 알린 인디 뮤지션이다. 정규 앨범과 계절별 콘서트, 페스티벌 등 다양한 무대를 통해 꾸준히 활동 중이다. 특유의 어쿠스틱 사운드와 공감 가는 가사로 폭넓은 팬층을 확보하고 있다.",
       songList: [
-        { image: TestImage, name: 'LOVE DIVE' },
-        { image: TestImage, name: 'I AM' },
-        { image: TestImage, name: 'ELEVEN' },
-        { image: TestImage, name: 'After LIKE' },
-        { image: TestImage, name: 'Kitsch' },
+        {
+          image: imageMap.TenCm1,
+          name: 'LOVE DIVE',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
+        {
+          image: imageMap.TenCm2,
+          name: 'I AM',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
+        {
+          image: imageMap.TenCm3,
+          name: 'ELEVEN',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
       ],
     },
     {
       id: '3',
-      backgroundUrl: TestImage,
-      singer: '엔믹스',
-      time: '19:00~20:00',
+      backgroundUrl: imageMap.FTISLAND,
+      singer: 'FTISLAND',
+      time: '20:30~21:00',
       description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
+        'FTISLAND는 2007년 데뷔한 K-록밴드로, 록 발라드를 대중화하며 주목받았다. 진정성 있는 밴드를 성장을 하였으며, 라이브 퍼포먼스에 강한 면모를 보이며 국내외 팬들에게 꾸준한 사랑을 받고 있다.',
       songList: [
-        { image: TestImage, name: 'O.O' },
-        { image: TestImage, name: 'DICE' },
-        { image: TestImage, name: 'Love Me Like This' },
-        { image: TestImage, name: 'Young, Dumb, Stupid' },
-        { image: TestImage, name: 'Funky Glitter Christmas' },
+        {
+          image: imageMap.FTISLAND1,
+          name: 'O.O',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
+        {
+          image: imageMap.FTISLAND2,
+          name: 'DICE',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
+        {
+          image: imageMap.FTISLAND3,
+          name: 'Love Me Like This',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
       ],
     },
     {
       id: '4',
-      backgroundUrl: TestImage,
-      singer: '르세라핌',
-      time: '18:00~19:00',
+      backgroundUrl: imageMap.Idle,
+      singer: 'i-dle(아이들)',
+      time: '21:00~21:30',
       description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
+        'i-dle은 대한민국의 다국적 걸그룹으로, 소연, 미연, 민니, 우기, 슈화로 구성된 5인조이다. 강렬하고 독창적인 콘셉트의 음악을 선보이며 글로벌 팬층을 형성하고 있다. 2025년, 팀명을 (여자)아이들에서 i-dle로 변경하며 경계 없는 정체성을 선언했다.',
       songList: [
-        { image: TestImage, name: 'FEARLESS' },
-        { image: TestImage, name: 'ANTIFRAGILE' },
-        { image: TestImage, name: 'UNFORGIVEN' },
-        { image: TestImage, name: 'Perfect Night' },
-        { image: TestImage, name: 'Smart' },
-      ],
-    },
-    {
-      id: '5',
-      backgroundUrl: TestImage,
-      singer: '에스파',
-      time: '17:00~18:00',
-      description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
-      songList: [
-        { image: TestImage, name: 'Next Level' },
-        { image: TestImage, name: 'Savage' },
-        { image: TestImage, name: 'Black Mamba' },
-        { image: TestImage, name: 'Spicy' },
-        { image: TestImage, name: 'Drama' },
+        {
+          image: imageMap.Idle1,
+          name: 'FEARLESS',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
+        {
+          image: imageMap.Idle2,
+          name: 'ANTIFRAGILE',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
+        {
+          image: imageMap.Idle3,
+          name: 'UNFORGIVEN',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
       ],
     },
   ],
   '2일차': [
     {
-      id: '6',
-      backgroundUrl: TestImage2,
-      singer: '세븐틴',
-      time: '21:00~22:00',
+      id: '5',
+      backgroundUrl: imageMap.Jackpot,
+      singer: '잭팟(WING, Hellcat)',
+      time: '20:00~20:20',
       description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
+        'WING, Hellcat이 결성한 태그 팀. 2016년부터 태그 팀 활동을 시작했으며, 세계 무대에서 활동하는 유일한 한국 태그 팀이다.',
       songList: [
-        { image: TestImage, name: 'HOT' },
-        { image: TestImage, name: 'Super' },
-        { image: TestImage, name: 'Clap' },
-        { image: TestImage, name: 'HOME' },
-        { image: TestImage, name: 'Rock with you' },
+        {
+          image: imageMap.Jackpot1,
+          name: 'Dopamine',
+          url: 'https://www.youtube.com/watch?v=qlrpeYdm9Ec',
+        },
+        {
+          image: imageMap.Jackpot2,
+          name: 'BOOM!',
+          url: 'https://www.youtube.com/watch?v=ruar9QwTadA',
+        },
+        {
+          image: imageMap.Jackpot3,
+          name: 'Candy Thief',
+          url: 'https://www.youtube.com/watch?v=oJ492O5Z1f4',
+        },
+      ],
+    },
+    {
+      id: '6',
+      backgroundUrl: imageMap.Davichi,
+      singer: '다비치',
+      time: '20:30~21:00',
+      description:
+        '다비치는 대한민국의 여성 듀오 보컬 그룹으로, 이해리와 강민경 두 멤버로 구성되어 있다. 뛰어난 가창력과 멤버 사이의 케미로 현역으로 활동하는 국내 여성 듀오 중 가장 최장수를 달리고 있는 그룹이다.',
+      songList: [
+        {
+          image: imageMap.Davichi1,
+          name: '내 옆에 그대인 걸',
+          url: 'https://www.youtube.com/watch?v=bstWoRsocaw',
+        },
+        {
+          image: imageMap.Davichi2,
+          name: '안녕이라고 말하지마',
+          url: 'https://www.youtube.com/watch?v=CuwRqIzkyOQ',
+        },
+        {
+          image: imageMap.Davichi3,
+          name: '8282',
+          url: 'https://www.youtube.com/watch?v=kXgVibbrLaQ',
+        },
       ],
     },
     {
       id: '7',
-      backgroundUrl: TestImage,
-      singer: 'TXT',
-      time: '20:00~21:00',
+      backgroundUrl: imageMap.Highlight,
+      singer: '하이라이트',
+      time: '21:00~21:30',
       description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
+        '하이라이트는 대한민국의 4인조 남성 아이돌 그룹으로, 2009년에 데뷔한 그룹 비스트의 멤버들이 설립한 새로운 소속사로 둥지를 틀면서 하이라이트라는 이름을 사용하게 되었다.',
       songList: [
-        { image: TestImage, name: 'Sugar Rush Ride' },
-        { image: TestImage, name: 'Good Boy Gone Bad' },
-        { image: TestImage, name: '0X1=LOVESONG' },
-        { image: TestImage, name: 'Blue Hour' },
-        { image: TestImage, name: 'LO$ER=LO♡ER' },
-      ],
-    },
-    {
-      id: '8',
-      backgroundUrl: TestImage,
-      singer: '엔하이픈',
-      time: '19:00~20:00',
-      description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
-      songList: [
-        { image: TestImage, name: 'FEVER' },
-        { image: TestImage, name: 'Bite Me' },
-        { image: TestImage, name: 'Polaroid Love' },
-        { image: TestImage, name: 'Future Perfect' },
-        { image: TestImage, name: 'Tamed-Dashed' },
-      ],
-    },
-    {
-      id: '9',
-      backgroundUrl: TestImage,
-      singer: 'NCT DREAM',
-      time: '18:00~19:00',
-      description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
-      songList: [
-        { image: TestImage, name: 'Candy' },
-        { image: TestImage, name: 'Beatbox' },
-        { image: TestImage, name: 'Hello Future' },
-        { image: TestImage, name: 'BOOM' },
-        { image: TestImage, name: 'Ridin’' },
-      ],
-    },
-    {
-      id: '10',
-      backgroundUrl: TestImage,
-      singer: '트와이스',
-      time: '17:00~18:00',
-      description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
-      songList: [
-        { image: TestImage, name: 'Cheer Up' },
-        { image: TestImage, name: 'TT' },
-        { image: TestImage, name: 'LIKEY' },
-        { image: TestImage, name: 'Feel Special' },
-        { image: TestImage, name: 'FANCY' },
+        {
+          image: imageMap.Highlight1,
+          name: 'Chains',
+          url: 'https://www.youtube.com/watch?v=3kfhoikVzUc',
+        },
+        {
+          image: imageMap.Highlight2,
+          name: '얼굴 찌푸리지 말아요',
+          url: 'https://www.youtube.com/watch?v=gwiWRDnW5zw',
+        },
+        {
+          image: imageMap.Highlight3,
+          name: '어쩔 수 없지 뭐',
+          url: 'https://www.youtube.com/watch?v=WZkGjxy-fz0',
+        },
       ],
     },
   ],
   '3일차': [
     {
+      id: '8',
+      backgroundUrl: imageMap.Ifeye,
+      singer: 'ifeye',
+      time: '18:00~18:30',
+      description:
+        'ifeye는 대한민국의 신예 여성 아티스트로, 실험적인 사운드와 독창적인 음악 세계를 선보이며 주목받고 있다. 일렉트로닉과 인디 팝을 중심으로 한 독특한 음악 스타일은 기존의 틀에서 벗어난 새로운 흐름을 보여주며, 감각적인 비주얼 아트와 함께 자신만의 브랜드를 구축해가고 있다.',
+      songList: [
+        {
+          image: imageMap.Ifeye1,
+          name: 'NERDY',
+          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+        },
+        { image: imageMap.Ifeye2, name: 'IRL', url: 'https://www.youtube.com/watch?v=P2VMwPBTg9I' },
+        {
+          image: imageMap.Ifeye3,
+          name: 'BUBBLE UP',
+          url: 'https://www.youtube.com/watch?v=fyTOoY3gU94',
+        },
+      ],
+    },
+    {
+      id: '9',
+      backgroundUrl: imageMap.Chungha,
+      singer: '청하',
+      time: '19:45~20:15',
+      description:
+        '청하는 대한민국의 솔로 가수이자, 프로젝트 걸그룹 I.O.I 출신이다. 탄탄한 댄스 실력과 유려한 보컬, 뛰어난 무대 장악력을 겸비한 올라운더로, K-pop 3세대 여성 솔로 아티스트를 대표하는 인물로 자리매김했다.',
+      songList: [
+        {
+          image: imageMap.Chungha1,
+          name: '벌써 12시',
+          url: 'https://www.youtube.com/watch?v=HlN2BXNJzxA',
+        },
+        {
+          image: imageMap.Chungha2,
+          name: 'Roller Coaster',
+          url: 'https://www.youtube.com/watch?v=900X9fDFLc4',
+        },
+        {
+          image: imageMap.Chungha3,
+          name: 'When I Get Old',
+          url: 'https://www.youtube.com/watch?v=Ua3aNDJE_Cg',
+        },
+      ],
+    },
+    {
+      id: '10',
+      backgroundUrl: imageMap.YB,
+      singer: 'YB',
+      time: '20:15~21:15',
+      description:
+        'YB는 윤도현을 중심으로 1997년 정식 데뷔한 대한민국의 대표 록 밴드로, 베이스 박태희, 기타 허준, 드럼 김진원과 함께 활동 중이다. 2002년 월드컵 응원가 ‘오 필승 코리아’로 대중적인 인기를 얻으며 ‘국민 밴드’로 자리매김했다. 이후 다양한 방송 활동과 사회적 메시지를 담은 음악을 통해 대중성과 음악성을 동시에 인정받으며 꾸준히 활동을 이어오고 있다.',
+      songList: [
+        {
+          image: imageMap.YB1,
+          name: '흰수염고래',
+          url: 'https://www.youtube.com/watch?v=nu3YsyDplUQ',
+        },
+        {
+          image: imageMap.YB2,
+          name: '오 필승 코리아',
+          url: 'https://www.youtube.com/watch?v=e7HvH3un8ko',
+        },
+        {
+          image: imageMap.YB3,
+          name: '나는 나비',
+          url: 'https://www.youtube.com/watch?v=UTg9wf1HGI8',
+        },
+      ],
+    },
+    {
       id: '11',
-      backgroundUrl: TestImage,
-      singer: 'BTS',
-      time: '21:00~22:00',
+      backgroundUrl: imageMap.DJ,
+      singer: 'DJ주디',
+      time: '21:15~21:45',
       description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
+        'DJ주디는 대한민국의 DJ 겸 음악 프로듀서이다. 다양한 일렉트로닉 장르를 기반으로 개성 있는 사운드를 선보이며 클럽과 페스티벌 등에서 활발히 활동 중이다. ',
       songList: [
-        { image: TestImage, name: 'Dynamite' },
-        { image: TestImage, name: 'Butter' },
-        { image: TestImage, name: 'Spring Day' },
-        { image: TestImage, name: 'IDOL' },
-        { image: TestImage, name: 'FAKE LOVE' },
-      ],
-    },
-    {
-      id: '12',
-      backgroundUrl: TestImage,
-      singer: '블랙핑크',
-      time: '20:00~21:00',
-      description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
-      songList: [
-        { image: TestImage, name: 'How You Like That' },
-        { image: TestImage, name: 'DDU-DU DDU-DU' },
-        { image: TestImage, name: 'Kill This Love' },
-        { image: TestImage, name: 'Pink Venom' },
-        { image: TestImage, name: 'As If It’s Your Last' },
-      ],
-    },
-    {
-      id: '13',
-      backgroundUrl: TestImage,
-      singer: '스테이씨',
-      time: '19:00~20:00',
-      description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
-      songList: [
-        { image: TestImage, name: 'ASAP' },
-        { image: TestImage, name: 'RUN2U' },
-        { image: TestImage, name: 'Bubble' },
-        { image: TestImage, name: 'Teddy Bear' },
-        { image: TestImage, name: 'Stereotype' },
-      ],
-    },
-    {
-      id: '14',
-      backgroundUrl: TestImage,
-      singer: 'ITZY',
-      time: '18:00~19:00',
-      description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
-      songList: [
-        { image: TestImage, name: 'WANNABE' },
-        { image: TestImage, name: 'DALLA DALLA' },
-        { image: TestImage, name: 'ICY' },
-        { image: TestImage, name: 'Not Shy' },
-        { image: TestImage, name: 'SNEAKERS' },
-      ],
-    },
-    {
-      id: '15',
-      backgroundUrl: TestImage,
-      singer: '레드벨벳',
-      time: '17:00~18:00',
-      description:
-        'NewJeans는 대한민국의 걸그룹이다. 민지, 하니, 다니엘, 해린, 혜인 5인조로 구성되어 있다. 민희진이 프로듀싱을 맡았으며, 이들은 1990년대와 2000년대의 복고풍 레트로 음악 스타일을 현대적 시대에 맞게 재구성한 그룹이다. ',
-      songList: [
-        { image: TestImage, name: 'Red Flavor' },
-        { image: TestImage, name: 'Peek-A-Boo' },
-        { image: TestImage, name: 'Feel My Rhythm' },
-        { image: TestImage, name: 'Psycho' },
-        { image: TestImage, name: 'Bad Boy' },
+        {
+          image: imageMap.DJ1,
+          name: 'Winter EDM Festival MixSet',
+          url: 'https://www.youtube.com/watch?v=WNtO-d5hKq8&t=1s',
+        },
+        {
+          image: imageMap.DJ2,
+          name: 'Summer Mixset',
+          url: 'https://www.youtube.com/watch?v=yHXQzlpjR_o',
+        },
+        {
+          image: imageMap.DJ3,
+          name: 'Halloween Mixset',
+          url: 'https://www.youtube.com/watch?v=UxmxYEaO9kI',
+        },
       ],
     },
   ],

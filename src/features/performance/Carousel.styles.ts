@@ -39,8 +39,8 @@ export const CarouselContainer = styled.div`
 
 export const Card = styled(Link)<{ $fadeIn?: boolean }>`
   position: absolute;
-  min-width: 14.375rem;
-  min-height: 19.875rem;
+  width: 14.375rem;
+  height: 19.875rem;
   flex-shrink: 0;
   transition: all 0.5s ease;
 
