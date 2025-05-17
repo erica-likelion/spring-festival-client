@@ -27,8 +27,8 @@ export default function ItemCard({ item }: ItemCardProps) {
         handleLink();
       }}
     >
-      <S.ImageBox $imageUrl={item.imageUrl}>
-        {item.isDeliveredToStaff && <StaffLabel absolute={true} />}
+      <S.ImageBox $imageUrl={`http://211.188.62.189:8080${item.image}`}>
+        {item.staffNotified && <StaffLabel absolute={true} />}
       </S.ImageBox>
       <S.ItemInfoBox>
         <S.ItemName>{item.name}</S.ItemName>
@@ -38,7 +38,7 @@ export default function ItemCard({ item }: ItemCardProps) {
             height={'0.875rem'}
             fill={theme.colors.grayScale.gy200}
           />
-          <S.LocationText>{item.location}</S.LocationText>
+          <S.LocationText>{item.foundLocation}</S.LocationText>
         </S.LocationBox>
       </S.ItemInfoBox>
     </S.Card>
