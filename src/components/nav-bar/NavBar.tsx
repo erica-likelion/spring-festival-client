@@ -26,6 +26,7 @@ const NavBar: React.FC<NavBarProps> = ({
   title,
   onSearchClick,
   backPath = -1,
+  opacity = false,
 }) => {
   const navigate = useNavigate();
 
@@ -40,7 +41,7 @@ const NavBar: React.FC<NavBarProps> = ({
   };
 
   return (
-    <S.Container>
+    <S.Container $opacity={opacity}>
       <S.LeftSection>
         {isBack ? (
           <BackIcon

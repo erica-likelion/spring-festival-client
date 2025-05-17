@@ -7,6 +7,7 @@ export interface NavBarProps {
   title?: string;
   onSearchClick?: () => void;
   backPath?: number | string;
+  opacity?: boolean;
 }
 
 export interface SearchNavBarProps {

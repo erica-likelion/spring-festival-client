@@ -3,13 +3,15 @@ export const SectionContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2rem;
 `;
 
 export const Section = styled.section`
   width: 21rem;
 `;
 
-export const SubTitle = styled.p`
+export const SubTitle = styled.nav`
   ${(props) => props.theme.fonts.header.h3}
   color: ${(props) => props.theme.colors.grayScale.white};
   margin: 0 0 1rem;
