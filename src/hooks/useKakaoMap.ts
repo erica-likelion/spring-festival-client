@@ -170,9 +170,7 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
 
       // 위치 정보 권한 상태 확인 (크롬과 같은 일부 브라우저에서만 작동)
       try {
-        // @ts-expect-error - navigator.permissions이 타입 정의에 없을 수 있음
         if (navigator.permissions && navigator.permissions.query) {
-          // @ts-expect-error - query 파라미터 타입이 정의되지 않았을 수 있음
           navigator.permissions.query({ name: 'geolocation' }).then((result) => {
             console.log(`[KakaoMap] 위치 권한 상태: ${result.state}`);
             if (result.state === 'denied') {
