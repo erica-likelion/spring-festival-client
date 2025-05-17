@@ -19,7 +19,8 @@ export default function ItemCard({ item }: ItemCardProps) {
   const navigate = useNavigate();
 
   const handleLink = () => {
-    navigate(`/main/lost/post/${item.id}`);
+    const encoded = encodeURIComponent(JSON.stringify(item));
+    navigate(`/main/lost/post/${encoded}`);
   };
   return (
     <S.Card
