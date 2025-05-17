@@ -141,8 +141,58 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
 
   const moveToCurrentLocation = useCallback(() => {
     console.log('[KakaoMap] 현재 위치로 이동 요청');
+
+    // 미리 기본 위치 설정 (한양대 에리카 캠퍼스)
+    const defaultLocation = {
+      lat: 37.29644017218779,
+      lng: 126.83516599926162,
+    };
+
+    // 기본 위치로 먼저 이동 (위치 정보 획득 실패 시 폴백으로 사용)
+    if (kakaoMapRef.current) {
+      const defaultPosition = new window.kakao.maps.LatLng(
+        defaultLocation.lat,
+        defaultLocation.lng,
+      );
+
+      // 지도 중심 이동
+      kakaoMapRef.current.setCenter(defaultPosition);
+      kakaoMapRef.current.setLevel(3);
+    }
+
     if ('geolocation' in navigator) {
       console.log('[KakaoMap] Geolocation API 사용 가능');
+
+      // 기존 마커 제거
+      if (myLocationMarkerRef.current) {
+        myLocationMarkerRef.current.setMap(null);
+      }
+
+      // 위치 정보 권한 상태 확인 (크롬과 같은 일부 브라우저에서만 작동)
+      try {
+        // @ts-expect-error - navigator.permissions이 타입 정의에 없을 수 있음
+        if (navigator.permissions && navigator.permissions.query) {
+          // @ts-expect-error - query 파라미터 타입이 정의되지 않았을 수 있음
+          navigator.permissions.query({ name: 'geolocation' }).then((result) => {
+            console.log(`[KakaoMap] 위치 권한 상태: ${result.state}`);
+            if (result.state === 'denied') {
+              alert(
+                '위치 정보 접근이 차단되어 있습니다. 브라우저 설정에서 위치 정보 접근을 허용해주세요.',
+              );
+
+              // 권한 거부 시 기본 위치에 마커 표시
+              showDefaultMarker();
+              return;
+            }
+          });
+        }
+      } catch (error) {
+        console.log('[KakaoMap] 권한 상태 확인 실패:', error);
+      }
+
+      // 로딩 인디케이터 표시하거나 사용자에게 알림
+      console.log('[KakaoMap] 위치 정보 요청 중...');
+
       navigator.geolocation.getCurrentPosition(
         (position) => {
           console.log('[KakaoMap] 위치 정보 수신 성공');
@@ -150,29 +200,22 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
           console.log(`[KakaoMap] 위도: ${lat}, 경도: ${lng}`);
 
           if (kakaoMapRef.current) {
-            console.log('[KakaoMap] 지도 객체 존재, 위치 이동 시작');
             // 정확히 동일한 LatLng 객체를 사용하여 일관성 유지
             const currentPosition = new window.kakao.maps.LatLng(lat, lng);
 
             // 지도 중심 이동
             kakaoMapRef.current.setCenter(currentPosition);
 
-            // 지도 레벨 조정 (선택 사항)
-            // 기본 줌 레벨 설정
+            // 적절한 줌 레벨 설정
             kakaoMapRef.current.setLevel(2);
-
-            // 기존 마커 제거
-            if (myLocationMarkerRef.current) {
-              myLocationMarkerRef.current.setMap(null);
-            }
 
             // 마커 이미지 설정
             const markerSize = new window.kakao.maps.Size(44, 44);
             const markerImage = new window.kakao.maps.MarkerImage(MyLocationIcon, markerSize);
 
-            // 마커 생성 - 동일한 currentPosition 사용
+            // 마커 생성
             const marker = new window.kakao.maps.Marker({
-              position: currentPosition, // 동일한 위치 객체 사용
+              position: currentPosition,
               map: kakaoMapRef.current,
               image: markerImage,
               title: '내 위치',
@@ -183,18 +226,66 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
           }
         },
         (error) => {
-          console.error('현재 위치를 가져오는데 실패했습니다:', error);
-          alert('위치 정보를 가져올 수 없습니다. 위치 권한을 확인해주세요.');
+          console.error('[KakaoMap] 위치 정보 오류:', error.code, error.message);
+
+          // 오류 코드와 메시지 로깅
+          let errorMessage = '위치 정보를 가져올 수 없습니다.';
+
+          switch (error.code) {
+            case 1: // PERMISSION_DENIED
+              errorMessage =
+                '위치 정보 접근 권한이 거부되었습니다. 설정에서 위치 서비스를 허용해주세요.';
+              break;
+            case 2: // POSITION_UNAVAILABLE
+              errorMessage =
+                '현재 위치를 확인할 수 없습니다. 와이파이나 셀룰러 데이터를 확인해보세요.';
+              break;
+            case 3: // TIMEOUT
+              errorMessage = '위치 정보를 가져오는 데 시간이 너무 오래 걸립니다.';
+              break;
+          }
+
+          // 사용자에게 오류 알림
+          alert(errorMessage);
+
+          // 기본 위치에 마커 표시
+          showDefaultMarker();
         },
         {
-          enableHighAccuracy: true, // 고정밀도 위치 정보 사용
-          maximumAge: 0, // 캐시된 위치 사용 안 함
-          timeout: 5000, // 5초 후 타임아웃
+          enableHighAccuracy: false, // 고정밀도 비활성화 (배터리 절약, 성공률 향상)
+          maximumAge: 60000, // 1분까지의 캐시된 위치 허용
+          timeout: 15000, // 15초 타임아웃 (충분한 시간 제공)
         },
       );
     } else {
       console.error('이 브라우저에서는 위치 정보를 제공하지 않습니다.');
-      alert('이 브라우저에서는 위치 정보를 사용할 수 없습니다.');
+      alert('이 브라우저에서는 위치 정보 기능을 사용할 수 없습니다.');
+      showDefaultMarker();
+    }
+
+    // 기본 위치에 마커를 표시하는 내부 함수
+    function showDefaultMarker() {
+      if (kakaoMapRef.current) {
+        // 마커 이미지 설정
+        const markerSize = new window.kakao.maps.Size(44, 44);
+        const markerImage = new window.kakao.maps.MarkerImage(MyLocationIcon, markerSize);
+
+        const defaultPosition = new window.kakao.maps.LatLng(
+          defaultLocation.lat,
+          defaultLocation.lng,
+        );
+
+        // 마커 생성
+        const marker = new window.kakao.maps.Marker({
+          position: defaultPosition,
+          map: kakaoMapRef.current,
+          image: markerImage,
+          title: '기본 위치',
+        });
+
+        // 마커 참조 저장
+        myLocationMarkerRef.current = marker;
+      }
     }
   }, []);
 
