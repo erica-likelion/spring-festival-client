@@ -24,7 +24,7 @@ const Login: React.FC = () => {
   }, [setIsNav]);
 
   const REST_API_KEY = '6bb8a461e86aef8b6d76895faf0b348a';
-  const REDIRECT_URI = 'http://211.188.62.189:8080/auth/login/kakao/auth-code';
+  const REDIRECT_URI = 'http://localhost:8080/login/success';
   const link = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const handleKakaoLogin = () => {

@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '@/stores/useAuthStore';
 import axios from 'axios';
 
 const Redirection = () => {
@@ -9,6 +10,7 @@ const Redirection = () => {
 
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
+    console.log('인가 코드', code);
     if (!code) {
       console.error('인가 코드 없음');
       return;
@@ -16,7 +18,7 @@ const Redirection = () => {
 
     axios
       .post(
-        `${import.meta.env.VITE_API_URL}/auth/login/kakao/auth-code`,
+        `http://211.188.62.189:8080/auth/login/kakao/auth-code`,
         {
           code: code,
         },
@@ -28,19 +30,19 @@ const Redirection = () => {
         const accessToken = res.headers['authorization']?.replace('Bearer ', '');
         if (accessToken) {
           localStorage.setItem('access_token', accessToken);
-          navigate('/main');
+          useAuthStore.getState().setLoggedIn(true); // 전역 상태 갱신
         } else {
           console.error('access token 없음');
-          navigate('/login?error=token_missing');
+          navigate('/login/error');
         }
       })
       .catch((err) => {
         console.error('로그인 실패', err);
-        navigate('/login?error=server_error');
+        navigate('login/error');
       });
   }, [navigate]);
 
-  return;
+  return <div>로그인 처리 중입니다...</div>;
 };
 
 export default Redirection;

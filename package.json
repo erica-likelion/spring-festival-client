@@ -61,7 +61,7 @@
     "workbox-routing": "^7.3.0",
     "workbox-strategies": "^7.3.0",
     "workbox-window": "^7.3.0",
-    "zustand": "5.0.3"
+    "zustand": "^5.0.4"
   },
   "resolutions": {
     "sharp": "0.32.6",
