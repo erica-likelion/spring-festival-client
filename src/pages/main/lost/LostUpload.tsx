@@ -34,6 +34,7 @@ export default function LostUpload() {
   const { open, key } = useModal(ModalCaution);
   const closeModal = useModalStore((state) => state.closeModal);
   const baseUrl = import.meta.env.VITE_API_BASE_URL;
+  const token = import.meta.env.VITE_USER_TOKEN;
 
   useEffect(() => {
     setIsNav(false);
@@ -72,7 +73,7 @@ export default function LostUpload() {
           try {
             const res = await axios.post(`${baseUrl}/api/lost-items`, formData, {
               headers: {
-                Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJSb2xlIjoiUk9MRV9BRE1JTiIsIkVtYWlsIjoi7Iah6rCAIOyjvOygkCIsIk5hbWUiOiLshqHqsIAg7KO87KCQIiwiaWF0IjoxNzQ3NTAyNzQ5LCJzdWIiOiI0IiwiZXhwIjoxNzQ3NTA2MzQ5fQ.YemkHRyGWSUN6b_ZTU0WiNQfOedV8Cb0e-iXtsh1IrM`,
+                Authorization: token,
               },
             });
             console.log(res.data);

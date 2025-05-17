@@ -11,7 +11,7 @@ import { LoginModal } from '@/features/login/modal';
  */
 
 export default function Registration() {
-  const loginStatus: number = 0; // 0: 로그아웃, 1: 로그인
+  const loginStatus: number = 1; // 0: 로그아웃, 1: 로그인
   const modalPost = useModal(ModalPost);
   const loginModal = useModal(LoginModal);
 
