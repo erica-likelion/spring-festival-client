@@ -31,6 +31,8 @@ const Redirection = () => {
         if (accessToken) {
           localStorage.setItem('access_token', accessToken);
           useAuthStore.getState().setLoggedIn(true); // 전역 상태 갱신
+          console.log('로그인 성공', accessToken);
+          navigate(-2); // 로그인 성공 후 전 페이지로 이동
         } else {
           console.error('access token 없음');
           navigate('/login/error');

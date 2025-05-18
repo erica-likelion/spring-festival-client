@@ -17,7 +17,6 @@ import LostUpload from './main/lost/LostUpload';
 import LostComplete from './main/lost/LostComplete';
 import MadeBy from './main/notice/MadeBy';
 import Redirection from '@/pages/login/Redirection';
-import LoginSuccess from '@/pages/login/LoginSuccess';
 
 export {
   Main,
@@ -39,5 +38,4 @@ export {
   LostComplete,
   MadeBy,
   Redirection,
-  LoginSuccess,
 };
