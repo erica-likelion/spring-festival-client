@@ -19,7 +19,6 @@ const Login: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('Login');
     setIsNav(false);
     return () => setIsNav(true);
   }, [setIsNav]);
