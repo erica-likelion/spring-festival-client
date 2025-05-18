@@ -15,7 +15,7 @@ export const useAuthStore = create<AuthState>()(
       logout: () => set({ isLoggedIn: false }),
     }),
     {
-      name: 'auth-storage', // localStorage에 저장될 키 이름
+      name: 'auth-storage',
     },
   ),
 );
