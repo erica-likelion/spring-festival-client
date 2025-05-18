@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/stores/useAuthStore';
 import axiosInstance from '@/lib/AxiosInstance';
-import Lottie from 'lottie-react';
+import Lottie from 'react-lottie-player';
 import loading from '../../assets/lotties/loading.json';
 import * as S from './Redirection.style';
 
@@ -42,7 +42,7 @@ const Redirection = () => {
 
   return (
     <S.Container>
-      <Lottie animationData={loading} loop style={{ width: 200, height: 200 }} />
+      <Lottie loop play animationData={loading} style={{ width: 200, height: 200 }} />
       <S.LoadingText>로그인 중입니다...</S.LoadingText>
     </S.Container>
   );
