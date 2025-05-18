@@ -5,6 +5,7 @@ import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
 import * as S from './MapPage.styles';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import ReCenterButtonIcon from '@/assets/icons/re-center.svg?react';
+import ReCenterClickedButtonIcon from '@/assets/icons/re-center-clicked.svg?react';
 import { useKakaoMap } from '@/hooks/useKakaoMap';
 
 export default function Map() {
@@ -97,6 +98,20 @@ export default function Map() {
     navigate('search');
   };
 
+  // 현재 위치 버튼 관련 상태
+  const [isReCentering, setIsReCentering] = useState<boolean>(false);
+
+  // 현재 위치로 이동 핸들러
+  const handleReCenterClick = () => {
+    setIsReCentering(true); // 클릭 효과 활성화
+    moveToCurrentLocation(); // 현재 위치로 이동
+
+    // 일정 시간 후 버튼 상태 원래대로 복원
+    setTimeout(() => {
+      setIsReCentering(false);
+    }, 1000);
+  };
+
   // 지도 관련 시작 ////////////////////////////////
   // 기존 초기화 로직은 useKakaoMap 훅으로 대체되었습니다.
   console.log('[지도] MapPage 컴포넌트가 렌더링되었습니다.');
@@ -106,8 +121,8 @@ export default function Map() {
     <S.MapContainer>
       <S.MapOverlay $headerExpanded={headerExpanded} />
       <S.MapWrapper ref={mapRef} />
-      <S.ReCenterButton $isBottomSheetOpen={isBottomSheetOpen} onClick={moveToCurrentLocation}>
-        <ReCenterButtonIcon />
+      <S.ReCenterButton $isBottomSheetOpen={isBottomSheetOpen} onClick={handleReCenterClick}>
+        {isReCentering ? <ReCenterClickedButtonIcon /> : <ReCenterButtonIcon />}
       </S.ReCenterButton>
       <S.ContentContainer>
         <MapPageHeader
