@@ -9,6 +9,6 @@ export const Container = styled.div`
 
 export const LoadingText = styled.p`
   margin-top: 1rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  color: ${(props) => props.theme.colors.grayScale.white};
+  ${({ theme }) => theme.fonts.header.h4};
 `;
