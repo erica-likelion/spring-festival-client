@@ -220,7 +220,7 @@ export const NoticeData = [
     id: 7,
     img: [notice7_0, notice7_1, notice7_2, notice7_3, notice7_4, notice7_5, notice7_6, notice7_7],
     title: '❤️미니 소개팅 모집 공고',
-    tags: [{ color: 'rd500', text: '콘텐츠' }],
+    tags: [{ color: 'ye200', text: '콘텐츠' }],
     body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ 미니 소개팅 모집 공고
 
 ✨NOW OR NEVER, HYLIGHT✨
@@ -262,7 +262,7 @@ export const NoticeData = [
       notice8_9,
     ],
     title: '🌊호공 레이스 참가자 모집 공고',
-    tags: [{ color: 'rd500', text: '콘텐츠' }],
+    tags: [{ color: 'ye200', text: '콘텐츠' }],
     body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“
 
 ✨NOW OR NEVER, HYLIGHT✨
