@@ -18,7 +18,7 @@ const Redirection = () => {
 
     axios
       .post(
-        `http://211.188.62.189:8080/auth/login/kakao/auth-code`,
+        `http://211.188.62.189:8080/auth/kakao/login`,
         {
           code: code,
         },
