@@ -8,9 +8,7 @@ export const Container = styled(motion.div)`
 `;
 
 export const SliderWrapper = styled.div`
-  width: 100%;
-  padding: 0 1.21rem; /* margin 대신 padding 사용 */
-  overflow: hidden; /* 슬라이더가 넘치지 않도록 설정 */
+  width: 21rem;
 `;
 
 export const Box = styled(motion.div)`

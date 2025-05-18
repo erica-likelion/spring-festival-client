@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { NoticeBodyProps } from '../notice/Notice.types';
 import { truncateText } from '@/utils/truncateText';
 
-function NoticeCard({ title, body, tags = [], onClick }: NoticeBodyProps) {
+function NoticeCard({ title, body, tags = [], onClick, isFirst }: NoticeBodyProps) {
   const [isDragging, setIsDragging] = useState(false);
   const truncatedTitle = truncateText(title, 30);
   const truncatedBody = truncateText(body, 35);
@@ -29,6 +29,7 @@ function NoticeCard({ title, body, tags = [], onClick }: NoticeBodyProps) {
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onMouseUp={handleMouseUp}
+      $isFirst={isFirst}
     >
       <S.HeaderSection>
         <S.TagWrapper>

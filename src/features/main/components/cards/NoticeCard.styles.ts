@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.div<{ $isFirst?: boolean }>`
   cursor: grab;
   display: flex;
   width: 12.25rem;
@@ -8,6 +8,7 @@ export const Container = styled.div`
   align-items: flex-start;
   background-color: ${(props) => props.theme.colors.secondary.ye200};
   box-shadow: 3px 3px 0px 0px #e6ab12;
+  margin-left: ${(props) => (props.$isFirst ? '1.25rem' : '0')};
 `;
 
 export const HeaderSection = styled.div`
@@ -52,7 +53,7 @@ export const TextWrapper = styled.div`
   color: ${(props) => props.theme.colors.grayScale.gy950};
   display: flex;
   text-align: left;
-  gap: 0.25rem;
+  gap: 0.5rem;
   flex-direction: column;
 `;
 
