@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/stores/useAuthStore';
-import axios from 'axios';
+import axiosInstance from '@/lib/AxiosInstance';
 
 const Redirection = () => {
   const navigate = useNavigate();
@@ -16,15 +16,11 @@ const Redirection = () => {
       return;
     }
 
-    axios
+    axiosInstance
       .post(
-        `http://211.188.62.189:8080/auth/kakao/login`,
-        {
-          code: code,
-        },
-        {
-          withCredentials: true, // refreshToken 쿠키 받기 위해 필요
-        },
+        '/auth/kakao/login',
+        { code },
+        { withCredentials: true }, // refreshToken 쿠키 수신
       )
       .then((res) => {
         const accessToken = res.headers['authorization']?.replace('Bearer ', '');
@@ -32,7 +28,7 @@ const Redirection = () => {
           localStorage.setItem('access_token', accessToken);
           useAuthStore.getState().setLoggedIn(true); // 전역 상태 갱신
           console.log('로그인 성공', accessToken);
-          navigate(-2); // 로그인 성공 후 전 페이지로 이동
+          navigate(-2);
         } else {
           console.error('access token 없음');
           navigate('/login/error');
@@ -40,7 +36,7 @@ const Redirection = () => {
       })
       .catch((err) => {
         console.error('로그인 실패', err);
-        navigate('login/error');
+        navigate('/login/error');
       });
   }, [navigate]);
 

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const Container = styled.header`
+export const Container = styled.header<{ $opacity?: boolean }>`
   display: flex;
   width: 100%;
   height: 3.875rem;
@@ -9,7 +9,8 @@ export const Container = styled.header`
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
-  background-color: ${(props) => props.theme.colors.grayScale.black};
+  background-color: ${(props) =>
+    props.$opacity ? 'transparent' : props.theme.colors.grayScale.black};
 `;
 
 export const LeftSection = styled.div`
