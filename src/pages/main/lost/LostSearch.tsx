@@ -23,7 +23,6 @@ export default function LostSearch() {
   const [filteredItems, setFilteredItems] = useState<LostItem[]>([]);
   const [step, setStep] = useState<'input' | 'result'>('input');
   const [loading, setLoading] = useState(false);
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
   const loginStatus: number = 1; // 0: 로그아웃, 1: 로그인
 
   useEffect(() => {
@@ -61,7 +60,7 @@ export default function LostSearch() {
 
     try {
       const res = await axios.get<LostItem[]>(
-        `${baseUrl}/api/lost-items?name=${encodeURIComponent(searchKeyword)}`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/lost-items?name=${encodeURIComponent(searchKeyword)}`,
       );
 
       setFilteredItems(res.data);

@@ -41,7 +41,7 @@ export default function ItemList() {
   useEffect(() => {
     const fetchLostItems = async () => {
       try {
-        const res = await axios.get('http://211.188.62.189:8080/api/lost-items');
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/lost-items`);
         setLostItems(res.data);
       } catch (error) {
         console.error('분실물 데이터를 불러오는 데 실패했습니다:', error);
