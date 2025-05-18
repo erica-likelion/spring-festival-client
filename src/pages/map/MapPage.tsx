@@ -2,6 +2,8 @@ import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPageHeader, MapPageBottomSheet } from '@/features/map';
 import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
+import { FESTIVAL_START_DATE, FESTIVAL_TOTAL_DAYS } from '@/constants/festival/dates';
+import { getCurrentFestivalDay } from '@/utils/dateUtils';
 import * as S from './MapPage.styles';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import ReCenterButtonIcon from '@/assets/icons/re-center.svg?react';
@@ -24,8 +26,14 @@ export default function Map() {
   });
   console.log('[MapPage] useKakaoMap 훅 초기화 완료');
 
+  // 현재 날짜에 기반한 페스티벌 일차 계산
+  const currentDay = getCurrentFestivalDay(FESTIVAL_START_DATE, FESTIVAL_TOTAL_DAYS) as DAYS;
+  console.log(
+    `[MapPage] 현재 날짜: ${new Date().toLocaleDateString()}, 페트티벌 시작 일차: ${FESTIVAL_START_DATE}, 페스티벌 일차: ${currentDay}`,
+  );
+
   // 날짜 및 카테고리 관련 상태
-  const [selectedDay, setSelectedDay] = useState<DAYS>(days[0]);
+  const [selectedDay, setSelectedDay] = useState<DAYS>(currentDay);
   const [selectedCategory, setSelectedCategory] = useState<CATEGORIES | null>(null);
 
   // 헤더 관련 상태
