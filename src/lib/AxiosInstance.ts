@@ -14,6 +14,7 @@ axiosInstance.interceptors.response.use(
     if (error.response?.status === 401 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
+        console.log('access token 만료됨, refresh token으로 갱신 시도');
         const refreshResponse = await axiosInstance.post('/auth/refresh');
         const newAccessToken = refreshResponse.headers['authorization']?.replace('Bearer ', '');
 

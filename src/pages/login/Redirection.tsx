@@ -4,10 +4,12 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '@/stores/useAuthStore';
 import axiosInstance from '@/lib/AxiosInstance';
+import Lottie from 'lottie-react';
+import loading from '../../assets/lotties/loading.json';
+import * as S from './Redirection.style';
 
 const Redirection = () => {
   const navigate = useNavigate();
-
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code');
     if (!code) {
@@ -38,7 +40,12 @@ const Redirection = () => {
       });
   }, [navigate]);
 
-  return <div>로그인 처리 중입니다...</div>;
+  return (
+    <S.Container>
+      <Lottie animationData={loading} loop style={{ width: 200, height: 200 }} />
+      <S.LoadingText>로그인 중입니다...</S.LoadingText>
+    </S.Container>
+  );
 };
 
 export default Redirection;
