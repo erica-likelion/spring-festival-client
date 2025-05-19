@@ -3,6 +3,8 @@ import * as S from './BoothList.styles';
 import { ImageTextFrameWithOrganization } from '@/components/image-text-frame';
 import { Notification } from '@/components/notification';
 import { useNavigate, useLocation } from 'react-router-dom';
+import { BOOTH_LIST } from '@/constants/booth/booth';
+import { Fragment } from 'react/jsx-runtime';
 
 export default function BoothList() {
   const navigate = useNavigate();
@@ -11,22 +13,31 @@ export default function BoothList() {
     <S.Container>
       <Notification title="[공지] 미성년자 입장 불가" width="100%" />
       <S.Header>
-        <S.Count>전체 00개</S.Count>
+        <S.Count>전체 26개</S.Count>
         <OpenAlert />
       </S.Header>
       <S.BoothList>
         <S.BoothItem>
-          <ImageTextFrameWithOrganization
-            width="100%"
-            image={''}
-            title={'PubName'}
-            organization={'organization Name'}
-            canPickup={true}
-            onClick={() =>
-              navigate(`/booth/${1}`, { state: { from: location.pathname + location.search } })
-            }
-          />
-          <S.HorizontalLine />
+          {BOOTH_LIST.map((booth) => {
+            return (
+              <Fragment key={booth.id}>
+                <ImageTextFrameWithOrganization
+                  key={booth.id}
+                  width="100%"
+                  image={booth.profileImage}
+                  title={booth.pubName}
+                  organization={booth.affiliation}
+                  canPickup={booth.takeout}
+                  onClick={() =>
+                    navigate(`/booth/${booth.id}`, {
+                      state: { from: location.pathname + location.search },
+                    })
+                  }
+                />
+                <S.HorizontalLine />
+              </Fragment>
+            );
+          })}
         </S.BoothItem>
       </S.BoothList>
     </S.Container>

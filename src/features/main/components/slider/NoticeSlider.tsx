@@ -47,16 +47,18 @@ function NoticeSlicer() {
     <S.SliderWrapper ref={wrapperRef}>
       <S.Container ref={sliderRef} drag="x" dragConstraints={dragConstraints}>
         <S.Box>
-          {NoticeData.map((notice, index) => (
-            <NoticeCard
-              key={`notice${notice.id}`}
-              title={notice.title}
-              tags={notice.tags}
-              body={notice.body}
-              onClick={() => navigate(`/main/notice/${notice.id}`)}
-              isFirst={index === 0}
-            />
-          ))}
+          {NoticeData.slice()
+            .reverse()
+            .map((notice, index) => (
+              <NoticeCard
+                key={`notice${notice.id}`}
+                title={notice.title}
+                tags={notice.tags}
+                body={notice.body}
+                onClick={() => navigate(`/main/notice/${notice.id}`)}
+                isFirst={index === 0}
+              />
+            ))}
         </S.Box>
       </S.Container>
     </S.SliderWrapper>

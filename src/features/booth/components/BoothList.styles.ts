@@ -21,6 +21,7 @@ export const BoothList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding: 0rem 0rem 13.12rem;
 `;
 
 export const BoothItem = styled.li`

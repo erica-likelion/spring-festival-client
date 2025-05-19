@@ -4,22 +4,26 @@ import { NavBar } from '@/components/nav-bar';
 import * as S from './BoothDetail.styles';
 import { BoothInfo, BoothLocation, MenuList } from '@/features/booth';
 import { Waiting } from '@/features/waiting';
+import { BOOTH_LIST } from '@/constants/booth/booth';
 
 export default function BoothDetail() {
   const { id } = useParams();
   const location = useLocation();
   const fromRef = useRef(location.state?.from || '/booth');
-  console.log(fromRef.current);
+  const booth = BOOTH_LIST.find((booth) => booth.id === Number(id)); // ✅ 타입 일치
+  if (!booth) {
+    return null; // or handle the case when the booth is not found
+  }
   return (
     <>
-      <NavBar isBack title="주점" />
-      <S.BackgroundImg />
+      <NavBar isBack title="주점" backPath={fromRef.current} />
+      <S.BackgroundImg src={booth.posterImage} />
       <S.Section style={{ marginTop: '-2rem' }}>
-        <BoothInfo id={Number(id)} />
-        <Waiting />
+        <BoothInfo id={booth.id} />
+        <Waiting id={booth.id} />
       </S.Section>
       <S.Section>
-        <MenuList />
+        <MenuList id={booth.id} />
       </S.Section>
       <S.Section>
         <BoothLocation />

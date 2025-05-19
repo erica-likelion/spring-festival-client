@@ -7,7 +7,7 @@ import { truncateText } from '@/utils/truncateText';
 
 function NoticeCard({ title, body, tags = [], onClick, isFirst }: NoticeBodyProps) {
   const [isDragging, setIsDragging] = useState(false);
-  const truncatedTitle = truncateText(title, 30);
+  const truncatedTitle = truncateText(title, 23);
   const truncatedBody = truncateText(body, 35);
 
   const handleMouseDown = () => {

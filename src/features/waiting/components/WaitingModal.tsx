@@ -4,6 +4,9 @@ import { useEffect, useState } from 'react';
 import { useModalStore } from '@/stores/useModalStore';
 import * as S from './WaitingModal.styles';
 import { BlueButton } from '@/components/bluebuttons';
+import { postWaiting } from '@/services/waiting';
+import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
+import { useNavigate } from 'react-router-dom';
 
 const STEPS = ['people', 'phone', 'complete'] as const;
 
@@ -12,7 +15,7 @@ type WaitingForm = {
   phone: string;
 };
 
-export default function WaitingModal() {
+export default function WaitingModal({ id }: { id: number }) {
   const [waitingForm, setWaitingForm] = useState<WaitingForm>({
     people: 0,
     phone: '',
@@ -28,7 +31,12 @@ export default function WaitingModal() {
         <PhoneStep waitingForm={waitingForm} setWaitingForm={setWaitingForm} setStep={setStep} />
       </Funnel.Step>
       <Funnel.Step name={STEPS[2]}>
-        <CompleteStep people={waitingForm.people} setStep={setStep} />
+        <CompleteStep
+          people={waitingForm.people}
+          setStep={setStep}
+          id={id}
+          phone={waitingForm.phone}
+        />
       </Funnel.Step>
     </Funnel>
   );
@@ -106,15 +114,41 @@ const PhoneStep = ({
 
 const CompleteStep = ({
   people,
+  phone,
   setStep,
+  id,
 }: {
   people: number;
+  phone: string;
   setStep: (step: (typeof STEPS)[number]) => void;
+  id: number;
 }) => {
+  const navigate = useNavigate();
+  const addWaiting = useWaitingStore((state) => state.addWaiting);
   const clearModal = useModalStore((state) => state.clearModals);
   const handleClose = () => {
     clearModal();
+    updateWaiting();
     setStep(STEPS[0]);
+    navigate('/user');
+  };
+  const updateWaiting = async () => {
+    try {
+      const response = await postWaiting({
+        visitorCount: people,
+        phoneNumber: phone,
+        pubId: id,
+      });
+      await addWaiting({
+        waitingId: response.data.id ? response.data.id : 0,
+        wholeWaitingNum: response.data.waitingNum ? response.data.waitingNum : 0,
+        numsTeamsAhead: response.data.numsTeamsAhead ? response.data.numsTeamsAhead : 0,
+        pubId: id,
+        visitorCount: people,
+      });
+    } catch (error) {
+      console.error('Error posting waiting:', error);
+    }
   };
   return (
     <S.Container animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }}>

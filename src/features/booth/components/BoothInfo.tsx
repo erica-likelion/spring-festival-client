@@ -1,23 +1,28 @@
 import { LikeButton } from '@/features/like';
 import * as S from './BoothInfo.styles';
 import { newlineToBr } from '@/utils/newlineToBr';
+import { BOOTH_LIST } from '@/constants/booth/booth';
 
 export default function BoothInfo({ id }: { id: number }) {
+  const booth = BOOTH_LIST.find((booth) => booth.id === id);
+  if (!booth) {
+    return null; // or handle the case when the booth is not found
+  }
   return (
     <S.Container>
       <S.ImageBtnFrame>
-        <S.Image />
-        <LikeButton id={id} left="-1.17rem" />
+        <S.Image src={booth.profileImage} />
+        <LikeButton id={booth?.id} left="-1.17rem" />
       </S.ImageBtnFrame>
       <S.TextSection>
         <S.TextFrame>
-          <S.Text>학생회 주점</S.Text>
+          <S.Text>{booth.pubName}</S.Text>
           <S.VerticalLine />
-          <S.Text>소프트웨어융합대학</S.Text>
+          <S.Text>{booth.affiliation}</S.Text>
         </S.TextFrame>
         <S.BoothName
           dangerouslySetInnerHTML={{
-            __html: newlineToBr('눈 떠보니 수데사더라\nfeat. 수리데이터사이언스학과'),
+            __html: newlineToBr(booth.pubName),
           }}
         />
       </S.TextSection>

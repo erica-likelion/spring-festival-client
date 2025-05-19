@@ -1,3 +1,4 @@
+import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
 import * as S from './WaitingCancelModal.styles';
 import { BlueButton } from '@/components/bluebuttons';
 import { useFunnel } from '@/hooks/useFunnel';
@@ -7,13 +8,13 @@ import { useSearchParams } from 'react-router-dom';
 const step = ['confirm', 'complete'] as const;
 type StepType = (typeof step)[number];
 
-export default function WaitingCancelModal() {
+export default function WaitingCancelModal({ id }: { id: number }) {
   const { Funnel, setStep } = useFunnel(step);
   return (
     <>
       <Funnel>
         <Funnel.Step name={step[0]}>
-          <ConfirmStep setStep={setStep} />
+          <ConfirmStep setStep={setStep} id={id} />
         </Funnel.Step>
         <Funnel.Step name={step[1]}>
           <CompleteStep />
@@ -23,9 +24,11 @@ export default function WaitingCancelModal() {
   );
 }
 
-const ConfirmStep = (setStep: { setStep: (step: StepType) => void }) => {
-  const handleNext = () => {
-    setStep.setStep(step[1]);
+const ConfirmStep = ({ setStep, id }: { setStep: (step: StepType) => void; id: number }) => {
+  const deleteWaiting = useWaitingStore((state) => state.deleteWaiting);
+  const handleNext = async () => {
+    await deleteWaiting(id);
+    setStep(step[1]);
   };
   return (
     <S.Container>
