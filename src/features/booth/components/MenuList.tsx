@@ -1,7 +1,7 @@
 import { Tabs } from '@/components/tabs';
 import { useState } from 'react';
-import * as S from './MenuList.styles';
-import { MenuFrame } from '@/components/image-text-frame';
+//import * as S from './MenuList.styles';
+//import { MenuFrame } from '@/components/image-text-frame';
 import { BOOTH_LIST } from '@/constants/booth/booth';
 const MENU_CATEGORY = ['메인', '사이드', '서브'];
 
@@ -14,6 +14,8 @@ export default function MenuList({ id }: { id: number }) {
   return (
     <>
       <Tabs tabs={MENU_CATEGORY} activeTab={activeTab} onTabClick={(tab) => setActiveTab(tab)} />
+      메뉴데이터 공사중
+      {/**
       <S.MenuList>
         {booth.menu.main.map((main) => (
           <S.MenuItem>
@@ -22,6 +24,7 @@ export default function MenuList({ id }: { id: number }) {
           </S.MenuItem>
         ))}
       </S.MenuList>
+ */}
     </>
   );
 }
