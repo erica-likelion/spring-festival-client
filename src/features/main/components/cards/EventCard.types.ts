@@ -6,6 +6,7 @@ export interface CardProps {
   endTime?: string;
   tags?: { color: string | ColorKey; text: string }[];
   title: string;
+  location: string;
 }
 
 export interface ProgressProps {
