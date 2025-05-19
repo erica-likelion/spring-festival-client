@@ -82,7 +82,7 @@ export const MainEventData = [
       { color: 'pk200', text: 'LIVE' },
       { color: 'ye200', text: '콘텐츠' },
     ],
-    title: '사탕처럼 달콤하다는데? (사탕팅/친구팅)',
+    title: '사탕처럼 달콤하다는데? (친구팅)',
     startTime: '11:00',
     endTime: '17:00',
     location: '호수공원 신전',

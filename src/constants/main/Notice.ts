@@ -61,13 +61,33 @@ import notice9_1 from '@/assets/images/notice/notice9-1.webp';
 import notice9_2 from '@/assets/images/notice/notice9-2.webp';
 import notice9_3 from '@/assets/images/notice/notice9-3.webp';
 import notice9_4 from '@/assets/images/notice/notice9-4.webp';
+import notice10_0 from '@/assets/images/notice/notice10_0.webp';
+import notice10_1 from '@/assets/images/notice/notice10_1.webp';
+import notice10_2 from '@/assets/images/notice/notice10_2.webp';
+import notice10_3 from '@/assets/images/notice/notice10_3.webp';
+import notice10_4 from '@/assets/images/notice/notice10_4.webp';
+import notice10_5 from '@/assets/images/notice/notice10_5.webp';
+import notice10_6 from '@/assets/images/notice/notice10_6.webp';
+import notice11_0 from '@/assets/images/notice/notice11_0.webp';
+import notice11_1 from '@/assets/images/notice/notice11_1.webp';
+import notice11_2 from '@/assets/images/notice/notice11_2.webp';
+import notice11_3 from '@/assets/images/notice/notice11_3.webp';
+import notice11_4 from '@/assets/images/notice/notice11_4.webp';
+import notice11_5 from '@/assets/images/notice/notice11_5.webp';
+import notice11_6 from '@/assets/images/notice/notice11_6.webp';
+import notice11_7 from '@/assets/images/notice/notice11_7.webp';
+import notice11_8 from '@/assets/images/notice/notice11_8.webp';
+import notice11_9 from '@/assets/images/notice/notice11_9.webp';
 
 export const NoticeData = [
   {
     id: 1,
     img: [notice1_0, notice1_1, notice1_2, notice1_3, notice1_4, notice1_5, notice1_6, notice1_7],
-    title: '☘️2025 한양대학교 ERICA 봄축제 굿즈 사전구매 공고☘️',
-    tags: [{ color: 'pk200', text: '플리마켓' }],
+    title: '☘️ 굿즈 사전구매 공고 ☘️',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'gr270', text: '플리마켓' },
+    ],
     body: `☘️2025 한양대학교 ERICA 봄축제 굿즈 사전구매 공고☘️
 
 안녕하십니까, 2025 한양대학교 ERICA 봄 축제 ESPERO:HYLIGHT 축제기획단 플리마켓팀입니다. 봄 내음 가득한 봄축제 굿즈 사전구매를 진행합니다! 따뜻한 봄과 함께할 특별한 아이템을 미리 만나보세요.💚
@@ -87,8 +107,11 @@ export const NoticeData = [
   {
     id: 2,
     img: [notice2_0, notice2_1, notice2_2, notice2_3, notice2_4, notice2_5, notice2_6],
-    title: '🎙️ 2025 한양대학교 ERICA 봄 축제 복면가왕 ‘히든스타’ 참가자 모집공고 🎙️',
-    tags: [{ color: 'rd500', text: '공연무대' }],
+    title: '🎙️복면가왕 ‘히든스타’ 참가자 모집공고🎙️',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'bl300', text: '공연무대' },
+    ],
     body: `🎙️ 2025 한양대학교 ERICA 봄 축제 ESPERO 복면가왕 ‘히든스타’ 참가자 모집공고 🎙️
 
 안녕하십니까, 2025 한양대학교 ERICA 봄 축제 ESPERO 축제기획단 공연무대팀입니다. 🎭
@@ -116,7 +139,10 @@ export const NoticeData = [
     id: 3,
     img: [notice3_0, notice3_1, notice3_2, notice3_3, notice3_4, notice3_5, notice3_6, notice3_7],
     title: '☘️굿즈 사전구매 기간 연장 안내☘️',
-    tags: [{ color: 'pk200', text: '플리마켓' }],
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'gr270', text: '플리마켓' },
+    ],
     body: `️!!2025 한양대학교 ERICA 봄축제 굿즈 사전구매 기간연장!!☘️
 
 안녕하십니까, 2025 한양대학교 ERICA 봄 축제 ESPERO:HYLIGHT 축제기획단 플리마켓팀 ”청춘팔어람“입니다. 봄축제 굿즈 사전구매 기간을 연장하게 되었습니다! 마지막 구매 일정이니 관심있으신 분들은 빠르게 구매해주세요💚
@@ -138,8 +164,11 @@ export const NoticeData = [
   {
     id: 4,
     img: [notice4_0, notice4_1, notice4_2, notice4_3, notice4_4, notice4_5],
-    title: '💚 플리마켓 외부 셀러 모집 공고 💚',
-    tags: [{ color: 'pk200', text: '플리마켓' }],
+    title: '💚플리마켓 외부 셀러 모집 공고💚',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'gr270', text: '플리마켓' },
+    ],
     body: `💚2025 한양대학교 ERICA 봄 축제 ESPERO:HYLIGHT 플리마켓 ‘청춘팔어람’ 외부셀러 모집💚
 
 안녕하십니까, 2025 한양대학교 ERICA 봄축제 ESPERO:HYLIGHT 플리마켓팀 ‘청춘팔어람‘ 입니다.
@@ -162,8 +191,11 @@ export const NoticeData = [
   {
     id: 5,
     img: [notice5_0, notice5_1, notice5_2, notice5_3, notice5_4, notice5_5],
-    title: '💥<썰을 낋여오너라~> 참가자 모집 공고 💥',
-    tags: [{ color: 'rd500', text: '공연무대' }],
+    title: '💥<썰을 낋여오너라~> 참가자 모집 공고💥',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'bl300', text: '공연무대' },
+    ],
     body: `💥 2025 한양대학교 ERICA 봄 축제 ESPERO <썰을 낋여오너라~> 참가자 모집 공고 💥
 
 안녕하십니까, 2025 한양대학교 ERICA 봄 축제 ESPERO 축제기획단 공연무대팀 입니다. 🎭
@@ -196,7 +228,10 @@ export const NoticeData = [
     id: 6,
     img: [notice6_0, notice6_1, notice6_2, notice6_3, notice6_4],
     title: '☘️굿즈 사전구매 수령 안내☘️',
-    tags: [{ color: 'pk200', text: '플리마켓' }],
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'gr270', text: '플리마켓' },
+    ],
     body: `☘️2025 한양대학교 ERICA 봄 축제 ESPERO:HYLIGHT 플리마켓 ‘청춘팔어람’ 굿즈 사전구매 수령 공지☘️
 
 안녕하십니까, 2025 한양대학교 ERICA 봄축제 ESPERO:HYLIGHT 축제 기획단 플리마켓팀 ‘청춘팔어람‘ 입니다.
@@ -219,8 +254,11 @@ export const NoticeData = [
   {
     id: 7,
     img: [notice7_0, notice7_1, notice7_2, notice7_3, notice7_4, notice7_5, notice7_6, notice7_7],
-    title: '❤️미니 소개팅 모집 공고',
-    tags: [{ color: 'ye200', text: '콘텐츠' }],
+    title: '❤️미니 소개팅 모집 공고❤️',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
     body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ 미니 소개팅 모집 공고
 
 ✨NOW OR NEVER, HYLIGHT✨
@@ -262,7 +300,10 @@ export const NoticeData = [
       notice8_9,
     ],
     title: '🌊호공 레이스 참가자 모집 공고',
-    tags: [{ color: 'ye200', text: '콘텐츠' }],
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
     body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“
 
 ✨NOW OR NEVER, HYLIGHT✨
@@ -291,11 +332,12 @@ export const NoticeData = [
 2025 ESPERO 콘텐츠팀 카카오톡채널
 콘텐츠 팀장 이다성 010-3127-3462`,
   },
+
   {
     id: 9,
     img: [notice9_0, notice9_1, notice9_2, notice9_3, notice9_4],
-    title: '✨LIGHT GUARD 규찰대 소개',
-    tags: [{ color: 'gr500', text: '미정' }],
+    title: '✨LIGHT GUARD 규찰대 소개✨',
+    tags: [{ color: 'pk200', text: '공지사항' }],
     body: `2025 한양대학교 ERICA 봄축제 ESPERO“ESPERO:HYLIGHT”
 
 ✨ NOW OR NEVER, HYLIGHT ✨
@@ -314,5 +356,72 @@ export const NoticeData = [
 
 문의사항
 규찰대 카카오톡 - http://pf.kakao.com/_JxbxnPn`,
+  },
+  {
+    id: 10,
+    img: [notice10_0, notice10_1, notice10_2, notice10_3, notice10_4, notice10_5, notice10_6],
+    title: '🍀플리마켓 소개🍀',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'gr270', text: '플리마켓' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO
+“ESPERO:HYLIGHT”
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+안녕하세요! 한양대학교 ERICA 2025 봄축제기획단 플리마켓팀 ‘청춘팔어람‘ 입니다.
+
+플리마켓 본부🍀청춘팔어람🍀에서 진행하는 ESPERO:HYLIGHT 플리마켓을 소개합니다✨
+
+💚플리마켓 운영 시간
+2025.05.27 (화) ~ 2025.05.29 (금) 11:00 ~ 17:00
+
+💚플리마켓 위치 안내
+학생 복지관 앞
+
+자세한 내용은 카드뉴스를 참고해 주시기 바랍니다.
+
+문의사항 : ESPERO_플리마켓팀 카카오톡 채널
+
+#봄축제기획단 #2025ESPERO플리마켓팀`,
+  },
+  {
+    id: 11,
+    img: [
+      notice11_0,
+      notice11_1,
+      notice11_2,
+      notice11_3,
+      notice11_4,
+      notice11_5,
+      notice11_6,
+      notice11_7,
+      notice11_8,
+      notice11_9,
+    ],
+    title: '☘️ 이벤트 및 굿즈 소개 ☘️',
+    tags: [{ color: 'pk200', text: '공지사항' }],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO
+“ESPERO:HYLIGHT”
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+안녕하세요! 한양대학교 ERICA 2025 봄축제기획단 플리마켓팀 ‘청춘팔어람‘ 입니다.
+
+플리마켓 본부☘️청춘팔어람☘️에서 진행하는 ESPERO:HYLIGHT 이벤트와 굿즈 판매를 소개합니다.✨
+
+💚인스타 스토리 이벤트
+이벤트는 매일 11:00 ~ 16:30로 하루에 1인 1회 참여 가능하다는 점 유의해 주시기 바랍니다.
+
+
+💚굿즈 종류
+야구•축구•농구 유니폼 / 판스티커 / 키링 / 부채 / 반다나 / 뱃지 2종 / 굿즈 풀패키지(유니폼 제외)
+
+카드뉴스를 참고하여 자세한 이벤트 안내와 굿즈의 디자인과 가격을 확인해주시기 바랍니다.
+
+문의사항 : ESPERO_플리마켓팀 카카오톡 채널
+
+#봄축제기획단 #2025ESPERO플리마켓팀`,
   },
 ];
