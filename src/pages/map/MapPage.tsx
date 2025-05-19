@@ -14,27 +14,31 @@ export default function Map() {
   const navigate = useNavigate();
   const mapRef = useRef<HTMLDivElement>(null);
 
-  // 카카오맵 커스텀 훅 사용
-  console.log('[MapPage] useKakaoMap 훅 초기화 시작');
-  const { moveToCurrentLocation } = useKakaoMap({
-    mapRef,
-    center: { lat: 37.294711, lng: 126.833163 }, // 대운동장
-    level: 3,
-    draggable: true,
-    zoomable: true,
-    scrollwheel: true,
-  });
-  console.log('[MapPage] useKakaoMap 훅 초기화 완료');
-
   // 현재 날짜에 기반한 페스티벌 일차 계산
   const currentDay = getCurrentFestivalDay(FESTIVAL_START_DATE, FESTIVAL_TOTAL_DAYS) as DAYS;
   console.log(
-    `[MapPage] 현재 날짜: ${new Date().toLocaleDateString()}, 페트티벌 시작 일차: ${FESTIVAL_START_DATE}, 페스티벌 일차: ${currentDay}`,
+    `[MapPage] 현재 날짜: ${new Date().toLocaleDateString()}, 페스티벌 시작 일차: ${FESTIVAL_START_DATE}, 페스티벌 일차: ${currentDay}`,
   );
 
   // 날짜 및 카테고리 관련 상태
   const [selectedDay, setSelectedDay] = useState<DAYS>(currentDay);
   const [selectedCategory, setSelectedCategory] = useState<CATEGORIES | null>(null);
+
+  // 카카오맵 커스텀 훅 사용
+  console.log('[MapPage] useKakaoMap 훅 초기화 시작');
+  const { moveToCurrentLocation } = useKakaoMap(
+    {
+      mapRef,
+      center: { lat: 37.294711, lng: 126.833163 }, // 대운동장
+      level: 3,
+      draggable: true,
+      zoomable: true,
+      scrollwheel: true,
+    },
+    selectedCategory,
+    selectedDay,
+  );
+  console.log('[MapPage] useKakaoMap 훅 초기화 완료');
 
   // 헤더 관련 상태
   const [headerExpanded, setHeaderExpanded] = useState<boolean>(false);
