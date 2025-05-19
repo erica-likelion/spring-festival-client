@@ -5,6 +5,8 @@ import { useModalStore } from '@/stores/useModalStore';
 import * as S from './WaitingModal.styles';
 import { BlueButton } from '@/components/bluebuttons';
 import { postWaiting } from '@/services/waiting';
+import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
+import { useNavigate } from 'react-router-dom';
 
 const STEPS = ['people', 'phone', 'complete'] as const;
 
@@ -121,11 +123,14 @@ const CompleteStep = ({
   setStep: (step: (typeof STEPS)[number]) => void;
   id: number;
 }) => {
+  const navigate = useNavigate();
+  const addWaiting = useWaitingStore((state) => state.addWaiting);
   const clearModal = useModalStore((state) => state.clearModals);
   const handleClose = () => {
     clearModal();
     updateWaiting();
     setStep(STEPS[0]);
+    navigate('/user');
   };
   const updateWaiting = async () => {
     try {
@@ -134,7 +139,13 @@ const CompleteStep = ({
         phoneNumber: phone,
         pubId: id,
       });
-      console.log(response);
+      await addWaiting({
+        waitingId: response.data.id ? response.data.id : 0,
+        wholeWaitingNum: response.data.waitingNum ? response.data.waitingNum : 0,
+        numsTeamsAhead: response.data.numsTeamsAhead ? response.data.numsTeamsAhead : 0,
+        pubId: id,
+        visitorCount: people,
+      });
     } catch (error) {
       console.error('Error posting waiting:', error);
     }
