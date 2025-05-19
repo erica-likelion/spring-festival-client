@@ -50,16 +50,11 @@ export const CATEGORY_NOTIFICATIONS: Record<CATEGORIES, CategoryNotification> = 
     title: '푸드트럭 운영 시간: 11:00-21:00',
     path: '/guide/foodtruck',
   },
-  흡연실: {
+  흡연구역: {
     title: '지정 흡연구역 안내',
     path: '/guide/smoking',
   },
-  의무실: {
-    title: '의무실 위치 및 운영 시간 안내',
-    path: '/guide/medical',
-  },
-  기타: {
-    title: '축제 일반 안내사항',
-    path: '/guide/general',
+  콘텐츠: {
+    title: '콘텐츠 안내',
   },
 };

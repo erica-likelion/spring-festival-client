@@ -54,6 +54,7 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: true,
       },
     ],
+    콘텐츠: [], // 추가된 빈 배열
     공연장: [
       {
         image: '',
@@ -92,35 +93,17 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
       {
         image: '',
         title: '[1일차] 푸드존 A',
-        subtitle: '푸트트럭',
+        subtitle: '푸드트럭',
         time: '11:00-22:00',
         canPickup: true,
       },
     ],
-    흡연실: [
+    흡연구역: [
       {
         image: '',
         title: '지정 흡연구역 A',
-        subtitle: '흡연실',
+        subtitle: '흡연구역',
         time: '24시간',
-        canPickup: false,
-      },
-    ],
-    의무실: [
-      {
-        image: '',
-        title: '응급 의무실',
-        subtitle: '의무실',
-        time: '09:00-22:00',
-        canPickup: false,
-      },
-    ],
-    기타: [
-      {
-        image: '',
-        title: '[1일차] 봄의 정원',
-        subtitle: '기타',
-        time: '상시 개방',
         canPickup: false,
       },
     ],
@@ -170,6 +153,7 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: false,
       },
     ],
+    콘텐츠: [], // 추가된 빈 배열
     공연장: [
       {
         image: '',
@@ -208,35 +192,25 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
       {
         image: '',
         title: '[2일차] 푸드존 B',
-        subtitle: '푸트트럭',
+        subtitle: '푸드트럭',
         time: '11:00-22:00',
         canPickup: true,
       },
     ],
-    흡연실: [
+    흡연구역: [
       {
         image: '',
         title: '지정 흡연구역 B',
-        subtitle: '흡연실',
+        subtitle: '흡연구역',
         time: '24시간',
         canPickup: false,
       },
-    ],
-    의무실: [
+      // 의무실 데이터를 흡연구역으로 이동
       {
         image: '',
         title: '응급 의무실',
-        subtitle: '의무실',
+        subtitle: '흡연구역 근처 의무실',
         time: '09:00-22:00',
-        canPickup: false,
-      },
-    ],
-    기타: [
-      {
-        image: '',
-        title: '[2일차] 안내 데스크',
-        subtitle: '기타',
-        time: '09:00-21:00',
         canPickup: false,
       },
     ],
@@ -286,6 +260,7 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
         canPickup: true,
       },
     ],
+    콘텐츠: [], // 추가된 빈 배열
     공연장: [
       {
         image: '',
@@ -338,29 +313,27 @@ export const DummyData: Record<DAYS, Record<CATEGORIES, ImageTextFrameWithTimePr
       {
         image: '',
         title: '[3일차] 푸드존 C',
-        subtitle: '푸트트럭',
+        subtitle: '푸드트럭',
         time: '11:00-22:00',
         canPickup: true,
       },
     ],
-    흡연실: [
+    흡연구역: [
       {
         image: '',
         title: '지정 흡연구역 C',
-        subtitle: '흡연실',
+        subtitle: '흡연구역',
         time: '24시간',
         canPickup: false,
       },
-    ],
-    의무실: [
+      // 의무실 데이터를 흡연구역으로 이동
       {
         image: '',
         title: '응급 의무실',
-        subtitle: '의무실',
+        subtitle: '흡연구역 근처 의무실',
         time: '09:00-22:00',
         canPickup: false,
       },
     ],
-    기타: [],
   },
 };
