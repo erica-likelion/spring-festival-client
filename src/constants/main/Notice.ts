@@ -295,7 +295,7 @@ export const NoticeData = [
     id: 9,
     img: [notice9_0, notice9_1, notice9_2, notice9_3, notice9_4],
     title: '✨LIGHT GUARD 규찰대 소개',
-    tags: [],
+    tags: [{ color: 'gr500', text: '미정' }],
     body: `2025 한양대학교 ERICA 봄축제 ESPERO“ESPERO:HYLIGHT”
 
 ✨ NOW OR NEVER, HYLIGHT ✨
