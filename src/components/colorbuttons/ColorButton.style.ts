@@ -18,7 +18,6 @@ export const StyledColorButton = styled.span<StyledColorButtonProps>`
     }
     return theme.colors.secondary[$backgroundColor as SecondaryKeys];
   }};
-  color: ${({ $backgroundColor, theme }) =>
-    $backgroundColor === 'pp210' ? theme.colors.grayScale.white : theme.colors.grayScale.black};
+  color: ${(props) => props.theme.colors.grayScale.black};
   ${({ theme }) => theme.fonts.body.xsmall500};
 `;
