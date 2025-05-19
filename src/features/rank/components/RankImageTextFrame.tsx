@@ -6,11 +6,13 @@ export default function RankImageTextFrame({
   rank,
   title,
   organization,
+  img,
 }: {
   rank: number;
   title: string;
   organization: string;
   likeCount: number;
+  img: string;
 }) {
   return (
     <S.Container $first={rank === 1}>
@@ -19,7 +21,7 @@ export default function RankImageTextFrame({
           <S.RankNumber>{rank}</S.RankNumber>
         </S.Rank>
         <ImageTextFrameWithOrganization
-          image={''}
+          image={img}
           title={title}
           organization={organization}
           canPickup={false}

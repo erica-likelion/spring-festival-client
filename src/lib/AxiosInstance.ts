@@ -2,8 +2,26 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
+  timeout: 10000,
   withCredentials: true,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
+
+axiosInstance.interceptors.request.use(
+  (config) => {
+    // 로컬 스토리지에서 토큰 가져오기
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 axiosInstance.interceptors.response.use(
   (response) => response,
@@ -11,7 +29,7 @@ axiosInstance.interceptors.response.use(
     const originalRequest = error.config;
 
     // access token 만료 시도 감지
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    if (error.response?.status === 403) {
       originalRequest._retry = true;
       try {
         const refreshResponse = await axiosInstance.post('/auth/refresh');
