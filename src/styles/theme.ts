@@ -23,6 +23,13 @@ const colors = {
     rd500: '#F55353',
     gr500: '#45E02A',
     bl500: '#3A64F8',
+    or100: '#FFDCBC',
+    pp100: '#E1DAFF',
+    gr130: '#C1E1CB',
+    yl140: '#FBFFC9',
+    bl130: '#BAE0FF',
+    rd090: '#FECFD9',
+    pk100: '#F5D5FF',
   },
   grayScale: {
     white: '#FAFAFA',

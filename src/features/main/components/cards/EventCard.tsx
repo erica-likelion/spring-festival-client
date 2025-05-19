@@ -9,7 +9,7 @@ import { ColorButton } from '@/components/colorbuttons';
 import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
 import React from 'react';
 
-function EventCard({ isSun = true, startTime, endTime, title, tags = [] }: CardProps) {
+function EventCard({ isSun = true, startTime, endTime, title, location, tags = [] }: CardProps) {
   return (
     <S.Container>
       <S.HeaderSection>
@@ -32,7 +32,7 @@ function EventCard({ isSun = true, startTime, endTime, title, tags = [] }: CardP
           </S.TextWrapper>
           <S.TextWrapper>
             <Location width={'1.125rem'} height={'1.125rem'} fill="#212526" />
-            <S.EventText>호수공원</S.EventText>
+            <S.EventText>{location}</S.EventText>
           </S.TextWrapper>
         </S.TextContainer>
         <Progress startTime={startTime} endTime={endTime} />
