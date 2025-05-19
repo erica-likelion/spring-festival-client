@@ -13,7 +13,7 @@ export default function BoothList() {
     <S.Container>
       <Notification title="[공지] 미성년자 입장 불가" width="100%" />
       <S.Header>
-        <S.Count>전체 00개</S.Count>
+        <S.Count>전체 26개</S.Count>
         <OpenAlert />
       </S.Header>
       <S.BoothList>

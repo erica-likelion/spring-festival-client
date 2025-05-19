@@ -64,4 +64,8 @@ export const Button = styled(motion.button)`
   gap: 0.38rem;
   border: none;
   border-radius: 0.75rem;
+
+  &:disabled {
+    background-color: ${(props) => props.theme.colors.grayScale.gy700};
+  }
 `;
