@@ -17,3 +17,8 @@ export const postWaiting = async ({
   const response = await axiosInstance.post('/api/waitings', { pubId, visitorCount, phoneNumber });
   return response;
 };
+
+export const deleteWaitings = async (id: number) => {
+  const response = await axiosInstance.delete(`/api/waitings?id=${id}`);
+  return response;
+};
