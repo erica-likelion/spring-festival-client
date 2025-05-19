@@ -109,7 +109,7 @@ export const MainEventData = [
     title: '스탬프랠리',
     startTime: '11:00',
     endTime: '21:00',
-    location: '',
+    location: '미정',
     isSun: true,
   },
   {
@@ -119,9 +119,9 @@ export const MainEventData = [
       { color: 'ye200', text: '콘텐츠' },
     ],
     title: '드레스코드 이벤트',
-    startTime: '',
-    endTime: '',
-    location: '',
+    startTime: '00:00',
+    endTime: '00:00',
+    location: '미정',
     isSun: true,
   },
   {
