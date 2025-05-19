@@ -12,6 +12,7 @@ import { Modal as ModalProvider } from '@/components/modal';
  */
 export default function Layout() {
   const isNav = useLayoutStore((state) => state.isNav);
+
   return (
     <S.Container>
       {isNav && <Nav />}

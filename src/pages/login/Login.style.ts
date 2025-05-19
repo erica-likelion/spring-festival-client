@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import loginbg from '@/assets/images/login-bg.svg';
 
 export const Container = styled.div`
   display: flex;
@@ -7,6 +8,10 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-bottom: 0.62rem;
+  background-image: url(${loginbg});
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 `;
 
 export const ContentWrapper = styled.div`
@@ -39,7 +44,7 @@ export const NotLoginText = styled.p`
   color: ${(props) => props.theme.colors.grayScale.gy500};
   padding: 0.25rem 0.75rem;
   margin-top: 1rem;
-  margin-bottom: 0.65rem;
+  margin-bottom: 2.63rem;
   align-items: center;
   justify-content: center;
   text-decoration: underline;

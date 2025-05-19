@@ -12,6 +12,7 @@ export interface NoticeBodyProps {
   tags: { text: string; color: string }[];
   body: string;
   onClick?: () => void;
+  isFirst?: boolean;
 }
 
 /**

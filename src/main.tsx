@@ -22,8 +22,13 @@ import {
   LostUpload,
   LostComplete,
   MadeBy,
+  Redirection,
 } from '@/pages';
 import Layout from '@/layout';
+
+if (window.Kakao && !window.Kakao.isInitialized()) {
+  window.Kakao.init('b3f17a02c1f339facee6125f903e309e');
+}
 
 const routes = createBrowserRouter([
   {
@@ -75,6 +80,10 @@ const routes = createBrowserRouter([
       {
         path: 'login',
         element: <Login />,
+      },
+      {
+        path: 'login/success',
+        element: <Redirection />,
       },
       {
         path: 'user',

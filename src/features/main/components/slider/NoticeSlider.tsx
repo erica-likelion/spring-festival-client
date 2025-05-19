@@ -23,10 +23,10 @@ function NoticeSlicer() {
       if (sliderRef.current && wrapperRef.current) {
         const visible = wrapperRef.current.clientWidth; // 보이는부분 화면에
         const total = sliderRef.current.scrollWidth; // 슬라이더 전체 너비
-        const padding = 1.21 * 16 * 2; // (1.21rem * 16px * 2)
+        const padding = 15;
 
         setDragConstraints({
-          left: visible - total - padding,
+          left: visible - total + padding,
           right: 0,
         });
       }
@@ -47,13 +47,14 @@ function NoticeSlicer() {
     <S.SliderWrapper ref={wrapperRef}>
       <S.Container ref={sliderRef} drag="x" dragConstraints={dragConstraints}>
         <S.Box>
-          {NoticeData.map((notice) => (
+          {NoticeData.map((notice, index) => (
             <NoticeCard
               key={`notice${notice.id}`}
               title={notice.title}
               tags={notice.tags}
               body={notice.body}
               onClick={() => navigate(`/main/notice/${notice.id}`)}
+              isFirst={index === 0}
             />
           ))}
         </S.Box>
