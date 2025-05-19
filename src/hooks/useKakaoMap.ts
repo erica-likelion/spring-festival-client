@@ -1,11 +1,19 @@
 import { useEffect, useRef, useCallback } from 'react';
 import { KakaoMapOptions } from '@/types/kakao-maps';
-import MyLocationIcon from '@/assets/icons/my-location.svg';
+import { getCategoryMarkerImage } from '@/utils/markerIcons';
+import { CATEGORIES } from '@/constants/map';
+import { LOCATION_DATA } from '@/constants/map/LOC_DATA';
+import { DAYS } from '@/constants/map';
 
-export function useKakaoMap(options: KakaoMapOptions = {}) {
+export function useKakaoMap(
+  options: KakaoMapOptions = {},
+  selectedCategory: CATEGORIES | null = null,
+  selectedDay: DAYS,
+) {
   const internalMapRef = useRef<HTMLDivElement>(null);
   const kakaoMapRef = useRef<kakao.maps.Map | null>(null);
   const myLocationMarkerRef = useRef<kakao.maps.Marker | null>(null);
+  const markersRef = useRef<kakao.maps.Marker[]>([]);
 
   // 타입 안전성을 위해 mapRef를 정의
   const mapRef = options.mapRef || internalMapRef;
@@ -207,15 +215,11 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
             // 적절한 줌 레벨 설정
             kakaoMapRef.current.setLevel(2);
 
-            // 마커 이미지 설정
-            const markerSize = new window.kakao.maps.Size(44, 44);
-            const markerImage = new window.kakao.maps.MarkerImage(MyLocationIcon, markerSize);
-
             // 마커 생성
             const marker = new window.kakao.maps.Marker({
               position: currentPosition,
               map: kakaoMapRef.current,
-              image: markerImage,
+              image: getCategoryMarkerImage('myLocation'),
               title: '내 위치',
             });
 
@@ -264,10 +268,6 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
     // 기본 위치에 마커를 표시하는 내부 함수
     function showDefaultMarker() {
       if (kakaoMapRef.current) {
-        // 마커 이미지 설정
-        const markerSize = new window.kakao.maps.Size(44, 44);
-        const markerImage = new window.kakao.maps.MarkerImage(MyLocationIcon, markerSize);
-
         const defaultPosition = new window.kakao.maps.LatLng(
           defaultLocation.lat,
           defaultLocation.lng,
@@ -277,7 +277,7 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
         const marker = new window.kakao.maps.Marker({
           position: defaultPosition,
           map: kakaoMapRef.current,
-          image: markerImage,
+          image: getCategoryMarkerImage('myLocation'),
           title: '기본 위치',
         });
 
@@ -286,6 +286,49 @@ export function useKakaoMap(options: KakaoMapOptions = {}) {
       }
     }
   }, []);
+
+  // 카테고리별 마커 추가
+  useEffect(() => {
+    if (kakaoMapRef.current && selectedCategory) {
+      const categoryData = LOCATION_DATA[selectedCategory];
+
+      // 이전 마커들 제거 로직
+      const prevMarkers = markersRef.current;
+      if (prevMarkers.length > 0) {
+        console.log(`[KakaoMap] ${prevMarkers.length}개의 이전 마커 제거`);
+        prevMarkers.forEach((marker) => marker.setMap(null));
+        markersRef.current = [];
+      }
+
+      // 새 마커 추가
+      const markers: kakao.maps.Marker[] = [];
+
+      categoryData.forEach((location) => {
+        // closeDay에 현재 선택된 날짜가 포함되어 있으면 마커를 표시하지 않음
+        if (location.closeDay && location.closeDay.includes(selectedDay)) {
+          console.log(`[KakaoMap] ${location.name}은(는) ${selectedDay}에 운영하지 않습니다.`);
+          return;
+        }
+
+        const position = new window.kakao.maps.LatLng(location.lat, location.lng);
+        const marker = new window.kakao.maps.Marker({
+          position,
+          map: kakaoMapRef.current as kakao.maps.Map,
+          image: getCategoryMarkerImage(selectedCategory),
+          title: location.name,
+        });
+
+        markers.push(marker);
+
+        // 여기에 마커 클릭 이벤트 추가하기
+      });
+
+      return () => {
+        // Clean up: 모든 마커 제거
+        markers.forEach((marker) => marker.setMap(null));
+      };
+    }
+  }, [selectedCategory, selectedDay]);
 
   return {
     mapRef,
