@@ -83,7 +83,7 @@ export const NoticeData = [
   {
     id: 1,
     img: [notice1_0, notice1_1, notice1_2, notice1_3, notice1_4, notice1_5, notice1_6, notice1_7],
-    title: '☘️ 굿즈 사전구매 공고 ☘️',
+    title: '봄 축제 플리마켓 굿즈 사전구매',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'gr270', text: '플리마켓' },
@@ -107,7 +107,7 @@ export const NoticeData = [
   {
     id: 2,
     img: [notice2_0, notice2_1, notice2_2, notice2_3, notice2_4, notice2_5, notice2_6],
-    title: '🎙️복면가왕 ‘히든스타’ 참가자 모집공고🎙️',
+    title: '히든스타 참가자 모집공고',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'bl300', text: '공연무대' },
@@ -138,7 +138,7 @@ export const NoticeData = [
   {
     id: 3,
     img: [notice3_0, notice3_1, notice3_2, notice3_3, notice3_4, notice3_5, notice3_6, notice3_7],
-    title: '☘️굿즈 사전구매 기간 연장 안내☘️',
+    title: '봄 축제 플리마켓 사전구매 기간 연장',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'gr270', text: '플리마켓' },
@@ -164,7 +164,7 @@ export const NoticeData = [
   {
     id: 4,
     img: [notice4_0, notice4_1, notice4_2, notice4_3, notice4_4, notice4_5],
-    title: '💚플리마켓 외부 셀러 모집 공고💚',
+    title: '봄 축제 플리마켓 외부 셀러 모집',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'gr270', text: '플리마켓' },
@@ -191,7 +191,7 @@ export const NoticeData = [
   {
     id: 5,
     img: [notice5_0, notice5_1, notice5_2, notice5_3, notice5_4, notice5_5],
-    title: '💥<썰을 낋여오너라~> 참가자 모집 공고💥',
+    title: '썰을 낋여오너라~',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'bl300', text: '공연무대' },
@@ -227,7 +227,7 @@ export const NoticeData = [
   {
     id: 6,
     img: [notice6_0, notice6_1, notice6_2, notice6_3, notice6_4],
-    title: '☘️굿즈 사전구매 수령 안내☘️',
+    title: '봄 축제 플리마켓 굿즈 사전구매 수령 안내',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'gr270', text: '플리마켓' },
@@ -254,7 +254,7 @@ export const NoticeData = [
   {
     id: 7,
     img: [notice7_0, notice7_1, notice7_2, notice7_3, notice7_4, notice7_5, notice7_6, notice7_7],
-    title: '❤️미니 소개팅 모집 공고❤️',
+    title: '사탕처럼 달~콤하다는데? 미니소개팅 모집 공고',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'yl140', text: '콘텐츠' },
@@ -299,7 +299,7 @@ export const NoticeData = [
       notice8_8,
       notice8_9,
     ],
-    title: '🌊호공 레이스 참가자 모집 공고',
+    title: '호공 레이스 참가자 모집공고',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'yl140', text: '콘텐츠' },
@@ -336,7 +336,7 @@ export const NoticeData = [
   {
     id: 9,
     img: [notice9_0, notice9_1, notice9_2, notice9_3, notice9_4],
-    title: '✨LIGHT GUARD 규찰대 소개✨',
+    title: 'LIGHT GUARD 규찰대 소개',
     tags: [{ color: 'pk200', text: '공지사항' }],
     body: `2025 한양대학교 ERICA 봄축제 ESPERO“ESPERO:HYLIGHT”
 
@@ -360,7 +360,7 @@ export const NoticeData = [
   {
     id: 10,
     img: [notice10_0, notice10_1, notice10_2, notice10_3, notice10_4, notice10_5, notice10_6],
-    title: '🍀플리마켓 소개🍀',
+    title: '2025 ESPERO:HYLIGHT 플리마켓 소개',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'gr270', text: '플리마켓' },
@@ -400,7 +400,7 @@ export const NoticeData = [
       notice11_8,
       notice11_9,
     ],
-    title: '☘️ 이벤트 및 굿즈 소개 ☘️',
+    title: '이벤트 및 굿즈 소개',
     tags: [{ color: 'pk200', text: '공지사항' }],
     body: `2025 한양대학교 ERICA 봄축제 ESPERO
 “ESPERO:HYLIGHT”
