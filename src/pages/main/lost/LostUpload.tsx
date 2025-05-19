@@ -10,7 +10,7 @@ import TimeSelect from '@/features/lost/components/upload/TimeSelect';
 import useModal from '@/hooks/useModal';
 import { useNavigate } from 'react-router-dom';
 import { useModalStore } from '@/stores/useModalStore';
-import axios from 'axios';
+import { axiosInstance } from '@/lib';
 
 /**
  * 분실물 등록 페이지
@@ -33,8 +33,7 @@ export default function LostUpload() {
   });
   const { open, key } = useModal(ModalCaution);
   const closeModal = useModalStore((state) => state.closeModal);
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
-  const token = import.meta.env.VITE_USER_TOKEN;
+  const token = localStorage.getItem('access_token');
 
   useEffect(() => {
     setIsNav(false);
@@ -71,12 +70,11 @@ export default function LostUpload() {
           formData.append('image', formState.image!);
 
           try {
-            const res = await axios.post(`${baseUrl}/api/lost-items`, formData, {
+            await axiosInstance.post('/api/lost-items', formData, {
               headers: {
-                Authorization: token,
+                Authorization: `Bearer ${token}`,
               },
             });
-            console.log(res.data);
             navigate('/main/lost/upload/complete');
           } catch (error) {
             console.log(error);

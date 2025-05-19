@@ -4,6 +4,7 @@ import PlusIcon from '@/assets/icons/plus.svg?react';
 import ModalPost from '../../modal/ModalPost';
 import { theme } from '@/styles/theme';
 import { LoginModal } from '@/features/login/modal';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 /**
  * 분실물 등록 컴포넌트
@@ -11,7 +12,7 @@ import { LoginModal } from '@/features/login/modal';
  */
 
 export default function Registration() {
-  const loginStatus: number = 1; // 0: 로그아웃, 1: 로그인
+  const loginStatus = useAuthStore((state) => state.isLoggedIn);
   const modalPost = useModal(ModalPost);
   const loginModal = useModal(LoginModal);
 
