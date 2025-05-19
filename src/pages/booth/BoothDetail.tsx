@@ -19,11 +19,11 @@ export default function BoothDetail() {
       <NavBar isBack title="주점" backPath={fromRef.current} />
       <S.BackgroundImg src={booth.posterImage} />
       <S.Section style={{ marginTop: '-2rem' }}>
-        <BoothInfo id={Number(id)} />
-        <Waiting />
+        <BoothInfo id={booth.id} />
+        <Waiting id={booth.id} />
       </S.Section>
       <S.Section>
-        <MenuList />
+        <MenuList id={booth.id} />
       </S.Section>
       <S.Section>
         <BoothLocation />

@@ -5,6 +5,8 @@ import { NavBar } from '@/components/nav-bar';
 import { Notification } from '@/components/notification';
 import { RefreshButton } from '@/components/refresh-button';
 import TEST_IMG from '@/assets/images/notice/notice1-0.webp';
+import { useEffect, useState } from 'react';
+import { getWaitings } from '@/services/waiting';
 
 const LIST: TablingCard[] = [
   {
@@ -30,14 +32,20 @@ const LIST: TablingCard[] = [
 ];
 
 export default function User() {
-  const IsWaiting = true;
-  if (!IsWaiting) {
-    return (
-      <>
-        <NoWaiting />
-      </>
-    );
-  }
+  const [list, setList] = useState<TablingCard[]>([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await getWaitings();
+        if (response.status === 200) setList(response.data);
+      } catch (error) {
+        console.error('Error fetching waiting data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  if (list.length === 0) return <NoWaiting />;
   return (
     <S.Container>
       <NavBar />

@@ -5,8 +5,9 @@ import useModal from '@/hooks/useModal';
 import WaitingModal from '@/features/waiting/components/WaitingModal';
 import { useRef } from 'react';
 
-export default function Waiting() {
-  const { open } = useModal(WaitingModal);
+export default function Waiting({ id }: { id: number }) {
+  const WaitingModalWithId = WaitingModal as React.ComponentType<{ id: number; title: string }>;
+  const { open } = useModal(WaitingModalWithId);
   const waitingRef = useRef<HTMLDivElement>(null);
   return (
     <S.Container ref={waitingRef}>
@@ -24,7 +25,9 @@ export default function Waiting() {
       <S.ButtonFrame>
         <S.Button
           whileTap={{ scale: 0.9 }}
-          onClick={() => open({ title: '웨이팅하기' }, { portalTarget: waitingRef.current })}
+          onClick={() =>
+            open({ title: '웨이팅하기', id: id }, { portalTarget: waitingRef.current })
+          }
         >
           <S.MediumText>웨이팅하기</S.MediumText>
           <S.MediumText>0 / 3</S.MediumText>
