@@ -59,6 +59,14 @@ export default function Map() {
     }
   }, [isBottomSheetOpen]);
 
+  // 페이지를 벗어날 때 네비게이션 바를 원상복구
+  useEffect(() => {
+    return () => {
+      // 언마운트 시 네비게이션 바를 다시 표시
+      useLayoutStore.getState().setIsNav(true);
+    };
+  }, []);
+
   useEffect(() => {
     if (headerExpanded) {
       setIsBottomSheetOpen(false);
