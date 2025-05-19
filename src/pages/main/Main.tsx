@@ -7,9 +7,11 @@ import Right from '@/assets/icons/right-arrow.svg?react';
 import Backeffct from '@/assets/icons/Background-Reflect.svg?react';
 import { useNavigate } from 'react-router-dom';
 import { UserLogin, Footer } from '@/features/main/components/user';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 export default function Main() {
   const navigate = useNavigate();
+  const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
   return (
     <S.Container>
       <S.Layout />
@@ -24,8 +26,7 @@ export default function Main() {
             <EventCarousels />
           </S.CarouselsBox>
         </section>
-
-        <UserLogin />
+        {!isLoggedIn && <UserLogin />}
         <section>
           <S.TitleWrapper>
             <S.Title>공지사항</S.Title>
