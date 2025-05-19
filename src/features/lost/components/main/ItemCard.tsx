@@ -28,7 +28,7 @@ export default function ItemCard({ item }: ItemCardProps) {
         handleLink();
       }}
     >
-      <S.ImageBox $imageUrl={`${import.meta.env.VITE_API_BASE_URL}${item.image}`}>
+      <S.ImageBox $imageUrl={`${item.image}`}>
         {item.staffNotified && <StaffLabel absolute={true} />}
       </S.ImageBox>
       <S.ItemInfoBox>
