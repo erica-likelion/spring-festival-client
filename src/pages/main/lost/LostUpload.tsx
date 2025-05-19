@@ -73,6 +73,7 @@ export default function LostUpload() {
             await axiosInstance.post('/api/lost-items', formData, {
               headers: {
                 Authorization: `Bearer ${token}`,
+                'Content-Type': undefined,
               },
             });
             navigate('/main/lost/upload/complete');

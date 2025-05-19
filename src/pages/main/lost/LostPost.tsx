@@ -21,7 +21,6 @@ export default function LostPost() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
   const { id } = useParams();
   const [item, setItem] = useState<LostItem | null>(null);
-  const baseUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     try {
       const parsed = JSON.parse(decodeURIComponent(id || ''));
@@ -41,7 +40,7 @@ export default function LostPost() {
       <S.LostPostContent>
         {/* 이미지 및 제목 */}
         <S.ImageNameWrap>
-          <S.LostImageBox $image={`${baseUrl}${item?.image}`} />
+          <S.LostImageBox $image={`${item?.image}`} />
           <S.NameBox>
             <S.NameText>{item?.name}</S.NameText>
             {item?.staffNotified && <StaffLabel absolute={false} />}
