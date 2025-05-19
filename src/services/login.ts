@@ -1,4 +1,5 @@
 import { useAuthStore } from '@/stores/useAuthStore';
+import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
 import axiosInstance from '@/lib/AxiosInstance';
 
 export const login = async (code: string) => {
@@ -11,6 +12,7 @@ export const login = async (code: string) => {
     const accessToken = response.headers['authorization']?.replace('Bearer ', '');
     if (accessToken) {
       localStorage.setItem('access_token', accessToken);
+      useWaitingStore.getState().loadWaitings();
       useAuthStore.getState().setLoggedIn(true); // 전역 상태 갱신
       return true;
     } else {
