@@ -32,7 +32,7 @@ export const markerIcons: MarkerIconMap = {
   화장실: MarkerToilet,
   공연장: MarkerPerformance,
   셔틀콕: MarkerBusStop,
-  푸트트럭: MarkerFoodTruck,
+  푸드트럭: MarkerFoodTruck,
   흡연구역: MarkerSmokingArea,
   myLocation: MyLocationIcon,
 };

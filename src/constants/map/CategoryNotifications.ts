@@ -46,7 +46,7 @@ export const CATEGORY_NOTIFICATIONS: Record<CATEGORIES, CategoryNotification> = 
     title: '셔틀 운행 시간 및 노선 안내',
     path: '/guide/shuttle',
   },
-  푸트트럭: {
+  푸드트럭: {
     title: '푸드트럭 운영 시간: 11:00-21:00',
     path: '/guide/foodtruck',
   },
