@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { UserWaitingType } from '@/types/waiting.type';
-import { putWaitingsDB, getWaitingsDB, deleteWaitingsDB } from '@/services/waiting.db';
-import { getWaitings, deleteWaitings } from '@/services/waiting';
+import { putWaitingsDB, getWaitingsDB, deleteWaitingsDB } from '@/services/waiting/waiting.db';
+import { getWaitings, deleteWaitings } from '@/services/waiting/waiting';
 
 interface WaitingStore {
   waitings: UserWaitingType[];
