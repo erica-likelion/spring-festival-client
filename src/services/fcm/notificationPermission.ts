@@ -1,19 +1,20 @@
 import { getToken } from 'firebase/messaging';
+
+import { messaging } from '@/services/fcm/firebase';
 import { sendToken } from '@/services/alarm';
-//import { registerServiceWorker } from "./registerServiceWorker";
-import { messaging } from '@/services/firebase';
 
 export async function handleAllowNotification() {
-  //registerServiceWorker(); // 나중에 설명
   try {
+    console.log('푸시 알림 권한 요청');
     const permission = await Notification.requestPermission();
-
     if (permission === 'granted') {
       const token = await getToken(messaging, {
         vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY,
       });
       if (token) {
-        sendToken(token); // (토큰을 서버로 전송하는 로직)
+        await sendToken(token);
+        localStorage.setItem('deviceToken', token); // (토큰을 서버로 전송하는 로직)
+        return true;
       } else {
         console.log('토큰 등록이 불가능 합니다. 생성하려면 권한을 허용해주세요');
       }
@@ -23,4 +24,5 @@ export async function handleAllowNotification() {
   } catch (error) {
     console.error('푸시 토큰 가져오는 중에 에러 발생', error);
   }
+  return false;
 }

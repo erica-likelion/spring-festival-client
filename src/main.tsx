@@ -25,6 +25,7 @@ import {
   Redirection,
 } from '@/pages';
 import Layout from '@/layout';
+import { handleAllowNotification } from '@/services/fcm/notificationPermission';
 
 if (window.Kakao && !window.Kakao.isInitialized()) {
   window.Kakao.init('b3f17a02c1f339facee6125f903e309e');
@@ -132,19 +133,20 @@ createRoot(document.getElementById('root')!).render(
 
 window.addEventListener('DOMContentLoaded', () => {
   const splash = document.getElementById('splash-screen');
+  handleAllowNotification(); // 로딩 시 푸시 알림 권한 요청
   if (splash) splash.remove();
 });
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    navigator.serviceWorker
+    /**navigator.serviceWorker
       .register('/sw.js')
       .then((registration) => {
         console.log('✅ PWA 서비스워커 등록 완료:', registration);
       })
       .catch((err) => {
         console.error('❌ PWA 서비스워커 등록 실패:', err);
-      });
+      });**/
     navigator.serviceWorker
       .register('/firebase-messaging-sw.js')
       .then((registration) => {
