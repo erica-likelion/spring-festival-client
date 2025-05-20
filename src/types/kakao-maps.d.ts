@@ -72,6 +72,25 @@ declare global {
         constructor(x: number, y: number);
       }
 
+      class CustomOverlay {
+        constructor(options: CustomOverlayOptions);
+        setMap(map: Map | null): void;
+        setPosition(position: LatLng): void;
+        setContent(content: HTMLElement | string): void;
+        getPosition(): LatLng;
+        getContent(): HTMLElement;
+        getMap(): Map;
+      }
+
+      interface CustomOverlayOptions {
+        content: HTMLElement | string;
+        map?: Map;
+        position: LatLng;
+        xAnchor?: number;
+        yAnchor?: number;
+        zIndex?: number;
+      }
+
       namespace event {
         function addListener(
           target: object,
