@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './Menu.styles';
 import { ImageTextIconFrame } from '@/components/image-text-icon-frame';
 import { externalLinks } from '@/constants/main/ExternalLink';
-import Student from '@/assets/icons/student_logo.svg';
+import Student from '@/assets/images/menu/ericanote.jpeg';
 import Lion from '@/assets/icons/lion_logo.svg';
 import Form from '@/assets/icons/form_logo.svg';
 import Lost from '@/assets/icons/lost_logo.svg';
