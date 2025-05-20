@@ -7,7 +7,7 @@ const categories = [
   '화장실',
   '공연장',
   '셔틀콕',
-  '푸트트럭',
+  '푸드트럭',
   '흡연구역',
 ] as const;
 type CATEGORIES = (typeof categories)[number];

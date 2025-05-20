@@ -110,7 +110,7 @@ export const LOCATION_DATA: Record<CATEGORIES, LocationData[]> = {
   ],
 
   // 푸드트럭
-  푸트트럭: [
+  푸드트럭: [
     {
       lat: 37.296454,
       lng: 126.833895,
