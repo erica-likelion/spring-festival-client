@@ -19,7 +19,8 @@ export default function ItemCard({ item }: ItemCardProps) {
   const navigate = useNavigate();
 
   const handleLink = () => {
-    navigate(`/main/lost/post/${item.id}`);
+    const encoded = encodeURIComponent(JSON.stringify(item));
+    navigate(`/main/lost/post/${encoded}`);
   };
   return (
     <S.Card
@@ -27,8 +28,8 @@ export default function ItemCard({ item }: ItemCardProps) {
         handleLink();
       }}
     >
-      <S.ImageBox $imageUrl={item.imageUrl}>
-        {item.isDeliveredToStaff && <StaffLabel absolute={true} />}
+      <S.ImageBox $imageUrl={`${item.image}`}>
+        {item.staffNotified && <StaffLabel absolute={true} />}
       </S.ImageBox>
       <S.ItemInfoBox>
         <S.ItemName>{item.name}</S.ItemName>
@@ -38,7 +39,7 @@ export default function ItemCard({ item }: ItemCardProps) {
             height={'0.875rem'}
             fill={theme.colors.grayScale.gy200}
           />
-          <S.LocationText>{item.location}</S.LocationText>
+          <S.LocationText>{item.foundLocation}</S.LocationText>
         </S.LocationBox>
       </S.ItemInfoBox>
     </S.Card>

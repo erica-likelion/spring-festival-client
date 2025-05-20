@@ -10,6 +10,7 @@ import TimeSelect from '@/features/lost/components/upload/TimeSelect';
 import useModal from '@/hooks/useModal';
 import { useNavigate } from 'react-router-dom';
 import { useModalStore } from '@/stores/useModalStore';
+import { axiosInstance } from '@/lib';
 
 /**
  * 분실물 등록 페이지
@@ -32,6 +33,7 @@ export default function LostUpload() {
   });
   const { open, key } = useModal(ModalCaution);
   const closeModal = useModalStore((state) => state.closeModal);
+  const token = localStorage.getItem('access_token');
 
   useEffect(() => {
     setIsNav(false);
@@ -45,9 +47,39 @@ export default function LostUpload() {
     open(
       {
         title: '분실물 등록 숙지 사항',
-        onConfirm: () => {
+        onConfirm: async () => {
           closeModal({ key, clearTime: 200 });
-          navigate('/main/lost/upload/complete');
+          const formData = new FormData();
+
+          if (formState.image) {
+            formData.append('image', formState.image);
+          }
+
+          const dataPayload = {
+            name: formState.name,
+            description: formState.description,
+            staffNotified: formState.isDeliveredToStaff,
+            foundLocation: formState.location,
+            foundDate: formState.selectedDay,
+            foundTime: formState.time,
+          };
+
+          const jsonBlob = new Blob([JSON.stringify(dataPayload)], { type: 'application/json' });
+
+          formData.append('data', jsonBlob);
+          formData.append('image', formState.image!);
+
+          try {
+            await axiosInstance.post('/api/lost-items', formData, {
+              headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': undefined,
+              },
+            });
+            navigate('/main/lost/upload/complete');
+          } catch (error) {
+            console.log(error);
+          }
         },
       },
       {

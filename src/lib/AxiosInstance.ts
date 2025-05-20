@@ -29,7 +29,7 @@ axiosInstance.interceptors.response.use(
     const originalRequest = error.config;
 
     // access token 만료 시도 감지
-    if (error.response?.status === 403) {
+    if (error.response?.status === 406) {
       originalRequest._retry = true;
       try {
         const refreshResponse = await axiosInstance.post('/auth/refresh');
