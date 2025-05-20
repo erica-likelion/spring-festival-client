@@ -1,4 +1,4 @@
-import { useEffect, useRef, useCallback } from 'react';
+import { useEffect, useRef, useCallback, useState } from 'react';
 import { KakaoMapOptions } from '@/types/kakao-maps';
 import { getCategoryMarkerImage } from '@/utils/markerIcons';
 import { CATEGORIES } from '@/constants/map';
@@ -14,53 +14,48 @@ export function useKakaoMap(
   const kakaoMapRef = useRef<kakao.maps.Map | null>(null);
   const myLocationMarkerRef = useRef<kakao.maps.Marker | null>(null);
   const markersRef = useRef<kakao.maps.Marker[]>([]);
+  const [mapLoaded, setMapLoaded] = useState<boolean>(false);
+  const [scriptLoaded, setScriptLoaded] = useState<boolean>(false);
 
   // 타입 안전성을 위해 mapRef를 정의
   const mapRef = options.mapRef || internalMapRef;
 
   useEffect(() => {
-    const loadKakaoMap = () => {
-      console.log('[KakaoMap] 지도 로드 시도 중...');
-      console.log('[KakaoMap] 로드 조건 확인:', {
-        kakao: !!window.kakao,
-        kakaoMaps: window.kakao && !!window.kakao.maps,
-        mapRef: !!mapRef.current,
-        notInitializedYet: !kakaoMapRef.current,
-      });
+    const initializeMap = () => {
+      // 초기화 조건이 모두 충족되지 않았다면 초기화 시도 안함
+      if (!scriptLoaded || !mapRef.current || kakaoMapRef.current) {
+        return;
+      }
 
-      // 카카오맵이 준비되었는지 확인
-      if (window.kakao && window.kakao.maps && mapRef.current && !kakaoMapRef.current) {
-        try {
-          console.log('[KakaoMap] 지도 옵션 설정 시작');
-          // 지도 옵션 설정
-          const mapOptions = {
-            center: new window.kakao.maps.LatLng(
-              options.center?.lat ?? 37.29644017218779,
-              options.center?.lng ?? 126.83516599926162,
-            ),
-            level: options.level ?? 3,
-            draggable: options.draggable ?? true,
-            zoomable: options.zoomable ?? true,
-            scrollwheel: options.scrollwheel ?? true,
-          };
-          console.log('[KakaoMap] 지도 옵션:', mapOptions);
+      try {
+        console.log('[KakaoMap] 지도 초기화 시작');
+        // 지도 옵션 설정
+        const mapOptions = {
+          center: new window.kakao.maps.LatLng(
+            options.center?.lat ?? 37.29644017218779,
+            options.center?.lng ?? 126.83516599926162,
+          ),
+          level: options.level ?? 3,
+          draggable: options.draggable ?? true,
+          zoomable: options.zoomable ?? true,
+          scrollwheel: options.scrollwheel ?? true,
+        };
+        console.log('[KakaoMap] 지도 옵션:', mapOptions);
 
-          console.log('[KakaoMap] 지도 초기화 시작');
-          // 지도 초기화
-          const map = new window.kakao.maps.Map(mapRef.current, mapOptions);
-          console.log('[KakaoMap] 지도 객체 생성 완료:', !!map);
+        // 지도 초기화
+        const map = new window.kakao.maps.Map(mapRef.current, mapOptions);
+        console.log('[KakaoMap] 지도 객체 생성 완료:', !!map);
 
-          kakaoMapRef.current = map;
+        kakaoMapRef.current = map;
 
-          // 모바일 핀치 줌 관련 설정
-          map.setZoomable(true);
-          enableMultiTouch(mapRef.current);
-          console.log('[KakaoMap] 지도 초기화 완료');
-        } catch (error) {
-          console.error('[KakaoMap] 지도 초기화 중 오류 발생:', error);
-        }
-      } else {
-        console.warn('[KakaoMap] 지도 초기화 조건이 충족되지 않았습니다.');
+        // 모바일 핀치 줌 관련 설정
+        map.setZoomable(true);
+        enableMultiTouch(mapRef.current);
+
+        setMapLoaded(true);
+        console.log('[KakaoMap] 지도 초기화 완료');
+      } catch (error) {
+        console.error('[KakaoMap] 지도 초기화 중 오류 발생:', error);
       }
     };
 
@@ -86,26 +81,33 @@ export function useKakaoMap(
       };
     };
 
-    // index.html에 추가했던 스크립트에 의존하지 않고 직접 로드
-    const waitForKakaoMap = () => {
-      if (window.kakao && window.kakao.maps) {
-        console.log('[KakaoMap] 카카오맵 객체 감지됨');
+    // 초기화 조건 로깅
+    console.log('[KakaoMap] 초기화 조건 상태:', {
+      scriptLoaded,
+      mapRefExists: !!mapRef.current,
+      kakaoMapRefNotExists: !kakaoMapRef.current,
+    });
 
-        if (typeof window.kakao.maps.load === 'function') {
-          console.log('[KakaoMap] 카카오맵 load 함수로 로드');
-          window.kakao.maps.load(loadKakaoMap);
-        } else {
-          console.log('[KakaoMap] 카카오맵 직접 로드');
-          loadKakaoMap();
-        }
-      } else {
-        console.log('[KakaoMap] 카카오맵 객체 없음, 1초 후 재시도');
-        setTimeout(waitForKakaoMap, 1000); // 1초마다 확인
-      }
+    // 초기화 시도
+    initializeMap();
+
+    // 이벤트 리스너 제거를 위한 정리 함수
+    const cleanup = enableMultiTouch(mapRef.current);
+    return () => {
+      if (cleanup) cleanup();
     };
+  }, [options, mapRef, scriptLoaded]);
 
-    // 카카오맵 스크립트 동적 로드
-    if (!window.kakao) {
+  // 카카오맵 SDK 로드를 위한 별도 useEffect
+  useEffect(() => {
+    const loadKakaoSDK = () => {
+      // 이미 로드되었거나 로드 중인 경우 중복 로드 방지
+      if (window.kakao && window.kakao.maps) {
+        console.log('[KakaoMap] 이미 로드된 kakao 객체 감지');
+        setScriptLoaded(true);
+        return;
+      }
+
       console.log('[KakaoMap] 카카오맵 스크립트 로드 시작');
 
       // 기존 스크립트가 있다면 제거 (중복 로드 방지)
@@ -120,13 +122,16 @@ export function useKakaoMap(
       // 스크립트 속성 설정
       script.type = 'text/javascript';
       script.src = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${apiKey}&libraries=services,clusterer,drawing&autoload=false`;
-      script.async = false; // 비동기 로드 사용하지 않음 (동기적으로 로드)
+      script.async = true; // 비동기 로드 사용
 
       // 로드 이벤트 핸들러
       script.onload = () => {
         console.log('[KakaoMap] 스크립트 로드 성공');
         if (window.kakao && window.kakao.maps) {
-          window.kakao.maps.load(loadKakaoMap);
+          window.kakao.maps.load(() => {
+            console.log('[KakaoMap] kakao.maps.load 콜백 실행');
+            setScriptLoaded(true);
+          });
         }
       };
 
@@ -135,20 +140,25 @@ export function useKakaoMap(
       };
 
       document.head.appendChild(script);
-    } else {
-      console.log('[KakaoMap] 이미 로드된 kakao 객체 사용');
-      waitForKakaoMap();
-    }
-
-    // 컴포넌트 언마운트 시 이벤트 리스너 제거
-    const cleanup = enableMultiTouch(mapRef.current);
-    return () => {
-      if (cleanup) cleanup();
     };
-  }, [options, mapRef]);
+
+    loadKakaoSDK();
+
+    // 컴포넌트가 언마운트될 때 상태 초기화
+    return () => {
+      setScriptLoaded(false);
+      setMapLoaded(false);
+    };
+  }, []);
 
   const moveToCurrentLocation = useCallback(() => {
     console.log('[KakaoMap] 현재 위치로 이동 요청');
+
+    // 지도가 아직 초기화되지 않은 경우 실행하지 않음
+    if (!kakaoMapRef.current) {
+      console.warn('[KakaoMap] 지도가 초기화되지 않아 현재 위치 이동을 수행할 수 없습니다.');
+      return;
+    }
 
     // 미리 기본 위치 설정 (한양대 에리카 캠퍼스)
     const defaultLocation = {
@@ -289,50 +299,105 @@ export function useKakaoMap(
 
   // 카테고리별 마커 추가
   useEffect(() => {
-    if (kakaoMapRef.current && selectedCategory) {
-      const categoryData = LOCATION_DATA[selectedCategory];
+    // 지도가 로드되지 않았거나 카테고리가 선택되지 않은 경우 처리하지 않음
+    if (!kakaoMapRef.current || !selectedCategory) {
+      return;
+    }
 
-      // 이전 마커들 제거 로직
-      const prevMarkers = markersRef.current;
-      if (prevMarkers.length > 0) {
-        console.log(`[KakaoMap] ${prevMarkers.length}개의 이전 마커 제거`);
-        prevMarkers.forEach((marker) => marker.setMap(null));
-        markersRef.current = [];
+    console.log(`[KakaoMap] '${selectedCategory}' 카테고리 마커 표시 시작`);
+    const categoryData = LOCATION_DATA[selectedCategory];
+
+    // 이전 마커들 제거 로직
+    const prevMarkers = markersRef.current;
+    if (prevMarkers.length > 0) {
+      console.log(`[KakaoMap] ${prevMarkers.length}개의 이전 마커 제거`);
+      prevMarkers.forEach((marker) => marker.setMap(null));
+      markersRef.current = [];
+    }
+
+    // 새 마커 추가
+    const markers: kakao.maps.Marker[] = [];
+    // 경계 계산을 위한 LatLngBounds 객체 생성
+    const bounds = new window.kakao.maps.LatLngBounds();
+
+    // 해당 카테고리에 표시할 마커가 있는지 확인하기 위한 플래그
+    let hasVisibleMarkers = false;
+
+    categoryData.forEach((location) => {
+      // closeDay에 현재 선택된 날짜가 포함되어 있으면 마커를 표시하지 않음
+      if (location.closeDay && location.closeDay.includes(selectedDay)) {
+        console.log(`[KakaoMap] ${location.name}은(는) ${selectedDay}에 운영하지 않습니다.`);
+        return;
       }
 
-      // 새 마커 추가
-      const markers: kakao.maps.Marker[] = [];
-
-      categoryData.forEach((location) => {
-        // closeDay에 현재 선택된 날짜가 포함되어 있으면 마커를 표시하지 않음
-        if (location.closeDay && location.closeDay.includes(selectedDay)) {
-          console.log(`[KakaoMap] ${location.name}은(는) ${selectedDay}에 운영하지 않습니다.`);
-          return;
-        }
-
-        const position = new window.kakao.maps.LatLng(location.lat, location.lng);
-        const marker = new window.kakao.maps.Marker({
-          position,
-          map: kakaoMapRef.current as kakao.maps.Map,
-          image: getCategoryMarkerImage(selectedCategory),
-          title: location.name,
-        });
-
-        markers.push(marker);
-
-        // 여기에 마커 클릭 이벤트 추가하기
+      const position = new window.kakao.maps.LatLng(location.lat, location.lng);
+      const marker = new window.kakao.maps.Marker({
+        position,
+        map: kakaoMapRef.current as kakao.maps.Map,
+        image: getCategoryMarkerImage(selectedCategory),
+        title: location.name,
       });
 
-      return () => {
-        // Clean up: 모든 마커 제거
-        markers.forEach((marker) => marker.setMap(null));
-      };
+      markers.push(marker);
+      // 경계에 위치 추가
+      bounds.extend(position);
+      hasVisibleMarkers = true;
+
+      // 여기에 마커 클릭 이벤트 추가하기
+    });
+
+    // 마커 참조 업데이트
+    markersRef.current = markers;
+
+    // 표시할 마커가 있는 경우에만 지도 경계 조정
+    if (hasVisibleMarkers) {
+      console.log(`[KakaoMap] ${markers.length}개의 마커에 맞게 지도 경계 조정`);
+
+      // 마커가 하나만 있는 경우 적절한 줌 레벨 설정
+      if (markers.length === 1) {
+        // 마커의 position 속성 직접 접근
+        const markerPosition = markers[0].getPosition();
+        kakaoMapRef.current.setCenter(markerPosition);
+        kakaoMapRef.current.setLevel(3); // 적절한 줌 레벨 설정
+      } else {
+        // 여러 마커가 있는 경우 모든 마커가 보이도록 경계 조정
+        // 적절한 패딩 값을 활용하여 경계 조정 (단위: 픽셀)
+        const padding = 50;
+
+        try {
+          // 계산된 경계로 지도 이동 및 줌 레벨 조정
+          kakaoMapRef.current.setBounds(bounds, padding);
+        } catch (error) {
+          // 오류 발생 시 패딩 없이 시도
+          kakaoMapRef.current.setBounds(bounds);
+          console.warn('[KakaoMap] 패딩 적용 실패, 기본 경계만 적용:', error);
+        }
+      }
+
+      // 너무 가까이 줌인되는 것을 방지하기 위한 최소 줌 레벨 설정
+      const currentLevel = kakaoMapRef.current.getLevel();
+      if (currentLevel < 2) {
+        kakaoMapRef.current.setLevel(2);
+      }
+
+      // 너무 멀리 줌아웃되는 것을 방지하기 위한 최대 줌 레벨 설정
+      if (currentLevel > 8) {
+        kakaoMapRef.current.setLevel(8);
+      }
+    } else {
+      console.log(`[KakaoMap] ${selectedCategory} 카테고리에 표시할 마커가 없습니다.`);
     }
+
+    return () => {
+      // Clean up: 모든 마커 제거
+      markers.forEach((marker) => marker.setMap(null));
+    };
   }, [selectedCategory, selectedDay]);
 
   return {
     mapRef,
     kakaoMapRef,
     moveToCurrentLocation,
+    isMapLoaded: mapLoaded, // 지도 로드 상태 노출
   };
 }
