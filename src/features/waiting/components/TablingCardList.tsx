@@ -43,14 +43,14 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
         const booth = BOOTH_LIST.find((booth) => booth.id === item.pubId);
         if (!booth) return null;
         return (
-          <S.Card key={item.waitingId} value={item}>
-            <S.CardWrapper layout onClick={(e) => handleClick(e, item.waitingId)}>
-              <S.Header style={openId === item.waitingId ? { height: '8.75rem' } : {}}>
-                {openId === item.waitingId && (
+          <S.Card key={item.pubId} value={item}>
+            <S.CardWrapper layout onClick={(e) => handleClick(e, item.pubId)}>
+              <S.Header style={openId === item.pubId ? { height: '8.75rem' } : {}}>
+                {openId === item.pubId && (
                   <S.CardImage
-                    key={`image-${item.waitingId}`}
+                    key={`image-${item.pubId}`}
                     image={booth?.posterImage}
-                    layoutId={`image-${item.waitingId}`}
+                    layoutId={`image-${item.pubId}`}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.9 }}
@@ -62,7 +62,7 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
                   />
                 )}
                 <S.HeaderFrame
-                  key={`fade-${item.waitingId}-${openId === item.waitingId ? 'open' : 'close'}`}
+                  key={`fade-${item.pubId}-${openId === item.pubId ? 'open' : 'close'}`}
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.3, duration: 0.4, ease: 'easeInOut' }}
