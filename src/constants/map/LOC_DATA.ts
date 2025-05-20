@@ -38,7 +38,7 @@ export const LOCATION_DATA: Record<CATEGORIES, LocationData[]> = {
   ],
 
   // 공연장
-  공연장: [{ lat: 37.294684, lng: 126.832361, name: '공연장', closeDay: [] }],
+  공연장: [{ lat: 37.294524, lng: 126.83269, name: '공연장', closeDay: [] }],
 
   // 셔틀콕
   셔틀콕: [{ lat: 37.298714, lng: 126.837946, name: '셔틀콕', closeDay: [] }],
