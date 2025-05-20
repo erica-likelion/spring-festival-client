@@ -11,7 +11,7 @@ declare global {
         getCenter(): LatLng;
         setLevel(level: number): void;
         getLevel(): number;
-        setBounds(bounds: LatLngBounds): void;
+        setBounds(bounds: LatLngBounds, padding?: number): void;
         getBounds(): LatLngBounds;
         addControl(control: MapControl, position: ControlPosition): void;
         setDraggable(draggable: boolean): void;
@@ -34,13 +34,17 @@ declare global {
       }
 
       class LatLngBounds {
-        constructor(sw: LatLng, ne: LatLng);
+        constructor(sw?: LatLng, ne?: LatLng);
         toString(): string;
+        extend(position: LatLng): LatLngBounds; // 위치를 포함하도록 경계 확장
+        getSouthWest(): LatLng; // 남서쪽 좌표 반환
+        getNorthEast(): LatLng; // 북동쪽 좌표 반환
       }
 
       class Marker {
         constructor(options: MarkerOptions);
         setPosition(position: LatLng): void;
+        getPosition(): LatLng; // 마커의 위치 반환
         setMap(map: Map | null): void;
       }
 
@@ -68,12 +72,29 @@ declare global {
         constructor(x: number, y: number);
       }
 
+      class CustomOverlay {
+        constructor(options: CustomOverlayOptions);
+        setMap(map: Map | null): void;
+        setPosition(position: LatLng): void;
+        setContent(content: HTMLElement | string): void;
+        getPosition(): LatLng;
+        getContent(): HTMLElement;
+        getMap(): Map;
+      }
+
+      interface CustomOverlayOptions {
+        content: HTMLElement | string;
+        map?: Map;
+        position: LatLng;
+        xAnchor?: number;
+        yAnchor?: number;
+        zIndex?: number;
+      }
+
       namespace event {
-        function addListener(
-          target: object,
-          type: string,
-          handler: (e?: unknown) => void, // Function 대신 구체적인 함수 타입
-        ): void;
+        function addListener(target: object, type: string, handler: (e?: unknown) => void): number;
+
+        function removeListener(listenerId: number): void;
       }
 
       function load(callback: () => void): void;

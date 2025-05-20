@@ -49,6 +49,12 @@ export const MapWrapper = styled.div`
 export const ContentContainer = styled.div`
   position: relative;
   z-index: ${Z_INDEX.CONTENTS};
+  pointer-events: none; /* 컨테이너 자체는 포인터 이벤트를 무시하고 지도로 전달 */
+
+  /* 헤더와 바텀시트 같은 실제 UI 요소들은 포인터 이벤트를 캡처해야 함 */
+  & > * {
+    pointer-events: auto;
+  }
 `;
 
 export const ReCenterButton = styled.div<{ $isBottomSheetOpen?: boolean }>`
@@ -67,7 +73,7 @@ export const ReCenterButton = styled.div<{ $isBottomSheetOpen?: boolean }>`
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: ${Z_INDEX.MAP_OVERLAY};
+  pointer-events: auto;
   cursor: pointer;
   transition: bottom 0.3s ease-in-out;
 `;
