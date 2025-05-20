@@ -5,14 +5,14 @@ export interface WaitingDB extends DBSchema {
   waiting: {
     key: number;
     value: UserWaitingType;
-    indexes: { 'by-WaitingId': number };
+    indexes: { 'by-pubId': number };
   };
 }
 
 export const waitingDB = openDB<WaitingDB>('client-db', 1, {
   upgrade(db) {
-    const waitingStore = db.createObjectStore('waiting', { keyPath: 'waitingId' });
-    waitingStore.createIndex('by-WaitingId', 'waitingId');
+    const waitingStore = db.createObjectStore('waiting', { keyPath: 'pubId' });
+    waitingStore.createIndex('by-pubId', 'pubId', { unique: true });
   },
 });
 
@@ -30,4 +30,9 @@ export const getWaitingsDB = async () => {
 export const deleteWaitingsDB = async (id: number) => {
   const db = await waitingDB;
   await db.delete('waiting', id);
+};
+
+export const clearWaitingsDB = async () => {
+  const db = await waitingDB;
+  await db.clear('waiting');
 };
