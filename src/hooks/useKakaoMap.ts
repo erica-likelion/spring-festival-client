@@ -553,8 +553,11 @@ export function useKakaoMap(
       }
 
       console.log('[KakaoMap] 지도 빈 영역 클릭');
+      // 마이크로태스크 큐에 넣어서 동기적 작업 이후에 실행되도록 함
       if (onMapEmptyClick) {
-        onMapEmptyClick();
+        setTimeout(() => {
+          onMapEmptyClick();
+        }, 20);
       }
     }
 

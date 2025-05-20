@@ -26,7 +26,10 @@ export default function Map() {
 
   // 지도 빈 영역 클릭 핸들러
   const handleMapEmptyClick = useCallback(() => {
-    setSelectedCategory(null);
+    // requestAnimationFrame을 사용하여 브라우저의 렌더링 주기에 맞춰 상태 업데이트
+    requestAnimationFrame(() => {
+      setSelectedCategory(null);
+    });
   }, []);
 
   // 카카오맵 커스텀 훅 사용
@@ -138,10 +141,7 @@ export default function Map() {
     }, 1000);
   };
 
-  // 지도 관련 시작 ////////////////////////////////
-  // 기존 초기화 로직은 useKakaoMap 훅으로 대체되었습니다.
   console.log('[지도] MapPage 컴포넌트가 렌더링되었습니다.');
-  // 지도 관련 끝 ////////////////////////////////
 
   return (
     <S.MapContainer>
