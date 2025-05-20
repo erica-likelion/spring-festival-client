@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPageHeader, MapPageBottomSheet } from '@/features/map';
 import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
@@ -24,9 +24,14 @@ export default function Map() {
   const [selectedDay, setSelectedDay] = useState<DAYS>(currentDay);
   const [selectedCategory, setSelectedCategory] = useState<CATEGORIES | null>(null);
 
+  // 지도 빈 영역 클릭 핸들러
+  const handleMapEmptyClick = useCallback(() => {
+    setSelectedCategory(null);
+  }, []);
+
   // 카카오맵 커스텀 훅 사용
   console.log('[MapPage] useKakaoMap 훅 초기화 시작');
-  const { moveToCurrentLocation } = useKakaoMap(
+  const { moveToCurrentLocation, showItemMarker } = useKakaoMap(
     {
       mapRef,
       center: { lat: 37.294711, lng: 126.833163 }, // 대운동장
@@ -37,6 +42,7 @@ export default function Map() {
     },
     selectedCategory,
     selectedDay,
+    handleMapEmptyClick, // 지도 빈 영역 클릭 핸들러 전달
   );
   console.log('[MapPage] useKakaoMap 훅 초기화 완료');
 
@@ -159,7 +165,11 @@ export default function Map() {
           onExpandChange={handleHeaderExpandChange}
         />
         {isBottomSheetOpen && (
-          <MapPageBottomSheet selectedCategory={selectedCategory} selectedDay={selectedDay} />
+          <MapPageBottomSheet
+            selectedCategory={selectedCategory}
+            selectedDay={selectedDay}
+            onItemClick={showItemMarker}
+          />
         )}
       </S.ContentContainer>
     </S.MapContainer>

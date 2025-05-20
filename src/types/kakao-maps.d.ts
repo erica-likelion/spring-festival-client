@@ -92,11 +92,9 @@ declare global {
       }
 
       namespace event {
-        function addListener(
-          target: object,
-          type: string,
-          handler: (e?: unknown) => void, // Function 대신 구체적인 함수 타입
-        ): void;
+        function addListener(target: object, type: string, handler: (e?: unknown) => void): number;
+
+        function removeListener(listenerId: number): void;
       }
 
       function load(callback: () => void): void;

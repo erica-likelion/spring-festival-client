@@ -4,11 +4,13 @@ import { getCategoryMarkerImage, createMarkerWithLabel } from '@/utils/markerIco
 import { CATEGORIES } from '@/constants/map';
 import { LOCATION_DATA } from '@/constants/map/LOC_DATA';
 import { DAYS } from '@/constants/map';
+import { MapDataItem } from '@/constants/map/MapData';
 
 export function useKakaoMap(
   options: KakaoMapOptions = {},
   selectedCategory: CATEGORIES | null = null,
   selectedDay: DAYS,
+  onMapEmptyClick?: () => void, // 지도 빈 영역 클릭시 콜백 추가
 ) {
   // 커스텀 오버레이 참조 저장
   const internalMapRef = useRef<HTMLDivElement>(null);
@@ -18,6 +20,10 @@ export function useKakaoMap(
   const customOverlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
   const [mapLoaded, setMapLoaded] = useState<boolean>(false);
   const [scriptLoaded, setScriptLoaded] = useState<boolean>(false);
+  // 선택된 개별 항목의 마커를 위한 상태
+  const selectedItemMarkerRef = useRef<kakao.maps.CustomOverlay | null>(null);
+  // 드래그 상태 관리를 위한 상태
+  const isDraggingRef = useRef<boolean>(false);
 
   // 타입 안전성을 위해 mapRef를 정의
   const mapRef = options.mapRef || internalMapRef;
@@ -301,9 +307,42 @@ export function useKakaoMap(
 
   // 카테고리별 마커 추가
   useEffect(() => {
-    // 지도가 로드되지 않았거나 카테고리가 선택되지 않은 경우 처리하지 않음
-    if (!kakaoMapRef.current || !selectedCategory) {
+    // 지도가 로드되지 않은 경우 처리하지 않음
+    if (!kakaoMapRef.current) {
       return;
+    }
+
+    // 카테고리가 선택되지 않은 경우 (null) 기존 마커 모두 제거
+    if (!selectedCategory) {
+      // 이전 마커들 제거
+      const prevMarkers = markersRef.current;
+      if (prevMarkers.length > 0) {
+        console.log(`[KakaoMap] 카테고리 선택 해제: ${prevMarkers.length}개의 마커 제거`);
+        prevMarkers.forEach((marker) => marker.setMap(null));
+        markersRef.current = [];
+      }
+
+      // 이전 커스텀 오버레이 제거
+      const prevOverlays = customOverlaysRef.current;
+      if (prevOverlays.length > 0) {
+        console.log(`[KakaoMap] 카테고리 선택 해제: ${prevOverlays.length}개의 오버레이 제거`);
+        prevOverlays.forEach((overlay) => overlay.setMap(null));
+        customOverlaysRef.current = [];
+      }
+
+      // 선택된 항목 마커가 있다면 제거
+      if (selectedItemMarkerRef.current) {
+        selectedItemMarkerRef.current.setMap(null);
+        selectedItemMarkerRef.current = null;
+      }
+
+      return;
+    }
+
+    // 선택된 항목 마커가 있다면 제거
+    if (selectedItemMarkerRef.current) {
+      selectedItemMarkerRef.current.setMap(null);
+      selectedItemMarkerRef.current = null;
     }
 
     console.log(`[KakaoMap] '${selectedCategory}' 카테고리 마커 표시 시작`);
@@ -424,13 +463,143 @@ export function useKakaoMap(
     return () => {
       // Clean up: 모든 오버레이 제거
       overlays.forEach((overlay) => overlay.setMap(null));
+
+      // 선택된 항목 마커도 제거
+      if (selectedItemMarkerRef.current) {
+        selectedItemMarkerRef.current.setMap(null);
+        selectedItemMarkerRef.current = null;
+      }
     };
   }, [selectedCategory, selectedDay]);
+
+  // 특정 항목의 위치로 이동하고 마커를 표시하는 함수
+  const showItemMarker = useCallback((item: MapDataItem) => {
+    if (!kakaoMapRef.current || !item || !item.lat || !item.lng) {
+      console.warn('[KakaoMap] 지도가 초기화되지 않았거나 항목에 좌표 정보가 없습니다.');
+      return;
+    }
+
+    console.log(`[KakaoMap] 항목 마커 표시: ${item.title}`);
+
+    // 기존 카테고리 오버레이 일시적으로 숨기기
+    customOverlaysRef.current.forEach((overlay) => overlay.setMap(null));
+
+    // 기존에 선택된 항목 마커가 있다면 제거
+    if (selectedItemMarkerRef.current) {
+      selectedItemMarkerRef.current.setMap(null);
+      selectedItemMarkerRef.current = null;
+    }
+
+    // 항목의 위치 객체 생성
+    const position = new window.kakao.maps.LatLng(item.lat, item.lng);
+
+    // 선택된 항목의 마커 생성
+    const category = item.subtitle as CATEGORIES;
+    const overlay = createMarkerWithLabel(
+      kakaoMapRef.current as kakao.maps.Map,
+      position,
+      category,
+      item.title,
+    );
+
+    // 마커 참조 저장
+    selectedItemMarkerRef.current = overlay;
+
+    // 지도를 해당 마커 위치로 중심 이동
+    kakaoMapRef.current.setCenter(position);
+
+    // 적절한 줌 레벨 설정
+    kakaoMapRef.current.setLevel(3);
+
+    return () => {
+      // 마커 제거 함수 반환
+      if (selectedItemMarkerRef.current) {
+        selectedItemMarkerRef.current.setMap(null);
+        selectedItemMarkerRef.current = null;
+      }
+
+      // 카테고리 오버레이 다시 표시
+      customOverlaysRef.current.forEach((overlay) => overlay.setMap(kakaoMapRef.current));
+    };
+  }, []);
+
+  // 지도 클릭 이벤트와 드래그 이벤트 처리
+  const setupMapClickEvents = useCallback(() => {
+    const map = kakaoMapRef.current;
+    if (!map) return;
+
+    console.log('[KakaoMap] 지도 클릭 및 드래그 이벤트 등록');
+
+    // 드래그 시작 이벤트 핸들러
+    function handleDragStart() {
+      console.log('[KakaoMap] 드래그 시작');
+      isDraggingRef.current = true;
+    }
+
+    // 드래그 종료 이벤트 핸들러
+    function handleDragEnd() {
+      console.log('[KakaoMap] 드래그 종료');
+      // 약간의 지연시간 후 드래그 상태 해제
+      setTimeout(() => {
+        isDraggingRef.current = false;
+      }, 50);
+    }
+
+    // 지도 클릭 이벤트 핸들러
+    function handleMapClick() {
+      if (isDraggingRef.current) {
+        console.log('[KakaoMap] 드래그 후 클릭 무시');
+        return;
+      }
+
+      console.log('[KakaoMap] 지도 빈 영역 클릭');
+      if (onMapEmptyClick) {
+        onMapEmptyClick();
+      }
+    }
+
+    // 이벤트 리스너 등록
+    if (window.kakao?.maps?.event) {
+      // 각 이벤트의 리스너 ID를 저장
+      const eventListeners: number[] = [];
+
+      // 새 이벤트 등록 및 ID 저장
+      eventListeners.push(window.kakao.maps.event.addListener(map, 'click', handleMapClick));
+      eventListeners.push(window.kakao.maps.event.addListener(map, 'dragstart', handleDragStart));
+      eventListeners.push(window.kakao.maps.event.addListener(map, 'dragend', handleDragEnd));
+
+      // removeListener를 위한 함수 반환
+      return () => {
+        try {
+          // 모든 등록된 이벤트 리스너 제거
+          eventListeners.forEach((listenerId) => {
+            if (window.kakao?.maps?.event) {
+              window.kakao.maps.event.removeListener(listenerId);
+            }
+          });
+        } catch (error: unknown) {
+          console.warn('[KakaoMap] 이벤트 제거 실패:', error);
+        }
+      };
+    }
+
+    // 빈 정리 함수 반환
+    return () => {};
+  }, [onMapEmptyClick]);
+
+  // 지도 이벤트 설정
+  useEffect(() => {
+    if (kakaoMapRef.current) {
+      const cleanupEvents = setupMapClickEvents();
+      return cleanupEvents;
+    }
+  }, [setupMapClickEvents]);
 
   return {
     mapRef,
     kakaoMapRef,
     moveToCurrentLocation,
+    showItemMarker,
     isMapLoaded: mapLoaded,
   };
 }
