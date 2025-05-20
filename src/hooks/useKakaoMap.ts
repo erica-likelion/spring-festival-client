@@ -10,7 +10,6 @@ export function useKakaoMap(
   options: KakaoMapOptions = {},
   selectedCategory: CATEGORIES | null = null,
   selectedDay: DAYS,
-  onMapEmptyClick?: () => void, // 지도 빈 영역 클릭시 콜백 추가
 ) {
   // 커스텀 오버레이 참조 저장
   const internalMapRef = useRef<HTMLDivElement>(null);
@@ -553,12 +552,6 @@ export function useKakaoMap(
       }
 
       console.log('[KakaoMap] 지도 빈 영역 클릭');
-      // 마이크로태스크 큐에 넣어서 동기적 작업 이후에 실행되도록 함
-      if (onMapEmptyClick) {
-        setTimeout(() => {
-          onMapEmptyClick();
-        }, 20);
-      }
     }
 
     // 이벤트 리스너 등록
@@ -588,7 +581,7 @@ export function useKakaoMap(
 
     // 빈 정리 함수 반환
     return () => {};
-  }, [onMapEmptyClick]);
+  }, []);
 
   // 지도 이벤트 설정
   useEffect(() => {

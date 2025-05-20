@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPageHeader, MapPageBottomSheet } from '@/features/map';
 import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
@@ -24,14 +24,6 @@ export default function Map() {
   const [selectedDay, setSelectedDay] = useState<DAYS>(currentDay);
   const [selectedCategory, setSelectedCategory] = useState<CATEGORIES | null>(null);
 
-  // 지도 빈 영역 클릭 핸들러
-  const handleMapEmptyClick = useCallback(() => {
-    // requestAnimationFrame을 사용하여 브라우저의 렌더링 주기에 맞춰 상태 업데이트
-    requestAnimationFrame(() => {
-      setSelectedCategory(null);
-    });
-  }, []);
-
   // 카카오맵 커스텀 훅 사용
   console.log('[MapPage] useKakaoMap 훅 초기화 시작');
   const { moveToCurrentLocation, showItemMarker } = useKakaoMap(
@@ -45,7 +37,6 @@ export default function Map() {
     },
     selectedCategory,
     selectedDay,
-    handleMapEmptyClick, // 지도 빈 영역 클릭 핸들러 전달
   );
   console.log('[MapPage] useKakaoMap 훅 초기화 완료');
 
