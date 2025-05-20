@@ -12,9 +12,13 @@ export async function handleAllowNotification() {
         vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY,
       });
       if (token) {
-        await sendToken(token);
-        localStorage.setItem('deviceToken', token); // (토큰을 서버로 전송하는 로직)
-        return true;
+        const response = await sendToken(token);
+        if (response.status === 200) {
+          console.log('푸시 토큰 등록 성공');
+          localStorage.setItem('deviceToken', token);
+        } else {
+          console.log('푸시 토큰 등록 실패');
+        }
       } else {
         console.log('토큰 등록이 불가능 합니다. 생성하려면 권한을 허용해주세요');
       }
