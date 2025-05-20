@@ -10,6 +10,9 @@ export default defineConfig({
   server: {
     port: 8080,
   },
+  preview: {
+    port: 8080,
+  },
   plugins: [
     react(),
     svgr({
@@ -50,7 +53,7 @@ export default defineConfig({
         description: 'HYU-ERICA 2025 spring festival application',
         theme_color: '#17171B',
         background_color: '#17171B',
-        start_url: '.',
+        start_url: '/',
         display: 'standalone',
         display_override: ['window-controls-overlay', 'standalone'],
         orientation: 'portrait',

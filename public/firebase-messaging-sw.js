@@ -1,33 +1,21 @@
-importScripts('https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js');
-importScripts('https://www.gstatic.com/firebasejs/10.8.0/firebase-messaging-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/9.0.2/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/9.0.2/firebase-messaging-compat.js');
 
-self.addEventListener('install', function (e) {
-  self.skipWaiting();
+firebase.initializeApp({
+  apiKey: 'a',
+  authDomain: 'p',
+  projectId: 'i',
+  storageBucket: 'k',
+  messagingSenderId: 'e',
+  appId: 'y',
 });
-
-self.addEventListener('activate', function (e) {
-  console.log('fcm service worker가 실행되었습니다.');
-});
-
-const firebaseConfig = {
-  apiKey: '',
-  authDomain: '',
-  projectId: '',
-  storageBucket: '',
-  messagingSenderId: '',
-  appId: '',
-  measurementId: '',
-};
-
-firebase.initializeApp(firebaseConfig);
 
 const messaging = firebase.messaging();
 
-messaging.onBackgroundMessage((payload) => {
-  const notificationTitle = payload.title;
-  const notificationOptions = {
-    body: payload.body,
-    // icon: payload.icon
-  };
-  self.registration.showNotification(notificationTitle, notificationOptions);
+self.addEventListener('push', function (event) {
+  // 받은 푸시 데이터를 처리해 알림으로 띄우는 내용
+});
+
+self.addEventListener('notificationclick', {
+  // 띄운 알림창을 클릭했을 때 처리할 내용
 });
