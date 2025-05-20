@@ -1,4 +1,4 @@
-import { useAuthStore } from '@/stores/useAuthStore';
+import { logout } from '@/services/login';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
@@ -42,8 +42,7 @@ axiosInstance.interceptors.response.use(
         }
       } catch (refreshError) {
         console.error('토큰 갱신 실패', refreshError);
-        localStorage.removeItem('access_token');
-        useAuthStore.getState().logout();
+        await logout();
         window.location.href = '/login';
       }
     }
