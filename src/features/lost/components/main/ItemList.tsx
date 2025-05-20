@@ -1,12 +1,12 @@
 import { Tabs } from '@/components/tabs';
 import * as S from './ItemList.styles';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import HelpIcon from '@/assets/icons/nrk_help.svg?react';
-import { lostItemsByDay } from '@/constants/lost/LostItems';
-import { DayType } from '@/features/lost/components/main/ItemList.types';
+import { DayType, LostItem } from '@/features/lost/components/main/ItemList.types';
 import { ItemCard, ModalNotification } from '@/features/lost';
 import useModal from '@/hooks/useModal';
 import { theme } from '@/styles/theme';
+import axios from 'axios';
 
 /**
  * 분실물 목록 컴포넌트
@@ -16,6 +16,7 @@ import { theme } from '@/styles/theme';
 export default function ItemList() {
   const [selectedDay, setSelectedDay] = useState<DayType>('1일차');
   const [opacity, setOpacity] = useState(1);
+  const [lostItems, setLostItems] = useState<LostItem[]>([]);
   const { open } = useModal(ModalNotification);
 
   const handleTabChange = (tab: string) => {
@@ -36,6 +37,21 @@ export default function ItemList() {
       },
     );
   };
+
+  useEffect(() => {
+    const fetchLostItems = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/api/lost-items`);
+        setLostItems(res.data);
+      } catch (error) {
+        console.error('분실물 데이터를 불러오는 데 실패했습니다:', error);
+      }
+    };
+
+    fetchLostItems();
+  }, []);
+
+  const filteredItems = lostItems.filter((item) => item.foundDate === selectedDay);
 
   return (
     <S.Container>
@@ -59,7 +75,7 @@ export default function ItemList() {
           />
         </S.TabIconBox>
         <S.Grid style={{ opacity }}>
-          {lostItemsByDay[selectedDay].map((item) => (
+          {filteredItems.map((item) => (
             <ItemCard key={item.id} item={item} />
           ))}
         </S.Grid>

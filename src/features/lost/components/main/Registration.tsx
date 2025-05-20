@@ -3,6 +3,8 @@ import * as S from './Registration.styles';
 import PlusIcon from '@/assets/icons/plus.svg?react';
 import ModalPost from '../../modal/ModalPost';
 import { theme } from '@/styles/theme';
+import { LoginModal } from '@/features/login/modal';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 /**
  * 분실물 등록 컴포넌트
@@ -10,17 +12,30 @@ import { theme } from '@/styles/theme';
  */
 
 export default function Registration() {
-  const { open } = useModal(ModalPost);
+  const loginStatus = useAuthStore((state) => state.isLoggedIn);
+  const modalPost = useModal(ModalPost);
+  const loginModal = useModal(LoginModal);
 
   const handleAddClick = () => {
-    open(
-      {
-        title: '분실물 등록 숙지 사항',
-      },
-      {
-        isHelpIcon: false,
-      },
-    );
+    if (loginStatus) {
+      modalPost.open(
+        {
+          title: '분실물 등록 숙지 사항',
+        },
+        {
+          isHelpIcon: false,
+        },
+      );
+    } else {
+      loginModal.open(
+        {
+          title: '로그인',
+        },
+        {
+          isHelpIcon: false,
+        },
+      );
+    }
   };
   return (
     <S.Container>

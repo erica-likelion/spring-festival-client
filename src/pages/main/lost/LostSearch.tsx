@@ -12,8 +12,8 @@ import {
 import { LOST_SEARCH_HISTORY_KEY, MAX_SEARCH_HISTORY } from '@/constants/search';
 import { useNavigate } from 'react-router-dom';
 import { LostItem } from '@/features/lost/components/main/ItemList.types';
-import { lostItemsByDay } from '@/constants/lost/LostItems';
 import { ItemCard, NoResultMessage, SkeletonCard } from '@/features/lost';
+import axios from 'axios';
 
 export default function LostSearch() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
@@ -45,10 +45,11 @@ export default function LostSearch() {
     setSearchKeyword(e.target.value);
   };
 
-  const handleSearch = () => {
+  const handleSearch = async () => {
     if (!searchKeyword.trim()) return;
     setLoading(true);
     setStep('result');
+
     const newHistory = addSearchHistory(
       searchKeyword,
       searchHistory,
@@ -57,14 +58,18 @@ export default function LostSearch() {
     );
     setSearchHistory(newHistory);
 
-    setTimeout(() => {
-      const allItems: LostItem[] = Object.values(lostItemsByDay).flat();
-      const matchedItems = allItems.filter(
-        (item) => item.name.includes(searchKeyword) || item.description.includes(searchKeyword),
+    try {
+      const res = await axios.get<LostItem[]>(
+        `${import.meta.env.VITE_API_BASE_URL}/api/lost-items?name=${encodeURIComponent(searchKeyword)}`,
       );
-      setFilteredItems(matchedItems);
+
+      setFilteredItems(res.data);
+    } catch (error) {
+      console.error('검색 중 API 호출 실패:', error);
+      setFilteredItems([]);
+    } finally {
       setLoading(false);
-    }, 4000);
+    }
   };
 
   const handleHistoryItemClick = (keyword: string) => {

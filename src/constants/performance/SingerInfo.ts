@@ -32,18 +32,18 @@ export const performanceData = {
       songList: [
         {
           image: imageMap.TenCm1,
-          name: 'LOVE DIVE',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: '그라데이션',
+          url: 'https://www.youtube.com/watch?v=VQZXXciZb_c',
         },
         {
           image: imageMap.TenCm2,
-          name: 'I AM',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: '폰서트',
+          url: 'https://www.youtube.com/watch?v=mOo8bVzN9M8',
         },
         {
           image: imageMap.TenCm3,
-          name: 'ELEVEN',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: '스토커',
+          url: 'https://www.youtube.com/watch?v=E4bMmWKBo8I',
         },
       ],
     },
@@ -57,18 +57,18 @@ export const performanceData = {
       songList: [
         {
           image: imageMap.FTISLAND1,
-          name: 'O.O',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: '사랑앓이',
+          url: 'https://www.youtube.com/watch?v=gnLwCb8Cz7I',
         },
         {
           image: imageMap.FTISLAND2,
-          name: 'DICE',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: 'Hello Hello',
+          url: 'https://www.youtube.com/watch?v=itGNQbJwRSk',
         },
         {
           image: imageMap.FTISLAND3,
-          name: 'Love Me Like This',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: '바래',
+          url: 'https://www.youtube.com/watch?v=qSHk8G3fxEI',
         },
       ],
     },
@@ -82,18 +82,18 @@ export const performanceData = {
       songList: [
         {
           image: imageMap.Idle1,
-          name: 'FEARLESS',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: 'Super Lady',
+          url: 'https://www.youtube.com/watch?v=6f3RzjXPQwA',
         },
         {
           image: imageMap.Idle2,
-          name: 'ANTIFRAGILE',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: '퀸카',
+          url: 'https://www.youtube.com/watch?v=7HDeem-JaSY',
         },
         {
           image: imageMap.Idle3,
-          name: 'UNFORGIVEN',
-          url: 'https://www.youtube.com/watch?v=I_msu2-4UAU',
+          name: 'Nxde',
+          url: 'https://www.youtube.com/watch?v=fCO7f0SmrDc',
         },
       ],
     },
