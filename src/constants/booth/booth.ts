@@ -652,105 +652,131 @@ export const BOOTH_LIST_LIKECOUNT = [
   {
     id: 1,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 2,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 3,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 4,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 5,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 6,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 7,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 8,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 9,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 10,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 11,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 12,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 13,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 14,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 15,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 16,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 17,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 18,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 19,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 20,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 21,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 22,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 23,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 24,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 25,
     likeCount: 0,
+    updateCount: 0,
   },
   {
     id: 26,
     likeCount: 0,
+    updateCount: 0,
   },
 ];
