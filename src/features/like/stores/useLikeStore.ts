@@ -1,35 +1,100 @@
 import { create } from 'zustand';
 import { LikeType } from '@/types/like.type';
 import { BOOTH_LIST_LIKECOUNT } from '@/constants/booth/booth';
-import { getLikesDB, putLikesDB } from '@/services/like/like.db';
+import { getLikesDB, likeDB, updateLikeCountDB } from '@/services/like/like.db';
+import { getLikes } from '@/services/like/like';
 
 export interface LikeStore {
   likes: LikeType[];
   initLikes: () => Promise<void>;
-  fetchLikes: () => Promise<void>;
-  addLike: (like: LikeType) => Promise<void>;
+  fetchLikes: (serverData: LikeType[]) => Promise<void>;
+  updateLikeCount: (id: number, newCount: number) => Promise<void>;
+  getUpdatedLikes: () => Promise<Pick<LikeType, 'id' | 'likeCount'>[]>;
+  resetUpdateCounts: () => Promise<void>;
 }
 
 export const useLikeStore = create<LikeStore>((set) => ({
   likes: [...BOOTH_LIST_LIKECOUNT],
   initLikes: async () => {
-    const existing = await getLikesDB();
-    if (existing.length === 0) {
-      for (const like of BOOTH_LIST_LIKECOUNT) {
-        await putLikesDB(like);
-      }
-      set({ likes: [...BOOTH_LIST_LIKECOUNT] });
-    } else {
-      set({ likes: existing });
+    const response = await getLikes();
+    const data = response.data ? response.data : BOOTH_LIST_LIKECOUNT;
+    const dataWithUpdateCount = data.map((item: LikeType) => ({
+      ...item,
+      updateCount: 0,
+    }));
+    const db = await likeDB;
+    const tx = db.transaction('like', 'readwrite');
+
+    for (const like of dataWithUpdateCount) {
+      await tx.store.put(like);
     }
+
+    await tx.done;
+    set({ likes: dataWithUpdateCount });
   },
-  fetchLikes: async () => {
-    const data = await getLikesDB();
-    set({ likes: data });
+
+  fetchLikes: async (serverData: LikeType[]) => {
+    const db = await likeDB;
+
+    const oldData = await db.getAll('like');
+    const prevMap = new Map<number, LikeType>();
+    oldData.forEach((item) => {
+      if (item.currentRank !== undefined) {
+        prevMap.set(item.id, item);
+      }
+    });
+
+    const sorted = [...serverData].sort((a, b) => b.likeCount - a.likeCount);
+    const newData: LikeType[] = sorted.map((item, index) => {
+      const prev = prevMap.get(item.id);
+      return {
+        id: item.id,
+        likeCount: item.likeCount,
+        prevRank: prev?.currentRank ?? index + 1,
+        currentRank: index + 1,
+        updateCount: item.updateCount || 0,
+      };
+    });
+
+    const tx = db.transaction('like', 'readwrite');
+    await tx.store.clear();
+    for (const item of newData) {
+      await tx.store.put(item);
+    }
+    await tx.done;
+    console.log(newData);
+    set({ likes: newData });
   },
-  addLike: async (like) => {
-    await putLikesDB(like);
-    const updated = await getLikesDB(); // 새로 불러오기
+
+  updateLikeCount: async (id, newCount) => {
+    await updateLikeCountDB(id, newCount);
+    const updated = await getLikesDB();
     set({ likes: updated });
+  },
+  getUpdatedLikes: async () => {
+    const db = await likeDB;
+    const allLikes = await db.getAll('like');
+
+    const nonZeroUpdateList = allLikes
+      .filter((like) => like.updateCount !== 0)
+      .map((like) => ({
+        id: like.id,
+        likeCount: like.updateCount!,
+      }));
+    return nonZeroUpdateList;
+  },
+
+  resetUpdateCounts: async () => {
+    const db = await likeDB;
+    const allLikes = await db.getAll('like');
+
+    const tx = db.transaction('like', 'readwrite');
+    for (const like of allLikes) {
+      like.updateCount = 0;
+      await tx.store.put(like);
+    }
+    await tx.done;
+
+    set({ likes: [...allLikes.map((l) => ({ ...l, updateCount: 0 }))] });
   },
 }));

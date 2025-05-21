@@ -9,20 +9,24 @@ export interface LikeDB extends DBSchema {
   };
 }
 
-export const likeDB = openDB<LikeDB>('like-db', 1, {
+export const likeDB = openDB<LikeDB>('like-db', 2, {
   upgrade(db) {
     const waitingStore = db.createObjectStore('like', { keyPath: 'id' });
     waitingStore.createIndex('by-id', 'id');
   },
 });
 
-export const putLikesDB = async (like: LikeType) => {
-  const db = await likeDB;
-  await db.put('like', like);
-};
-
 export const getLikesDB = async () => {
   const db = await likeDB;
   const allLikes = await db.getAll('like');
   return allLikes;
+};
+
+export const updateLikeCountDB = async (id: number, newCount: number) => {
+  const db = await likeDB;
+  const like = await db.get('like', id);
+  if (like) {
+    like.updateCount = newCount;
+    await db.put('like', like);
+  }
 };

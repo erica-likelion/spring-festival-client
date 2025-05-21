@@ -25,8 +25,8 @@ export default function LikeButton({
   const animIdRef = useRef(0);
   const [animations, setAnimations] = useState<AnimInstance[]>([]);
   const likes = useLikeStore((state) => state.likes).find((like) => like.id === id);
-  const upLike = useLikeStore((state) => state.addLike);
-  const [userLikeCount, setLikeCount] = useState(likes?.likeCount || 0);
+  const upLike = useLikeStore((state) => state.updateLikeCount);
+  const [userLikeCount, setLikeCount] = useState(likes?.updateCount || 0);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const now = Date.now();
@@ -43,16 +43,16 @@ export default function LikeButton({
       id: animIdRef.current++,
       data: animData,
     };
-    console.log(id);
+
     setLikeCount((prev) => prev + 1);
-    upLike({ id, likeCount: userLikeCount + 1 });
+    upLike(id, userLikeCount + 1);
     setAnimations((prev) => [...prev, newAnim]);
   };
 
   const handleComplete = (id: number) => {
     setAnimations((prev) => prev.filter((anim) => anim.id !== id));
   };
-
+  if (likes === undefined) return null;
   return (
     <S.Button onClick={handleClick}>
       <LikeIcon width="1.25rem" height="1.25rem" />
@@ -73,7 +73,7 @@ export default function LikeButton({
           }}
         />
       ))}
-      <S.Text>{userLikeCount}</S.Text>
+      <S.Text>{likes?.likeCount + userLikeCount}</S.Text>
     </S.Button>
   );
 }
