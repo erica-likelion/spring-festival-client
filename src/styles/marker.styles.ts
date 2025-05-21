@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // 마커와 라벨을 포함하는 컨테이너
-export const MarkerContainer = styled.div`
+export const MarkerContainer = styled.div<{ $isSelected?: boolean }>`
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -11,14 +11,18 @@ export const MarkerContainer = styled.div`
   top: 0;
 
   /* 마커 아이콘 높이의 100% + 라벨을 고려한 조정 */
-  transform: translate(-50%, calc(-32px)); /* 아이콘 높이만큼만 위로 이동, 라벨은 아래에 위치 */
+  transform: ${(props) =>
+    !props.$isSelected
+      ? 'translate(-50%, calc(-3.66rem))'
+      : 'translate(-50%, calc(-2.5rem))'}; /* 아이콘 높이만큼만 위로 이동, 라벨은 아래에 위치 */
+
   pointer-events: none; /* 마커 아래 지도 클릭 가능하도록 */
 `;
 
 // 마커 아이콘
-export const MarkerIcon = styled.img`
-  width: 40px;
-  height: 40px;
+export const MarkerIcon = styled.img<{ $isSelected?: boolean }>`
+  width: ${(props) => (!props.$isSelected ? '3.66rem' : '2.5rem')};
+  height: ${(props) => (!props.$isSelected ? '3.66rem' : '2.5rem')};
   flex-shrink: 0;
   filter: drop-shadow(0 2px 2px rgb(0 0 0 / 30%));
   display: block;

@@ -94,12 +94,14 @@ export function createMarkerWithLabel(
             }
           : undefined,
         style: onClick ? { cursor: 'pointer' } : undefined,
+        $isSelected: !!onClick, // 개별 선택된 항목에만 onClick이 있으므로, 이를 기준으로 isSelected 결정
       },
       [
         createElement(MarkerIcon, {
           key: 'icon',
           src: iconUrl,
           alt: `${category} 마커`,
+          $isSelected: !!onClick, // 마찬가지로 개별 선택된 항목만 크게 표시
         }),
         createElement(
           MarkerLabel,
