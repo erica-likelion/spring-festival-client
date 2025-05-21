@@ -10,7 +10,11 @@ import TabNav from '@/components/tab-nav';
  * TimeTable component
  * @returns {JSX.Element}
  */
-
+const DAY_TO_DATE: Record<(typeof TABS)[number], string> = {
+  '1일차': '2025-05-27',
+  '2일차': '2025-05-28',
+  '3일차': '2025-05-29',
+};
 const TABS = ['1일차', '2일차', '3일차'] as const;
 
 export default function TimeTable() {
@@ -33,7 +37,12 @@ export default function TimeTable() {
     return () => clearInterval(timer);
   }, []);
 
-  const isNowPlaying = (start: string, end: string) => {
+  const isNowPlaying = (start: string, end: string, day: (typeof TABS)[number]) => {
+    const todayString = new Date().toISOString().slice(0, 10);
+    const performanceDate = DAY_TO_DATE[day];
+
+    if (todayString !== performanceDate) return false;
+
     const [startHour, startMin] = start.split(':').map(Number);
     const [endHour, endMin] = end.split(':').map(Number);
 
@@ -77,7 +86,7 @@ export default function TimeTable() {
         <S.TimeTable key={selectedDay}>
           {currentPerformances.map((performance, index) => {
             const durationBlocks = calculateDurationInBlocks(performance.start, performance.end);
-            const active = isNowPlaying(performance.start, performance.end);
+            const active = isNowPlaying(performance.start, performance.end, selectedDay);
 
             return (
               <S.BoxWrap key={index} $block={durationBlocks} $isFirst={index === 0}>
