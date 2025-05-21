@@ -61,12 +61,18 @@ export default function TimeTable() {
       <NavBar isBack={true} title="타임테이블" />
       <TabNav tabs={TABS} currentStep={selectedDay} setStep={setSelectedDay} />
       <S.TimeWrap>
-        <S.Divider />
+        <S.Divider>
+          <S.Line />
+        </S.Divider>
         {time.map((t, index) => (
-          <div key={index}>
-            <S.Time>{t}</S.Time>
-            <S.Divider />
-          </div>
+          <>
+            <S.TimeBoxWrap key={index}>
+              <S.TimeText>{t}</S.TimeText>
+            </S.TimeBoxWrap>
+            <S.Divider>
+              <S.Line />
+            </S.Divider>
+          </>
         ))}
         <S.TimeTable key={selectedDay}>
           {currentPerformances.map((performance, index) => {
@@ -79,13 +85,13 @@ export default function TimeTable() {
                   <S.TimeBox $isActive={active} $isEmpty={!performance.name} />
                   <S.ContentBox $isActive={active} $isEmpty={!performance.name}>
                     {performance.name && (
-                      <S.PerformanceNameTimeBox>
+                      <>
                         <S.PerformanceName>{performance.name}</S.PerformanceName>
                         <S.PerformanceTime>
-                          <ClockIcon width="1.125rem" height="1.125rem" />
+                          <ClockIcon width="1.125rem" height="1.125rem" fill="#fafafa" />
                           {performance.start}~{performance.end}
                         </S.PerformanceTime>
-                      </S.PerformanceNameTimeBox>
+                      </>
                     )}
                   </S.ContentBox>
                 </S.Wrap>
