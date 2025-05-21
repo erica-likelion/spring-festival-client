@@ -1,11 +1,15 @@
 import { create } from 'zustand';
 import { UserWaitingType } from '@/types/waiting.type';
-import { putWaitingsDB, getWaitingsDB, deleteWaitingsDB } from '@/services/waiting/waiting.db';
+import {
+  putWaitingsDB,
+  getWaitingsDB,
+  deleteWaitingsDB,
+  clearWaitingsDB,
+} from '@/services/waiting/waiting.db';
 import { getWaitings, deleteWaitings } from '@/services/waiting/waiting';
 
 interface WaitingStore {
   waitings: UserWaitingType[];
-  fetchWaitings: () => Promise<void>;
   addWaiting: (waiting: UserWaitingType) => Promise<void>;
   deleteWaiting: (id: number) => Promise<void>;
   loadWaitings: () => Promise<void>;
@@ -14,11 +18,6 @@ interface WaitingStore {
 
 export const useWaitingStore = create<WaitingStore>((set, get) => ({
   waitings: [],
-  fetchWaitings: async () => {
-    const data = await getWaitingsDB();
-    set({ waitings: data });
-  },
-
   addWaiting: async (waiting) => {
     await putWaitingsDB(waiting);
     const updated = await getWaitingsDB(); // 새로 불러오기
@@ -35,6 +34,7 @@ export const useWaitingStore = create<WaitingStore>((set, get) => ({
     if (response.status === 200) {
       const waitings = response.data;
       set({ waitings });
+      await clearWaitingsDB();
       for (const waiting of waitings) {
         await putWaitingsDB(waiting);
       }

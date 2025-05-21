@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPageHeader, MapPageBottomSheet } from '@/features/map';
 import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
@@ -14,27 +14,40 @@ export default function Map() {
   const navigate = useNavigate();
   const mapRef = useRef<HTMLDivElement>(null);
 
-  // 카카오맵 커스텀 훅 사용
-  console.log('[MapPage] useKakaoMap 훅 초기화 시작');
-  const { moveToCurrentLocation } = useKakaoMap({
-    mapRef,
-    center: { lat: 37.294711, lng: 126.833163 }, // 대운동장
-    level: 3,
-    draggable: true,
-    zoomable: true,
-    scrollwheel: true,
-  });
-  console.log('[MapPage] useKakaoMap 훅 초기화 완료');
-
   // 현재 날짜에 기반한 페스티벌 일차 계산
   const currentDay = getCurrentFestivalDay(FESTIVAL_START_DATE, FESTIVAL_TOTAL_DAYS) as DAYS;
   console.log(
-    `[MapPage] 현재 날짜: ${new Date().toLocaleDateString()}, 페트티벌 시작 일차: ${FESTIVAL_START_DATE}, 페스티벌 일차: ${currentDay}`,
+    `[MapPage] 현재 날짜: ${new Date().toLocaleDateString()}, 페스티벌 시작 일차: ${FESTIVAL_START_DATE}, 페스티벌 일차: ${currentDay}`,
   );
 
   // 날짜 및 카테고리 관련 상태
   const [selectedDay, setSelectedDay] = useState<DAYS>(currentDay);
   const [selectedCategory, setSelectedCategory] = useState<CATEGORIES | null>(null);
+
+  // 지도 빈 영역 클릭 핸들러
+  const handleMapEmptyClick = useCallback(() => {
+    // requestAnimationFrame을 사용하여 브라우저의 렌더링 주기에 맞춰 상태 업데이트
+    requestAnimationFrame(() => {
+      setSelectedCategory(null);
+    });
+  }, []);
+
+  // 카카오맵 커스텀 훅 사용
+  console.log('[MapPage] useKakaoMap 훅 초기화 시작');
+  const { moveToCurrentLocation, showItemMarker } = useKakaoMap(
+    {
+      mapRef,
+      center: { lat: 37.294711, lng: 126.833163 }, // 대운동장
+      level: 3,
+      draggable: true,
+      zoomable: true,
+      scrollwheel: true,
+    },
+    selectedCategory,
+    selectedDay,
+    handleMapEmptyClick, // 지도 빈 영역 클릭 핸들러 전달
+  );
+  console.log('[MapPage] useKakaoMap 훅 초기화 완료');
 
   // 헤더 관련 상태
   const [headerExpanded, setHeaderExpanded] = useState<boolean>(false);
@@ -128,10 +141,7 @@ export default function Map() {
     }, 1000);
   };
 
-  // 지도 관련 시작 ////////////////////////////////
-  // 기존 초기화 로직은 useKakaoMap 훅으로 대체되었습니다.
   console.log('[지도] MapPage 컴포넌트가 렌더링되었습니다.');
-  // 지도 관련 끝 ////////////////////////////////
 
   return (
     <S.MapContainer>
@@ -155,7 +165,11 @@ export default function Map() {
           onExpandChange={handleHeaderExpandChange}
         />
         {isBottomSheetOpen && (
-          <MapPageBottomSheet selectedCategory={selectedCategory} selectedDay={selectedDay} />
+          <MapPageBottomSheet
+            selectedCategory={selectedCategory}
+            selectedDay={selectedDay}
+            onItemClick={showItemMarker}
+          />
         )}
       </S.ContentContainer>
     </S.MapContainer>

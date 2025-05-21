@@ -4,7 +4,7 @@ import { useBottomSheet } from '@/hooks/useBottomSheet';
 import * as S from './BottomSheet.styles';
 import { BottomSheetProps } from './BottomSheet.types';
 import { Notification } from '@/components/notification';
-import { DummyData } from '@/constants/map/DummyData';
+import { MapData } from '@/constants/map/MapData';
 import { ImageTextFrameWithTime } from '@/components/image-text-frame';
 import { useNotificationStore } from '@/stores/useNotificationStore';
 import { CATEGORY_NOTIFICATIONS } from '@/constants/map/CategoryNotifications';
@@ -37,6 +37,7 @@ export default function BottomSheet({
   selectedCategory,
   selectedDay = days[0],
   children,
+  onItemClick,
 }: BottomSheetProps) {
   const navigate = useNavigate();
   const { sheet, content, header } = useBottomSheet();
@@ -59,7 +60,12 @@ export default function BottomSheet({
   }, [selectedCategory, isNotificationClosed]);
 
   // selectedCategory가 null이 아닌 경우에만 데이터 필터링
-  const filteredData = selectedCategory ? DummyData[selectedDay]?.[selectedCategory] || [] : [];
+  // closeDay 배열에 현재 선택된 날짜가 포함된 항목은 제외
+  const filteredData = selectedCategory
+    ? MapData[selectedCategory]?.filter(
+        (item) => !item.closeDay || !item.closeDay.includes(selectedDay),
+      ) || []
+    : [];
 
   // 알림 클릭 핸들러 - 경로로 이동
   const handleNotificationClick = useCallback(() => {
@@ -125,6 +131,16 @@ export default function BottomSheet({
                         subtitle={item.subtitle}
                         time={item.time}
                         canPickup={item.canPickup}
+                        onClick={() => {
+                          // 지도에 마커 표시 및 중앙 이동
+                          if (onItemClick && item.lat && item.lng) {
+                            onItemClick(item);
+                          }
+                          // 경로가 있는 경우 해당 경로로 이동
+                          if (item.path) {
+                            navigate(item.path);
+                          }
+                        }}
                       />
                     </S.ContentUnitWrap>
                   ))

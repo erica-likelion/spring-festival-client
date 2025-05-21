@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { BOTTOM_SHEET_HEIGHT } from '@/constants/map/BottomSheetOptions';
+import { Z_INDEX } from '@/constants/map/Z_INDEX';
 
 export const BottomSheetMotionDiv = styled(motion.div)`
   height: ${BOTTOM_SHEET_HEIGHT};
@@ -8,7 +9,7 @@ export const BottomSheetMotionDiv = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: fixed;
-  z-index: 100;
+  z-index: ${Z_INDEX.BOTTOM_SHEET};
   top: calc(100% - 280px); /* 뷰포트 하단 기준 몇 px */
   left: 0;
   right: 0;

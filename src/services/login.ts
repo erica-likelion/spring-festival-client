@@ -24,3 +24,18 @@ export const login = async (code: string) => {
     return false;
   }
 };
+
+export const logout = async () => {
+  // 모든 DB 이름 가져오기
+  const dbs = await indexedDB.databases();
+  await useAuthStore.getState().logout();
+  localStorage.removeItem('access_token');
+  // 모든 DB 삭제
+  for (const db of dbs) {
+    if (db.name) {
+      indexedDB.deleteDatabase(db.name);
+    }
+  }
+
+  console.log('✅ All IndexedDB databases deleted.');
+};
