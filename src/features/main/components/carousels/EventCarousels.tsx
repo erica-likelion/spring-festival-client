@@ -6,6 +6,7 @@ import { sliderTransition, sliderVariants } from './EventCarouselsMotion.styles.
 import { Indicator } from '@/components/indicator';
 import Cursor from '@/assets/icons/cursor.svg?react';
 import { EventCard } from '../cards';
+import { useNavigate } from 'react-router-dom';
 /**
  * Carousels 컴포넌트
  * - MainEventData를 기반으로 UI를 렌더링
@@ -17,7 +18,11 @@ import { EventCard } from '../cards';
 
 export default function EventCarousels() {
   const [[index, direction], setIndex] = useState<[number, number]>([0, 0]);
-
+  const navigate = useNavigate();
+  const eventCardLinkMap: Record<string, string> = {
+    '2': '/main/notice/8',
+    '3': '/main/notice/7',
+  };
   /**
    * 슬라이더를 특정 방향으로 이동 (-1: 이전, 1: 다음)
    * @param {number} dir - 이동 방향
@@ -100,7 +105,13 @@ export default function EventCarousels() {
                   onDragEnd={variant === 'active' ? handleDragEnd : undefined}
                   $isHidden={variant === 'hidden'}
                 >
-                  <EventCard {...card} />
+                  <EventCard
+                    {...card}
+                    onClick={() => {
+                      const link = eventCardLinkMap[card.id];
+                      if (link) navigate(link);
+                    }}
+                  />
                 </S.MotionCard>
               );
             })}

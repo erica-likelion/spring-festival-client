@@ -7,6 +7,7 @@ export interface CardProps {
   tags?: { color: string | ColorKey; text: string }[];
   title: string;
   location: string;
+  onClick?: () => void;
 }
 
 export interface ProgressProps {
