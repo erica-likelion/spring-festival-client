@@ -78,6 +78,28 @@ import notice11_6 from '@/assets/images/notice/notice11 (7).webp';
 import notice11_7 from '@/assets/images/notice/notice11 (8).webp';
 import notice11_8 from '@/assets/images/notice/notice11 (9).webp';
 import notice11_9 from '@/assets/images/notice/notice11 (10).webp';
+import notice12_0 from '@/assets/images/notice/notice12 (1).webp';
+import notice12_1 from '@/assets/images/notice/notice12 (2).webp';
+import notice12_2 from '@/assets/images/notice/notice12 (3).webp';
+import notice12_3 from '@/assets/images/notice/notice12 (4).webp';
+import notice12_4 from '@/assets/images/notice/notice12 (5).webp';
+import notice12_5 from '@/assets/images/notice/notice12 (6).webp';
+import notice12_6 from '@/assets/images/notice/notice12 (7).webp';
+import notice14_0 from '@/assets/images/notice/notice14 (1).webp';
+import notice14_1 from '@/assets/images/notice/notice14 (2).webp';
+import notice14_2 from '@/assets/images/notice/notice14 (3).webp';
+import notice14_3 from '@/assets/images/notice/notice14 (4).webp';
+import notice14_4 from '@/assets/images/notice/notice14 (5).webp';
+import notice14_5 from '@/assets/images/notice/notice14 (6).webp';
+import notice14_6 from '@/assets/images/notice/notice14 (7).webp';
+import notice14_7 from '@/assets/images/notice/notice14 (8).webp';
+import notice14_8 from '@/assets/images/notice/notice14 (9).webp';
+import notice14_9 from '@/assets/images/notice/notice14 (10).webp';
+import notice15_0 from '@/assets/images/notice/notice15 (1).webp';
+import notice15_1 from '@/assets/images/notice/notice15 (2).webp';
+import notice15_2 from '@/assets/images/notice/notice15 (3).webp';
+import notice15_3 from '@/assets/images/notice/notice15 (4).webp';
+import notice15_4 from '@/assets/images/notice/notice15 (5).webp';
 
 export const NoticeData = [
   {
@@ -430,5 +452,105 @@ export const NoticeData = [
 문의사항 : ESPERO_플리마켓팀 카카오톡 채널
 
 #봄축제기획단 #2025ESPERO플리마켓팀`,
+  },
+
+  {
+    id: 12,
+    img: [notice12_0, notice12_1, notice12_2, notice12_3, notice12_4, notice12_5, notice12_6],
+    title: '사탕처럼 달콤하다는데? 미니소개팅 모집 공고_1',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ 사탕처럼 달콤한데 사탕팅/친구팅 소개✨NOW OR NEVER, HYLIGHT✨안녕하세요! 2025 봄축제기획단 콘텐츠 팀입니다!달콤한 사탕과 함께 나의 매력을 전하며 새로운 인연은 찾아가는 🍬사랑처럼 달콤하다는데? 사탕팅/친구팅 🍬을 소개합니다!낭만과 청춘으로 가득 차 설레는 축제 분위기에 맞춰, 청춘을 더 빛나게 만들어줄 새로운 인연을 찾아보는 건 어떨까요?🕛 행사 일시: 2025년 5월 27일 (화) ~ 2025년 5월 29일 (목) 11:00 ~ 17:00⚠️ 5/28 (수) 13:00 ~ 15:00은 호공레이스로 인해 한시적으로 이용이 제한됩니다.🚩행사 장소: 호수공원 신전자세한 내용은 카드뉴스를 참고해주세요 📩✨📌문의사항2025 ESPERO 콘텐츠팀 카카오 채널콘텐츠 팀장 이다성 010-3127-3462`,
+  },
+
+  {
+    id: 14,
+    img: [
+      notice14_0,
+      notice14_1,
+      notice14_2,
+      notice14_3,
+      notice14_4,
+      notice14_5,
+      notice14_6,
+      notice14_7,
+      notice14_8,
+      notice14_9,
+    ],
+    title: 'HYLIGHT 콘텐츠 소개 1',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 "ESPERO:HYLIGHT" 액티비티 콘텐츠 소개
+
+✨NOW OR NEVER, HYLIGHT✨
+
+안녕하세요! 2025 봄축제기획단 콘텐츠 팀입니다!
+
+청춘의 ✨하이라이트✨가 될 이번 봄 축제에 활력을 불어줄 👊액티비티 콘텐츠들을💥 소개합니다!!🔥🔥
+
+📌 한 대 맞고 더블로 가!!
+
+🕛 행사 일시: 2025년 5월 27일 (화) ~ 2025년 5월 29일 (목) 11:00 ~ 17:00
+🚩행사 장소: 잔디공터
+
+🏆상품
+🥇배달의 민족 5만 원 권
+🥈배달의 민족 3만 원 권
+🥉배달의 민족 2만 원 권
+
+✅ 참가 대상: 한양대학교 ERICA 재/휴학생
+
+📌 한 대 빵!!
+
+🕚 행사 일시: 2025년 5월 27일 (화) 11:00 ~ 17:00
+🚩 행사 장소: 잔디 공터
+
+🏆상품: 한양베이커리 에리카점 3,000원권
+
+✅ 참가 대상: 한양대학교 ERICA 재/휴학생
+
+자세한 내용은 카드뉴스를 참고해 주세요 📩✨
+
+📌문의사항
+2025 ESPERO 콘텐츠팀 카카오 채널
+콘텐츠 팀장 이다성 010-3127-3462`,
+  },
+
+  {
+    id: 15,
+    img: [notice15_0, notice15_1, notice15_2, notice15_3, notice15_4],
+    title: 'HYLIGHT 콘텐츠 소개 2',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ 액티비티 콘텐츠 소개
+
+✨NOW OR NEVER, HYLIGHT✨
+
+안녕하세요! 2025 봄축제기획단 콘텐츠 팀입니다!
+
+청춘의 ✨하이라이트✨가 될 이번 봄 축제에 활력을 불어줄 👊액티비티 콘텐츠들을💥 소개합니다!!🔥🔥
+
+📌 삐에로 아저씨
+
+🕛 행사 일시: 2025년 5월 27일 (화) 13:00 ~ 17:00
+🚩행사 장소: 잔디공터 인근
+
+📌 바이킹
+
+🕚 행사 일시: 2025년 5월 29일 (목) 13:00 ~ 19:00
+🚩 행사 장소: 3공학관 앞 주차장
+✅ 참가 대상: 축제 참여자 모두 무료로 이용 가능
+
+자세한 내용은 카드뉴스를 참고해 주세요 📩✨
+
+📌문의사항
+2025 ESPERO 콘텐츠팀 카카오톡 채널
+콘텐츠 팀장 이다성 010-3127-3462`,
   },
 ];
