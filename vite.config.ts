@@ -48,8 +48,8 @@ export default defineConfig({
       },
 
       manifest: {
-        name: 'likelion-spring-festival',
-        short_name: 'likelion-spring-festival',
+        name: 'ESPERO:HYLIGHT 2025',
+        short_name: 'ESPERO:HYLIGHT',
         description: 'HYU-ERICA 2025 spring festival application',
         theme_color: '#17171B',
         background_color: '#17171B',
