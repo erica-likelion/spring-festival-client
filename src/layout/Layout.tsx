@@ -7,6 +7,7 @@ import { useLayoutStore } from '@/stores/useLayoutStore';
 import { Modal as ModalProvider } from '@/components/modal';
 import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
 import { useEffect } from 'react';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 /**
  * Layout component
@@ -15,9 +16,10 @@ import { useEffect } from 'react';
 export default function Layout() {
   const isNav = useLayoutStore((state) => state.isNav);
   const loadWaitings = useWaitingStore((state) => state.loadWaitings);
+  const isLoggined = useAuthStore((state) => state.isLoggedIn);
   useEffect(() => {
-    loadWaitings();
-  }, [loadWaitings]);
+    if (isLoggined) loadWaitings();
+  }, [loadWaitings, isLoggined]);
   return (
     <S.Container>
       {isNav && <Nav />}
