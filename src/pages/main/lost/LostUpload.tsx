@@ -77,8 +77,8 @@ export default function LostUpload() {
               },
             });
             navigate('/main/lost/upload/complete');
-          } catch (error) {
-            console.log(error);
+          } catch {
+            navigate('/main/lost/upload/fail');
           }
         },
       },
