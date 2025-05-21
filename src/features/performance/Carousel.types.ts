@@ -14,6 +14,7 @@ export type PerformanceItem = {
   id: string;
   backgroundUrl: string;
   singer: string;
+  fcm_singer: string;
   time: string;
   description: string;
   songList: { image: string; name: string }[];

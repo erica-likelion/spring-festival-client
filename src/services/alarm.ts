@@ -12,7 +12,5 @@ export const sendToken = async (token: string) => {
  * @params {string} artistName - 아티스트 이름
  */
 export const registerArtistAlarm = async (artistName: string) => {
-  return await axiosInstance.post('/concert/alarm', null, {
-    params: { artistName: encodeURIComponent(artistName) },
-  });
+  return await axiosInstance.post(`/concert/${encodeURIComponent(artistName)}/alarm`);
 };

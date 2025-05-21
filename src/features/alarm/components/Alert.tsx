@@ -51,8 +51,7 @@ export function PerformanceAlert({ id }: { id: string }) {
     const next = !isAlarm;
     try {
       if (next) {
-        const result = await registerArtistAlarm(id);
-        console.log('알림 등록 성공', result);
+        await registerArtistAlarm(id);
       }
     } catch (err) {
       console.error('알림 등록 실패', err);
