@@ -1,33 +1,35 @@
 import { ImageTextFrameWithOrganization } from '@/components/image-text-frame';
 import * as S from './RankImageTextFrame.styles';
 import { LikeButton } from '@/features/like';
+import { BOOTH_LIST } from '@/constants/booth/booth';
 
 export default function RankImageTextFrame({
-  rank,
-  title,
-  organization,
-  img,
+  id,
+  likeCount,
+  index,
 }: {
-  rank: number;
-  title: string;
-  organization: string;
+  id: number;
   likeCount: number;
-  img: string;
+  index: number;
 }) {
+  const booth = BOOTH_LIST.find((booth) => booth.id === id);
+  if (!booth) {
+    return null; // or handle the case when the booth is not found
+  }
   return (
-    <S.Container $first={rank === 1}>
+    <S.Container $first={index === 1}>
       <S.Wrapper>
         <S.Rank>
-          <S.RankNumber>{rank}</S.RankNumber>
+          <S.RankNumber>{index}</S.RankNumber>
         </S.Rank>
         <ImageTextFrameWithOrganization
-          image={img}
-          title={title}
-          organization={organization}
+          image={booth.profileImage}
+          title={booth.pubName}
+          organization={booth.affiliation}
           canPickup={false}
           width="100%"
         />
-        <LikeButton id={1} />
+        <LikeButton id={id} like={Number(likeCount)} />
       </S.Wrapper>
     </S.Container>
   );

@@ -1,42 +1,30 @@
-import { BOOTH_LIST } from '@/constants/booth/booth';
 import * as S from './PubRank.styles';
 import { RefreshButton } from '@/components/refresh-button';
 import RankImageTextFrame from '@/features/rank/components/RankImageTextFrame';
 import { AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
+import { useLikeStore } from '@/features/like/stores/useLikeStore';
 
 export default function PubRank() {
-  const [rankList, setRankList] = useState(BOOTH_LIST);
-  const shuffleRankList = () => {
-    setRankList(BOOTH_LIST);
-  };
+  const likes = useLikeStore((state) => state.likes);
 
   return (
     <S.Container>
       <S.Header>
-        <S.Count>전체 {rankList.length}개</S.Count>
-        <RefreshButton
-          onClick={() => {
-            shuffleRankList();
-          }}
-        />
+        <S.Count>전체 {likes.length}개</S.Count>
+        <RefreshButton onClick={() => {}} />
       </S.Header>
       <S.RankList>
         <AnimatePresence>
-          {rankList.map((item) => {
-            return (
-              <S.RankItem key={item.id} layout>
-                <RankImageTextFrame
-                  img={item.profileImage}
-                  rank={item.id}
-                  title={item.pubName}
-                  organization={item.affiliation}
-                  likeCount={item.id}
-                />
-                <S.HorizontalLine />
-              </S.RankItem>
-            );
-          })}
+          {[...likes]
+            .sort((a, b) => b.likeCount - a.likeCount) // 🔽 likeCount 높은 순으로 정렬
+            .map((item, index) => {
+              return (
+                <S.RankItem key={item.id} layout>
+                  <RankImageTextFrame id={item.id} index={index + 1} likeCount={item.likeCount} />
+                  <S.HorizontalLine />
+                </S.RankItem>
+              );
+            })}
         </AnimatePresence>
       </S.RankList>
     </S.Container>

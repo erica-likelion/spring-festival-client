@@ -4,6 +4,7 @@ import LikeIcon from '@/assets/icons/heart.svg?react';
 import Lottie from 'react-lottie-player';
 import ONCE_CLICK from '@/assets/lotties/once_like.json';
 import MULTIPLE_CLICK from '@/assets/lotties/multiple_like.json';
+import { useLikeStore } from '@/features/like/stores/useLikeStore';
 
 type AnimInstance = {
   id: number;
@@ -16,14 +17,16 @@ export default function LikeButton({
   left = '-1.70rem',
 }: {
   id: number;
+  like: number;
   top?: string;
   left?: string;
 }) {
   const clickTimeRef = useRef<number | null>(null);
   const animIdRef = useRef(0);
   const [animations, setAnimations] = useState<AnimInstance[]>([]);
-  const [likeCount, setLikeCount] = useState(0);
-
+  const likes = useLikeStore((state) => state.likes).find((like) => like.id === id);
+  const upLike = useLikeStore((state) => state.addLike);
+  const [userLikeCount, setLikeCount] = useState(likes?.likeCount || 0);
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const now = Date.now();
@@ -42,6 +45,7 @@ export default function LikeButton({
     };
     console.log(id);
     setLikeCount((prev) => prev + 1);
+    upLike({ id, likeCount: userLikeCount + 1 });
     setAnimations((prev) => [...prev, newAnim]);
   };
 
@@ -69,7 +73,7 @@ export default function LikeButton({
           }}
         />
       ))}
-      <S.Text>{likeCount}</S.Text>
+      <S.Text>{userLikeCount}</S.Text>
     </S.Button>
   );
 }

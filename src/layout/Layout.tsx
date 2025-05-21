@@ -7,6 +7,7 @@ import { useLayoutStore } from '@/stores/useLayoutStore';
 import { Modal as ModalProvider } from '@/components/modal';
 import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
 import { useEffect } from 'react';
+import { useLikeStore } from '@/features/like/stores/useLikeStore';
 
 /**
  * Layout component
@@ -15,9 +16,11 @@ import { useEffect } from 'react';
 export default function Layout() {
   const isNav = useLayoutStore((state) => state.isNav);
   const loadWaitings = useWaitingStore((state) => state.loadWaitings);
+  const loadlikes = useLikeStore((state) => state.initLikes);
   useEffect(() => {
     loadWaitings();
-  }, [loadWaitings]);
+    loadlikes();
+  }, [loadWaitings, loadlikes]);
   return (
     <S.Container>
       {isNav && <Nav />}
