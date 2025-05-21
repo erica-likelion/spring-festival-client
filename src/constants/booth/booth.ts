@@ -651,132 +651,106 @@ export const BOOTH_LIST = [
 export const BOOTH_LIST_LIKECOUNT = [
   {
     id: 1,
-    name: '차린건 여정도 지만',
     likeCount: 0,
   },
   {
     id: 2,
-    name: '폭싹 취EE했수다',
     likeCount: 0,
   },
   {
     id: 3,
-    name: '나는 술로',
     likeCount: 0,
   },
   {
     id: 4,
-    name: '에바레스트 산악회',
     likeCount: 0,
   },
   {
     id: 5,
-    name: '그 시절 우리가 사랑했던 수사',
     likeCount: 0,
   },
   {
     id: 6,
-    name: '냥약랜드',
     likeCount: 0,
   },
   {
     id: 7,
-    name: '백설공주와 화목한 난쟁이들',
     likeCount: 0,
   },
   {
     id: 8,
-    name: '전 어때요',
     likeCount: 0,
   },
   {
     id: 9,
-    name: 'Kㅛ통에Bㅏㅂ과 술 Oㅣㅆ어요',
     likeCount: 0,
   },
   {
     id: 10,
-    name: '마구먹고 마구마셔',
     likeCount: 0,
   },
   {
     id: 11,
-    name: '(주) 로봇산업',
     likeCount: 0,
   },
   {
     id: 12,
-    name: '시선',
     likeCount: 0,
   },
   {
     id: 13,
-    name: '냥자역학: 주량측정불가',
     likeCount: 0,
   },
   {
     id: 14,
-    name: '13주차 술체역학',
     likeCount: 0,
   },
   {
     id: 15,
-    name: '냉3 4먹으러 5것지',
     likeCount: 0,
   },
   {
     id: 16,
-    name: '그시절 캔마하(CANMAHA)',
     likeCount: 0,
   },
   {
     id: 17,
-    name: '나 지피틴데 안 추ㅣㅎㅆ다',
     likeCount: 0,
   },
   {
     id: 18,
-    name: '폭주어선',
     likeCount: 0,
   },
   {
     id: 19,
-    name: '닭치고 한 잔',
     likeCount: 0,
   },
   {
     id: 20,
-    name: '모여봐요 술꾼의 숲',
     likeCount: 0,
   },
   {
     id: 21,
-    name: "이랏'스융'마세",
     likeCount: 0,
   },
   {
     id: 22,
-    name: '홍문으로들었소',
     likeCount: 0,
   },
   {
     id: 23,
-    name: '디대는 못말려! - 오늘도 과제는 미제출?! 전설의 주점 대작전!',
     likeCount: 0,
   },
   {
     id: 24,
-    name: '응답하라 일구구산',
     likeCount: 0,
   },
   {
     id: 25,
-    name: '뭉쳐야 예체대',
     likeCount: 0,
   },
   {
     id: 26,
-    name: 'śemi ázit',
     likeCount: 0,
   },
-] as const;
+];
