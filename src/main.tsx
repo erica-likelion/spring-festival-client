@@ -23,6 +23,7 @@ import {
   LostComplete,
   MadeBy,
   Redirection,
+  LostFail,
 } from '@/pages';
 import Layout from '@/layout';
 import { handleAllowNotification } from '@/services/fcm/notificationPermission';
@@ -69,6 +70,10 @@ const routes = createBrowserRouter([
       {
         path: 'main/lost/upload/complete',
         element: <LostComplete />,
+      },
+      {
+        path: 'main/lost/upload/fail',
+        element: <LostFail />,
       },
       {
         path: 'main/lost/post/:id',
