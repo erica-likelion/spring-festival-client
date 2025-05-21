@@ -17,7 +17,6 @@ export default function LikeButton({
   left = '-1.70rem',
 }: {
   id: number;
-  like: number;
   top?: string;
   left?: string;
 }) {
