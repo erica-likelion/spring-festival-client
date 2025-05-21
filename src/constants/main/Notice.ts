@@ -457,7 +457,7 @@ export const NoticeData = [
   {
     id: 12,
     img: [notice12_0, notice12_1, notice12_2, notice12_3, notice12_4, notice12_5, notice12_6],
-    title: '사탕처럼 달콤하다는데? 미니소개팅 모집 공고_1',
+    title: '사탕처럼 달콤하다는데? 소개',
     tags: [
       { color: 'pk200', text: '공지사항' },
       { color: 'yl140', text: '콘텐츠' },

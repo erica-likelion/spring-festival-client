@@ -22,7 +22,7 @@ export default function EventCarousels() {
   const eventCardLinkMap: Record<string, string> = {
     '1': '/main/notice/14',
     '2': '/main/notice/8',
-    '3': '/main/notice/7',
+    '3': '/main/notice/12',
     '4': '/main/notice/15',
   };
   /**
