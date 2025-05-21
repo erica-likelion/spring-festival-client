@@ -4,7 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 4.37rem;
+  padding-bottom: 4.38rem;
 `;
 
 export const Title = styled.p`
