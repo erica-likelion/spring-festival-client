@@ -31,6 +31,9 @@ declare global {
       class LatLng {
         constructor(latitude: number, longitude: number);
         toString(): string;
+        getLat(): number;
+        getLng(): number;
+        equals(latlng: LatLng): boolean;
       }
 
       class LatLngBounds {
