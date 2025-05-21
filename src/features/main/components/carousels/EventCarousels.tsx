@@ -20,8 +20,10 @@ export default function EventCarousels() {
   const [[index, direction], setIndex] = useState<[number, number]>([0, 0]);
   const navigate = useNavigate();
   const eventCardLinkMap: Record<string, string> = {
+    '1': '/main/notice/14',
     '2': '/main/notice/8',
     '3': '/main/notice/7',
+    '4': '/main/notice/15',
   };
   /**
    * 슬라이더를 특정 방향으로 이동 (-1: 이전, 1: 다음)
