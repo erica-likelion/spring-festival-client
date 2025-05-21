@@ -55,7 +55,7 @@ export default function RankImageTextFrame({
             navigate(`/booth/${booth.id}`);
           }}
         />
-        <LikeButton id={id} like={Number(likeCount)} key={id + likeCount} />
+        <LikeButton id={id} key={id + likeCount} />
       </S.Wrapper>
     </S.Container>
   );
