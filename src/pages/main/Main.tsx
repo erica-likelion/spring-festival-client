@@ -31,7 +31,7 @@ export default function Main() {
         <section>
           {' '}
           <S.TitleWrapper>
-            <S.Title>진행중인 이벤트</S.Title>
+            <S.Title>진행 중인 이벤트</S.Title>
           </S.TitleWrapper>
           <S.CarouselsBox>
             <EventCarousels />

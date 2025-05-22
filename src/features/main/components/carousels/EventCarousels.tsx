@@ -6,6 +6,7 @@ import { sliderTransition, sliderVariants } from './EventCarouselsMotion.styles.
 import { Indicator } from '@/components/indicator';
 import Cursor from '@/assets/icons/cursor.svg?react';
 import { EventCard } from '../cards';
+import { useNavigate } from 'react-router-dom';
 /**
  * Carousels 컴포넌트
  * - MainEventData를 기반으로 UI를 렌더링
@@ -17,7 +18,22 @@ import { EventCard } from '../cards';
 
 export default function EventCarousels() {
   const [[index, direction], setIndex] = useState<[number, number]>([0, 0]);
-
+  const [isDragging, setIsDragging] = useState(false);
+  const navigate = useNavigate();
+  const eventCardLinkMap: Record<string, string> = {
+    '1': '/main/notice/14',
+    '2': '/main/notice/8',
+    '3': '/main/notice/12',
+    '4': '/main/notice/15',
+  };
+  const handleDragStart = () => setIsDragging(true);
+  const handleDragEndWrapper = (
+    e: MouseEvent | TouchEvent | PointerEvent,
+    info: { offset: { x: number } },
+  ) => {
+    setTimeout(() => setIsDragging(false), 50);
+    handleDragEnd(e, info);
+  };
   /**
    * 슬라이더를 특정 방향으로 이동 (-1: 이전, 1: 다음)
    * @param {number} dir - 이동 방향
@@ -97,10 +113,19 @@ export default function EventCarousels() {
                   transition={sliderTransition}
                   drag={variant === 'active' ? 'x' : false}
                   dragConstraints={{ left: 0, right: 0 }}
-                  onDragEnd={variant === 'active' ? handleDragEnd : undefined}
+                  onDragStart={handleDragStart}
+                  onDragEnd={variant === 'active' ? handleDragEndWrapper : undefined}
                   $isHidden={variant === 'hidden'}
                 >
-                  <EventCard {...card} />
+                  <EventCard
+                    {...card}
+                    onClick={() => {
+                      if (!isDragging) {
+                        const link = eventCardLinkMap[card.id];
+                        if (link) navigate(link);
+                      }
+                    }}
+                  />
                 </S.MotionCard>
               );
             })}

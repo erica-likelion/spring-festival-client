@@ -2,8 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './Menu.styles';
 import { ImageTextIconFrame } from '@/components/image-text-icon-frame';
 import { externalLinks } from '@/constants/main/ExternalLink';
-import Student from '@/assets/icons/student_logo.svg';
-import Lion from '@/assets/icons/lion_logo.svg';
+import Student from '@/assets/images/menu/ericanote.jpeg';
 import Form from '@/assets/icons/form_logo.svg';
 import Lost from '@/assets/icons/lost_logo.svg';
 import Make from '@/assets/icons/lionlove_logo.svg';
@@ -29,7 +28,7 @@ export default function Menu() {
             onClick={() => window.open(externalLinks.instagramStudent, '_blank')}
           />
           <ImageTextIconFrame
-            image={Lion}
+            image={Make}
             title="멋사 보러가볼까"
             description="멋사 인스타그램 바로가기"
             onClick={() => window.open(externalLinks.instagramLikelion, '_blank')}

@@ -6,7 +6,7 @@ export const Title = styled.h1`
 `;
 
 export const Body = styled.div`
-  ${(props) => props.theme.fonts.body.xsmall400}
+  ${(props) => props.theme.fonts.body.small400}
   text-align: start;
   white-space: pre-wrap;
 `;
