@@ -7,12 +7,20 @@ export const Container = styled.div`
   min-height: 100vh;
   align-items: center;
   padding-bottom: 16.57rem;
+  padding-top: 3.26rem;
+  gap: 3.75rem;
 `;
 
 export const Image = styled.img`
   display: flex;
-  width: 11.2961rem;
-  margin-top: 2.43rem;
+  width: 14.625rem;
+  height: 12.75rem;
+`;
+
+export const Image2 = styled.img`
+  display: flex;
+  width: 16.125rem;
+  height: 14rem;
 `;
 
 export const TextWrap = styled.div`
@@ -22,7 +30,6 @@ export const TextWrap = styled.div`
   justify-content: center;
   align-items: flex-start;
   gap: 2.375rem;
-  margin-top: 5rem;
 `;
 
 export const MainTitle = styled.p`
@@ -57,7 +64,7 @@ export const PartWrap = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 2.5rem;
-  margin-top: 3.35rem;
+  margin-top: 2.75rem;
 `;
 
 export const PartTitle = styled.p`

@@ -1,10 +1,19 @@
-import TestImage from '@/assets/images/performance/day1-newjeans.webp';
+import HS from '@/assets/images/madeby/hs_1.svg?url';
+import JM from '@/assets/images/madeby/jm_1.svg?url';
+import HJ from '@/assets/images/madeby/hj_1.svg?url';
+import SY from '@/assets/images/madeby/sy_1.svg?url';
+import SG from '@/assets/images/madeby/sge_1.svg?url';
+import LG from '@/assets/images/madeby/lge_1.svg?url';
+import JW from '@/assets/images/madeby/jw_1.svg?url';
+import SH from '@/assets/images/madeby/sh_1.svg?url';
+import SM from '@/assets/images/madeby/sm_1.svg?url';
+import JH from '@/assets/images/madeby/jh_1.svg?url';
 
 export const allMembers = [
   // 기획&디자인
   {
     part: '기획&디자인',
-    image: { TestImage },
+    image: HS as string,
     label: 'PL',
     backgroundColor: 'rd500',
     name: '송현서',
@@ -12,7 +21,7 @@ export const allMembers = [
   },
   {
     part: '기획&디자인',
-    image: { TestImage },
+    image: JM as string,
     label: 'PE',
     backgroundColor: 'pk200',
     name: '정재민',
@@ -20,7 +29,7 @@ export const allMembers = [
   },
   {
     part: '기획&디자인',
-    image: { TestImage },
+    image: HJ as string,
     label: 'PA',
     backgroundColor: 'bl400',
     name: '윤현주',
@@ -30,7 +39,7 @@ export const allMembers = [
   // 프론트
   {
     part: '프론트',
-    image: { TestImage },
+    image: SY as string,
     label: 'PL',
     backgroundColor: 'rd500',
     name: '김세현',
@@ -38,7 +47,7 @@ export const allMembers = [
   },
   {
     part: '프론트',
-    image: { TestImage },
+    image: SG as string,
     label: 'PE',
     backgroundColor: 'pk200',
     name: '송가은',
@@ -46,7 +55,7 @@ export const allMembers = [
   },
   {
     part: '프론트',
-    image: { TestImage },
+    image: LG as string,
     label: 'PE',
     backgroundColor: 'pk200',
     name: '이가은',
@@ -54,7 +63,7 @@ export const allMembers = [
   },
   {
     part: '프론트',
-    image: { TestImage },
+    image: JW as string,
     label: 'PM',
     backgroundColor: 'bl400',
     name: '이종원',
@@ -62,7 +71,7 @@ export const allMembers = [
   },
   {
     part: '프론트',
-    image: { TestImage },
+    image: SH as string,
     label: 'PE',
     backgroundColor: 'pk200',
     name: '김선후',
@@ -72,7 +81,7 @@ export const allMembers = [
   // 백엔드
   {
     part: '백엔드',
-    image: { TestImage },
+    image: SM as string,
     label: 'PL',
     backgroundColor: 'rd500',
     name: '김승민',
@@ -80,7 +89,7 @@ export const allMembers = [
   },
   {
     part: '백엔드',
-    image: { TestImage },
+    image: JH as string,
     label: 'PE',
     backgroundColor: 'pk200',
     name: '송재현',

@@ -20,11 +20,22 @@ export const Wrap = styled.div`
   gap: 1rem;
 `;
 
-export const Image = styled.img`
+export const ImageBox = styled.div`
   width: 4rem;
   height: 4rem;
+  border-radius: 4rem;
+  display: flex;
+  overflow: hidden;
+  background-color: ${(props) => props.theme.colors.grayScale.offwhite};
+  justify-content: flex-end;
+  border: none;
+  align-items: center;
+`;
+
+export const Image = styled.img`
+  width: 100%;
+  height: 100%;
   aspect-ratio: 1/1;
-  border-radius: 50%;
 `;
 
 export const TextWrap = styled.div`
