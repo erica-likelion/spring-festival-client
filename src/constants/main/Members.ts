@@ -75,7 +75,7 @@ export const allMembers = [
     label: 'PE',
     backgroundColor: 'pk200',
     name: '김선후',
-    description: '지도계의 감다살,\n풀스텍 개발자',
+    description: '지도계의 감다살,\n풀스택 개발자',
   },
 
   // 백엔드
