@@ -1,5 +1,4 @@
 import { getToken } from 'firebase/messaging';
-
 import { messaging } from '@/services/fcm/firebase';
 import { sendToken } from '@/services/alarm';
 
@@ -7,7 +6,7 @@ export async function handleAllowNotification() {
   try {
     console.log('푸시 알림 권한 요청');
     const permission = await Notification.requestPermission();
-    if (permission === 'granted') {
+    if (permission === 'granted' && localStorage.getItem('deviceToken') === null) {
       const token = await getToken(messaging, {
         vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY,
       });
