@@ -132,7 +132,7 @@ export default function Carousel({ data }: CarouselProps) {
           <S.TimeText fade={textFade}>{currentSinger.time}</S.TimeText>
         </S.TimeBox>
         <S.AlertBox>
-          <PerformanceAlert id={currentSinger.id} />
+          <PerformanceAlert id={currentSinger.fcm_singer} />
         </S.AlertBox>
       </S.SingerTimeWrap>
     </S.Container>

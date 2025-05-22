@@ -25,10 +25,34 @@ export const Wrapper = styled.div`
 
 export const Rank = styled.div`
   width: 1.75rem;
+  height: 3.88rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
+`;
+
+export const RankFrame = styled.div`
+  display: flex;
+  width: 1.75rem;
   justify-content: center;
+  align-items: center;
+  gap: 0.0625rem;
+`;
+
+export const DrawText = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall500};
+  color: ${(props) => props.theme.colors.primary.bl400};
+`;
+
+export const DownText = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall500};
+  color: ${(props) => props.theme.colors.secondary.rd500};
+`;
+
+export const UpText = styled.p`
+  ${(props) => props.theme.fonts.body.xsmall500};
+  color: ${(props) => props.theme.colors.secondary.gr500};
 `;
 
 export const RankNumber = styled.p`

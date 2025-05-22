@@ -1,3 +1,4 @@
+import { logout } from '@/services/login';
 import axios from 'axios';
 
 const axiosInstance = axios.create({
@@ -29,12 +30,11 @@ axiosInstance.interceptors.response.use(
     const originalRequest = error.config;
 
     // access token 만료 시도 감지
-    if (error.response?.status === 406) {
+    if (error.response?.status === 406 && !originalRequest._retry) {
       originalRequest._retry = true;
       try {
         const refreshResponse = await axiosInstance.post('/auth/refresh');
         const newAccessToken = refreshResponse.headers['authorization']?.replace('Bearer ', '');
-
         if (newAccessToken) {
           localStorage.setItem('access_token', newAccessToken);
           originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`;
@@ -42,7 +42,7 @@ axiosInstance.interceptors.response.use(
         }
       } catch (refreshError) {
         console.error('토큰 갱신 실패', refreshError);
-        localStorage.removeItem('access_token');
+        await logout();
         window.location.href = '/login';
       }
     }

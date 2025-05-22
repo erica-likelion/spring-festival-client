@@ -65,30 +65,45 @@ export const TitleWrap = styled.div`
   gap: 0.25rem;
   width: 100%;
   overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+  min-width: 0;
 `;
+
+// Title:
+// max-width: 8.8125rem 유지
+// flex: 0 1 auto 추가 (grow: 0, shrink: 1, basis: auto)
+// grow: 0 - 여분의 공간이 있어도 늘어나지 않음
+// shrink: 1 - 공간이 부족할 때 줄어들 수 있음
+// basis: auto - 컨텐츠 크기를 기본으로 함
+
+// SubTitle:
+// flex: 0 0 auto 설정 (grow: 0, shrink: 0, basis: auto)
+// grow: 0 - 여분의 공간이 있어도 늘어나지 않음
+// shrink: 0 - 공간이 부족해도 줄어들지 않음
+// basis: auto - 컨텐츠 크기를 기본으로 함
 
 export const Title = styled.p`
   ${(props) => props.theme.fonts.header.h4}
   color: ${(props) => props.theme.colors.grayScale.white};
+  max-width: 8.8125rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  min-width: 0;
+  flex: 0 1 auto;
 `;
 
 export const TitleDivider = styled.div`
   width: 0.063rem;
   height: 1rem;
   background-color: ${(props) => props.theme.colors.grayScale.gy800};
+  flex-shrink: 0;
 `;
 
 export const SubTitle = styled.span`
   ${(props) => props.theme.fonts.body.medium400}
   color: ${(props) => props.theme.colors.grayScale.gy700};
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  flex: 0 0 auto;
 `;
 
 export const ContentsFooter = styled.div`

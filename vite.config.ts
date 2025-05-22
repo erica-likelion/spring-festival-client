@@ -10,6 +10,9 @@ export default defineConfig({
   server: {
     port: 8080,
   },
+  preview: {
+    port: 8080,
+  },
   plugins: [
     react(),
     svgr({
@@ -45,12 +48,12 @@ export default defineConfig({
       },
 
       manifest: {
-        name: 'likelion-spring-festival',
-        short_name: 'likelion-spring-festival',
+        name: 'ESPERO:HYLIGHT 2025',
+        short_name: 'ESPERO:HYLIGHT',
         description: 'HYU-ERICA 2025 spring festival application',
         theme_color: '#17171B',
         background_color: '#17171B',
-        start_url: '.',
+        start_url: '/',
         display: 'standalone',
         display_override: ['window-controls-overlay', 'standalone'],
         orientation: 'portrait',

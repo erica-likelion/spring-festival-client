@@ -2,6 +2,7 @@ import * as S from './Alert.styles';
 import AlertIcon from '@/assets/icons/alert.svg?react';
 import AlertFillIcon from '@/assets/icons/alert-filled.svg?react';
 import { useAlarmStore } from '../stores/useAlarmStore';
+import { registerArtistAlarm } from '@/services/alarm';
 /**
  * @component OpenAlert
  * @description 오픈 알림 버튼
@@ -45,11 +46,21 @@ export function OpenAlert() {
 export function PerformanceAlert({ id }: { id: string }) {
   const { getPerformanceAlarm, setPerformanceAlarm } = useAlarmStore();
   const isAlarm = getPerformanceAlarm(id);
+
+  const handleClick = async () => {
+    const next = !isAlarm;
+    try {
+      if (next) {
+        await registerArtistAlarm(id);
+      }
+    } catch (err) {
+      console.error('알림 등록 실패', err);
+    }
+    setPerformanceAlarm(id, next);
+  };
+
   return (
-    <S.Button
-      whileTap={{ scale: 0.9, backgroundColor: '#212526' }}
-      onClick={() => setPerformanceAlarm(id, !isAlarm)}
-    >
+    <S.Button whileTap={{ scale: 0.9, backgroundColor: '#212526' }} onClick={() => handleClick()}>
       {isAlarm ? (
         <AlertFillIcon width={'1rem'} height={'1rem'} />
       ) : (
@@ -73,6 +84,7 @@ export function PerformanceAlert({ id }: { id: string }) {
 export function PerformanceIconAlert({ id }: { id: string }) {
   const { getPerformanceAlarm, setPerformanceAlarm } = useAlarmStore();
   const isAlarm = getPerformanceAlarm(id);
+
   return (
     <S.IconButton whileTap={{ scale: 0.9 }} onClick={() => setPerformanceAlarm(id, !isAlarm)}>
       {isAlarm ? (

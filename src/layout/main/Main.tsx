@@ -9,7 +9,7 @@ export default function Main({ children }: { children: React.ReactNode }) {
       key={locate.pathname}
       initial={S.getAnimation('center').initial}
       animate={S.getAnimation('center').animate}
-      transition={{ duration: 0.4, ease: easeInOut }}
+      transition={{ duration: 0.2, ease: easeInOut }}
     >
       {children}
     </S.Main>

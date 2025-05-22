@@ -43,6 +43,13 @@ export const Input = styled.input`
   align-self: stretch;
   border-radius: 0.75rem;
   border: 1px solid ${(props) => props.theme.colors.grayScale.gy600};
+  ${(props) => props.theme.fonts.body.small400};
+  background-color: transparent;
+  color: ${(props) => props.theme.colors.grayScale.white};
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.grayScale.gy400};
+  }
 `;
 
 export const StaffBox = styled.div`
@@ -101,6 +108,13 @@ export const DescriptionInput = styled.textarea`
   align-self: stretch;
   border-radius: 0.75rem;
   border: 1px solid ${(props) => props.theme.colors.grayScale.gy600};
+  ${(props) => props.theme.fonts.body.small400};
+  background-color: transparent;
+  color: ${(props) => props.theme.colors.grayScale.white};
+
+  &::placeholder {
+    color: ${(props) => props.theme.colors.grayScale.gy400};
+  }
 `;
 
 export const CheckWrap = styled.div`
