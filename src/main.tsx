@@ -139,14 +139,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
-    /**navigator.serviceWorker
+    navigator.serviceWorker
       .register('/sw.js')
       .then((registration) => {
         console.log('✅ PWA 서비스워커 등록 완료:', registration);
       })
       .catch((err) => {
         console.error('❌ PWA 서비스워커 등록 실패:', err);
-      });**/
+      });
     navigator.serviceWorker
       .register('/firebase-messaging-sw.js')
       .then((registration) => {
