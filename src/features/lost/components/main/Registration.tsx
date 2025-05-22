@@ -14,7 +14,11 @@ import { useAuthStore } from '@/stores/useAuthStore';
 export default function Registration() {
   const loginStatus = useAuthStore((state) => state.isLoggedIn);
   const modalPost = useModal(ModalPost);
-  const loginModal = useModal(LoginModal);
+  const loginModalContent = LoginModal as React.ComponentType<{
+    close?: () => void;
+    title: string;
+  }>;
+  const loginModal = useModal(loginModalContent);
 
   const handleAddClick = () => {
     if (loginStatus) {
@@ -30,6 +34,9 @@ export default function Registration() {
       loginModal.open(
         {
           title: '로그인',
+          close: () => {
+            loginModal.close();
+          },
         },
         {
           isHelpIcon: false,

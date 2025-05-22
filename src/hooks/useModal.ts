@@ -45,7 +45,7 @@ export default function useModal<T extends { title: string }>(Component: React.C
       const validKey =
         typeof options?.key === 'string' || typeof options?.key === 'number' ? options.key : key;
 
-      closeModal({ key: validKey, clearTime: 3000 });
+      closeModal({ key: validKey, clearTime: 0 });
     },
     [closeModal, key],
   );
