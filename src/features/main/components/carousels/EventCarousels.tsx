@@ -18,12 +18,21 @@ import { useNavigate } from 'react-router-dom';
 
 export default function EventCarousels() {
   const [[index, direction], setIndex] = useState<[number, number]>([0, 0]);
+  const [isDragging, setIsDragging] = useState(false);
   const navigate = useNavigate();
   const eventCardLinkMap: Record<string, string> = {
     '1': '/main/notice/14',
     '2': '/main/notice/8',
     '3': '/main/notice/12',
     '4': '/main/notice/15',
+  };
+  const handleDragStart = () => setIsDragging(true);
+  const handleDragEndWrapper = (
+    e: MouseEvent | TouchEvent | PointerEvent,
+    info: { offset: { x: number } },
+  ) => {
+    setTimeout(() => setIsDragging(false), 50);
+    handleDragEnd(e, info);
   };
   /**
    * 슬라이더를 특정 방향으로 이동 (-1: 이전, 1: 다음)
@@ -104,14 +113,17 @@ export default function EventCarousels() {
                   transition={sliderTransition}
                   drag={variant === 'active' ? 'x' : false}
                   dragConstraints={{ left: 0, right: 0 }}
-                  onDragEnd={variant === 'active' ? handleDragEnd : undefined}
+                  onDragStart={handleDragStart}
+                  onDragEnd={variant === 'active' ? handleDragEndWrapper : undefined}
                   $isHidden={variant === 'hidden'}
                 >
                   <EventCard
                     {...card}
                     onClick={() => {
-                      const link = eventCardLinkMap[card.id];
-                      if (link) navigate(link);
+                      if (!isDragging) {
+                        const link = eventCardLinkMap[card.id];
+                        if (link) navigate(link);
+                      }
                     }}
                   />
                 </S.MotionCard>
