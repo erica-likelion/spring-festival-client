@@ -352,7 +352,7 @@ export function useKakaoMap(
           map,
           position,
           selectedCategory,
-          isSelected ? location.name : '', // 선택된 마커만 라벨 표시
+          selectedCategory === '주점' ? (isSelected ? location.name : '') : location.name, // 주점만 선택시에 라벨 표시, 나머지는 항상 표시
           () => {
             const mapData = MapData[selectedCategory].find(
               (item: MapDataItem) => item.lat === location.lat && item.lng === location.lng,
@@ -443,7 +443,7 @@ export function useKakaoMap(
         kakaoMapRef.current as kakao.maps.Map,
         position,
         selectedCategory,
-        '', // 초기에는 라벨 없이 표시
+        selectedCategory === '주점' ? '' : location.name, // 주점이 아닌 경우에는 항상 라벨 표시
         () => {
           // 마커 클릭 시 실행될 함수
           console.log(`[KakaoMap] 마커 클릭: ${location.name}`);
@@ -529,6 +529,7 @@ const createCustomMarker = (
 ) => {
   // 카테고리에 맞는 아이콘 URL 가져오기
   const iconUrl = markerIcons[category];
+  const shouldShowLabel = category === '주점' ? isSelected : true;
   const content = `
     <div style="position: absolute; display: flex; flex-direction: column; align-items: center; width: 80px; left: 0; top: 0; transform: ${isSelected ? 'translate(-50%, calc(-3.66rem))' : 'translate(-50%, calc(-2.5rem))'};">
       <img src="${iconUrl}" alt="${category}" 
@@ -556,7 +557,7 @@ const createCustomMarker = (
                             overflow: hidden; 
                             text-overflow: ellipsis; 
                             pointer-events: auto; 
-                            display: ${isSelected ? 'inline-block' : 'none'}; 
+                            display: ${shouldShowLabel ? 'inline-block' : 'none'}; 
                             position: relative; 
                             z-index: 2000; 
                             text-shadow: 0 0 1px #fff, 0 0 2px #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px 0 #fff, -1px -1px 0 #fff;">
