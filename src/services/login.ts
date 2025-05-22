@@ -12,10 +12,10 @@ export const login = async (code: string) => {
     );
     const accessToken = response.headers['authorization']?.replace('Bearer ', '');
     if (accessToken) {
-      localStorage.setItem('access_token', accessToken);
+      await localStorage.setItem('access_token', accessToken);
       useWaitingStore.getState().loadWaitings();
       useAuthStore.getState().setLoggedIn(true); // 전역 상태 갱신
-      handleAllowNotification();
+      await handleAllowNotification();
       return true;
     } else {
       console.error('access token 없음');
