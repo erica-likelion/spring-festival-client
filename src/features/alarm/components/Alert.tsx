@@ -2,7 +2,7 @@ import * as S from './Alert.styles';
 import AlertIcon from '@/assets/icons/alert.svg?react';
 import AlertFillIcon from '@/assets/icons/alert-filled.svg?react';
 import { useAlarmStore } from '../stores/useAlarmStore';
-import { registerArtistAlarm } from '@/services/alarm';
+import { registerArtistAlarm, releaseArtistAlarm } from '@/services/alarm';
 /**
  * @component OpenAlert
  * @description 오픈 알림 버튼
@@ -52,9 +52,11 @@ export function PerformanceAlert({ id }: { id: string }) {
     try {
       if (next) {
         await registerArtistAlarm(id);
+      } else {
+        await releaseArtistAlarm(id);
       }
     } catch (err) {
-      console.error('알림 등록 실패', err);
+      console.error('알림 등록/해제 실패', err);
     }
     setPerformanceAlarm(id, next);
   };

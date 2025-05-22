@@ -25,9 +25,15 @@ export const useAlarmStore = create(
       performanceAlarm: [], // 공연 알림 목록 추가 시 default 값 변경
       setBoothAlarm: (isAlarm) => set({ boothAlarm: isAlarm }),
       setPerformanceAlarm: (id, isAlarm) =>
-        set((state) => ({
-          performanceAlarm: [...state.performanceAlarm, { id, isAlarm: isAlarm }],
-        })),
+        set((state) => {
+          const updated = state.performanceAlarm.some((alarm) => alarm.id === id)
+            ? state.performanceAlarm.map((alarm) =>
+                alarm.id === id ? { ...alarm, isAlarm } : alarm,
+              )
+            : [...state.performanceAlarm, { id, isAlarm }];
+
+          return { performanceAlarm: updated };
+        }),
       getPerformanceAlarm: (id) =>
         get().performanceAlarm.find((alarm) => alarm.id === id)?.isAlarm ?? false,
     }),
