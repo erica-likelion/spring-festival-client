@@ -62,7 +62,7 @@ export default function ImageTextFrameWithTime({
         </S.TitleWrap>
         <S.ContentsFooter>
           <S.TimeWrap>
-            <TimeIcon width={`1.25rem`} height={`1.25rem`} />
+            <TimeIcon width={`1.25rem`} height={`1.25rem`} fill="#FAFAFA" />
             <S.Time>{time}</S.Time>
           </S.TimeWrap>
           {path && <S.LinkToDetail onClick={handleDetailClick}>상세보기</S.LinkToDetail>}
