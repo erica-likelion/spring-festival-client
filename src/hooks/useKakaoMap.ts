@@ -16,6 +16,19 @@ export function useKakaoMap(
   const kakaoMapRef = useRef<kakao.maps.Map | null>(null);
   const myLocationMarkerRef = useRef<kakao.maps.Marker | null>(null);
   const customOverlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
+
+  // 지도 크기가 변경될 때 relayout 호출
+  useEffect(() => {
+    const map = kakaoMapRef.current;
+    if (!map) return;
+
+    // 바텀시트 애니메이션 완료 후에 relayout 호출
+    const timeoutId = setTimeout(() => {
+      map.relayout();
+    }, 300);
+
+    return () => clearTimeout(timeoutId);
+  }, [options.isBottomSheetOpen]);
   const [mapLoaded, setMapLoaded] = useState<boolean>(false);
   const [scriptLoaded, setScriptLoaded] = useState<boolean>(false);
   // 선택된 개별 항목의 마커를 위한 상태
@@ -382,12 +395,24 @@ export function useKakaoMap(
     [selectedCategory, selectedDay],
   );
 
+  // 지도 크기 변경 감지 및 리사이즈
+  useEffect(() => {
+    const map = kakaoMapRef.current;
+    if (!map) return;
+
+    // 지도 크기가 변경될 때마다 relayout 호출
+    map.relayout();
+  }, [options]);
+
   // 카테고리별 마커 추가
   useEffect(() => {
     // 지도가 로드되지 않은 경우 처리하지 않음
     if (!kakaoMapRef.current) {
       return;
     }
+
+    // MapWrapper 크기 변경 인식을 위한 relayout 호출
+    kakaoMapRef.current.relayout();
 
     // 카테고리가 선택되지 않은 경우 (null) 기존 마커 모두 제거
     if (!selectedCategory) {
@@ -472,8 +497,15 @@ export function useKakaoMap(
 
     // 표시할 마커가 있는 경우에만 지도 이동
     if (hasVisibleMarkers) {
-      // 모든 마커가 보이도록 지도 이동 및 확대/축소
-      kakaoMapRef.current.setBounds(bounds);
+      // MapWrapper 크기 변경이 완료될 때까지 대기
+      setTimeout(() => {
+        // 패딩 값 설정 (픽셀 단위)
+        const padding = 50;
+
+        // bounds 영역이 모두 보이도록 지도 이동 (자동으로 최적의 줌 레벨 계산)
+        kakaoMapRef.current?.relayout(); // 현재 크기 재계산
+        kakaoMapRef.current?.setBounds(bounds, padding);
+      }, 100); // 애니메이션 시작 후 약간의 지연을 두어 크기 변경이 완료되도록 함
     }
   }, [selectedCategory, selectedDay, showItemMarker]);
 
