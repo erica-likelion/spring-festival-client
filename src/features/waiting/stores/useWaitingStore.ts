@@ -5,8 +5,8 @@ import {
   getWaitingsDB,
   deleteWaitingsDB,
   clearWaitingsDB,
-} from '@/services/waiting.db';
-import { getWaitings, deleteWaitings } from '@/services/waiting';
+} from '@/services/waiting/waiting.db';
+import { getWaitings, deleteWaitings } from '@/services/waiting/waiting';
 
 interface WaitingStore {
   waitings: UserWaitingType[];

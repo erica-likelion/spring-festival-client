@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { useModalStore } from '@/stores/useModalStore';
 import * as S from './WaitingModal.styles';
 import { BlueButton } from '@/components/bluebuttons';
-import { postWaiting } from '@/services/waiting';
+import { postWaiting } from '@/services/waiting/waiting';
 import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
 import { useNavigate } from 'react-router-dom';
 
