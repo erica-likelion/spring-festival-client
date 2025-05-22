@@ -4,10 +4,15 @@ import { NavBar } from '@/components/nav-bar';
 import { Notification } from '@/components/notification';
 import { RefreshButton } from '@/components/refresh-button';
 import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
+import { useAuthStore } from '@/stores/useAuthStore';
+import { Navigate } from 'react-router-dom';
 
 export default function User() {
+  const isLoggined = useAuthStore((state) => state.isLoggedIn);
   const waitings = useWaitingStore((state) => state.waitings);
   const loadWaitings = useWaitingStore((state) => state.loadWaitings);
+
+  if (!isLoggined) return <Navigate to="/login" />;
   if (waitings.length === 0) return <NoWaiting />;
   return (
     <S.Container>

@@ -54,3 +54,29 @@ export const ModalCloseBtn = styled(CloseBtn)`
   align-items: center;
   cursor: pointer;
 `;
+
+export const Content = styled.div`
+  padding: 1.25rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+`;
+
+export const ModalText = styled.span`
+  ${(props) => props.theme.fonts.body.medium500};
+  color: ${(props) => props.theme.colors.grayScale.white};
+  text-align: center;
+`;
+
+export const CancelButton = styled.button`
+  background-color: transparent;
+  border: none;
+  color: ${(props) => props.theme.colors.grayScale.gy500};
+  ${(props) => props.theme.fonts.body.xsmall500};
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+`;

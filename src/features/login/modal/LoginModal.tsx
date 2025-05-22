@@ -2,11 +2,12 @@ import { BlueButton } from '@/components/bluebuttons';
 import { useNavigate } from 'react-router-dom';
 import * as S from './LoginModal.style';
 
-const LoginModal = () => {
+const LoginModal = ({ close }: { close?: () => void }) => {
   const navigate = useNavigate();
 
   const handleLoginClick = () => {
     navigate('/login');
+    close?.();
   };
 
   return (
@@ -19,7 +20,7 @@ const LoginModal = () => {
         기능들을 모두 이용해보세요!
       </S.Description2>
       <BlueButton label="로그인 하러가기" onClick={handleLoginClick} />
-      <S.SubText>불편해도 그냥 이용하기</S.SubText>
+      <S.SubText onClick={() => close?.()}>불편해도 그냥 이용하기</S.SubText>
     </S.ModalBox>
   );
 };
