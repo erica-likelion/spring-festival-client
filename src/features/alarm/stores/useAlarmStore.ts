@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
 
 interface AlarmStateType {
   boothAlarm: boolean;
@@ -17,12 +18,21 @@ interface AlarmActionType {
  * @param {AlarmActionType} actions 알림 액션 타입
  * @returns {AlarmStateType & AlarmActionType} 알림 상태 타입과 액션 타입을 반환
  */
-export const useAlarmStore = create<AlarmStateType & AlarmActionType>((set, get) => ({
-  boothAlarm: false,
-  performanceAlarm: [], // 공연 알림 목록 추가 시 default 값 변경
-  setBoothAlarm: (isAlarm) => set({ boothAlarm: isAlarm }),
-  setPerformanceAlarm: (id, isAlarm) =>
-    set((state) => ({ performanceAlarm: [...state.performanceAlarm, { id, isAlarm: isAlarm }] })),
-  getPerformanceAlarm: (id) =>
-    get().performanceAlarm.find((alarm) => alarm.id === id)?.isAlarm ?? false,
-}));
+export const useAlarmStore = create(
+  persist<AlarmStateType & AlarmActionType>(
+    (set, get) => ({
+      boothAlarm: false,
+      performanceAlarm: [], // 공연 알림 목록 추가 시 default 값 변경
+      setBoothAlarm: (isAlarm) => set({ boothAlarm: isAlarm }),
+      setPerformanceAlarm: (id, isAlarm) =>
+        set((state) => ({
+          performanceAlarm: [...state.performanceAlarm, { id, isAlarm: isAlarm }],
+        })),
+      getPerformanceAlarm: (id) =>
+        get().performanceAlarm.find((alarm) => alarm.id === id)?.isAlarm ?? false,
+    }),
+    {
+      name: 'alarm-storage', // 스토리지 이름
+    },
+  ),
+);
