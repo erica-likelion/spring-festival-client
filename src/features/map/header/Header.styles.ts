@@ -4,6 +4,24 @@ interface HeaderProps {
   $expanded: boolean;
 }
 
+export const BackButton = styled.button<{ $visible: boolean }>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  opacity: ${(props) => (props.$visible ? '1' : '0')};
+  visibility: ${(props) => (props.$visible ? 'visible' : 'hidden')};
+  transition:
+    opacity 0.2s ease-in-out,
+    visibility 0.2s ease-in-out;
+
+  svg {
+    transform: rotate(90deg);
+  }
+`;
+
 export const Container = styled.div<HeaderProps>`
   display: flex;
   flex-direction: column;

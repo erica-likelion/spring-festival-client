@@ -24,6 +24,7 @@ export default function Map() {
   const [selectedDay, setSelectedDay] = useState<DAYS>(currentDay);
   const [selectedCategory, setSelectedCategory] = useState<CATEGORIES | null>(null);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState<boolean>(false);
+  const [backButtonVisible, setBackButtonVisible] = useState<boolean>(false);
 
   // 카카오맵 커스텀 훅 사용
   const { moveToCurrentLocation, showItemMarker, kakaoMap } = useKakaoMap(
@@ -92,6 +93,15 @@ export default function Map() {
     setSelectedCategory(null);
   }, [selectedDay]);
 
+  // 카테고리나 아이템 선택되어있으면 뒤로가기 버튼 활성화
+  useEffect(() => {
+    if (selectedCategory) {
+      setBackButtonVisible(true);
+    } else {
+      setBackButtonVisible(false);
+    }
+  }, [selectedCategory]);
+
   // 헤더 핸들러
   const handleDayChange = (day: DAYS) => {
     setSelectedDay(day);
@@ -140,6 +150,17 @@ export default function Map() {
     }, 1000);
   };
 
+  // 뒤로가기 버튼 핸들러
+  const handleBackButtonClick = () => {
+    // 카테고리가 선택된 상태에서 뒤로가기 버튼 클릭 시
+    if (selectedCategory) {
+      setSelectedCategory(null); // 카테고리 초기화
+      setIsBottomSheetOpen(false); // 바텀시트 닫기
+      setBackButtonVisible(false); // 뒤로가기 버튼 숨기기
+      return;
+    }
+  };
+
   console.log('[지도] MapPage 컴포넌트가 렌더링되었습니다.');
 
   return (
@@ -162,6 +183,8 @@ export default function Map() {
           onExpandToggle={handleHeaderToggle}
           showCategory={showCategory}
           onExpandChange={handleHeaderExpandChange}
+          isBackVisible={backButtonVisible} // 뒤로가기 버튼 표시 여부
+          onBackButtonClick={handleBackButtonClick} // 뒤로가기 버튼 핸들러 추가
         />
         {isBottomSheetOpen && (
           <MapPageBottomSheet
