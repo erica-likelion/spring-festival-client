@@ -1,8 +1,5 @@
 // 카테고리별 마커 아이콘 유틸리티
 import { CATEGORIES } from '@/constants/map';
-import { MarkerContainer, MarkerIcon, MarkerLabel } from '@/styles/marker.styles';
-import { createElement } from 'react';
-import { createRoot } from 'react-dom/client';
 import MyLocationIcon from '@/assets/icons/my-location.svg';
 import MarkerPub from '@/assets/icons/marker-pub.svg';
 import MarkerLiquorStore from '@/assets/icons/marker-liquorstore.svg';
@@ -65,62 +62,33 @@ export function getCategoryMarkerImage(
  * @param category 카테고리명 또는 'myLocation'
  * @param text 표시할 텍스트
  * @param onClick 클릭 이벤트 핸들러 (선택적)
+ * @param isSelected 선택 상태 (기본값: false)
  * @returns 생성된 커스텀 오버레이
  */
-export function createMarkerWithLabel(
-  map: kakao.maps.Map,
+export const createMarkerWithLabel = (
+  _map: kakao.maps.Map, // 사용하지 않는 매개변수이므로 _ 접두사 추가
   position: kakao.maps.LatLng,
-  category: CATEGORIES | 'myLocation',
-  text: string,
+  category: CATEGORIES,
+  label: string,
   onClick?: () => void,
-): kakao.maps.CustomOverlay {
-  // 마커 아이콘 URL 가져오기
+  isSelected: boolean = false,
+) => {
   const iconUrl = markerIcons[category];
+  const content = `
+    <div class="marker-wrapper" data-is-selected="${isSelected}">
+      <img class="marker-icon" src="${iconUrl}" alt="${category}" />
+      ${label ? `<div class="marker-label">${label}</div>` : ''}
+    </div>
+  `;
 
-  // React 컴포넌트로 마커 생성
-  const container = document.createElement('div');
-
-  // 마커 React 컴포넌트 렌더링
-  const root = createRoot(container);
-  root.render(
-    createElement(
-      MarkerContainer,
-      {
-        onClick: onClick
-          ? (e) => {
-              e.preventDefault();
-              e.stopPropagation();
-              onClick();
-            }
-          : undefined,
-        style: onClick ? { cursor: 'pointer' } : undefined,
-        $isSelected: !!onClick, // 개별 선택된 항목에만 onClick이 있으므로, 이를 기준으로 isSelected 결정
-      },
-      [
-        createElement(MarkerIcon, {
-          key: 'icon',
-          src: iconUrl,
-          alt: `${category} 마커`,
-          $isSelected: !!onClick, // 마찬가지로 개별 선택된 항목만 크게 표시
-        }),
-        createElement(
-          MarkerLabel,
-          {
-            key: 'label',
-          },
-          text,
-        ),
-      ],
-    ),
-  );
-
-  // 커스텀 오버레이 생성
-  const customOverlay = new kakao.maps.CustomOverlay({
-    position: position,
-    content: container,
-    map: map,
-    yAnchor: 0.4, // 마커 아이콘 하단이 좌표에 위치하도록 조정된 값
+  const overlay = new kakao.maps.CustomOverlay({
+    position,
+    content,
   });
 
-  return customOverlay;
-}
+  if (onClick) {
+    kakao.maps.event.addListener(overlay, 'click', onClick);
+  }
+
+  return overlay;
+};

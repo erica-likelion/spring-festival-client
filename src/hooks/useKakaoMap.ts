@@ -1,10 +1,10 @@
 import { useEffect, useRef, useCallback, useState } from 'react';
 import { KakaoMapOptions } from '@/types/kakao-maps';
-import { getCategoryMarkerImage, createMarkerWithLabel } from '@/utils/markerIcons';
+import { getCategoryMarkerImage, markerIcons } from '@/utils/markerIcons';
 import { CATEGORIES } from '@/constants/map';
 import { LOCATION_DATA } from '@/constants/map/LOC_DATA';
 import { DAYS } from '@/constants/map';
-import { MapDataItem } from '@/constants/map/MapData';
+import { MapData, MapDataItem } from '@/constants/map/MapData';
 
 export function useKakaoMap(
   options: KakaoMapOptions = {},
@@ -15,7 +15,6 @@ export function useKakaoMap(
   const internalMapRef = useRef<HTMLDivElement>(null);
   const kakaoMapRef = useRef<kakao.maps.Map | null>(null);
   const myLocationMarkerRef = useRef<kakao.maps.Marker | null>(null);
-  const markersRef = useRef<kakao.maps.Marker[]>([]);
   const customOverlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
   const [mapLoaded, setMapLoaded] = useState<boolean>(false);
   const [scriptLoaded, setScriptLoaded] = useState<boolean>(false);
@@ -304,6 +303,85 @@ export function useKakaoMap(
     }
   }, []);
 
+  // 특정 항목의 위치로 이동하고 마커를 표시하는 함수
+  const showItemMarker = useCallback(
+    (selectedItem: MapDataItem) => {
+      const map = kakaoMapRef.current;
+      if (
+        !map ||
+        !selectedItem ||
+        !selectedCategory ||
+        selectedItem.lat === undefined ||
+        selectedItem.lng === undefined
+      ) {
+        console.warn('[KakaoMap] 지도가 초기화되지 않았거나 항목에 좌표 정보가 없습니다.');
+        return;
+      }
+
+      console.log(`[KakaoMap] 항목 마커 표시: ${selectedItem.title}`);
+
+      // 선택된 마커의 위치
+      const selectedPosition = new kakao.maps.LatLng(selectedItem.lat, selectedItem.lng);
+
+      // 기존의 선택된 마커가 있다면 제거
+      if (selectedItemMarkerRef.current) {
+        selectedItemMarkerRef.current.setMap(null);
+        selectedItemMarkerRef.current = null;
+      }
+
+      // 기존의 모든 카테고리 마커를 제거
+      customOverlaysRef.current.forEach((overlay) => {
+        overlay.setMap(null);
+      });
+      customOverlaysRef.current = [];
+
+      // 먼저 모든 마커들을 생성하고 저장
+      const overlays: { overlay: kakao.maps.CustomOverlay; isSelected: boolean }[] = [];
+
+      // LOCATION_DATA에서 모든 위치를 처리
+      LOCATION_DATA[selectedCategory].forEach((location) => {
+        // closeDay에 해당되는 마커는 건너뛰기
+        if (location.closeDay && location.closeDay.includes(selectedDay)) {
+          return;
+        }
+
+        const isSelected = location.lat === selectedItem.lat && location.lng === selectedItem.lng;
+        const position = new kakao.maps.LatLng(location.lat, location.lng);
+
+        const overlay = createCustomMarker(
+          map,
+          position,
+          selectedCategory,
+          isSelected ? location.name : '', // 선택된 마커만 라벨 표시
+          () => {
+            const mapData = MapData[selectedCategory].find(
+              (item: MapDataItem) => item.lat === location.lat && item.lng === location.lng,
+            );
+            if (mapData) {
+              showItemMarker(mapData);
+            }
+          },
+          isSelected, // 선택된 마커는 큰 크기
+        );
+
+        overlays.push({ overlay, isSelected });
+      });
+
+      // 선택되지 않은 마커를 먼저 표시하고, 선택된 마커를 마지막에 표시
+      overlays.sort((a, b) => Number(a.isSelected) - Number(b.isSelected));
+
+      // 정렬된 순서대로 마커를 지도에 표시
+      overlays.forEach(({ overlay }) => {
+        overlay.setMap(map);
+        customOverlaysRef.current.push(overlay);
+      });
+
+      // 지도 중심 이동 (줌 레벨 유지)
+      kakaoMapRef.current?.setCenter(selectedPosition);
+    },
+    [selectedCategory, selectedDay],
+  );
+
   // 카테고리별 마커 추가
   useEffect(() => {
     // 지도가 로드되지 않은 경우 처리하지 않음
@@ -313,21 +391,11 @@ export function useKakaoMap(
 
     // 카테고리가 선택되지 않은 경우 (null) 기존 마커 모두 제거
     if (!selectedCategory) {
-      // 이전 마커들 제거
-      const prevMarkers = markersRef.current;
-      if (prevMarkers.length > 0) {
-        console.log(`[KakaoMap] 카테고리 선택 해제: ${prevMarkers.length}개의 마커 제거`);
-        prevMarkers.forEach((marker) => marker.setMap(null));
-        markersRef.current = [];
-      }
-
       // 이전 커스텀 오버레이 제거
-      const prevOverlays = customOverlaysRef.current;
-      if (prevOverlays.length > 0) {
-        console.log(`[KakaoMap] 카테고리 선택 해제: ${prevOverlays.length}개의 오버레이 제거`);
-        prevOverlays.forEach((overlay) => overlay.setMap(null));
-        customOverlaysRef.current = [];
-      }
+      customOverlaysRef.current.forEach((overlay) => {
+        overlay.setMap(null);
+      });
+      customOverlaysRef.current = [];
 
       // 선택된 항목 마커가 있다면 제거
       if (selectedItemMarkerRef.current) {
@@ -347,24 +415,13 @@ export function useKakaoMap(
     console.log(`[KakaoMap] '${selectedCategory}' 카테고리 마커 표시 시작`);
     const categoryData = LOCATION_DATA[selectedCategory];
 
-    // 이전 마커들 제거 로직
-    const prevMarkers = markersRef.current;
-    if (prevMarkers.length > 0) {
-      console.log(`[KakaoMap] ${prevMarkers.length}개의 이전 마커 제거`);
-      prevMarkers.forEach((marker) => marker.setMap(null));
-      markersRef.current = [];
-    }
-
     // 이전 커스텀 오버레이 제거
-    const prevOverlays = customOverlaysRef.current;
-    if (prevOverlays.length > 0) {
-      console.log(`[KakaoMap] ${prevOverlays.length}개의 이전 오버레이 제거`);
-      prevOverlays.forEach((overlay) => overlay.setMap(null));
-      customOverlaysRef.current = [];
-    }
+    customOverlaysRef.current.forEach((overlay) => {
+      overlay.setMap(null);
+    });
+    customOverlaysRef.current = [];
 
     // 새 마커 추가
-    const markers: kakao.maps.Marker[] = [];
     const overlays: kakao.maps.CustomOverlay[] = [];
     // 경계 계산을 위한 LatLngBounds 객체 생성
     const bounds = new window.kakao.maps.LatLngBounds();
@@ -381,221 +438,154 @@ export function useKakaoMap(
 
       const position = new window.kakao.maps.LatLng(location.lat, location.lng);
 
-      // 텍스트가 있는 커스텀 오버레이 생성 (마커는 생성하지 않음)
-      const overlay = createMarkerWithLabel(
+      // 텍스트가 있는 커스텀 오버레이 생성
+      const overlay = createCustomMarker(
         kakaoMapRef.current as kakao.maps.Map,
         position,
         selectedCategory,
-        location.name,
+        '', // 초기에는 라벨 없이 표시
         () => {
           // 마커 클릭 시 실행될 함수
           console.log(`[KakaoMap] 마커 클릭: ${location.name}`);
 
-          // 지도를 해당 마커 위치로 중심 이동
-          if (kakaoMapRef.current) {
-            kakaoMapRef.current.setCenter(position);
-
-            // 적당한 줌 레벨로 설정
-            const currentLevel = kakaoMapRef.current.getLevel();
-            if (currentLevel > 3) {
-              kakaoMapRef.current.setLevel(3);
-            }
+          const mapData = MapData[selectedCategory].find(
+            (item: MapDataItem) => item.lat === location.lat && item.lng === location.lng,
+          );
+          if (mapData) {
+            showItemMarker(mapData);
           }
         },
+        false, // 초기에는 작은 크기로 표시
       );
 
-      // 내부적으로는 마커 없이 오버레이만 사용하지만, bounds 계산 등을 위한 레퍼런스 유지
-      markers.push({
-        getPosition: () => position,
-        setMap: () => {}, // 더미 함수
-      } as unknown as kakao.maps.Marker);
+      // 오버레이를 지도에 표시하고 배열에 추가
+      overlay.setMap(kakaoMapRef.current);
       overlays.push(overlay);
 
-      // 경계에 위치 추가
+      // 경계 확장
       bounds.extend(position);
       hasVisibleMarkers = true;
     });
 
-    // 마커 참조 업데이트
-    markersRef.current = markers;
+    // 참조 업데이트
     customOverlaysRef.current = overlays;
 
-    // 표시할 마커가 있는 경우에만 지도 경계 조정
+    // 표시할 마커가 있는 경우에만 지도 이동
     if (hasVisibleMarkers) {
-      console.log(`[KakaoMap] ${markers.length}개의 마커에 맞게 지도 경계 조정`);
-
-      // 마커가 하나만 있는 경우 적절한 줌 레벨 설정
-      if (markers.length === 1) {
-        // 마커의 position 속성 직접 접근
-        const markerPosition = markers[0].getPosition();
-        kakaoMapRef.current.setCenter(markerPosition);
-        kakaoMapRef.current.setLevel(3); // 적절한 줌 레벨 설정
-      } else {
-        // 여러 마커가 있는 경우 모든 마커가 보이도록 경계 조정
-        // 적절한 패딩 값을 활용하여 경계 조정 (단위: 픽셀)
-        const padding = 50;
-
-        try {
-          // 계산된 경계로 지도 이동 및 줌 레벨 조정
-          kakaoMapRef.current.setBounds(bounds, padding);
-        } catch (error) {
-          // 오류 발생 시 패딩 없이 시도
-          kakaoMapRef.current.setBounds(bounds);
-          console.warn('[KakaoMap] 패딩 적용 실패, 기본 경계만 적용:', error);
-        }
-      }
-
-      // 너무 가까이 줌인되는 것을 방지하기 위한 최소 줌 레벨 설정
-      const currentLevel = kakaoMapRef.current.getLevel();
-      if (currentLevel < 2) {
-        kakaoMapRef.current.setLevel(2);
-      }
-
-      // 너무 멀리 줌아웃되는 것을 방지하기 위한 최대 줌 레벨 설정
-      if (currentLevel > 8) {
-        kakaoMapRef.current.setLevel(8);
-      }
-    } else {
-      console.log(`[KakaoMap] ${selectedCategory} 카테고리에 표시할 마커가 없습니다.`);
+      // 모든 마커가 보이도록 지도 이동 및 확대/축소
+      kakaoMapRef.current.setBounds(bounds);
     }
+  }, [selectedCategory, selectedDay, showItemMarker]);
 
-    return () => {
-      // Clean up: 모든 오버레이 제거
-      overlays.forEach((overlay) => overlay.setMap(null));
-
-      // 선택된 항목 마커도 제거
-      if (selectedItemMarkerRef.current) {
-        selectedItemMarkerRef.current.setMap(null);
-        selectedItemMarkerRef.current = null;
-      }
-    };
-  }, [selectedCategory, selectedDay]);
-
-  // 특정 항목의 위치로 이동하고 마커를 표시하는 함수
-  const showItemMarker = useCallback((item: MapDataItem) => {
-    if (!kakaoMapRef.current || !item || !item.lat || !item.lng) {
-      console.warn('[KakaoMap] 지도가 초기화되지 않았거나 항목에 좌표 정보가 없습니다.');
-      return;
-    }
-
-    console.log(`[KakaoMap] 항목 마커 표시: ${item.title}`);
-
-    // 기존 카테고리 오버레이 일시적으로 숨기기
-    customOverlaysRef.current.forEach((overlay) => overlay.setMap(null));
-
-    // 기존에 선택된 항목 마커가 있다면 제거
-    if (selectedItemMarkerRef.current) {
-      selectedItemMarkerRef.current.setMap(null);
-      selectedItemMarkerRef.current = null;
-    }
-
-    // 항목의 위치 객체 생성
-    const position = new window.kakao.maps.LatLng(item.lat, item.lng);
-
-    // 선택된 항목의 마커 생성
-    const category = item.subtitle as CATEGORIES;
-    const overlay = createMarkerWithLabel(
-      kakaoMapRef.current as kakao.maps.Map,
-      position,
-      category,
-      item.title,
-    );
-
-    // 마커 참조 저장
-    selectedItemMarkerRef.current = overlay;
-
-    // 지도를 해당 마커 위치로 중심 이동
-    kakaoMapRef.current.setCenter(position);
-
-    // 적절한 줌 레벨 설정
-    kakaoMapRef.current.setLevel(3);
-
-    return () => {
-      // 마커 제거 함수 반환
-      if (selectedItemMarkerRef.current) {
-        selectedItemMarkerRef.current.setMap(null);
-        selectedItemMarkerRef.current = null;
-      }
-
-      // 카테고리 오버레이 다시 표시
-      customOverlaysRef.current.forEach((overlay) => overlay.setMap(kakaoMapRef.current));
-    };
-  }, []);
-
-  // 지도 클릭 이벤트와 드래그 이벤트 처리
-  const setupMapClickEvents = useCallback(() => {
+  // 드래그 이벤트 처리
+  useEffect(() => {
     const map = kakaoMapRef.current;
     if (!map) return;
 
-    console.log('[KakaoMap] 지도 클릭 및 드래그 이벤트 등록');
-
-    // 드래그 시작 이벤트 핸들러
-    function handleDragStart() {
-      console.log('[KakaoMap] 드래그 시작');
+    // 드래그 시작 시
+    const handleDragStart = () => {
       isDraggingRef.current = true;
-    }
+    };
 
-    // 드래그 종료 이벤트 핸들러
-    function handleDragEnd() {
-      console.log('[KakaoMap] 드래그 종료');
-      // 약간의 지연시간 후 드래그 상태 해제
+    // 드래그 종료 시
+    const handleDragEnd = () => {
+      // 드래그 종료 후 약간의 딜레이를 두고 상태 해제
       setTimeout(() => {
         isDraggingRef.current = false;
-      }, 50);
-    }
+      }, 100);
+    };
 
-    // 지도 클릭 이벤트 핸들러
-    function handleMapClick() {
-      if (isDraggingRef.current) {
-        console.log('[KakaoMap] 드래그 후 클릭 무시');
-        return;
-      }
+    // 이벤트 리스너 등록 및 리스너 ID 저장
+    const dragStartListener = kakao.maps.event.addListener(map, 'dragstart', handleDragStart);
+    const dragEndListener = kakao.maps.event.addListener(map, 'dragend', handleDragEnd);
 
-      console.log('[KakaoMap] 지도 빈 영역 클릭');
-    }
-
-    // 이벤트 리스너 등록
-    if (window.kakao?.maps?.event) {
-      // 각 이벤트의 리스너 ID를 저장
-      const eventListeners: number[] = [];
-
-      // 새 이벤트 등록 및 ID 저장
-      eventListeners.push(window.kakao.maps.event.addListener(map, 'click', handleMapClick));
-      eventListeners.push(window.kakao.maps.event.addListener(map, 'dragstart', handleDragStart));
-      eventListeners.push(window.kakao.maps.event.addListener(map, 'dragend', handleDragEnd));
-
-      // removeListener를 위한 함수 반환
-      return () => {
-        try {
-          // 모든 등록된 이벤트 리스너 제거
-          eventListeners.forEach((listenerId) => {
-            if (window.kakao?.maps?.event) {
-              window.kakao.maps.event.removeListener(listenerId);
-            }
-          });
-        } catch (error: unknown) {
-          console.warn('[KakaoMap] 이벤트 제거 실패:', error);
-        }
-      };
-    }
-
-    // 빈 정리 함수 반환
-    return () => {};
+    // 클린업 함수
+    return () => {
+      // 각 리스너 제거
+      kakao.maps.event.removeListener(dragStartListener);
+      kakao.maps.event.removeListener(dragEndListener);
+    };
   }, []);
-
-  // 지도 이벤트 설정
-  useEffect(() => {
-    if (kakaoMapRef.current) {
-      const cleanupEvents = setupMapClickEvents();
-      return cleanupEvents;
-    }
-  }, [setupMapClickEvents]);
 
   return {
     mapRef,
-    kakaoMapRef,
+    kakaoMap: kakaoMapRef.current,
+    myLocationMarker: myLocationMarkerRef.current,
+    mapLoaded,
+    scriptLoaded,
     moveToCurrentLocation,
-    showItemMarker,
-    isMapLoaded: mapLoaded,
+    showItemMarker, // 바텀시트에서도 마커 선택 기능을 사용할 수 있도록 추가
   };
 }
+
+// 로컬에서 사용할 createCustomMarker 함수
+const createCustomMarker = (
+  _map: kakao.maps.Map, // 사용하지 않는 매개변수이므로 _ 접두사 추가
+  position: kakao.maps.LatLng,
+  category: CATEGORIES,
+  label: string,
+  onClick?: () => void,
+  isSelected: boolean = false,
+) => {
+  // 카테고리에 맞는 아이콘 URL 가져오기
+  const iconUrl = markerIcons[category];
+  const content = `
+    <div style="position: absolute; display: flex; flex-direction: column; align-items: center; width: 80px; left: 0; top: 0; transform: ${isSelected ? 'translate(-50%, calc(-3.66rem))' : 'translate(-50%, calc(-2.5rem))'};">
+      <img src="${iconUrl}" alt="${category}" 
+        style="width: ${isSelected ? '3.66rem' : '2.5rem'}; 
+               height: ${isSelected ? '3.66rem' : '2.5rem'}; 
+               flex-shrink: 0; 
+               filter: drop-shadow(0 2px 2px rgb(0 0 0 / 30%)); 
+               display: block; 
+               margin: 0 auto; 
+               position: relative; 
+               z-index: 1; 
+               pointer-events: auto; 
+               cursor: pointer;" 
+        class="marker-icon" />
+      ${
+        label
+          ? `<div style="margin-top: 6px; 
+                            padding: 0px 4px; 
+                            font-size: 12px; 
+                            font-weight: bold; 
+                            color: #333; 
+                            text-align: center; 
+                            word-break: keep-all; 
+                            white-space: nowrap; 
+                            overflow: hidden; 
+                            text-overflow: ellipsis; 
+                            pointer-events: auto; 
+                            display: ${isSelected ? 'inline-block' : 'none'}; 
+                            position: relative; 
+                            z-index: 2000; 
+                            text-shadow: 0 0 1px #fff, 0 0 2px #fff, 1px 0 0 #fff, -1px 0 0 #fff, 0 1px 0 #fff, 0 -1px 0 #fff, 1px 1px 0 #fff, -1px -1px 0 #fff;">
+                 ${label}
+               </div>`
+          : ''
+      }
+    </div>
+  `;
+
+  const overlay = new kakao.maps.CustomOverlay({
+    position,
+    content,
+    zIndex: isSelected ? 1000 : 1,
+    yAnchor: 0.5,
+  });
+
+  if (onClick) {
+    const overlayElement = overlay.getContent();
+    if (overlayElement && typeof overlayElement === 'string') {
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = overlayElement;
+      const markerIcon = tempDiv.querySelector('.marker-icon');
+      if (markerIcon) {
+        markerIcon.addEventListener('click', onClick);
+        overlay.setContent(tempDiv);
+      }
+    }
+  }
+
+  return overlay;
+};
