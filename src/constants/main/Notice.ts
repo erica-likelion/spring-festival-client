@@ -100,6 +100,43 @@ import notice15_1 from '@/assets/images/notice/notice15 (2).webp';
 import notice15_2 from '@/assets/images/notice/notice15 (3).webp';
 import notice15_3 from '@/assets/images/notice/notice15 (4).webp';
 import notice15_4 from '@/assets/images/notice/notice15 (5).webp';
+import notice16_0 from '@/assets/images/notice/notice16 (1).webp';
+import notice16_1 from '@/assets/images/notice/notice16 (2).webp';
+import notice16_2 from '@/assets/images/notice/notice16 (3).webp';
+import notice16_3 from '@/assets/images/notice/notice16 (4).webp';
+import notice16_4 from '@/assets/images/notice/notice16 (5).webp';
+import notice16_5 from '@/assets/images/notice/notice16 (6).webp';
+import notice17_0 from '@/assets/images/notice/notice17 (1).webp';
+import notice17_1 from '@/assets/images/notice/notice17 (2).webp';
+import notice17_2 from '@/assets/images/notice/notice17 (3).webp';
+import notice17_3 from '@/assets/images/notice/notice17 (4).webp';
+import notice17_4 from '@/assets/images/notice/notice17 (5).webp';
+import notice17_5 from '@/assets/images/notice/notice17 (6).webp';
+import notice17_6 from '@/assets/images/notice/notice17 (7).webp';
+import notice17_7 from '@/assets/images/notice/notice17 (8).webp';
+import notice17_8 from '@/assets/images/notice/notice17 (9).webp';
+import notice17_9 from '@/assets/images/notice/notice17 (10).webp';
+import notice17_10 from '@/assets/images/notice/notice17 (11).webp';
+import notice18_0 from '@/assets/images/notice/notice18 (1).webp';
+import notice18_1 from '@/assets/images/notice/notice18 (2).webp';
+import notice18_2 from '@/assets/images/notice/notice18 (3).webp';
+import notice18_3 from '@/assets/images/notice/notice18 (4).webp';
+import notice18_4 from '@/assets/images/notice/notice18 (5).webp';
+import notice18_5 from '@/assets/images/notice/notice18 (6).webp';
+import notice18_6 from '@/assets/images/notice/notice18 (7).webp';
+import notice18_7 from '@/assets/images/notice/notice18 (8).webp';
+import notice18_8 from '@/assets/images/notice/notice18 (9).webp';
+import notice18_9 from '@/assets/images/notice/notice18 (10).webp';
+import notice18_10 from '@/assets/images/notice/notice18 (11).webp';
+import notice19_0 from '@/assets/images/notice/notice19 (1).webp';
+import notice19_1 from '@/assets/images/notice/notice19 (2).webp';
+import notice19_2 from '@/assets/images/notice/notice19 (3).webp';
+import notice19_3 from '@/assets/images/notice/notice19 (4).webp';
+import notice19_4 from '@/assets/images/notice/notice19 (5).webp';
+import notice19_5 from '@/assets/images/notice/notice19 (6).webp';
+import notice19_6 from '@/assets/images/notice/notice19 (7).webp';
+import notice19_7 from '@/assets/images/notice/notice19 (8).webp';
+import notice19_8 from '@/assets/images/notice/notice19 (9).webp';
 
 export const NoticeData = [
   {
@@ -552,5 +589,208 @@ export const NoticeData = [
 📌문의사항
 2025 ESPERO 콘텐츠팀 카카오톡 채널
 콘텐츠 팀장 이다성 010-3127-3462`,
+  },
+  {
+    id: 16,
+    img: [notice16_0, notice16_1, notice16_2, notice16_3, notice16_4, notice16_5],
+    title: '마셔라잇(Light) 주류 구매 가이드',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'pp100', text: '주점' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO
+“ESPERO: HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하세요! 한양대학교 ERICA 2025 봄축제기획단 주점팀 마셔라잇(Light) 입니다.
+
+
+‘하이트진로‘와 ’세븐일레븐‘과 함께 하는 <🍻주류 구매 가이드🍻>를 알려 드립니다!
+
+
+📣주류 판매 위치
+학술정보관 주차장 내 마셔라잇 본부 옆 부스
+
+
+📣주류 구매 가능 시간
+2025.05.27(화) - 2025.05.29(목) 18:00 ~ 23:30
+
+
+📣주류 품목 및 가격
+(소주) 진로 640ml (PET) / 참이슬 후레쉬 640ml (PET) : 3,300원
+(맥주) 켈리 500ml (CAN) / 테라 500ml (CAN) : 2,800원
+
+
+자세한 사항은 카드뉴스를 참고해 주시기 바랍니다.
+
+
+📍문의사항
+• ESPERO_주점팀 카카오톡 채널
+• 주점팀장 김한미루 010-8237-2715
+
+
+#봄축제기획단 #2025ESPERO주점팀`,
+  },
+  {
+    id: 17,
+    img: [
+      notice17_0,
+      notice17_1,
+      notice17_2,
+      notice17_3,
+      notice17_4,
+      notice17_5,
+      notice17_6,
+      notice17_7,
+      notice17_8,
+      notice17_9,
+      notice17_10,
+    ],
+    title: '히든스타 본선 소개',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'or100', text: '공연무대' },
+    ],
+    body: `2025 한양대학교 ERICA 봄 축제
+“ESPERO:HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하십니까, 2025 한양대학교 ERICA 봄 축제 ESPERO 축제 기획단 공연무대팀입니다.🎭
+ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️로 빛나는 시간, ‘히든스타’의 본선 안내를 드립니다!
+
+
+📍 ‘히든스타’ 본선 진출자 안내
+< A조 >
+불가사리 🧡
+피카츄 💛
+다시 돌아온 러시안 룰렛 💜
+< B조 >
+마로니에 💚
+노래하는 시리 🖤
+까르보나라 🤍
+
+
+📍시상 부문 안내
+‘히든스타’에는 두 개의 시상 부문이 있습니다.
+🎙️히든싱어 상🎙️: 가장 뛰어난 가창력을 보여준 참가자에게 수여됩니다.
+⭐️히든스타 상⭐️: 정체에 대한 궁금증을 가장 많이 불러일으킨 참가자에게 수여됩니다.
+
+
+📍투표 방법 안내
+🗳 투표는 현장에서 제공되는 QR코드를 통해 참여하실 수 있습니다.
+🗳️ 학과 공지 톡 방과 총학생회 인스타그램에서도 링크를 확인하실 수 있습니다.
+
+
+※ 각 부문 투표는 1인 1회로 제한됩니다.
+※ 히든스타 투표는 히든싱어 결승 투표와 함께 마지막에 진행됩니다.
+
+
+‘히든스타’ 본선은 ESPERO:HYLIGHT 3일차, 5월 29일 (목)에 진행됩니다.
+여러분의 뜨거운 응원과 관심 부탁드립니다! 👏
+
+
+#봄축제기획단 #2025ESPERO공연무대팀`,
+  },
+  {
+    id: 18,
+    img: [
+      notice18_0,
+      notice18_1,
+      notice18_2,
+      notice18_3,
+      notice18_4,
+      notice18_5,
+      notice18_6,
+      notice18_7,
+      notice18_8,
+      notice18_9,
+      notice18_10,
+    ],
+    title: '스타라이트 본선 소개',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'or100', text: '공연무대' },
+    ],
+    body: `2025 한양대학교 ERICA 봄 축제
+“ESPERO:HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하십니까, 2025 한양대학교 ERICA 봄 축제 ESPERO 축제 기획단 공연무대팀입니다.🎭
+빛나는 무대 위 STAR⭐️로 거듭날 끼 페스티벌 ‘STARLIGHT’ 본선 진출팀과 일정을 안내드립니다!
+
+
+📍 ✨STARLIGHT✨ 본선 진출 팀 소개 및 순서
+
+
+1. 이주원 밴드
+2. HEMA
+3. 필소굿
+4. B’VIOLET D.I.V.A
+5. 클로렐라
+6. 만취
+
+
+‘STARLIGHT’ 본선은 ESPERO:HYLIGHT 2일차, 5월 28일 (수)에 진행됩니다.
+축제를 더 밝게 빛내어줄✨ 학우분들의 무대를 향해 여러분의 뜨거운 응원과 관심 부탁드립니다!🤩
+
+
+#봄축제기획단 #2025ESPERO공연무대팀`,
+  },
+  {
+    id: 19,
+    img: [
+      notice19_0,
+      notice19_1,
+      notice19_2,
+      notice19_3,
+      notice19_4,
+      notice19_5,
+      notice19_6,
+      notice19_7,
+      notice19_8,
+    ],
+    title: '2025 ESPERO:HYLIGHT 주점 소개',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'pp100', text: '주점' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO “ESPERO:HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하세요! 한양대학교ERICA 2025 봄축제기획단 주점팀 마셔라잇(Light) 입니다.
+
+
+2025년 ESPERO:HYLIGHT 🍻마셔라잇(Light)🍻을 소개합니다!
+
+
+🥂마셔라잇(Light) 운영 시간
+2025.05.27 (화) ~ 2025.05.29 (목) 18:00~00:00
+
+
+🥂마셔라잇(Light) 위치 안내
+학술정보관 옆 주차장 일대
+
+
+자세한 내용은 카드뉴스를 참고해 주시기 바랍니다.
+
+
+📍문의사항
+• ESPERO_주점팀 카카오톡 채널
+• 주점팀장 김한미루 010-8237-2715
+
+
+#봄축제기획단 #2025ESPERO주점팀`,
   },
 ];
