@@ -37,13 +37,16 @@ export const MapOverlay = styled.div<{ $headerExpanded?: boolean }>`
     background 0.3s ease;
 `;
 
-export const MapWrapper = styled.div`
+export const MapWrapper = styled.div<{ $isBottomSheetOpen?: boolean }>`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: ${(props) =>
+    props.$isBottomSheetOpen ? 'calc(100% - 260px)' : '100%'}; /* 260px = 16.25rem */
+
   z-index: ${Z_INDEX.MAP};
+  transition: height 0.3s ease-in-out;
 `;
 
 export const ContentContainer = styled.div`

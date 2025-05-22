@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { MapPageHeader, MapPageBottomSheet } from '@/features/map';
 import { days, categories, DAYS, CATEGORIES } from '@/constants/map';
@@ -23,18 +23,10 @@ export default function Map() {
   // 날짜 및 카테고리 관련 상태
   const [selectedDay, setSelectedDay] = useState<DAYS>(currentDay);
   const [selectedCategory, setSelectedCategory] = useState<CATEGORIES | null>(null);
-
-  // 지도 빈 영역 클릭 핸들러
-  const handleMapEmptyClick = useCallback(() => {
-    // requestAnimationFrame을 사용하여 브라우저의 렌더링 주기에 맞춰 상태 업데이트
-    requestAnimationFrame(() => {
-      setSelectedCategory(null);
-    });
-  }, []);
+  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState<boolean>(false);
 
   // 카카오맵 커스텀 훅 사용
-  console.log('[MapPage] useKakaoMap 훅 초기화 시작');
-  const { moveToCurrentLocation, showItemMarker } = useKakaoMap(
+  const { moveToCurrentLocation, showItemMarker, kakaoMap } = useKakaoMap(
     {
       mapRef,
       center: { lat: 37.294711, lng: 126.833163 }, // 대운동장
@@ -42,19 +34,16 @@ export default function Map() {
       draggable: true,
       zoomable: true,
       scrollwheel: true,
+      isBottomSheetOpen,
     },
     selectedCategory,
     selectedDay,
-    handleMapEmptyClick, // 지도 빈 영역 클릭 핸들러 전달
   );
   console.log('[MapPage] useKakaoMap 훅 초기화 완료');
 
   // 헤더 관련 상태
   const [headerExpanded, setHeaderExpanded] = useState<boolean>(false);
   const [showCategory, setShowCategory] = useState<boolean>(true);
-
-  // 바텀 시트 관련 상태
-  const [isBottomSheetOpen, setIsBottomSheetOpen] = useState<boolean>(false);
   useEffect(() => {
     if (selectedCategory) {
       setIsBottomSheetOpen(true);
@@ -63,14 +52,24 @@ export default function Map() {
     }
   }, [selectedCategory]);
 
-  // 바텀시트가 열리면 하단 네비게이션 숨김
+  // 바텀시트가 열리면 하단 네비게이션 숨김 및 지도 리사이즈
   useEffect(() => {
     if (isBottomSheetOpen) {
       useLayoutStore.getState().setIsNav(false);
     } else {
       useLayoutStore.getState().setIsNav(true);
     }
-  }, [isBottomSheetOpen]);
+
+    // 카카오맵 리사이즈 (timeout을 통해 DOM 업데이트 이후 실행)
+    const timeoutId = setTimeout(() => {
+      if (kakaoMap) {
+        kakaoMap.relayout();
+      }
+    }, 300); // 바텀시트 애니메이션이 완료되는 시간과 맞춤
+
+    // cleanup 함수로 timeout 제거
+    return () => clearTimeout(timeoutId);
+  }, [isBottomSheetOpen, kakaoMap]);
 
   // 페이지를 벗어날 때 네비게이션 바를 원상복구
   useEffect(() => {
@@ -146,7 +145,7 @@ export default function Map() {
   return (
     <S.MapContainer>
       <S.MapOverlay $headerExpanded={headerExpanded} />
-      <S.MapWrapper ref={mapRef} />
+      <S.MapWrapper ref={mapRef} $isBottomSheetOpen={isBottomSheetOpen} />
       <S.ReCenterButton $isBottomSheetOpen={isBottomSheetOpen} onClick={handleReCenterClick}>
         {isReCentering ? <ReCenterClickedButtonIcon /> : <ReCenterButtonIcon />}
       </S.ReCenterButton>
