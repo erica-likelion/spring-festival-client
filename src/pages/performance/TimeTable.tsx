@@ -10,7 +10,11 @@ import TabNav from '@/components/tab-nav';
  * TimeTable component
  * @returns {JSX.Element}
  */
-
+const DAY_TO_DATE: Record<(typeof TABS)[number], string> = {
+  '1일차': '2025-05-27',
+  '2일차': '2025-05-28',
+  '3일차': '2025-05-29',
+};
 const TABS = ['1일차', '2일차', '3일차'] as const;
 
 export default function TimeTable() {
@@ -33,7 +37,12 @@ export default function TimeTable() {
     return () => clearInterval(timer);
   }, []);
 
-  const isNowPlaying = (start: string, end: string) => {
+  const isNowPlaying = (start: string, end: string, day: (typeof TABS)[number]) => {
+    const todayString = new Date().toISOString().slice(0, 10);
+    const performanceDate = DAY_TO_DATE[day];
+
+    if (todayString !== performanceDate) return false;
+
     const [startHour, startMin] = start.split(':').map(Number);
     const [endHour, endMin] = end.split(':').map(Number);
 
@@ -61,17 +70,23 @@ export default function TimeTable() {
       <NavBar isBack={true} title="타임테이블" />
       <TabNav tabs={TABS} currentStep={selectedDay} setStep={setSelectedDay} />
       <S.TimeWrap>
-        <S.Divider />
+        <S.Divider>
+          <S.Line />
+        </S.Divider>
         {time.map((t, index) => (
-          <div key={index}>
-            <S.Time>{t}</S.Time>
-            <S.Divider />
-          </div>
+          <>
+            <S.TimeBoxWrap key={index}>
+              <S.TimeText>{t}</S.TimeText>
+            </S.TimeBoxWrap>
+            <S.Divider>
+              <S.Line />
+            </S.Divider>
+          </>
         ))}
         <S.TimeTable key={selectedDay}>
           {currentPerformances.map((performance, index) => {
             const durationBlocks = calculateDurationInBlocks(performance.start, performance.end);
-            const active = isNowPlaying(performance.start, performance.end);
+            const active = isNowPlaying(performance.start, performance.end, selectedDay);
 
             return (
               <S.BoxWrap key={index} $block={durationBlocks} $isFirst={index === 0}>
@@ -79,13 +94,13 @@ export default function TimeTable() {
                   <S.TimeBox $isActive={active} $isEmpty={!performance.name} />
                   <S.ContentBox $isActive={active} $isEmpty={!performance.name}>
                     {performance.name && (
-                      <S.PerformanceNameTimeBox>
+                      <>
                         <S.PerformanceName>{performance.name}</S.PerformanceName>
                         <S.PerformanceTime>
-                          <ClockIcon width="1.125rem" height="1.125rem" />
+                          <ClockIcon width="1.125rem" height="1.125rem" fill="#fafafa" />
                           {performance.start}~{performance.end}
                         </S.PerformanceTime>
-                      </S.PerformanceNameTimeBox>
+                      </>
                     )}
                   </S.ContentBox>
                 </S.Wrap>

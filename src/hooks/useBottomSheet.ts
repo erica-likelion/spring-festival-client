@@ -87,184 +87,82 @@ export const useBottomSheet = () => {
     if (!sheet.current || !content.current || !header.current) return;
 
     // 초기 위치 설정
-    setSheetPosition(0); // 초기에 맨 아래로 설정
+    setSheetPosition(0);
+
+    // 초기 스크롤 위치 최상단으로 설정
+    content.current.scrollTop = 0;
 
     // GPU 가속 활성화
     sheet.current.style.willChange = 'transform';
 
-    const handleTouchStart = (e: TouchEvent) => {
-      // 이벤트 전파 중지
+    const headerElement = header.current;
+    const contentElement = content.current;
+    const sheetElement = sheet.current;
+
+    // 헤더 드래그 이벤트 핸들러
+    const handleHeaderTouchStart = (e: TouchEvent) => {
       e.stopPropagation();
-
-      // 이전 위치 유지
-      const { touchStart } = metrics.current;
-      touchStart.sheetY = sheet.current!.getBoundingClientRect().y;
-      touchStart.touchY = e.touches[0].clientY;
-
-      // 바텀 시트 터치 시작 시, body 스크롤 막기
-      document.body.style.overflowY = 'hidden';
-
-      console.log('헤더 드래그 시작', { y: touchStart.touchY });
+      metrics.current.touchStart.sheetY = sheetElement.getBoundingClientRect().y;
+      metrics.current.touchStart.touchY = e.touches[0].clientY;
     };
 
-    const handleTouchMove = (e: TouchEvent) => {
-      // 이벤트 전파 중지
+    const handleHeaderTouchMove = (e: TouchEvent) => {
       e.stopPropagation();
       e.preventDefault();
 
-      const { touchStart } = metrics.current;
       const currentTouch = e.touches[0];
-
-      // 시작 위치로부터의 차이 계산 (아래로 드래그하면 양수, 위로 드래그하면 음수)
-      const touchOffset = currentTouch.clientY - touchStart.touchY;
-
-      // 기존 translateY 값에 offset을 직접 반영
-      // 드래그 방향과 시트 이동 방향을 일치시킴
-      // (아래로 드래그 -> 양수 offset -> 더 아래로 이동, 위로 드래그 -> 음수 offset -> 더 위로 이동)
+      const touchOffset = currentTouch.clientY - metrics.current.touchStart.touchY;
       let newTranslateY = metrics.current.currentTranslateY + touchOffset;
 
-      // 경계 체크 (직접적인 min/max translateY 값으로)
-      const minTranslateY = MIN_Y - MAX_Y; // 시트가 최대로 올라갔을 때 (음수)
-      const maxTranslateY = 0; // 시트가 최대로 내려갔을 때 (0)
+      if (newTranslateY < MIN_Y - MAX_Y) newTranslateY = MIN_Y - MAX_Y;
+      if (newTranslateY > 0) newTranslateY = 0;
 
-      if (newTranslateY < minTranslateY) {
-        newTranslateY = minTranslateY;
-      } else if (newTranslateY > maxTranslateY) {
-        newTranslateY = maxTranslateY;
+      metrics.current.touchStart.touchY = currentTouch.clientY;
+      requestAnimationFrame(() => setSheetPosition(newTranslateY));
+    };
+
+    const handleHeaderTouchEnd = () => {
+      metrics.current.touchStart = { sheetY: 0, touchY: 0 };
+    };
+
+    // 바텀 시트 헤더에 이벤트 리스너 추가
+    headerElement.addEventListener('touchstart', handleHeaderTouchStart);
+    headerElement.addEventListener('touchmove', handleHeaderTouchMove);
+    headerElement.addEventListener('touchend', handleHeaderTouchEnd);
+
+    // 콘텐츠 영역 스크롤 이벤트 핸들러
+    const handleContentScroll = () => {
+      if (!metrics.current.isContentAreaTouched) {
+        contentElement.style.overflowY = 'auto';
       }
-
-      console.log('헤더 드래그 중', {
-        현재Y: metrics.current.currentTranslateY,
-        드래그량: touchOffset,
-        새Y: newTranslateY,
-      });
-
-      // 터치 시작 위치 업데이트 (연속적인 드래그를 위해)
-      touchStart.touchY = currentTouch.clientY;
-
-      // 위치 업데이트
-      requestAnimationFrame(() => {
-        setSheetPosition(newTranslateY);
-      });
-
-      // 바텀 시트 드래그 중 배경 스크롤 방지
-      document.body.style.overflowY = 'hidden';
     };
 
-    const handleTouchEnd = (e: TouchEvent) => {
-      // 이벤트 전파 중지
-      e.stopPropagation();
-
-      console.log('헤더 드래그 종료');
-
-      // 스크롤 설정 복원
-      document.body.style.overflowY = 'auto';
-
-      // 현재 translateY는 유지하고 나머지만 초기화
-      metrics.current = {
-        ...metrics.current,
-        touchStart: {
-          sheetY: 0,
-          touchY: 0,
-        },
-        touchMove: {
-          prevTouchY: 0,
-          movingDirection: 'none',
-        },
-        isContentAreaTouched: false,
-      };
+    // 콘텐츠 영역 터치 이벤트 핸들러
+    const handleContentTouch = () => {
+      metrics.current.isContentAreaTouched = true;
+      contentElement.style.overflowY = 'auto';
     };
 
-    // 헤더 요소에만 이벤트 리스너 연결
-    const headerElement = header.current;
-    headerElement.addEventListener('touchstart', handleTouchStart, { passive: false });
-    headerElement.addEventListener('touchmove', handleTouchMove, { passive: false });
-    headerElement.addEventListener('touchend', handleTouchEnd, { passive: false });
-
-    // 마우스 이벤트 지원 (헤더에만 연결)
-    const handleMouseDown = (e: MouseEvent) => {
-      e.preventDefault(); // 기본 동작 방지
-      e.stopPropagation(); // 이벤트 전파 중지
-
-      const { touchStart } = metrics.current;
-      touchStart.sheetY = sheet.current!.getBoundingClientRect().y;
-      touchStart.touchY = e.clientY;
-
-      document.addEventListener('mousemove', handleMouseMove);
-      document.addEventListener('mouseup', handleMouseUp);
-
-      document.body.style.userSelect = 'none';
-      document.body.style.overflowY = 'hidden';
-
-      console.log('헤더 마우스 다운', { y: e.clientY });
+    const handleContentTouchEnd = () => {
+      metrics.current.isContentAreaTouched = false;
     };
 
-    const handleMouseMove = (e: MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
+    // 콘텐츠 영역에 이벤트 리스너 추가
+    contentElement.addEventListener('touchstart', handleContentTouch, { passive: true });
+    contentElement.addEventListener('touchend', handleContentTouchEnd, { passive: true });
+    contentElement.addEventListener('scroll', handleContentScroll, { passive: true });
 
-      const { touchStart } = metrics.current;
-
-      // 직관적인 드래그 방향 매핑 (터치와 동일)
-      const mouseOffset = e.clientY - touchStart.touchY;
-      let newTranslateY = metrics.current.currentTranslateY + mouseOffset;
-
-      // 경계 체크
-      const minTranslateY = MIN_Y - MAX_Y;
-      const maxTranslateY = 0;
-
-      if (newTranslateY < minTranslateY) {
-        newTranslateY = minTranslateY;
-      } else if (newTranslateY > maxTranslateY) {
-        newTranslateY = maxTranslateY;
-      }
-
-      // 마우스 위치 업데이트 (연속적인 드래그를 위해)
-      touchStart.touchY = e.clientY;
-
-      console.log('헤더 마우스 이동', { newTranslateY });
-
-      requestAnimationFrame(() => {
-        setSheetPosition(newTranslateY);
-      });
-    };
-
-    const handleMouseUp = (e: MouseEvent) => {
-      e.preventDefault();
-      e.stopPropagation();
-
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
-
-      document.body.style.userSelect = '';
-      document.body.style.overflowY = 'auto';
-
-      console.log('헤더 마우스 업');
-
-      metrics.current = {
-        ...metrics.current,
-        touchStart: {
-          sheetY: 0,
-          touchY: 0,
-        },
-        touchMove: {
-          prevTouchY: 0,
-          movingDirection: 'none',
-        },
-        isContentAreaTouched: false,
-      };
-    };
-
-    // 마우스 이벤트도 헤더에만 연결
-    headerElement.addEventListener('mousedown', handleMouseDown);
-
+    // cleanup 함수
     return () => {
-      headerElement.removeEventListener('touchstart', handleTouchStart);
-      headerElement.removeEventListener('touchmove', handleTouchMove);
-      headerElement.removeEventListener('touchend', handleTouchEnd);
-      headerElement.removeEventListener('mousedown', handleMouseDown);
-      document.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseup', handleMouseUp);
+      // 헤더 이벤트 리스너 제거
+      headerElement.removeEventListener('touchstart', handleHeaderTouchStart);
+      headerElement.removeEventListener('touchmove', handleHeaderTouchMove);
+      headerElement.removeEventListener('touchend', handleHeaderTouchEnd);
+
+      // 콘텐츠 이벤트 리스너 제거
+      contentElement.removeEventListener('touchstart', handleContentTouch);
+      contentElement.removeEventListener('touchend', handleContentTouchEnd);
+      contentElement.removeEventListener('scroll', handleContentScroll);
     };
   }, []);
 
