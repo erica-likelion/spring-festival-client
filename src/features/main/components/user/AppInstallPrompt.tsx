@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { BeforeInstallPromptEvent } from '@/types/window';
 import { Fragment, useEffect, useState } from 'react';
 import * as S from './AppInstallPrompt.styles';
@@ -11,27 +12,45 @@ const defaultBeforeInstallPromptEvent: BeforeInstallPromptEvent = {
   preventDefault: () => {},
 };
 
-const isIOSPromptActive = () => {
-  const isActive = JSON.parse(localStorage.getItem('iosInstalled') || 'true');
-
-  if (isActive) {
-    return defaultBeforeInstallPromptEvent;
-  }
-
-  return null;
-};
-
 export default function AppInstallPrompt() {
-  const isDeviceIOS = /iPad|iPhone|iPod/.test(window.navigator.userAgent);
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(
-    isDeviceIOS ? isIOSPromptActive() : null,
-  );
+  const isDeviceIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const isSafari = /^((?!chrome|crios|fxios).)*safari/i.test(navigator.userAgent);
+
+  const isInStandalone = 'standalone' in navigator && (navigator as any).standalone === true;
+  const isDisplayStandalone = window.matchMedia('(display-mode: standalone)').matches;
+  const isAlreadyInstalled = isDeviceIOS && (isInStandalone || isDisplayStandalone);
+
+  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+
+  useEffect(() => {
+    if (isAlreadyInstalled) return;
+
+    if (isDeviceIOS && isSafari) {
+      const isIosPromptAllowed = JSON.parse(localStorage.getItem('iosInstalled') || 'true');
+      if (isIosPromptAllowed) {
+        setDeferredPrompt(defaultBeforeInstallPromptEvent);
+      }
+      return;
+    }
+
+    const handleBeforeInstallPrompt = (event: BeforeInstallPromptEvent) => {
+      event.preventDefault();
+      setDeferredPrompt(event);
+    };
+
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    return () => {
+      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    };
+  }, [isAlreadyInstalled, isDeviceIOS, isSafari]);
 
   const handleInstallClick = () => {
-    if (deferredPrompt) {
+    if (deferredPrompt && deferredPrompt.prompt) {
       deferredPrompt.prompt();
-
-      deferredPrompt.userChoice.then(() => {
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          localStorage.setItem('pwaInstalled', 'true');
+        }
         setDeferredPrompt(null);
       });
     }
@@ -42,18 +61,6 @@ export default function AppInstallPrompt() {
     setDeferredPrompt(null);
   };
 
-  const handleBeforeInstallPrompt = (event: BeforeInstallPromptEvent) => {
-    event.preventDefault();
-    setDeferredPrompt(event);
-  };
-
-  useEffect(() => {
-    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-
-    return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
-    };
-  }, []);
   return (
     <Fragment>
       {deferredPrompt && (
@@ -99,9 +106,8 @@ function AppInstallPromptModal({
         <S.Content>
           {platform === 'ios' ? (
             <S.ModalText>
-              {' '}
-              사파리 브라우저신가요?
-              <br /> 공유하기, 홈 화면 추가하기를 눌러주세요!
+              IOS 시네요! 더 편리하게 사용하시려면
+              <br /> 공유하기 / 홈 화면 추가하기를 눌러주세요!
             </S.ModalText>
           ) : (
             <S.ModalText>
