@@ -13,14 +13,6 @@ export const Title = styled.p`
   color: ${(props) => props.theme.colors.grayScale.white};
   text-align: center;
 `;
-
-export const Image = styled.img`
-  width: 20.625rem;
-  height: 16.0625rem;
-  flex-shrink: 0;
-  margin-top: 1.31rem;
-`;
-
 export const TextBox = styled.div`
   display: flex;
   flex-direction: column;
