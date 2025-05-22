@@ -17,7 +17,9 @@ export default function Card({ image, label, backgroundColor, name, description 
   return (
     <S.Container>
       <S.Wrap>
-        <S.Image src={image} alt="made by" />
+        <S.ImageBox>
+          <S.Image src={image} alt="made by" />
+        </S.ImageBox>
         <S.TextWrap>
           <S.ColorButtonWrap>
             <ColorButton label={label} backgroundColor={backgroundColor as ColorKey} />
