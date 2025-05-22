@@ -8,6 +8,7 @@ import { Modal as ModalProvider } from '@/components/modal';
 import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
 import { useEffect } from 'react';
 import { useAuthStore } from '@/stores/useAuthStore';
+import AppInstallPrompt from '@/features/main/components/user/AppInstallPrompt';
 
 /**
  * Layout component
@@ -22,6 +23,7 @@ export default function Layout() {
   }, [loadWaitings, isLoggined]);
   return (
     <S.Container>
+      <AppInstallPrompt />
       {isNav && <Nav />}
       <AnimatePresence mode="wait">
         <Main>
