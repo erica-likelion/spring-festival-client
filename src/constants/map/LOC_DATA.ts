@@ -235,7 +235,29 @@ export const LOCATION_DATA: Record<CATEGORIES, LocationData[]> = {
   ],
 
   // 콘텐츠
-  콘텐츠: [],
+  콘텐츠: [
+    {
+      lat: 37.297562,
+      lng: 126.833907,
+      name: '호공레이스',
+      closeDay: ['1일차', '3일차'],
+      id: 501,
+    },
+    {
+      lat: 37.296615,
+      lng: 126.834394,
+      name: '잔디공터',
+      closeDay: [],
+      id: 502,
+    },
+    {
+      lat: 37.298122,
+      lng: 126.836277,
+      name: '바이킹',
+      closeDay: ['1일차', '2일차'],
+      id: 503,
+    },
+  ],
 
   // 화장실
   화장실: [
