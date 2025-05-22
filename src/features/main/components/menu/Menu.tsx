@@ -6,6 +6,7 @@ import Student from '@/assets/images/menu/ericanote.jpeg';
 import Form from '@/assets/icons/form_logo.svg';
 import Lost from '@/assets/icons/lost_logo.svg';
 import Make from '@/assets/icons/lionlove_logo.svg';
+import Lion from '@/assets/icons/lion_logo.svg';
 /**
  * Menu 컴포넌트
  * 메뉴 클릭시 내부 경로 이동 또는 외부 URL로 연결
@@ -28,7 +29,7 @@ export default function Menu() {
             onClick={() => window.open(externalLinks.instagramStudent, '_blank')}
           />
           <ImageTextIconFrame
-            image={Make}
+            image={Lion}
             title="멋사 보러가볼까"
             description="멋사 인스타그램 바로가기"
             onClick={() => window.open(externalLinks.instagramLikelion, '_blank')}
