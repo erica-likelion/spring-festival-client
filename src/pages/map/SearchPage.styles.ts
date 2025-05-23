@@ -118,3 +118,16 @@ export const EmptyHistoryMessage = styled.div`
   ${(props) => props.theme.fonts.body.medium400};
   color: ${(props) => props.theme.colors.grayScale.gy500};
 `;
+
+export const SearchResultsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.6rem;
+  gap: 0.62rem;
+`;
+
+export const Divider = styled.div`
+  width: 100%;
+  height: 1px;
+  background-color: ${(props) => props.theme.colors.grayScale.gy900};
+`;
