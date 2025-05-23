@@ -103,7 +103,7 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
                   </S.NumTextFrame>
                 </S.TextFrame>
               </S.TextSection>
-              {openId === item.waitingId && (
+              {openId === item.pubId && (
                 <S.Expendable
                   key="expand"
                   initial={{ opacity: 0, maxHeight: 0 }}
