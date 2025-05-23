@@ -26,7 +26,9 @@ import {
   LostFail,
 } from '@/pages';
 import Layout from '@/layout';
+import 'firebase/compat/app';
 import '@/services/fcm/foregroundMessage';
+
 if (window.Kakao && !window.Kakao.isInitialized()) {
   window.Kakao.init('b3f17a02c1f339facee6125f903e309e');
 }

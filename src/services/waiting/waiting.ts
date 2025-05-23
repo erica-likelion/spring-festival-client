@@ -22,3 +22,8 @@ export const deleteWaitings = async (id: number) => {
   const response = await axiosInstance.delete(`/api/waitings?id=${id}`);
   return response;
 };
+
+export const getWaitingCount = async () => {
+  const response = await axiosInstance.get('/api/pubs/waiting-count');
+  return response;
+};
