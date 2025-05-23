@@ -4,7 +4,7 @@ import { handleAllowNotification } from '@/services/fcm/notificationPermission';
 
 function AlarmModal({ close }: { close: () => void }) {
   const handleAllowNotifications = () => {
-    handleAllowNotification();
+    handleAllowNotification({ currentAccess: undefined });
     close();
   };
   return (
