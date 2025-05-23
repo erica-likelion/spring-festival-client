@@ -33,7 +33,7 @@ export const Tab = styled.button<{
     background-color 0.3s ease,
     border-color 0.3s ease;
   cursor: pointer;
-  border: 0.6px solid;
+  border: 1px solid;
   border-color: ${(props) =>
     props.$isActive ? 'transparent' : props.theme.colors.grayScale.white};
   background-color: ${(props) =>
