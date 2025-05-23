@@ -8,13 +8,13 @@ import { useSearchParams } from 'react-router-dom';
 const step = ['confirm', 'complete'] as const;
 type StepType = (typeof step)[number];
 
-export default function WaitingCancelModal({ id }: { id: number }) {
+export default function WaitingCancelModal({ id, pubId }: { id: number; pubId: number }) {
   const { Funnel, setStep } = useFunnel(step);
   return (
     <>
       <Funnel>
         <Funnel.Step name={step[0]}>
-          <ConfirmStep setStep={setStep} id={id} />
+          <ConfirmStep setStep={setStep} id={id} pubId={pubId} />
         </Funnel.Step>
         <Funnel.Step name={step[1]}>
           <CompleteStep />
@@ -24,10 +24,19 @@ export default function WaitingCancelModal({ id }: { id: number }) {
   );
 }
 
-const ConfirmStep = ({ setStep, id }: { setStep: (step: StepType) => void; id: number }) => {
+const ConfirmStep = ({
+  setStep,
+  id,
+  pubId,
+}: {
+  setStep: (step: StepType) => void;
+  id: number;
+  pubId: number;
+}) => {
   const deleteWaiting = useWaitingStore((state) => state.deleteWaiting);
+  console.log(id);
   const handleNext = async () => {
-    await deleteWaiting(id);
+    await deleteWaiting(id, pubId);
     setStep(step[1]);
   };
   return (

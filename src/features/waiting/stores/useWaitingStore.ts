@@ -11,7 +11,7 @@ import { getWaitings, deleteWaitings } from '@/services/waiting/waiting';
 interface WaitingStore {
   waitings: UserWaitingType[];
   addWaiting: (waiting: UserWaitingType) => Promise<void>;
-  deleteWaiting: (id: number) => Promise<void>;
+  deleteWaiting: (id: number, pubId: number) => Promise<void>;
   loadWaitings: () => Promise<void>;
   hasPubId: (pubId: number) => boolean;
 }
@@ -23,8 +23,8 @@ export const useWaitingStore = create<WaitingStore>((set, get) => ({
     const updated = await getWaitingsDB(); // 새로 불러오기
     set({ waitings: updated });
   },
-  deleteWaiting: async (id) => {
-    await deleteWaitingsDB(id);
+  deleteWaiting: async (id, pubId) => {
+    await deleteWaitingsDB(pubId);
     await deleteWaitings(id);
     const updated = await getWaitingsDB(); // 새로 불러오기
     set({ waitings: updated });
