@@ -27,6 +27,7 @@ import {
 } from '@/pages';
 import Layout from '@/layout';
 import '@/services/fcm/foregroundMessage';
+import { handleAllowNotification } from '@/services/fcm/notificationPermission';
 if (window.Kakao && !window.Kakao.isInitialized()) {
   window.Kakao.init('b3f17a02c1f339facee6125f903e309e');
 }
@@ -137,6 +138,7 @@ createRoot(document.getElementById('root')!).render(
 
 window.addEventListener('DOMContentLoaded', () => {
   const splash = document.getElementById('splash-screen');
+  handleAllowNotification();
   if (splash) splash.remove();
 });
 
