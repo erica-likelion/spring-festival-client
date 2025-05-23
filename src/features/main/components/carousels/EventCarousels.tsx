@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { MainEventData } from '@/constants/main/MainEvent';
+import { MainEvent, MainEventData } from '@/constants/main/MainEvent';
 import * as S from './EventCarousels.styles';
 import { sliderTransition, sliderVariants } from './EventCarouselsMotion.styles.ts';
 import { Indicator } from '@/components/indicator';
@@ -15,6 +15,15 @@ import { useNavigate } from 'react-router-dom';
  * - handleDragEnd: 드래그 종료 시 동작
  * - getVariant: 각 카드의 애니메이션 상태
  */
+interface EventCardData {
+  id: string;
+  tags: { color: string; text: string }[];
+  title: string;
+  startTime: string;
+  endTime: string;
+  location: string;
+  isSun: boolean;
+}
 
 export default function EventCarousels() {
   const [[index, direction], setIndex] = useState<[number, number]>([0, 0]);
@@ -23,9 +32,12 @@ export default function EventCarousels() {
   const eventCardLinkMap: Record<string, string> = {
     '1': '/main/notice/14',
     '2': '/main/notice/8',
-    '3': '/main/notice/12',
-    '4': '/main/notice/15',
+    '10': '/main/notice/12',
+    '14': '/main/notice/15',
   };
+  const todayStr = new Date().toISOString().split('T')[0];
+  const todayEvents: EventCardData[] = MainEvent[todayStr];
+
   const handleDragStart = () => setIsDragging(true);
   const handleDragEndWrapper = (
     e: MouseEvent | TouchEvent | PointerEvent,
@@ -99,7 +111,8 @@ export default function EventCarousels() {
     <S.Wrapper>
       <S.CardWrap>
         <AnimatePresence initial={false} custom={direction}>
-          {MainEventData.map((card, i) => ({ card, index: i, relative: i - index }))
+          {todayEvents
+            .map((card, i) => ({ card, index: i, relative: i - index }))
             .slice(Math.max(0, index - 3), index + 4)
             .map(({ card, index: i }) => {
               const variant = getVariant(i);
