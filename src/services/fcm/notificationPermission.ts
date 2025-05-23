@@ -13,8 +13,7 @@ export async function handleAllowNotification({ currentAccess }: { currentAccess
       });
       if (token) {
         const response = (await currentAccess)
-          ? sendToken(token)
-          : axiosInstance.post(
+          ? axiosInstance.post(
               '/fcm/token',
               {
                 token,
@@ -25,7 +24,8 @@ export async function handleAllowNotification({ currentAccess }: { currentAccess
                   Authorization: `Bearer ${currentAccess}`,
                 },
               },
-            );
+            )
+          : sendToken(token);
 
         if ((await response).status === 200) {
           console.log('푸시 토큰 등록 성공');
