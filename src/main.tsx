@@ -103,6 +103,10 @@ const routes = createBrowserRouter([
         element: <MapSearch />,
       },
       {
+        path: 'map/:itemId',
+        element: <Map />,
+      },
+      {
         path: 'performance',
         element: <Performance />,
       },
