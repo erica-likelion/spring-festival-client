@@ -6,7 +6,7 @@ export const Container = styled.div`
   width: 100%;
   min-height: 100vh;
   align-items: center;
-  padding-bottom: 16.57rem;
+  padding-bottom: 100px;
   gap: 3.75rem;
 `;
 
