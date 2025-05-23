@@ -7,15 +7,15 @@ export interface EventCardDate {
     id: string;
     tags: { color: string; text: string }[];
     title: string;
-    startTime: string; // ex: '11:00'
-    endTime: string; // ex: '17:00'
+    startTime: string;
+    endTime: string;
     location: string;
     isSun: boolean;
   }[];
 }
 
-export const MainEvent: EventCardDate = {
-  '2025-05-27': [
+export const MainEventData: EventCardDate = {
+  '2025-05-23': [
     {
       id: '1',
       tags: [{ color: 'ye200', text: '콘텐츠' }],
@@ -59,7 +59,7 @@ export const MainEvent: EventCardDate = {
       startTime: '18:15',
       endTime: '18:45',
       location: '공연장',
-      isSun: true,
+      isSun: false,
     },
     {
       id: '6',
@@ -68,7 +68,7 @@ export const MainEvent: EventCardDate = {
       startTime: '18:45',
       endTime: '20:00',
       location: '공연장',
-      isSun: true,
+      isSun: false,
     },
     {
       id: '7',
@@ -77,7 +77,7 @@ export const MainEvent: EventCardDate = {
       startTime: '20:00',
       endTime: '20:30',
       location: '공연장',
-      isSun: true,
+      isSun: false,
     },
     {
       id: '8',
@@ -86,7 +86,7 @@ export const MainEvent: EventCardDate = {
       startTime: '20:30',
       endTime: '21:00',
       location: '공연장',
-      isSun: true,
+      isSun: false,
     },
     {
       id: '9',
@@ -95,7 +95,7 @@ export const MainEvent: EventCardDate = {
       startTime: '21:00',
       endTime: '21:30',
       location: '공연장',
-      isSun: true,
+      isSun: false,
     },
   ],
   '2025-05-28': [
@@ -115,7 +115,7 @@ export const MainEvent: EventCardDate = {
       startTime: '20:00',
       endTime: '20:20',
       location: '공연장',
-      isSun: true,
+      isSun: false,
     },
     {
       id: '12',
@@ -124,7 +124,7 @@ export const MainEvent: EventCardDate = {
       startTime: '20:30',
       endTime: '21:00',
       location: '공연장',
-      isSun: true,
+      isSun: false,
     },
     {
       id: '13',
@@ -133,7 +133,7 @@ export const MainEvent: EventCardDate = {
       startTime: '21:00',
       endTime: '21:30',
       location: '공연장',
-      isSun: true,
+      isSun: false,
     },
   ],
   '2025-05-29': [
@@ -212,55 +212,55 @@ export const MainEvent: EventCardDate = {
   ],
 };
 
-export const MainEventData = [
-  {
-    id: '1',
-    tags: [{ color: 'ye200', text: '콘텐츠' }],
-    title: '한 대 빵!!',
-    startTime: '11:00',
-    endTime: '17:00',
-    location: '잔디공터',
-    isSun: true,
-  },
+// export const MainEventData = [
+//   {
+//     id: '1',
+//     tags: [{ color: 'ye200', text: '콘텐츠' }],
+//     title: '한 대 빵!!',
+//     startTime: '11:00',
+//     endTime: '17:00',
+//     location: '잔디공터',
+//     isSun: true,
+//   },
 
-  {
-    id: '2',
-    tags: [{ color: 'ye200', text: '콘텐츠' }],
-    title: '호공 레이스',
-    startTime: '13:00',
-    endTime: '15:00',
-    location: '호수공원',
-    isSun: true,
-  },
+//   {
+//     id: '2',
+//     tags: [{ color: 'ye200', text: '콘텐츠' }],
+//     title: '호공 레이스',
+//     startTime: '13:00',
+//     endTime: '15:00',
+//     location: '호수공원',
+//     isSun: true,
+//   },
 
-  {
-    id: '3',
-    tags: [{ color: 'ye200', text: '콘텐츠' }],
-    title: '바이킹',
-    startTime: '13:00',
-    endTime: '19:00',
-    location: '제2과학기술관 옆 주차장',
-    isSun: true,
-  },
-  {
-    id: '4',
-    tags: [{ color: 'ye200', text: '콘텐츠' }],
-    title: '삐에로 아저씨',
-    startTime: '13:00',
-    endTime: '17:00',
-    location: '잔디 공터 일대',
-    isSun: true,
-  },
-  {
-    id: '5',
-    tags: [
-      { color: 'rd500', text: 'LIVE' },
-      { color: 'or100', text: '공연무대' },
-    ],
-    title: '10CM',
-    startTime: '19:00',
-    endTime: '19:30',
-    location: '공연장',
-    isSun: false,
-  },
-];
+//   {
+//     id: '3',
+//     tags: [{ color: 'ye200', text: '콘텐츠' }],
+//     title: '바이킹',
+//     startTime: '13:00',
+//     endTime: '19:00',
+//     location: '제2과학기술관 옆 주차장',
+//     isSun: true,
+//   },
+//   {
+//     id: '4',
+//     tags: [{ color: 'ye200', text: '콘텐츠' }],
+//     title: '삐에로 아저씨',
+//     startTime: '13:00',
+//     endTime: '17:00',
+//     location: '잔디 공터 일대',
+//     isSun: true,
+//   },
+//   {
+//     id: '5',
+//     tags: [
+//       { color: 'rd500', text: 'LIVE' },
+//       { color: 'or100', text: '공연무대' },
+//     ],
+//     title: '10CM',
+//     startTime: '19:00',
+//     endTime: '19:30',
+//     location: '공연장',
+//     isSun: false,
+//   },
+// ];

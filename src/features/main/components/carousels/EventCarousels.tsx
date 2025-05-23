@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import { MainEvent, MainEventData } from '@/constants/main/MainEvent';
+import { MainEventData } from '@/constants/main/MainEvent';
 import * as S from './EventCarousels.styles';
 import { sliderTransition, sliderVariants } from './EventCarouselsMotion.styles.ts';
 import { Indicator } from '@/components/indicator';
@@ -36,7 +36,7 @@ export default function EventCarousels() {
     '14': '/main/notice/15',
   };
   const todayStr = new Date().toISOString().split('T')[0];
-  const todayEvents: EventCardData[] = MainEvent[todayStr];
+  const todayEvents: EventCardData[] = MainEventData[todayStr] ?? [];
 
   const handleDragStart = () => setIsDragging(true);
   const handleDragEndWrapper = (
@@ -52,7 +52,7 @@ export default function EventCarousels() {
    */
   const swipeTo = (dir: number) => {
     setIndex(([prev]) => {
-      const max = MainEventData.length - 1;
+      const max = todayEvents.length - 1;
       if (dir === -1 && prev === 0) return [prev, 0];
       if (dir === 1 && prev === max) return [prev, 0];
 
@@ -71,7 +71,7 @@ export default function EventCarousels() {
     info: { offset: { x: number } },
   ) => {
     const swipe = info.offset.x;
-    const max = MainEventData.length - 1;
+    const max = todayEvents.length - 1;
 
     if (swipe > 50 && index > 0) {
       swipeTo(-1);
@@ -147,7 +147,7 @@ export default function EventCarousels() {
       <S.CursorBox>
         <Cursor width={'12.625rem'} height={'3.72063rem'} />
       </S.CursorBox>
-      <Indicator currentPage={index} totalPages={MainEventData.length} />
+      <Indicator currentPage={index} totalPages={todayEvents.length} />
     </S.Wrapper>
   );
 }
