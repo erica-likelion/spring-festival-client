@@ -1,6 +1,7 @@
 import * as S from './ImageTextFrame.styles';
 import { ImageTextFrameWithTimeProps } from './ImageTextFrame.types';
 import TimeIcon from '@/assets/icons/clock.svg?react';
+import { useNavigate } from 'react-router-dom';
 
 /**
  * 이미지와 텍스트, 시간, 포장가능 여부를 함께 표시하는 프레임 컴포넌트
@@ -32,11 +33,20 @@ export default function ImageTextFrameWithTime({
   title,
   subtitle,
   time,
-  canPickup = false,
+  // canPickup = false,
   onClick,
   width,
   activeStyle = true,
+  path,
 }: ImageTextFrameWithTimeProps) {
+  const navigate = useNavigate();
+  const handleDetailClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // 이벤트 버블링 중지
+    if (path) {
+      navigate(path);
+    }
+  };
+
   return (
     <S.Container onClick={onClick} $width={width} $activeStyle={activeStyle}>
       <S.Image src={image} alt="" />
@@ -52,10 +62,10 @@ export default function ImageTextFrameWithTime({
         </S.TitleWrap>
         <S.ContentsFooter>
           <S.TimeWrap>
-            <TimeIcon width={`1.25rem`} height={`1.25rem`} />
+            <TimeIcon width={`1.25rem`} height={`1.25rem`} fill="#FAFAFA" />
             <S.Time>{time}</S.Time>
           </S.TimeWrap>
-          {canPickup && <S.Pickup>포장 가능</S.Pickup>}
+          {path && <S.LinkToDetail onClick={handleDetailClick}>상세보기</S.LinkToDetail>}
         </S.ContentsFooter>
       </S.ContentsWrap>
     </S.Container>

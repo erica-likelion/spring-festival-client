@@ -37,4 +37,10 @@ export type MapPageHeaderProps = {
 
   /** 카테고리 섹션 표시 여부 */
   showCategory: boolean;
+
+  /** 뒤로가기 버튼 표시 여부 */
+  isBackVisible?: boolean;
+
+  /** 뒤로가기 버튼 클릭 시 호출되는 핸들러 함수 */
+  onBackButtonClick?: () => void;
 };

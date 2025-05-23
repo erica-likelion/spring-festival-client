@@ -3,10 +3,12 @@ import { LikeType } from '@/types/like.type';
 import { BOOTH_LIST_LIKECOUNT } from '@/constants/booth/booth';
 import { getLikesDB, likeDB, updateLikeCountDB } from '@/services/like/like.db';
 import { getLikes } from '@/services/like/like';
+import { getWaitingCount } from '@/services/waiting/waiting';
 
 export interface LikeStore {
   likes: LikeType[];
   initLikes: () => Promise<void>;
+  fetchWaitingCounts: () => Promise<void>;
   fetchLikes: (serverData: LikeType[]) => Promise<void>;
   updateLikeCount: (id: number, newCount: number) => Promise<void>;
   getUpdatedLikes: () => Promise<Pick<LikeType, 'id' | 'likeCount'>[]>;
@@ -16,23 +18,50 @@ export interface LikeStore {
 export const useLikeStore = create<LikeStore>((set) => ({
   likes: [...BOOTH_LIST_LIKECOUNT],
   initLikes: async () => {
-    const response = await getLikes();
-    const data = response.data ? response.data : BOOTH_LIST_LIKECOUNT;
-    const dataWithUpdateCount = data.map((item: LikeType) => ({
-      ...item,
-      updateCount: 0,
-    }));
-    const db = await likeDB;
-    const tx = db.transaction('like', 'readwrite');
+    try {
+      const response = await getLikes();
+      const data = response.data ? response.data : BOOTH_LIST_LIKECOUNT;
+      const dataWithUpdateCount = data.map((item: LikeType) => ({
+        ...item,
+        updateCount: 0,
+      }));
+      const db = await likeDB;
+      const tx = db.transaction('like', 'readwrite');
 
-    for (const like of dataWithUpdateCount) {
-      await tx.store.put(like);
+      for (const like of dataWithUpdateCount) {
+        await tx.store.put(like);
+      }
+
+      await tx.done;
+      set({ likes: dataWithUpdateCount });
+    } catch (error) {
+      console.error('Error initializing likes:', error);
     }
-
-    await tx.done;
-    set({ likes: dataWithUpdateCount });
   },
+  fetchWaitingCounts: async () => {
+    try {
+      const response = await getWaitingCount();
+      const waitingCounts = response.data;
+      const db = await likeDB;
+      const tx = db.transaction('like', 'readwrite');
+      const store = tx.store;
 
+      for (const like of waitingCounts) {
+        const likeData = await store.get(like.id);
+        if (likeData) {
+          likeData.waitingCount = like.waitingCount;
+          await store.put(likeData);
+        }
+      }
+
+      await tx.done;
+
+      const updatedLikes = await getLikesDB();
+      set({ likes: updatedLikes });
+    } catch (error) {
+      console.error('Error initializing waiting counts:', error);
+    }
+  },
   fetchLikes: async (serverData: LikeType[]) => {
     const db = await likeDB;
 
@@ -62,7 +91,6 @@ export const useLikeStore = create<LikeStore>((set) => ({
       await tx.store.put(item);
     }
     await tx.done;
-    console.log(newData);
     set({ likes: newData });
   },
 

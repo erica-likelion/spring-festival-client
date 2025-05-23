@@ -5,10 +5,10 @@ import * as S from './BottomSheet.styles';
 import { BottomSheetProps } from './BottomSheet.types';
 import { Notification } from '@/components/notification';
 import { MapData } from '@/constants/map/MapData';
-import { ImageTextFrameWithTime } from '@/components/image-text-frame';
 import { useNotificationStore } from '@/stores/useNotificationStore';
 import { CATEGORY_NOTIFICATIONS } from '@/constants/map/CategoryNotifications';
 import { days } from '@/constants/map';
+import { MapItemCard } from './MapItemCard';
 
 /**
  * 바텀시트 컴포넌트
@@ -41,11 +41,7 @@ export default function BottomSheet({
 }: BottomSheetProps) {
   const navigate = useNavigate();
   const { sheet, content, header } = useBottomSheet();
-  // Zustand 스토어에서 Notification 관련 상태 및 액션 가져오기
-
-  // 알림이 닫혔는지 여부를 확인하는 상태
   const { isNotificationClosed, closeNotification } = useNotificationStore();
-  // 현재 카테고리에 대한 notification 표시 여부 상태
   const [showNotification, setShowNotification] = useState<boolean>(false);
 
   // 선택된 카테고리의 알림 표시 상태 관리
@@ -125,23 +121,7 @@ export default function BottomSheet({
               {filteredData.length > 0
                 ? filteredData.map((item, index) => (
                     <S.ContentUnitWrap key={index} $isLastItem={index === filteredData.length - 1}>
-                      <ImageTextFrameWithTime
-                        image={item.image}
-                        title={item.title}
-                        subtitle={item.subtitle}
-                        time={item.time}
-                        canPickup={item.canPickup}
-                        onClick={() => {
-                          // 지도에 마커 표시 및 중앙 이동
-                          if (onItemClick && item.lat && item.lng) {
-                            onItemClick(item);
-                          }
-                          // 경로가 있는 경우 해당 경로로 이동
-                          if (item.path) {
-                            navigate(item.path);
-                          }
-                        }}
-                      />
+                      <MapItemCard item={item} onItemClick={onItemClick} />
                     </S.ContentUnitWrap>
                   ))
                 : selectedCategory && (

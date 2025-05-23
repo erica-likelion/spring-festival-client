@@ -160,6 +160,21 @@ export const Pickup = styled.div`
   flex-shrink: 0;
 `;
 
+export const LinkToDetail = styled.div`
+  display: flex;
+  width: 3.75rem;
+  height: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 0.625rem;
+  background-color: ${(props) => props.theme.colors.secondary.pk100};
+  ${(props) => props.theme.fonts.body.xsmall400};
+  border-radius: 0.375rem;
+  color: ${(props) => props.theme.colors.grayScale.black};
+  flex-shrink: 0;
+`;
+
 export const MenuTextWrap = styled.div`
   display: flex;
   flex-direction: column;

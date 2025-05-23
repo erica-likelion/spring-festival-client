@@ -19,11 +19,12 @@ export default function Layout() {
   const isLoggined = useAuthStore((state) => state.isLoggedIn);
   const loadWaitings = useWaitingStore((state) => state.loadWaitings);
   const loadlikes = useLikeStore((state) => state.initLikes);
-
+  const fetchWaitingCounts = useLikeStore((state) => state.fetchWaitingCounts);
   useEffect(() => {
     loadlikes();
+    fetchWaitingCounts();
     if (isLoggined) loadWaitings();
-  }, [loadWaitings, isLoggined, loadlikes]);
+  }, [loadWaitings, isLoggined, loadlikes, fetchWaitingCounts]);
   return (
     <S.Container>
       {isNav && <Nav />}
