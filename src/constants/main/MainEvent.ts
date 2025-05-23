@@ -15,7 +15,7 @@ export interface EventCardDate {
 }
 
 export const MainEventData: EventCardDate = {
-  '2025-05-23': [
+  '2025-05-27': [
     {
       id: '1',
       tags: [{ color: 'ye200', text: '콘텐츠' }],
@@ -136,7 +136,7 @@ export const MainEventData: EventCardDate = {
       isSun: false,
     },
   ],
-  '2025-05-29': [
+  '2025-05-23': [
     {
       id: '14',
       tags: [{ color: 'ye200', text: '콘텐츠' }],
@@ -161,15 +161,6 @@ export const MainEventData: EventCardDate = {
       title: 'ifeye',
       startTime: '18:00',
       endTime: '18:30',
-      location: '공연장',
-      isSun: false,
-    },
-    {
-      id: '17',
-      tags: [{ color: 'or100', text: '공연무대' }],
-      title: '히든 스타',
-      startTime: '18:30',
-      endTime: '19:45',
       location: '공연장',
       isSun: false,
     },

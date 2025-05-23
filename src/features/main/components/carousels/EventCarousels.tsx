@@ -35,7 +35,9 @@ export default function EventCarousels() {
     '10': '/main/notice/12',
     '14': '/main/notice/15',
   };
-  const todayStr = new Date().toISOString().split('T')[0];
+
+  const now = new Date();
+  const todayStr = now.toISOString().split('T')[0];
   const todayEvents: EventCardData[] = MainEventData[todayStr] ?? [];
 
   const handleDragStart = () => setIsDragging(true);
@@ -116,6 +118,14 @@ export default function EventCarousels() {
             .slice(Math.max(0, index - 3), index + 4)
             .map(({ card, index: i }) => {
               const variant = getVariant(i);
+              let isSun = card.isSun;
+              if (
+                Number(card.startTime.split(':')[0]) < 18 &&
+                Number(card.endTime.split(':')[0]) > 18 &&
+                now.getHours() >= 18
+              ) {
+                isSun = false;
+              }
               return (
                 <S.MotionCard
                   key={i}
@@ -132,6 +142,7 @@ export default function EventCarousels() {
                 >
                   <EventCard
                     {...card}
+                    isSun={isSun}
                     onClick={() => {
                       if (!isDragging) {
                         const link = eventCardLinkMap[card.id];
