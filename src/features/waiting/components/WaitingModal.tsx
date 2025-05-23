@@ -7,6 +7,7 @@ import { BlueButton } from '@/components/bluebuttons';
 import { postWaiting } from '@/services/waiting/waiting';
 import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
 import { useNavigate } from 'react-router-dom';
+import { handleAllowNotification } from '@/services/fcm/notificationPermission';
 
 const STEPS = ['people', 'phone', 'complete'] as const;
 
@@ -52,6 +53,7 @@ const PeopleStep = ({
   const [currentPeople, setCurrentPeople] = useState(0);
   const handleNext = () => {
     setWaitingForm({ people: currentPeople, phone: '' });
+    handleAllowNotification({ currentAccess: undefined });
     setStep(STEPS[1]);
   };
   return (
