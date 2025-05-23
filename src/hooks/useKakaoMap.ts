@@ -16,6 +16,7 @@ export function useKakaoMap(
   const kakaoMapRef = useRef<kakao.maps.Map | null>(null);
   const myLocationMarkerRef = useRef<kakao.maps.Marker | null>(null);
   const customOverlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
+  const customPolygonsRef = useRef<kakao.maps.Polygon[]>([]);
 
   // 지도 크기가 변경될 때 relayout 호출
   useEffect(() => {
@@ -375,6 +376,7 @@ export function useKakaoMap(
             }
           },
           isSelected, // 선택된 마커는 큰 크기
+          customPolygonsRef, // 다각형 참조 전달
         );
 
         overlays.push({ overlay, isSelected });
@@ -416,11 +418,15 @@ export function useKakaoMap(
 
     // 카테고리가 선택되지 않은 경우 (null) 기존 마커 모두 제거
     if (!selectedCategory) {
-      // 이전 커스텀 오버레이 제거
+      // 이전 커스텀 오버레이와 다각형 제거
       customOverlaysRef.current.forEach((overlay) => {
         overlay.setMap(null);
       });
+      customPolygonsRef.current.forEach((polygon) => {
+        polygon.setMap(null);
+      });
       customOverlaysRef.current = [];
+      customPolygonsRef.current = [];
 
       // 선택된 항목 마커가 있다면 제거
       if (selectedItemMarkerRef.current) {
@@ -481,6 +487,7 @@ export function useKakaoMap(
           }
         },
         false, // 초기에는 작은 크기로 표시
+        customPolygonsRef, // 다각형 참조 전달
       );
 
       // 오버레이를 지도에 표시하고 배열에 추가
@@ -558,6 +565,7 @@ const createCustomMarker = (
   label: string,
   onClick?: () => void,
   isSelected: boolean = false,
+  polygonsRef?: React.MutableRefObject<kakao.maps.Polygon[]>,
 ) => {
   // 카테고리에 맞는 아이콘 URL 가져오기
   const iconUrl = markerIcons[category];
@@ -638,7 +646,6 @@ const createCustomMarker = (
       ),
     ];
 
-    // @ts-expect-error kakao.maps.Polygon is not included in the type definitions
     const polygon = new kakao.maps.Polygon({
       path: path,
       strokeWeight: 1,
@@ -650,6 +657,10 @@ const createCustomMarker = (
     });
 
     polygon.setMap(_map);
+    // 다각형 참조 저장
+    if (polygonsRef) {
+      polygonsRef.current.push(polygon);
+    }
   }
 
   if (onClick) {
