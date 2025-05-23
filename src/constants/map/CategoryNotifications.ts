@@ -1,5 +1,3 @@
-import { CATEGORIES } from './CATEGORIES';
-
 export const NOTIFICATION_STORAGE_KEY = 'festival-notifications';
 
 /**
@@ -17,44 +15,9 @@ export interface CategoryNotification {
 /**
  * 각 카테고리별 공지사항 데이터
  */
-export const CATEGORY_NOTIFICATIONS: Record<CATEGORIES, CategoryNotification> = {
+export const CATEGORY_NOTIFICATIONS: Record<string, CategoryNotification> = {
   주점: {
-    title: '주점 이용 안내',
-    path: '/guide/bar',
-  },
-  '주류 구매 위치': {
-    title: '주류 구매 안내',
-    path: '/guide/alcohol',
-  },
-  플리마켓: {
-    title: '플리마켓 운영 안내: 11:00-17:00',
-    path: '/guide/fleamarket',
-  },
-  프로모션: {
-    title: '프로모션 부스 & 이벤트 안내',
-    path: '/guide/promotion',
-  },
-  공연장: {
-    title: '공연 시간표 및 관람 안내',
-    path: '/guide/performance',
-  },
-  화장실: {
-    title: '화장실 위치 안내',
-    path: '/guide/facilities',
-  },
-  셔틀콕: {
-    title: '셔틀 운행 시간 및 노선 안내',
-    path: '/guide/shuttle',
-  },
-  푸드트럭: {
-    title: '푸드트럭 운영 시간: 11:00-21:00',
-    path: '/guide/foodtruck',
-  },
-  흡연구역: {
-    title: '지정 흡연구역 안내',
-    path: '/guide/smoking',
-  },
-  콘텐츠: {
-    title: '콘텐츠 안내',
+    title: '미취학 아동 입장 제한',
+    path: '/main/notice/19',
   },
 };

@@ -17,7 +17,7 @@ export const MapData: MapDataProps = {
   주점: [
     {
       id: 1,
-      image: '',
+      image: 'media',
       title: '차린건 여정도 지만',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -28,7 +28,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 2,
-      image: '',
+      image: 'electron',
       title: '폭싹 취EE했수다',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -39,7 +39,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 3,
-      image: '',
+      image: 'machine',
       title: '나는 술로',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -50,7 +50,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 4,
-      image: '',
+      image: 'bio',
       title: '에바레스트 산악회',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -61,7 +61,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 5,
-      image: '',
+      image: 'horizontal',
       title: '그 시절 우리가 사랑했던 수사',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -72,7 +72,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 6,
-      image: '',
+      image: 'pharmacy',
       title: '냥약랜드',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -83,7 +83,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 7,
-      image: '',
+      image: 'chemical',
       title: '백설공주와 화목한 난쟁이들',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -94,7 +94,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 8,
-      image: '',
+      image: 'computer',
       title: '전 어때요',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -105,7 +105,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 9,
-      image: '',
+      image: 'traffic',
       title: 'Kㅛ통에Bㅏㅂ과 술 Oㅣㅆ어요',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -116,7 +116,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 10,
-      image: '',
+      image: 'strategy',
       title: '마구먹고 마구마셔',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -127,7 +127,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 11,
-      image: '',
+      image: 'robot',
       title: '(주) 로봇산업',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -149,8 +149,8 @@ export const MapData: MapDataProps = {
     },
     {
       id: 13,
-      image: '',
-      title: '냥자역학: 주량측정불가',
+      image: 'intelligence',
+      title: '냥자역학:주량측정불가',
       subtitle: '주점',
       time: '18:00-24:00',
       path: '',
@@ -171,7 +171,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 15,
-      image: '',
+      image: 'insurance',
       title: '냉3 4먹으러 5것지',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -182,7 +182,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 16,
-      image: '',
+      image: 'maha',
       title: '그시절 캔마하(CANMAHA)',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -193,7 +193,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 17,
-      image: '',
+      image: 'ai',
       title: '나 지피틴데 안 추ㅣㅎㅆ다',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -204,7 +204,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 18,
-      image: '',
+      image: 'marine',
       title: '폭주어선',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -215,7 +215,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 19,
-      image: '',
+      image: 'occ',
       title: '닭치고 한 잔',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -237,7 +237,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 21,
-      image: '',
+      image: 'smart',
       title: "이랏'스융'마세",
       subtitle: '주점',
       time: '18:00-24:00',
@@ -248,7 +248,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 22,
-      image: '',
+      image: 'architecture',
       title: '홍문으로들었소',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -259,7 +259,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 23,
-      image: '',
+      image: 'design',
       title: '디대는 못말려! - 오늘도 과제는 ...',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -270,7 +270,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 24,
-      image: '',
+      image: 'industrial',
       title: '응답하라 일구구산',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -281,7 +281,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 25,
-      image: '',
+      image: 'sport',
       title: '뭉쳐야 예체대',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -292,7 +292,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 26,
-      image: '',
+      image: 'semiconductor',
       title: 'semi azit',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -305,33 +305,35 @@ export const MapData: MapDataProps = {
   '주류 구매 위치': [
     {
       id: 200,
-      image: '',
+      image: 'liquorstore',
       title: '마셔라잇(Light)',
       subtitle: '주류 구매 위치',
-      time: '12:00-22:00',
+      time: '18:00-23:30',
       lat: 37.295611,
       lng: 126.835208,
       closeDay: [],
+      path: '/main/notice/16',
     },
   ],
   플리마켓: [
     {
       id: 300,
-      image: '',
+      image: 'pleamarket',
       title: '플리마켓',
-      subtitle: '플리마켓',
-      time: '10:00-18:00',
+      subtitle: '',
+      time: '11:00-17:00',
       lat: 37.298046,
       lng: 126.834813,
+      path: '/main/notice/10',
     },
   ],
   프로모션: [
     {
       id: 400,
-      image: '',
-      title: '축제 굿즈샵',
-      subtitle: '프로모션',
-      time: '11:00-21:00',
+      image: 'promotion',
+      title: '프로모션',
+      subtitle: '',
+      time: '11:00-17:00',
       lat: 37.297077,
       lng: 126.835742,
       closeDay: [],
@@ -340,8 +342,8 @@ export const MapData: MapDataProps = {
   콘텐츠: [
     {
       id: 501,
-      image: '',
-      title: '호공레이스',
+      image: 'race',
+      title: '호공 레이스',
       subtitle: '콘텐츠',
       time: '10:00-18:00',
       closeDay: ['1일차', '3일차'],
@@ -350,8 +352,8 @@ export const MapData: MapDataProps = {
     },
     {
       id: 502,
-      image: '',
-      title: '잔디공터',
+      image: 'picnic',
+      title: '피크닉존',
       subtitle: '콘텐츠',
       time: '10:00-18:00',
       closeDay: [],
@@ -360,7 +362,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 503,
-      image: '',
+      image: 'viking',
       title: '바이킹',
       subtitle: '콘텐츠',
       time: '19:00-22:00',
@@ -372,9 +374,9 @@ export const MapData: MapDataProps = {
   공연장: [
     {
       id: 600,
-      image: '',
-      title: '공연장',
-      subtitle: '',
+      image: 'performance',
+      title: '공연 무대',
+      subtitle: '공연장',
       time: '19:00-22:00',
       lat: 37.294711,
       lng: 126.833163,
@@ -384,30 +386,30 @@ export const MapData: MapDataProps = {
   화장실: [
     {
       id: 701,
-      image: '',
-      title: '화장실 A구역',
+      image: 'toilet',
+      title: '공용 화장실',
       subtitle: '화장실',
-      time: '24시간',
+      time: '11:00~17:00',
       lat: 37.295411,
       lng: 126.834722,
       closeDay: [],
     },
     {
       id: 702,
-      image: '',
-      title: '화장실 B구역',
+      image: 'toilet',
+      title: '공용 화장실',
       subtitle: '화장실',
-      time: '24시간',
+      time: '11:00~17:00',
       lat: 37.296411,
       lng: 126.835529,
       closeDay: [],
     },
     {
       id: 703,
-      image: '',
-      title: '화장실 C구역',
+      image: 'toilet',
+      title: '공용 화장실',
       subtitle: '화장실',
-      time: '24시간',
+      time: '11:00~17:00',
       lat: 37.296042,
       lng: 126.832668,
       closeDay: [],
@@ -416,10 +418,10 @@ export const MapData: MapDataProps = {
   셔틀콕: [
     {
       id: 800,
-      image: '',
-      title: '셔틀콕',
+      image: 'busstop',
+      title: '버스 탑승 위치',
       subtitle: '',
-      time: '10:00-22:00',
+      time: '7:50-23:00',
       lat: 37.298714,
       lng: 126.837946,
       closeDay: [],
@@ -428,20 +430,21 @@ export const MapData: MapDataProps = {
   푸드트럭: [
     {
       id: 900,
-      image: '',
+      image: 'foodtruck',
       title: '푸드트럭',
       subtitle: '',
-      time: '11:00-22:00',
+      time: '10:00-23:00',
       lat: 37.296454,
       lng: 126.833895,
       closeDay: [],
+      path: '/',
     },
   ],
   흡연구역: [
     {
       id: 1101,
-      image: '',
-      title: '지정 흡연구역 A',
+      image: 'smoking',
+      title: '흡연구역',
       subtitle: '',
       time: '24시간',
       lat: 37.295466,
@@ -450,8 +453,8 @@ export const MapData: MapDataProps = {
     },
     {
       id: 1102,
-      image: '',
-      title: '지정 흡연구역 B',
+      image: 'smoking',
+      title: '흡연구역',
       subtitle: '',
       time: '24시간',
       lat: 37.296452,
@@ -460,8 +463,8 @@ export const MapData: MapDataProps = {
     },
     {
       id: 1103,
-      image: '',
-      title: '지정 흡연구역 C',
+      image: 'smoking',
+      title: '흡연구역',
       subtitle: '',
       time: '24시간',
       lat: 37.296111,
