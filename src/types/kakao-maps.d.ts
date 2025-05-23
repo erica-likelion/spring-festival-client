@@ -94,6 +94,43 @@ declare global {
         zIndex?: number;
       }
 
+      class MapObject {
+        setMap(map: Map | null): void;
+        getMap(): Map | null;
+      }
+
+      class Polygon extends MapObject {
+        constructor(options: PolygonOptions);
+        getPath(): LatLng[];
+        setPath(path: LatLng[]): void;
+        getOptions(): PolygonOptions;
+        setOptions(options: PolygonOptions): void;
+      }
+
+      interface PolygonOptions {
+        path?: LatLng[];
+        strokeWeight?: number;
+        strokeColor?: string;
+        strokeOpacity?: number;
+        strokeStyle?: StrokeStyles;
+        fillColor?: string;
+        fillOpacity?: number;
+        map?: Map;
+      }
+
+      type StrokeStyles =
+        | 'solid'
+        | 'shortdash'
+        | 'shortdot'
+        | 'shortdashdot'
+        | 'shortdashdotdot'
+        | 'dot'
+        | 'dash'
+        | 'dashdot'
+        | 'longdash'
+        | 'longdashdot'
+        | 'longdashdotdot';
+
       namespace event {
         function addListener(target: object, type: string, handler: (e?: unknown) => void): number;
 

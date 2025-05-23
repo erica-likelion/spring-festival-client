@@ -16,6 +16,7 @@ export function useKakaoMap(
   const kakaoMapRef = useRef<kakao.maps.Map | null>(null);
   const myLocationMarkerRef = useRef<kakao.maps.Marker | null>(null);
   const customOverlaysRef = useRef<kakao.maps.CustomOverlay[]>([]);
+  const customPolygonsRef = useRef<kakao.maps.Polygon[]>([]);
 
   // 지도 크기가 변경될 때 relayout 호출
   useEffect(() => {
@@ -375,6 +376,7 @@ export function useKakaoMap(
             }
           },
           isSelected, // 선택된 마커는 큰 크기
+          customPolygonsRef, // 다각형 참조 전달
         );
 
         overlays.push({ overlay, isSelected });
@@ -416,11 +418,15 @@ export function useKakaoMap(
 
     // 카테고리가 선택되지 않은 경우 (null) 기존 마커 모두 제거
     if (!selectedCategory) {
-      // 이전 커스텀 오버레이 제거
+      // 이전 커스텀 오버레이와 다각형 제거
       customOverlaysRef.current.forEach((overlay) => {
         overlay.setMap(null);
       });
+      customPolygonsRef.current.forEach((polygon) => {
+        polygon.setMap(null);
+      });
       customOverlaysRef.current = [];
+      customPolygonsRef.current = [];
 
       // 선택된 항목 마커가 있다면 제거
       if (selectedItemMarkerRef.current) {
@@ -481,6 +487,7 @@ export function useKakaoMap(
           }
         },
         false, // 초기에는 작은 크기로 표시
+        customPolygonsRef, // 다각형 참조 전달
       );
 
       // 오버레이를 지도에 표시하고 배열에 추가
@@ -552,12 +559,13 @@ export function useKakaoMap(
 
 // 로컬에서 사용할 createCustomMarker 함수
 const createCustomMarker = (
-  _map: kakao.maps.Map, // 사용하지 않는 매개변수이므로 _ 접두사 추가
+  _map: kakao.maps.Map,
   position: kakao.maps.LatLng,
   category: CATEGORIES,
   label: string,
   onClick?: () => void,
   isSelected: boolean = false,
+  polygonsRef?: React.MutableRefObject<kakao.maps.Polygon[]>,
 ) => {
   // 카테고리에 맞는 아이콘 URL 가져오기
   const iconUrl = markerIcons[category];
@@ -606,6 +614,54 @@ const createCustomMarker = (
     zIndex: isSelected ? 1000 : 1,
     yAnchor: 0.5,
   });
+
+  // 푸드트럭이나 플리마켓인 경우 아래에 직사각형 영역 추가
+  if (category === '푸드트럭' || category === '플리마켓') {
+    const angle = category === '푸드트럭' ? 59 : 61; // 각도 설정
+    const angle_rad = angle * (Math.PI / 180); // 라디안으로 변환
+    const width = category === '푸드트럭' ? 0.00014 : 0.0003; // 직사각형의 너비
+    const height = category === '푸드트럭' ? 0.0006 : 0.0004; // 직사각형의 높이
+
+    // 중심점으로부터의 회전된 꼭지점 계산
+    const dx = width / 2;
+    const dy = height / 2;
+
+    // 회전된 꼭지점 좌표 계산
+    const path = [
+      new kakao.maps.LatLng(
+        position.getLat() + (Math.cos(angle_rad) * dx - Math.sin(angle_rad) * dy),
+        position.getLng() + (Math.sin(angle_rad) * dx + Math.cos(angle_rad) * dy),
+      ),
+      new kakao.maps.LatLng(
+        position.getLat() + (-Math.cos(angle_rad) * dx - Math.sin(angle_rad) * dy),
+        position.getLng() + (-Math.sin(angle_rad) * dx + Math.cos(angle_rad) * dy),
+      ),
+      new kakao.maps.LatLng(
+        position.getLat() + (-Math.cos(angle_rad) * dx + Math.sin(angle_rad) * dy),
+        position.getLng() + (-Math.sin(angle_rad) * dx - Math.cos(angle_rad) * dy),
+      ),
+      new kakao.maps.LatLng(
+        position.getLat() + (Math.cos(angle_rad) * dx + Math.sin(angle_rad) * dy),
+        position.getLng() + (Math.sin(angle_rad) * dx - Math.cos(angle_rad) * dy),
+      ),
+    ];
+
+    const polygon = new kakao.maps.Polygon({
+      path: path,
+      strokeWeight: 1,
+      strokeColor: '#4F75F9',
+      strokeOpacity: 1,
+      strokeStyle: 'solid',
+      fillColor: '#4F75F9',
+      fillOpacity: 0.3,
+    });
+
+    polygon.setMap(_map);
+    // 다각형 참조 저장
+    if (polygonsRef) {
+      polygonsRef.current.push(polygon);
+    }
+  }
 
   if (onClick) {
     const overlayElement = overlay.getContent();
