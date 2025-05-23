@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { NavBar } from '@/components/nav-bar';
 import * as S from './Main.styles';
 import { EventCarousels } from '@/features/main/components/carousels';
@@ -5,22 +6,32 @@ import { Menu } from '@/features/main/components/menu/index';
 import { NoticeSlider } from '@/features/main/components/slider';
 import Right from '@/assets/icons/right-arrow.svg?react';
 import Backeffct from '@/assets/icons/Background-Reflect.svg?react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { UserLogin, Footer } from '@/features/main/components/user';
 import { useAuthStore } from '@/stores/useAuthStore';
+import { useEffect } from 'react';
+import AppInstallPrompt from '@/features/main/components/user/AppInstallPrompt';
 
 export default function Main() {
   const navigate = useNavigate();
+  const location = useLocation();
   const isLoggedIn = useAuthStore((state) => state.isLoggedIn);
+  useEffect(() => {
+    const isFirst = localStorage.getItem('isFirst');
+    if (isFirst === null) {
+      navigate('/login', { state: { isFirst: true } });
+    }
+  }, []);
   return (
     <S.Container>
+      {location.state?.fromFirstLogin === true && <AppInstallPrompt />}
       <S.Layout />
       <NavBar opacity={true} />
       <S.Main>
         <section>
           {' '}
           <S.TitleWrapper>
-            <S.Title>진행중인 이벤트</S.Title>
+            <S.Title>진행 중인 이벤트</S.Title>
           </S.TitleWrapper>
           <S.CarouselsBox>
             <EventCarousels />

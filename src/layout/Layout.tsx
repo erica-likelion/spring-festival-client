@@ -9,7 +9,6 @@ import { useWaitingStore } from '@/features/waiting/stores/useWaitingStore';
 import { useEffect } from 'react';
 import { useLikeStore } from '@/features/like/stores/useLikeStore';
 import { useAuthStore } from '@/stores/useAuthStore';
-import AppInstallPrompt from '@/features/main/components/user/AppInstallPrompt';
 
 /**
  * Layout component
@@ -27,7 +26,6 @@ export default function Layout() {
   }, [loadWaitings, isLoggined, loadlikes]);
   return (
     <S.Container>
-      <AppInstallPrompt />
       {isNav && <Nav />}
       <AnimatePresence mode="wait">
         <Main>

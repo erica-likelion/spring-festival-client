@@ -37,7 +37,7 @@ export type ImageTextFrameWithTimeProps = {
   time: string;
 
   /** 픽업 가능 여부 */
-  canPickup: boolean;
+  // canPickup: boolean; (사용 중지)
 
   /** 클릭 이벤트 핸들러 (선택) */
   onClick?: () => void;
@@ -47,6 +47,9 @@ export type ImageTextFrameWithTimeProps = {
 
   /** 활성화 스타일 여부 */
   activeStyle?: boolean;
+
+  /** 상세페이지 경로 */
+  path?: string;
 };
 
 export type MenuFrameProps = {

@@ -9,9 +9,17 @@ import { ColorButton } from '@/components/colorbuttons';
 import { ColorKey } from '@/components/colorbuttons/ColorButton.types';
 import React from 'react';
 
-function EventCard({ isSun = true, startTime, endTime, title, location, tags = [] }: CardProps) {
+function EventCard({
+  isSun = true,
+  startTime,
+  endTime,
+  title,
+  location,
+  tags = [],
+  onClick,
+}: CardProps) {
   return (
-    <S.Container>
+    <S.Container onClick={onClick}>
       <S.HeaderSection>
         <S.TagWrapper>
           {tags.map((tag, index) => (

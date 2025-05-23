@@ -20,6 +20,8 @@ export default function MapPageHeader({
   onExpandToggle,
   showCategory = true,
   onExpandChange,
+  isBackVisible,
+  onBackButtonClick,
 }: MapPageHeaderProps) {
   // expanded 상태가 변경될 때마다 콜백 호출
   useEffect(() => {
@@ -29,6 +31,11 @@ export default function MapPageHeader({
   return (
     <S.Container $expanded={expanded}>
       <S.HeadWrap $expanded={expanded}>
+        {isBackVisible && (
+          <S.BackButton $visible={isBackVisible} onClick={onBackButtonClick}>
+            <ArrowIcon width={'1.5rem'} height={'1.5rem'} />
+          </S.BackButton>
+        )}
         <S.TitleWrap onClick={onExpandToggle}>
           <S.Title>{expanded ? '일차 선택' : `${selectedDay} 지도`}</S.Title>
           <S.DropdownButton $expanded={expanded}>

@@ -13,7 +13,7 @@ export const ModalOverlay = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
-  backdrop-filter: blur(2px);
+  background-color: rgb(0 0 0 / 70%);
 `;
 
 export const ModalWrapper = styled(motion.div)`

@@ -31,6 +31,9 @@ declare global {
       class LatLng {
         constructor(latitude: number, longitude: number);
         toString(): string;
+        getLat(): number;
+        getLng(): number;
+        equals(latlng: LatLng): boolean;
       }
 
       class LatLngBounds {
@@ -129,6 +132,8 @@ export interface KakaoMapOptions {
   zoomable?: boolean;
   /** 마우스 휠로 확대/축소 가능 여부 */
   scrollwheel?: boolean;
+  /** 바텀시트가 열려있는지 여부 */
+  isBottomSheetOpen?: boolean;
 }
 
 export {};

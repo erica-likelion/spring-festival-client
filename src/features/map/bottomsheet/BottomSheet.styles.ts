@@ -18,6 +18,10 @@ export const BottomSheetMotionDiv = styled(motion.div)`
   border-top-right-radius: 0.75rem;
   background-color: ${(props) => props.theme.colors.grayScale.black};
   transition: transform 150ms ease-out;
+  overflow: hidden;
+  will-change: transform; /* 성능 최적화 */
+  touch-action: pan-y; /* 수직 스크롤만 허용 */
+  -webkit-overflow-scrolling: touch; /* iOS 스크롤 부드럽게 */
 `;
 
 export const BottomSheetHeader = styled.div`
@@ -51,6 +55,8 @@ export const BottomSheetContent = styled.div`
   overscroll-behavior: contain;
   color: ${(props) => props.theme.colors.grayScale.white};
   padding: 0 1.25rem;
+  position: relative;
+  -webkit-overflow-scrolling: touch; /* iOS 스크롤 부드럽게 */
 
   /* 스크롤바 숨기기 */
   -ms-overflow-style: none; /* IE, Edge */
@@ -71,6 +77,7 @@ export const ContentUnitWrap = styled.div<{ $isLastItem?: boolean }>`
   padding: 0.5988rem 0;
   border-bottom: ${(props) =>
     props.$isLastItem ? 'none' : `0.0625rem solid ${props.theme.colors.grayScale.gy900}`};
+  margin-bottom: ${(props) => (props.$isLastItem ? '32rem' : '0')};
 `;
 
 export const NoDataMessage = styled.div`

@@ -7,6 +7,7 @@ export const Container = styled.ul`
   justify-content: center;
   align-items: center;
   gap: 0.25rem;
+  overflow: hidden;
 `;
 
 export const DotsBox = styled.div`

@@ -2,11 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import * as S from './Menu.styles';
 import { ImageTextIconFrame } from '@/components/image-text-icon-frame';
 import { externalLinks } from '@/constants/main/ExternalLink';
-import Student from '@/assets/icons/student_logo.svg';
-import Lion from '@/assets/icons/lion_logo.svg';
+import Student from '@/assets/images/menu/ericanote.jpeg';
 import Form from '@/assets/icons/form_logo.svg';
 import Lost from '@/assets/icons/lost_logo.svg';
 import Make from '@/assets/icons/lionlove_logo.svg';
+import Lion from '@/assets/icons/lion_logo.svg';
 /**
  * Menu 컴포넌트
  * 메뉴 클릭시 내부 경로 이동 또는 외부 URL로 연결

@@ -130,15 +130,11 @@ export default function BottomSheet({
                         title={item.title}
                         subtitle={item.subtitle}
                         time={item.time}
-                        canPickup={item.canPickup}
+                        path={item.path}
                         onClick={() => {
                           // 지도에 마커 표시 및 중앙 이동
                           if (onItemClick && item.lat && item.lng) {
                             onItemClick(item);
-                          }
-                          // 경로가 있는 경우 해당 경로로 이동
-                          if (item.path) {
-                            navigate(item.path);
                           }
                         }}
                       />

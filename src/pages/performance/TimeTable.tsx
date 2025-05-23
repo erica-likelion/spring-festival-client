@@ -74,14 +74,14 @@ export default function TimeTable() {
           <S.Line />
         </S.Divider>
         {time.map((t, index) => (
-          <>
-            <S.TimeBoxWrap key={index}>
+          <div key={index}>
+            <S.TimeBoxWrap>
               <S.TimeText>{t}</S.TimeText>
             </S.TimeBoxWrap>
             <S.Divider>
               <S.Line />
             </S.Divider>
-          </>
+          </div>
         ))}
         <S.TimeTable key={selectedDay}>
           {currentPerformances.map((performance, index) => {

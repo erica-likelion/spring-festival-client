@@ -24,7 +24,8 @@ export const HeaderSection = styled.div`
 
 export const InfoSection = styled.div`
   display: flex;
-  padding: 1.75rem 1.5rem;
+  height: 9.75rem;
+  padding: 2rem 1.5rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -43,7 +44,6 @@ export const TagWrapper = styled.div`
 
 export const EventTitle = styled.p`
   ${(props) => props.theme.fonts.header.h4}
-  height: 3rem;
   align-self: stretch;
   overflow: hidden;
 `;
@@ -55,6 +55,7 @@ export const TextWrapper = styled.div`
   text-align: left;
   gap: 0.5rem;
   flex-direction: column;
+  width: 9.25rem;
 `;
 
 export const EventText = styled.p`

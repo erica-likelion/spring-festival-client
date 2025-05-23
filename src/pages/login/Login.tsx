@@ -3,8 +3,10 @@ import { useEffect } from 'react';
 import * as S from './Login.style.ts';
 import HyLightXLikeLion from '@/assets/images/hylight-likelion.svg?react';
 import { useLayoutStore } from '@/stores/useLayoutStore';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { NavBar } from '@/components/nav-bar';
+import useModal from '@/hooks/useModal.ts';
+import AlarmModal from '@/features/alarm/components/AlarmModal.tsx';
 
 /**
  * 카카오 로그인 화면입니다.
@@ -16,12 +18,21 @@ import { NavBar } from '@/components/nav-bar';
  */
 const Login: React.FC = () => {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
+  const { open, close } = useModal(AlarmModal);
   const navigate = useNavigate();
+  const isFirst = useLocation().state?.isFirst;
 
   useEffect(() => {
     setIsNav(false);
     return () => setIsNav(true);
   }, [setIsNav]);
+
+  useEffect(() => {
+    if (isFirst === true) {
+      open({ title: '알림 허용하고 편하게 사용하기', close: close });
+      localStorage.setItem('isFirst', 'false');
+    }
+  });
 
   const REST_API_KEY = import.meta.env.VITE_KAKAO_REST_API_KEY;
   const REDIRECT_URI = import.meta.env.VITE_KAKAO_REDIRECT_URI;
@@ -32,12 +43,16 @@ const Login: React.FC = () => {
   };
 
   const handleNotLoginClick = () => {
-    navigate(-1);
+    if (isFirst === true) {
+      navigate('/main', { state: { fromFirstLogin: true } });
+    } else {
+      navigate(-1);
+    }
   };
 
   return (
     <S.Container>
-      <NavBar isBack={true} title="로그인" backPath={-1} />
+      {isFirst !== true && <NavBar isBack={true} title="로그인" backPath={-1} />}
       <S.ContentWrapper>
         <HyLightXLikeLion />
         <S.TextWrapper>
