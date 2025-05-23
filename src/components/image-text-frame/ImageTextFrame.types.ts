@@ -60,7 +60,7 @@ export type MenuFrameProps = {
   description: string;
 
   /** 가격 */
-  price: number;
+  price: string;
 
   /** 너비 (선택) */
   width?: CSSWidthValue;
