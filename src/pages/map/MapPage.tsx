@@ -184,7 +184,7 @@ export default function Map() {
   };
 
   const handleSearchClick = () => {
-    navigate('search');
+    navigate('/map/search', { replace: true });
   };
 
   // 현재 위치 버튼 관련 상태

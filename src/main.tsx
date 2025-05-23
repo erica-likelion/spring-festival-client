@@ -99,12 +99,12 @@ const routes = createBrowserRouter([
         element: <Map />,
       },
       {
-        path: 'map/:itemId',
-        element: <Map />,
-      },
-      {
         path: 'map/search',
         element: <MapSearch />,
+      },
+      {
+        path: 'map/:itemId',
+        element: <Map />,
       },
       {
         path: 'performance',
