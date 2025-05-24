@@ -14,7 +14,7 @@ export default function MenuList({ id }: { id: number }) {
   return (
     <>
       <S.TabsContainer>
-        <Tabs tabs={MENU_CATEGORY} activeTab={activeTab} onTabClick={setActiveTab} />
+        <Tabs tabs={MENU_CATEGORY} activeTab={activeTab} onTabClick={setActiveTab} toggle={true} />
       </S.TabsContainer>
       {(activeTab === '' || activeTab === '메인') && (
         <S.MenuFrame>
