@@ -196,13 +196,14 @@ export const BOOTH_LIST = [
           describtion: '속이 확 풀리는 기계식 라면',
           price: '8,000 원',
         },
+      ],
+      sub: [
         {
           name: "고백해볼'레 몬'난나지만",
           describtion: '상큼하게 톡! 레몬 소주',
           price: '5,000 원',
         },
       ],
-      sub: [],
     },
     takeout: false,
     profileImage: MACHINE,
@@ -487,16 +488,6 @@ export const BOOTH_LIST = [
           describtion: '초코쉘, 그레놀라와 함께 접시에 담아주는 아이스크림 메뉴',
           price: '10,000 원',
         },
-        {
-          name: '매실원액, 홍초원액, 헛개수원액',
-          describtion: '각 원액을 소주나 물에 타서 제공하는 음료 메뉴',
-          price: '2,000 원',
-        },
-        {
-          name: '원액 3종 세트',
-          describtion: '매실, 홍초, 헛개수 원액을 세트로 제공하는 메뉴',
-          price: '5,000 원',
-        },
       ],
       sub: [
         {
@@ -513,6 +504,16 @@ export const BOOTH_LIST = [
           name: '생수',
           describtion: '',
           price: '2,000 원',
+        },
+        {
+          name: '매실원액, 홍초원액, 헛개수원액',
+          describtion: '각 원액을 소주나 물에 타서 제공하는 음료 메뉴',
+          price: '2,000 원',
+        },
+        {
+          name: '원액 3종 세트',
+          describtion: '매실, 홍초, 헛개수 원액을 세트로 제공하는 메뉴',
+          price: '5,000 원',
         },
       ],
     },
@@ -876,9 +877,8 @@ export const BOOTH_LIST = [
         { name: '공깃밥', describtion: '', price: '2,000 원' },
         { name: '마시멜로우', describtion: '', price: '1,500 원' },
         { name: '황도', describtion: '', price: '4,000 원' },
-        { name: '음료수', describtion: '', price: '2,000 원' },
       ],
-      sub: [],
+      sub: [{ name: '음료수', describtion: '', price: '2,000 원' }],
     },
     takeout: false,
     profileImage: INSURANCE,
@@ -1144,13 +1144,13 @@ export const BOOTH_LIST = [
           describtion: '부드러운 계란과 만두가 어우러진 깔끔한 계란탕',
           price: '',
         },
-      ],
-      sub: [
         {
           name: '아이스크림',
           describtion: '달콤한 바닐라 아이스크림. 주문량이 많으면 뭔가 있을지도~?',
           price: '',
         },
+      ],
+      sub: [
         {
           name: '콜라 / 제로 콜라 / 물',
           describtion: '',
@@ -1390,6 +1390,16 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         {
+          name: '치즈 닭갈비 + 콘치즈 + 랜덤음료수',
+          describtion: 'A+보다 짜릿한 치즈 닭갈비 + 콘치즈 + 랜덤음료수',
+          price: '25,000 원',
+        },
+        {
+          name: '치즈 닭갈비 + 오뎅탕 + 랜덤음료수',
+          describtion: 'A+보다 짜릿한 치즈 닭갈비 + 오뎅탕 + 랜덤음료수',
+          price: '26,000 원',
+        },
+        {
           name: '닭갈비',
           describtion: 'A+보다 짜릿한 닭갈비',
           price: '18,000 원',
@@ -1438,16 +1448,6 @@ export const BOOTH_LIST = [
         },
       ],
       sub: [
-        {
-          name: '치즈 닭갈비 + 콘치즈 + 랜덤음료수',
-          describtion: 'A+보다 짜릿한 치즈 닭갈비 + 콘치즈 + 랜덤음료수',
-          price: '25,000 원',
-        },
-        {
-          name: '치즈 닭갈비 + 오뎅탕 + 랜덤음료수',
-          describtion: 'A+보다 짜릿한 치즈 닭갈비 + 오뎅탕 + 랜덤음료수',
-          price: '26,000 원',
-        },
         {
           name: '아이스초코',
           describtion: '',
@@ -1681,13 +1681,13 @@ export const BOOTH_LIST = [
           describtion: '',
           price: '4,900 원',
         },
-      ],
-      sub: [
         {
           name: '호떡 아이스크림',
           describtion: '',
           price: '7,900 원',
         },
+      ],
+      sub: [
         {
           name: '블루 크림 소다 하이볼',
           describtion: '술커마 SIGNATURE',

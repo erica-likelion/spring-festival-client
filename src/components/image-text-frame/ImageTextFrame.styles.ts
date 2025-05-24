@@ -84,7 +84,6 @@ export const TitleWrap = styled.div`
 export const Title = styled.p`
   ${(props) => props.theme.fonts.header.h4}
   color: ${(props) => props.theme.colors.grayScale.white};
-  max-width: 8.8125rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
