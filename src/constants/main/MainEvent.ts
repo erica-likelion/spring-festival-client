@@ -15,7 +15,18 @@ export interface EventCardDate {
 }
 
 export const MainEventData: EventCardDate = {
-  '2025-05-27': [
+  '2025-05-25': [
+    {
+      id: '0',
+      tags: [{ color: 'ye200', text: '콘텐츠' }],
+      title: '없음',
+      startTime: '11:00',
+      endTime: '17:00',
+      location: '잔디공터',
+      isSun: true,
+    },
+  ],
+  '2025-05-24': [
     {
       id: '1',
       tags: [{ color: 'ye200', text: '콘텐츠' }],

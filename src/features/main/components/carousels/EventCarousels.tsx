@@ -40,6 +40,25 @@ export default function EventCarousels() {
   const todayStr = now.toISOString().split('T')[0];
   const todayEvents: EventCardData[] = MainEventData[todayStr] ?? [];
 
+  const liveOn = (card: EventCardData, now: Date) => {
+    const tags = card.tags;
+    const Perfomance = tags.some((tag) => tag.text === '공연무대');
+    if (!Perfomance) return tags;
+
+    const nowMin = now.getHours() * 60 + now.getMinutes();
+    const startMin =
+      Number(card.startTime.split(':')[0]) * 60 + Number(card.startTime.split(':')[1]);
+    const endMin = Number(card.endTime.split(':')[0]) * 60 + Number(card.endTime.split(':')[1]);
+
+    const isLive = nowMin >= startMin && nowMin <= endMin;
+    const hasLive = tags.some((tag) => tag.text === 'LIVE');
+
+    if (isLive && !hasLive) {
+      return [{ color: 'rd500', text: 'LIVE' }, ...tags];
+    }
+    return tags;
+  };
+
   const handleDragStart = () => setIsDragging(true);
   const handleDragEndWrapper = (
     e: MouseEvent | TouchEvent | PointerEvent,
@@ -126,6 +145,8 @@ export default function EventCarousels() {
               ) {
                 isSun = false;
               }
+              const tags = liveOn(card, now);
+
               return (
                 <S.MotionCard
                   key={i}
@@ -143,6 +164,7 @@ export default function EventCarousels() {
                   <EventCard
                     {...card}
                     isSun={isSun}
+                    tags={tags}
                     onClick={() => {
                       if (!isDragging) {
                         const link = eventCardLinkMap[card.id];
