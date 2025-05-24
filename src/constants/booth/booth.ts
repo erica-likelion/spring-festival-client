@@ -721,7 +721,7 @@ export const BOOTH_LIST = [
         { name: '아이스 황도', describtion: '', price: '8,900 원' },
         { name: '콘치즈', describtion: '', price: '7,900 원' },
       ],
-      sub: [],
+      sub: [{ name: '물', describtion: '', price: '1,000 원' }],
     },
     takeout: true,
     profileImage: CONVERGENCE,
