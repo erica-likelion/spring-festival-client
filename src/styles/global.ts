@@ -37,7 +37,8 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
         background-color: ${(props) => props.theme.colors.grayScale.black};
-
+        position: fixed;
+        
         ${(props) => props.theme.media.browser} {
             @media screen and (width >= 1024px) {
                 width: 1024px;
