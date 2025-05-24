@@ -210,7 +210,7 @@ export const MainEventData: EventCardDate = {
     {
       id: '20',
       tags: [{ color: 'or100', text: '공연무대' }],
-      title: 'DJ 주디   ',
+      title: 'DJ 주디',
       startTime: '21:15',
       endTime: '21:45',
       location: '공연장',
