@@ -7,4 +7,5 @@ export const Container = styled.div`
   height: 100%;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  padding-top: 3.875rem;
 `;
