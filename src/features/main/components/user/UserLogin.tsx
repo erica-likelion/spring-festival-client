@@ -11,7 +11,7 @@ export default function UserLogin() {
           UN-LOCK❤️하기
         </S.Title>
         <S.Sub>
-          지금 로그인하고 주점 웨이팅, 분실물 등록
+          지금 로그인하고 공연 알람, 분실물 등록
           <br />
           기능들을 모두 이용해보세요!
         </S.Sub>
