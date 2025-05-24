@@ -1039,7 +1039,7 @@ export const BOOTH_LIST = [
           price: '7,900',
         },
         {
-          name: '대새(새우대가리)라면',
+          name: '대새라면',
           describtion: '흰다리새우머리로 육수를 내어 맛있게 끓여낸 라면',
           price: '6,900',
         },
@@ -1091,7 +1091,7 @@ export const BOOTH_LIST = [
         },
         {
           name: '닭목살구이',
-          describtion: '탱글한 닭목살을 구워낸 별미',
+          describtion: '탱글한 닭목살을 구워낸 별미 (소금, 간장, 양념 중 선택 가능)',
           price: '',
         },
         {
@@ -1393,7 +1393,7 @@ export const BOOTH_LIST = [
         },
         {
           name: '치즈추가',
-          describtion: '테이블 당 메인메뉴 1개 주문 필수입니다.',
+          describtion: '',
           price: '2,000',
         },
       ],
