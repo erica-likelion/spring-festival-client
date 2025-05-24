@@ -708,7 +708,7 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         { name: '야끼우동', describtion: '', price: '17,900' },
-        { name: '대패숙주볶음', describtion: '오리지날 / 마라', price: '15,900' },
+        { name: '대패숙주볶음', describtion: '오리지널 / 마라', price: '15,900' },
         { name: '나가사끼 짬뽕', describtion: '', price: '17,900' },
       ],
       side: [
