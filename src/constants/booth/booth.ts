@@ -78,7 +78,7 @@ export const BOOTH_LIST = [
       ],
       side: [
         {
-          name: '모듬소세지(사이드감튀)',
+          name: '모듬소세지',
           describtion: '봉쥬르 모듬 소세쥬 드 라따뚜이',
           price: '13,900',
         },
@@ -263,12 +263,17 @@ export const BOOTH_LIST = [
         },
         { name: '오돌뼈', describtion: '매콤하게 양념된 돼지 연골 볶음 안주', price: '17,000' },
         { name: 'ㄱㅖ란토스트', describtion: '달걀과 식빵을 부드럽게 구워낸 안주', price: '7,000' },
+        {
+          name: '모둠 소시지',
+          describtion: '다양한 소시지를 한 접시에 담은 육즙 가득한 모둠 소시지!',
+          price: '14,000',
+        },
       ],
       side: [
         {
-          name: '(주)먹밥',
+          name: 'self (주)먹밥',
           describtion: '재료를 넣어 동그랗게 만든 한입 크기의 간편 밥 요리',
-          price: '6,000',
+          price: '4,000',
         },
         {
           name: 'ㅎㅐ장만두ㄹr면',
@@ -579,18 +584,18 @@ export const BOOTH_LIST = [
     type: '학생회 주점',
     locate: 'EP.01',
     affiliation: '국방전략기술공학과 학생회',
-    pubName: '마구먹고 마구마셔',
+    pubName: '마구 먹구 마구 마셔',
     menu: {
       main: [
         {
-          name: '빠따꼬치',
-          describtion: '순한맛 닭꼬치',
+          name: '빠다꼬치',
+          describtion: '(순한맛 닭꼬치)',
           price: '17,900',
         },
         {
-          name: '불빠따꼬치',
-          describtion: '매운맛 닭꼬치',
-          price: '17,600',
+          name: '불빠다꼬치',
+          describtion: '(매운맛 닭꼬치)',
+          price: '17,900',
         },
         {
           name: '염통빠따꼬치',
@@ -598,19 +603,19 @@ export const BOOTH_LIST = [
           price: '12,900',
         },
         {
-          name: '염통빠따세트',
-          describtion: '염통과 닭꼬치가 함께 나오는 세트 메뉴',
-          price: '22,900',
+          name: '빠따꼬치세트',
+          describtion: '(순한맛 매운맛 반반)',
+          price: '19,900',
         },
         {
-          name: '빠따꼬치세트',
-          describtion: '매운맛과 순한맛 닭꼬치 반반 구성',
-          price: '19,900',
+          name: '염통빠따세트',
+          describtion: '(닭꼬치 염통 반반)',
+          price: '22,900',
         },
         {
           name: '육회말 투아웃',
           describtion: '신선한 육회를 듬뿍 담은 메뉴',
-          price: '19,900',
+          price: '18,900',
         },
         {
           name: '두부삼겹도루치기',
@@ -632,7 +637,7 @@ export const BOOTH_LIST = [
         {
           name: '류현진라면',
           describtion: '든든하게 먹는 라면 한 그릇',
-          price: '4,900',
+          price: '6,900',
         },
       ],
       sub: [
@@ -645,6 +650,11 @@ export const BOOTH_LIST = [
           name: '생수',
           describtion: '',
           price: '1,000',
+        },
+        {
+          name: '헛개보이',
+          describtion: '',
+          price: '????',
         },
       ],
     },
@@ -698,7 +708,7 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         { name: '야끼우동', describtion: '', price: '17,900' },
-        { name: '대패숙주볶음', describtion: '', price: '15,900' },
+        { name: '대패숙주볶음', describtion: '오리지날 / 마라', price: '15,900' },
         { name: '나가사끼 짬뽕', describtion: '', price: '17,900' },
       ],
       side: [
@@ -723,8 +733,8 @@ export const BOOTH_LIST = [
         { name: '대패삼겹두부김치', describtion: '', price: '17,900' },
         { name: '소세지야채볶음', describtion: '', price: '13,900' },
         {
-          name: '가라아게 - 케이준 감자튀김과 가라아게 함께 제공',
-          describtion: '',
+          name: '가라아게',
+          describtion: '케이준 감자튀김과 가라아게 함께 제공',
           price: '12,900',
         },
       ],
@@ -734,11 +744,16 @@ export const BOOTH_LIST = [
         { name: '주먹밥(셀프)', describtion: '', price: '3,000' },
       ],
       sub: [
-        { name: 'DIY하이볼 - 소주는 셀프', describtion: '자몽, 청포도', price: '3,500' },
+        { name: 'DIY하이볼', describtion: '자몽, 청포도 (소주는 셀프)', price: '3,500' },
         {
           name: '음료',
           describtion: '콜라, 제로콜라, 사이다',
           price: '2,000',
+        },
+        {
+          name: '생수',
+          describtion: '',
+          price: '1,000',
         },
       ],
     },
@@ -847,14 +862,13 @@ export const BOOTH_LIST = [
     pubName: '냉3 4먹으러 5것지',
     menu: {
       main: [
-        { name: '우삼겹 숙주볶음 200g', describtion: '', price: '14,000' },
-        { name: '냉삼 200g', describtion: '(+ 김치 콩나물 볶음 제공)', price: '14,000' },
-
+        { name: '냉삼 1인분 200g', describtion: '(+ 김치 콩나물 볶음 제공)', price: '14,000' },
+        { name: '우삼겹 숙주볶음', describtion: '', price: '14,000' },
         { name: '김치찌개', describtion: '', price: '9,000' },
       ],
       side: [
         { name: '소세지 3줄', describtion: '', price: '5,000' },
-        { name: '면사리 추가 (김치찌개에 추가)', describtion: '', price: '2,000' },
+        { name: '면사리 추가', describtion: '', price: '2,000' },
         { name: '공깃밥', describtion: '', price: '2,000' },
         { name: '마시멜로우', describtion: '', price: '1,500' },
         { name: '황도', describtion: '', price: '4,000' },
@@ -949,29 +963,29 @@ export const BOOTH_LIST = [
       main: [
         {
           name: '대패숙주볶았수다',
-          describtion: '대패 삼겹과 숙주를 재료로 한 대표메뉴',
+          describtion: '# 자꾸 아찔한 이 "대패" 위험한 이 "숙주"',
           price: '18,900',
         },
         {
           name: '닭목살구웠수다',
-          describtion: '닭목살과 파를 불향을 입혀 구운 시그니처 메뉴',
+          describtion: '# 지독하게 너무 지독하게 "닭목살" 사랑했나봐~',
           price: '18,900',
         },
         {
           name: '오돌뼈볶았수다',
-          describtion: '매콤한 오돌뼈와 파를 함께 볶고 불향을 입힌 감초 메뉴',
-          price: '14,900',
+          describtion: '# 오돌뼈 사랑했나봐.. 잊을 수 없나봐..',
+          price: '17,900',
         },
       ],
       side: [
         {
           name: '해장라면끓였수다',
-          describtion: '숙주와 파, 고추를 넣어 조리한 해장 라면',
+          describtion: '# 오직 너에게만 감!동!적인 "라면"',
           price: '4,900',
         },
         {
           name: '캔땄수다',
-          describtion: '술자리 끝을 장식하는 황도와 파인애플',
+          describtion: '# 술자리의 끝을 장식하는 퀸카 "황도파인"',
           price: '5,900',
         },
       ],
@@ -1204,7 +1218,7 @@ export const BOOTH_LIST = [
 
         {
           name: '매실빛 노을(매실 베이스)',
-          describtion: '과일주(메실) 한잔, 파샵파샵!',
+          describtion: '과일주(매실) 한잔, 파샵파샵!',
           price: '5,000',
         },
         {
@@ -1629,25 +1643,25 @@ export const BOOTH_LIST = [
       main: [
         {
           name: '매콤크림감바스우동',
-          describtion: '',
-          price: '23,900',
+          describtion: '(2인분)',
+          price: '21,900',
         },
         {
           name: '대패삼겹덮밥',
-          describtion: '',
+          describtion: '(1~2인분)',
           price: '17,900',
         },
         {
           name: '냉모밀',
-          describtion: '',
+          describtion: '(1~2인분)',
           price: '15,900',
         },
       ],
       side: [
         {
-          name: '라면',
+          name: '불닭볶음밥',
           describtion: '',
-          price: '4,900',
+          price: '7,900',
         },
         {
           name: '어묵칩',
@@ -1655,19 +1669,16 @@ export const BOOTH_LIST = [
           price: '4,900',
         },
         {
-          name: '불닭볶음밥',
+          name: '라면',
+          describtion: '',
+          price: '4,900',
+        },
+      ],
+      sub: [
+        {
+          name: '호떡 아이스크림',
           describtion: '',
           price: '7,900',
-        },
-        {
-          name: '자몽 하이볼',
-          describtion: '술커마 SIGNATURE',
-          price: '4,900',
-        },
-        {
-          name: '패션후르츠 하이볼',
-          describtion: '술커마 SIGNATURE',
-          price: '4,900',
         },
         {
           name: '블루 크림 소다 하이볼',
@@ -1675,14 +1686,28 @@ export const BOOTH_LIST = [
           price: '5,400',
         },
         {
-          name: '호떡아이스크림',
+          name: '패션후르츠 하이볼',
+          describtion: '술커마 SIGNATURE',
+          price: '4,900',
+        },
+        {
+          name: '자몽 하이볼',
+          describtion: '술커마 SIGNATURE',
+          price: '4,900',
+        },
+        {
+          name: '물',
+          describtion: '갈아만든배 / 콜라 / 제로콜라 / 사이다',
+          price: '1,000',
+        },
+        {
+          name: '음료수',
           describtion: '',
-          price: '7,900',
+          price: '2,000',
         },
       ],
-      sub: [],
     },
-    takeout: true,
+    takeout: false,
     profileImage: SEMI,
     posterImage: SEMI_POSTER,
   },
