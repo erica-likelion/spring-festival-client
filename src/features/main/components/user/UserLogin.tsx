@@ -8,7 +8,7 @@ export default function UserLogin() {
       <S.Container>
         <S.Title>
           로그인하고 모든 기능을 <br />
-          UN-LOCKLOCK❤️하기
+          UN-LOCK❤️하기
         </S.Title>
         <S.Sub>
           지금 로그인하고 주점 웨이팅, 분실물 등록
