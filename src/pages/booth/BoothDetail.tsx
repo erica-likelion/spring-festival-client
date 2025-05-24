@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import { NavBar } from '@/components/nav-bar';
 import * as S from './BoothDetail.styles';
@@ -11,7 +11,9 @@ export default function BoothDetail() {
   const location = useLocation();
   const fromRef = useRef(location.state?.from || '/booth');
   const booth = BOOTH_LIST.find((booth) => booth.id === Number(id)); // ✅ 타입 일치
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   if (!booth) {
     return null; // or handle the case when the booth is not found
   }
@@ -23,12 +25,12 @@ export default function BoothDetail() {
         <BoothInfo id={booth.id} />
         {/*<Waiting id={booth.id} />*/}
       </S.Section>
-      <S.Section>
+      <S.BorderSection>
         <MenuList id={booth.id} />
-      </S.Section>
-      <S.Section>
+      </S.BorderSection>
+      <S.BorderSection>
         <BoothLocation id={booth.id} boothLocation={booth.locate} />
-      </S.Section>
+      </S.BorderSection>
       <S.BottomPadding />
     </>
   );

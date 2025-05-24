@@ -1,143 +1,182 @@
-import notice1_0 from '@/assets/images/notice/notice1 (1).webp';
-import notice1_1 from '@/assets/images/notice/notice1 (2).webp';
-import notice1_2 from '@/assets/images/notice/notice1 (3).webp';
-import notice1_3 from '@/assets/images/notice/notice1 (4).webp';
-import notice1_4 from '@/assets/images/notice/notice1 (5).webp';
-import notice1_5 from '@/assets/images/notice/notice1 (6).webp';
-import notice1_6 from '@/assets/images/notice/notice1 (7).webp';
-import notice1_7 from '@/assets/images/notice/notice1 (8).webp';
-import notice2_0 from '@/assets/images/notice/notice2 (1).webp';
-import notice2_1 from '@/assets/images/notice/notice2 (2).webp';
-import notice2_2 from '@/assets/images/notice/notice2 (3).webp';
-import notice2_3 from '@/assets/images/notice/notice2 (4).webp';
-import notice2_4 from '@/assets/images/notice/notice2 (5).webp';
-import notice2_5 from '@/assets/images/notice/notice2 (6).webp';
-import notice2_6 from '@/assets/images/notice/notice2 (7).webp';
-import notice3_0 from '@/assets/images/notice/notice3 (1).webp';
-import notice3_1 from '@/assets/images/notice/notice3 (2).webp';
-import notice3_2 from '@/assets/images/notice/notice3 (3).webp';
-import notice3_3 from '@/assets/images/notice/notice3 (4).webp';
-import notice3_4 from '@/assets/images/notice/notice3 (5).webp';
-import notice3_5 from '@/assets/images/notice/notice3 (6).webp';
-import notice3_6 from '@/assets/images/notice/notice3 (7).webp';
-import notice3_7 from '@/assets/images/notice/notice3 (8).webp';
-import notice4_0 from '@/assets/images/notice/notice4 (1).webp';
-import notice4_1 from '@/assets/images/notice/notice4 (2).webp';
-import notice4_2 from '@/assets/images/notice/notice4 (3).webp';
-import notice4_3 from '@/assets/images/notice/notice4 (4).webp';
-import notice4_4 from '@/assets/images/notice/notice4 (5).webp';
-import notice4_5 from '@/assets/images/notice/notice4 (6).webp';
-import notice5_0 from '@/assets/images/notice/notice5 (1).webp';
-import notice5_1 from '@/assets/images/notice/notice5 (2).webp';
-import notice5_2 from '@/assets/images/notice/notice5 (3).webp';
-import notice5_3 from '@/assets/images/notice/notice5 (4).webp';
-import notice5_4 from '@/assets/images/notice/notice5 (5).webp';
-import notice5_5 from '@/assets/images/notice/notice5 (6).webp';
-import notice6_0 from '@/assets/images/notice/notice6 (1).webp';
-import notice6_1 from '@/assets/images/notice/notice6 (2).webp';
-import notice6_2 from '@/assets/images/notice/notice6 (3).webp';
-import notice6_3 from '@/assets/images/notice/notice6 (4).webp';
-import notice6_4 from '@/assets/images/notice/notice6 (5).webp';
-import notice7_0 from '@/assets/images/notice/notice7 (1).webp';
-import notice7_1 from '@/assets/images/notice/notice7 (2).webp';
-import notice7_2 from '@/assets/images/notice/notice7 (3).webp';
-import notice7_3 from '@/assets/images/notice/notice7 (4).webp';
-import notice7_4 from '@/assets/images/notice/notice7 (5).webp';
-import notice7_5 from '@/assets/images/notice/notice7 (6).webp';
-import notice7_6 from '@/assets/images/notice/notice7 (7).webp';
-import notice7_7 from '@/assets/images/notice/notice7 (8).webp';
-import notice8_0 from '@/assets/images/notice/notice8 (1).webp';
-import notice8_1 from '@/assets/images/notice/notice8 (2).webp';
-import notice8_2 from '@/assets/images/notice/notice8 (3).webp';
-import notice8_3 from '@/assets/images/notice/notice8 (4).webp';
-import notice8_4 from '@/assets/images/notice/notice8 (5).webp';
-import notice8_5 from '@/assets/images/notice/notice8 (6).webp';
-import notice8_6 from '@/assets/images/notice/notice8 (7).webp';
-import notice8_7 from '@/assets/images/notice/notice8 (8).webp';
-import notice8_8 from '@/assets/images/notice/notice8 (9).webp';
-import notice8_9 from '@/assets/images/notice/notice8 (10).webp';
-import notice9_0 from '@/assets/images/notice/notice9 (1).webp';
-import notice9_1 from '@/assets/images/notice/notice9 (2).webp';
-import notice9_2 from '@/assets/images/notice/notice9 (3).webp';
-import notice9_3 from '@/assets/images/notice/notice9 (4).webp';
-import notice9_4 from '@/assets/images/notice/notice9 (5).webp';
-import notice10_0 from '@/assets/images/notice/notice10 (1).webp';
-import notice10_1 from '@/assets/images/notice/notice10 (2).webp';
-import notice10_2 from '@/assets/images/notice/notice10 (3).webp';
-import notice10_3 from '@/assets/images/notice/notice10 (4).webp';
-import notice10_4 from '@/assets/images/notice/notice10 (5).webp';
-import notice10_5 from '@/assets/images/notice/notice10 (6).webp';
-import notice10_6 from '@/assets/images/notice/notice10 (7).webp';
-import notice11_0 from '@/assets/images/notice/notice11 (1).webp';
-import notice11_1 from '@/assets/images/notice/notice11 (2).webp';
-import notice11_2 from '@/assets/images/notice/notice11 (3).webp';
-import notice11_3 from '@/assets/images/notice/notice11 (4).webp';
-import notice11_4 from '@/assets/images/notice/notice11 (5).webp';
-import notice11_5 from '@/assets/images/notice/notice11 (6).webp';
-import notice11_6 from '@/assets/images/notice/notice11 (7).webp';
-import notice11_7 from '@/assets/images/notice/notice11 (8).webp';
-import notice11_8 from '@/assets/images/notice/notice11 (9).webp';
-import notice11_9 from '@/assets/images/notice/notice11 (10).webp';
-import notice12_0 from '@/assets/images/notice/notice12 (1).webp';
-import notice12_1 from '@/assets/images/notice/notice12 (2).webp';
-import notice12_2 from '@/assets/images/notice/notice12 (3).webp';
-import notice12_3 from '@/assets/images/notice/notice12 (4).webp';
-import notice12_4 from '@/assets/images/notice/notice12 (5).webp';
-import notice12_5 from '@/assets/images/notice/notice12 (6).webp';
-import notice12_6 from '@/assets/images/notice/notice12 (7).webp';
-import notice14_0 from '@/assets/images/notice/notice14 (1).webp';
-import notice14_1 from '@/assets/images/notice/notice14 (2).webp';
-import notice14_2 from '@/assets/images/notice/notice14 (3).webp';
-import notice14_3 from '@/assets/images/notice/notice14 (4).webp';
-import notice14_4 from '@/assets/images/notice/notice14 (5).webp';
-import notice14_5 from '@/assets/images/notice/notice14 (6).webp';
-import notice14_6 from '@/assets/images/notice/notice14 (7).webp';
-import notice14_7 from '@/assets/images/notice/notice14 (8).webp';
-import notice14_8 from '@/assets/images/notice/notice14 (9).webp';
-import notice14_9 from '@/assets/images/notice/notice14 (10).webp';
-import notice15_0 from '@/assets/images/notice/notice15 (1).webp';
-import notice15_1 from '@/assets/images/notice/notice15 (2).webp';
-import notice15_2 from '@/assets/images/notice/notice15 (3).webp';
-import notice15_3 from '@/assets/images/notice/notice15 (4).webp';
-import notice15_4 from '@/assets/images/notice/notice15 (5).webp';
-import notice16_0 from '@/assets/images/notice/notice16 (1).webp';
-import notice16_1 from '@/assets/images/notice/notice16 (2).webp';
-import notice16_2 from '@/assets/images/notice/notice16 (3).webp';
-import notice16_3 from '@/assets/images/notice/notice16 (4).webp';
-import notice16_4 from '@/assets/images/notice/notice16 (5).webp';
-import notice16_5 from '@/assets/images/notice/notice16 (6).webp';
-import notice17_0 from '@/assets/images/notice/notice17 (1).webp';
-import notice17_1 from '@/assets/images/notice/notice17 (2).webp';
-import notice17_2 from '@/assets/images/notice/notice17 (3).webp';
-import notice17_3 from '@/assets/images/notice/notice17 (4).webp';
-import notice17_4 from '@/assets/images/notice/notice17 (5).webp';
-import notice17_5 from '@/assets/images/notice/notice17 (6).webp';
-import notice17_6 from '@/assets/images/notice/notice17 (7).webp';
-import notice17_7 from '@/assets/images/notice/notice17 (8).webp';
-import notice17_8 from '@/assets/images/notice/notice17 (9).webp';
-import notice17_9 from '@/assets/images/notice/notice17 (10).webp';
-import notice17_10 from '@/assets/images/notice/notice17 (11).webp';
-import notice18_0 from '@/assets/images/notice/notice18 (1).webp';
-import notice18_1 from '@/assets/images/notice/notice18 (2).webp';
-import notice18_2 from '@/assets/images/notice/notice18 (3).webp';
-import notice18_3 from '@/assets/images/notice/notice18 (4).webp';
-import notice18_4 from '@/assets/images/notice/notice18 (5).webp';
-import notice18_5 from '@/assets/images/notice/notice18 (6).webp';
-import notice18_6 from '@/assets/images/notice/notice18 (7).webp';
-import notice18_7 from '@/assets/images/notice/notice18 (8).webp';
-import notice18_8 from '@/assets/images/notice/notice18 (9).webp';
-import notice18_9 from '@/assets/images/notice/notice18 (10).webp';
-import notice18_10 from '@/assets/images/notice/notice18 (11).webp';
-import notice19_0 from '@/assets/images/notice/notice19 (1).webp';
-import notice19_1 from '@/assets/images/notice/notice19 (2).webp';
-import notice19_2 from '@/assets/images/notice/notice19 (3).webp';
-import notice19_3 from '@/assets/images/notice/notice19 (4).webp';
-import notice19_4 from '@/assets/images/notice/notice19 (5).webp';
-import notice19_5 from '@/assets/images/notice/notice19 (6).webp';
-import notice19_6 from '@/assets/images/notice/notice19 (7).webp';
-import notice19_7 from '@/assets/images/notice/notice19 (8).webp';
-import notice19_8 from '@/assets/images/notice/notice19 (9).webp';
-
+import notice1_0 from '@/assets/images/notice/notice1 (1).png';
+import notice1_1 from '@/assets/images/notice/notice1 (2).png';
+import notice1_2 from '@/assets/images/notice/notice1 (3).png';
+import notice1_3 from '@/assets/images/notice/notice1 (4).png';
+import notice1_4 from '@/assets/images/notice/notice1 (5).png';
+import notice1_5 from '@/assets/images/notice/notice1 (6).png';
+import notice1_6 from '@/assets/images/notice/notice1 (7).png';
+import notice1_7 from '@/assets/images/notice/notice1 (8).png';
+import notice2_0 from '@/assets/images/notice/notice2 (1).png';
+import notice2_1 from '@/assets/images/notice/notice2 (2).png';
+import notice2_2 from '@/assets/images/notice/notice2 (3).png';
+import notice2_3 from '@/assets/images/notice/notice2 (4).png';
+import notice2_4 from '@/assets/images/notice/notice2 (5).png';
+import notice2_5 from '@/assets/images/notice/notice2 (6).png';
+import notice2_6 from '@/assets/images/notice/notice2 (7).png';
+import notice3_0 from '@/assets/images/notice/notice3 (1).png';
+import notice3_1 from '@/assets/images/notice/notice3 (2).png';
+import notice3_2 from '@/assets/images/notice/notice3 (3).png';
+import notice3_3 from '@/assets/images/notice/notice3 (4).png';
+import notice3_4 from '@/assets/images/notice/notice3 (5).png';
+import notice3_5 from '@/assets/images/notice/notice3 (6).png';
+import notice3_6 from '@/assets/images/notice/notice3 (7).png';
+import notice3_7 from '@/assets/images/notice/notice3 (8).png';
+import notice4_0 from '@/assets/images/notice/notice4 (1).png';
+import notice4_1 from '@/assets/images/notice/notice4 (2).png';
+import notice4_2 from '@/assets/images/notice/notice4 (3).png';
+import notice4_3 from '@/assets/images/notice/notice4 (4).png';
+import notice4_4 from '@/assets/images/notice/notice4 (5).png';
+import notice4_5 from '@/assets/images/notice/notice4 (6).png';
+import notice5_0 from '@/assets/images/notice/notice5 (1).png';
+import notice5_1 from '@/assets/images/notice/notice5 (2).png';
+import notice5_2 from '@/assets/images/notice/notice5 (3).png';
+import notice5_3 from '@/assets/images/notice/notice5 (4).png';
+import notice5_4 from '@/assets/images/notice/notice5 (5).png';
+import notice5_5 from '@/assets/images/notice/notice5 (6).png';
+import notice6_0 from '@/assets/images/notice/notice6 (1).png';
+import notice6_1 from '@/assets/images/notice/notice6 (2).png';
+import notice6_2 from '@/assets/images/notice/notice6 (3).png';
+import notice6_3 from '@/assets/images/notice/notice6 (4).png';
+import notice6_4 from '@/assets/images/notice/notice6 (5).png';
+import notice7_0 from '@/assets/images/notice/notice7 (1).png';
+import notice7_1 from '@/assets/images/notice/notice7 (2).png';
+import notice7_2 from '@/assets/images/notice/notice7 (3).png';
+import notice7_3 from '@/assets/images/notice/notice7 (4).png';
+import notice7_4 from '@/assets/images/notice/notice7 (5).png';
+import notice7_5 from '@/assets/images/notice/notice7 (6).png';
+import notice7_6 from '@/assets/images/notice/notice7 (7).png';
+import notice7_7 from '@/assets/images/notice/notice7 (8).png';
+import notice8_0 from '@/assets/images/notice/notice8 (1).png';
+import notice8_1 from '@/assets/images/notice/notice8 (2).png';
+import notice8_2 from '@/assets/images/notice/notice8 (3).png';
+import notice8_3 from '@/assets/images/notice/notice8 (4).png';
+import notice8_4 from '@/assets/images/notice/notice8 (5).png';
+import notice8_5 from '@/assets/images/notice/notice8 (6).png';
+import notice8_6 from '@/assets/images/notice/notice8 (7).png';
+import notice8_7 from '@/assets/images/notice/notice8 (8).png';
+import notice8_8 from '@/assets/images/notice/notice8 (9).png';
+import notice8_9 from '@/assets/images/notice/notice8 (10).png';
+import notice9_0 from '@/assets/images/notice/notice9 (1).png';
+import notice9_1 from '@/assets/images/notice/notice9 (2).png';
+import notice9_2 from '@/assets/images/notice/notice9 (3).png';
+import notice9_3 from '@/assets/images/notice/notice9 (4).png';
+import notice9_4 from '@/assets/images/notice/notice9 (5).png';
+import notice10_0 from '@/assets/images/notice/notice10 (1).png';
+import notice10_1 from '@/assets/images/notice/notice10 (2).png';
+import notice10_2 from '@/assets/images/notice/notice10 (3).png';
+import notice10_3 from '@/assets/images/notice/notice10 (4).png';
+import notice10_4 from '@/assets/images/notice/notice10 (5).png';
+import notice10_5 from '@/assets/images/notice/notice10 (6).png';
+import notice10_6 from '@/assets/images/notice/notice10 (7).png';
+import notice11_0 from '@/assets/images/notice/notice11 (1).png';
+import notice11_1 from '@/assets/images/notice/notice11 (2).png';
+import notice11_2 from '@/assets/images/notice/notice11 (3).png';
+import notice11_3 from '@/assets/images/notice/notice11 (4).png';
+import notice11_4 from '@/assets/images/notice/notice11 (5).png';
+import notice11_5 from '@/assets/images/notice/notice11 (6).png';
+import notice11_6 from '@/assets/images/notice/notice11 (7).png';
+import notice11_7 from '@/assets/images/notice/notice11 (8).png';
+import notice11_8 from '@/assets/images/notice/notice11 (9).png';
+import notice11_9 from '@/assets/images/notice/notice11 (10).png';
+import notice12_0 from '@/assets/images/notice/notice12 (1).png';
+import notice12_1 from '@/assets/images/notice/notice12 (2).png';
+import notice12_2 from '@/assets/images/notice/notice12 (3).png';
+import notice12_3 from '@/assets/images/notice/notice12 (4).png';
+import notice12_4 from '@/assets/images/notice/notice12 (5).png';
+import notice12_5 from '@/assets/images/notice/notice12 (6).png';
+import notice12_6 from '@/assets/images/notice/notice12 (7).png';
+import notice13_0 from '@/assets/images/notice/notice13 (1).png';
+import notice13_1 from '@/assets/images/notice/notice13 (2).png';
+import notice13_2 from '@/assets/images/notice/notice13 (3).png';
+import notice13_3 from '@/assets/images/notice/notice13 (4).png';
+import notice13_4 from '@/assets/images/notice/notice13 (5).png';
+import notice13_5 from '@/assets/images/notice/notice13 (6).png';
+import notice13_6 from '@/assets/images/notice/notice13 (7).png';
+import notice13_7 from '@/assets/images/notice/notice13 (8).png';
+import notice13_8 from '@/assets/images/notice/notice13 (9).png';
+import notice13_9 from '@/assets/images/notice/notice13 (10).png';
+import notice14_0 from '@/assets/images/notice/notice14 (1).png';
+import notice14_1 from '@/assets/images/notice/notice14 (2).png';
+import notice14_2 from '@/assets/images/notice/notice14 (3).png';
+import notice14_3 from '@/assets/images/notice/notice14 (4).png';
+import notice14_4 from '@/assets/images/notice/notice14 (5).png';
+import notice15_0 from '@/assets/images/notice/notice15 (1).png';
+import notice15_1 from '@/assets/images/notice/notice15 (2).png';
+import notice15_2 from '@/assets/images/notice/notice15 (3).png';
+import notice15_3 from '@/assets/images/notice/notice15 (4).png';
+import notice15_4 from '@/assets/images/notice/notice15 (5).png';
+import notice15_5 from '@/assets/images/notice/notice15 (6).png';
+import notice16_0 from '@/assets/images/notice/notice16 (1).png';
+import notice16_1 from '@/assets/images/notice/notice16 (2).png';
+import notice16_2 from '@/assets/images/notice/notice16 (3).png';
+import notice16_3 from '@/assets/images/notice/notice16 (4).png';
+import notice16_4 from '@/assets/images/notice/notice16 (5).png';
+import notice16_5 from '@/assets/images/notice/notice16 (6).png';
+import notice16_6 from '@/assets/images/notice/notice16 (7).png';
+import notice16_7 from '@/assets/images/notice/notice16 (8).png';
+import notice16_8 from '@/assets/images/notice/notice16 (9).png';
+import notice16_9 from '@/assets/images/notice/notice16 (10).png';
+import notice16_10 from '@/assets/images/notice/notice16 (11).png';
+import notice17_0 from '@/assets/images/notice/notice17 (1).png';
+import notice17_1 from '@/assets/images/notice/notice17 (2).png';
+import notice17_2 from '@/assets/images/notice/notice17 (3).png';
+import notice17_3 from '@/assets/images/notice/notice17 (4).png';
+import notice17_4 from '@/assets/images/notice/notice17 (5).png';
+import notice17_5 from '@/assets/images/notice/notice17 (6).png';
+import notice17_6 from '@/assets/images/notice/notice17 (7).png';
+import notice17_7 from '@/assets/images/notice/notice17 (8).png';
+import notice17_8 from '@/assets/images/notice/notice17 (9).png';
+import notice17_9 from '@/assets/images/notice/notice17 (10).png';
+import notice17_10 from '@/assets/images/notice/notice17 (11).png';
+import notice18_0 from '@/assets/images/notice/notice18 (1).png';
+import notice18_1 from '@/assets/images/notice/notice18 (2).png';
+import notice18_2 from '@/assets/images/notice/notice18 (3).png';
+import notice18_3 from '@/assets/images/notice/notice18 (4).png';
+import notice18_4 from '@/assets/images/notice/notice18 (5).png';
+import notice18_5 from '@/assets/images/notice/notice18 (6).png';
+import notice18_6 from '@/assets/images/notice/notice18 (7).png';
+import notice18_7 from '@/assets/images/notice/notice18 (8).png';
+import notice18_8 from '@/assets/images/notice/notice18 (9).png';
+import notice19_0 from '@/assets/images/notice/notice19 (1).png';
+import notice19_1 from '@/assets/images/notice/notice19 (2).png';
+import notice19_2 from '@/assets/images/notice/notice19 (3).png';
+import notice19_3 from '@/assets/images/notice/notice19 (4).png';
+import notice19_4 from '@/assets/images/notice/notice19 (5).png';
+import notice19_5 from '@/assets/images/notice/notice19 (6).png';
+import notice20_0 from '@/assets/images/notice/notice20 (1).png';
+import notice20_1 from '@/assets/images/notice/notice20 (2).png';
+import notice20_2 from '@/assets/images/notice/notice20 (3).png';
+import notice20_3 from '@/assets/images/notice/notice20 (4).png';
+import notice20_4 from '@/assets/images/notice/notice20 (5).png';
+import notice20_5 from '@/assets/images/notice/notice20 (6).png';
+import notice20_6 from '@/assets/images/notice/notice20 (7).png';
+import notice20_7 from '@/assets/images/notice/notice20 (8).png';
+import notice20_8 from '@/assets/images/notice/notice20 (9).png';
+import notice20_9 from '@/assets/images/notice/notice20 (10).png';
+import notice21_0 from '@/assets/images/notice/notice21 (1).png';
+import notice21_1 from '@/assets/images/notice/notice21 (2).png';
+import notice21_2 from '@/assets/images/notice/notice21 (3).png';
+import notice21_3 from '@/assets/images/notice/notice21 (4).png';
+import notice21_4 from '@/assets/images/notice/notice21 (5).png';
+import notice21_5 from '@/assets/images/notice/notice21 (6).png';
+import notice21_6 from '@/assets/images/notice/notice21 (7).png';
+import notice22_0 from '@/assets/images/notice/notice22 (1).png';
+import notice22_1 from '@/assets/images/notice/notice22 (2).png';
+import notice22_2 from '@/assets/images/notice/notice22 (3).png';
+import notice22_3 from '@/assets/images/notice/notice22 (4).png';
+import notice22_4 from '@/assets/images/notice/notice22 (5).png';
+import notice22_5 from '@/assets/images/notice/notice22 (6).png';
+import notice22_6 from '@/assets/images/notice/notice22 (7).png';
+import notice22_7 from '@/assets/images/notice/notice22 (8).png';
+import notice22_8 from '@/assets/images/notice/notice22 (9).png';
+import notice23_0 from '@/assets/images/notice/notice23 (1).png';
+import notice23_1 from '@/assets/images/notice/notice23 (2).png';
+import notice23_2 from '@/assets/images/notice/notice23 (3).png';
+import notice23_3 from '@/assets/images/notice/notice23 (4).png';
+import notice23_4 from '@/assets/images/notice/notice23 (5).png';
+import notice24_0 from '@/assets/images/notice/notice24 (1).png';
+import notice24_1 from '@/assets/images/notice/notice24 (2).png';
+import notice24_2 from '@/assets/images/notice/notice24 (3).png';
 export const NoticeData = [
   {
     id: 1,
@@ -503,18 +542,18 @@ export const NoticeData = [
   },
 
   {
-    id: 14,
+    id: 13,
     img: [
-      notice14_0,
-      notice14_1,
-      notice14_2,
-      notice14_3,
-      notice14_4,
-      notice14_5,
-      notice14_6,
-      notice14_7,
-      notice14_8,
-      notice14_9,
+      notice13_0,
+      notice13_1,
+      notice13_2,
+      notice13_3,
+      notice13_4,
+      notice13_5,
+      notice13_6,
+      notice13_7,
+      notice13_8,
+      notice13_9,
     ],
     title: 'HYLIGHT 콘텐츠 소개 1',
     tags: [
@@ -558,8 +597,8 @@ export const NoticeData = [
   },
 
   {
-    id: 15,
-    img: [notice15_0, notice15_1, notice15_2, notice15_3, notice15_4],
+    id: 14,
+    img: [notice14_0, notice14_1, notice14_2, notice14_3, notice14_4],
     title: 'HYLIGHT 콘텐츠 소개 2',
     tags: [
       { color: 'pk200', text: '공지사항' },
@@ -591,8 +630,8 @@ export const NoticeData = [
 콘텐츠 팀장 이다성 010-3127-3462`,
   },
   {
-    id: 16,
-    img: [notice16_0, notice16_1, notice16_2, notice16_3, notice16_4, notice16_5],
+    id: 15,
+    img: [notice15_0, notice15_1, notice15_2, notice15_3, notice15_4, notice15_5],
     title: '마셔라잇(Light) 주류 구매 가이드',
     tags: [
       { color: 'pk200', text: '공지사항' },
@@ -616,7 +655,7 @@ export const NoticeData = [
 
 
 📣주류 구매 가능 시간
-2025.05.27(화) - 2025.05.29(목) 18:00 ~ 23:30
+2025.05.27(화) - 2025.05.29(목) 17:00 ~ 23:30
 
 
 📣주류 품목 및 가격
@@ -635,19 +674,19 @@ export const NoticeData = [
 #봄축제기획단 #2025ESPERO주점팀`,
   },
   {
-    id: 17,
+    id: 16,
     img: [
-      notice17_0,
-      notice17_1,
-      notice17_2,
-      notice17_3,
-      notice17_4,
-      notice17_5,
-      notice17_6,
-      notice17_7,
-      notice17_8,
-      notice17_9,
-      notice17_10,
+      notice16_0,
+      notice16_1,
+      notice16_2,
+      notice16_3,
+      notice16_4,
+      notice16_5,
+      notice16_6,
+      notice16_7,
+      notice16_8,
+      notice16_9,
+      notice16_10,
     ],
     title: '히든스타 본선 소개',
     tags: [
@@ -698,19 +737,19 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
 #봄축제기획단 #2025ESPERO공연무대팀`,
   },
   {
-    id: 18,
+    id: 17,
     img: [
-      notice18_0,
-      notice18_1,
-      notice18_2,
-      notice18_3,
-      notice18_4,
-      notice18_5,
-      notice18_6,
-      notice18_7,
-      notice18_8,
-      notice18_9,
-      notice18_10,
+      notice17_0,
+      notice17_1,
+      notice17_2,
+      notice17_3,
+      notice17_4,
+      notice17_5,
+      notice17_6,
+      notice17_7,
+      notice17_8,
+      notice17_9,
+      notice17_10,
     ],
     title: '스타라이트 본선 소개',
     tags: [
@@ -746,17 +785,17 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
 #봄축제기획단 #2025ESPERO공연무대팀`,
   },
   {
-    id: 19,
+    id: 18,
     img: [
-      notice19_0,
-      notice19_1,
-      notice19_2,
-      notice19_3,
-      notice19_4,
-      notice19_5,
-      notice19_6,
-      notice19_7,
-      notice19_8,
+      notice18_0,
+      notice18_1,
+      notice18_2,
+      notice18_3,
+      notice18_4,
+      notice18_5,
+      notice18_6,
+      notice18_7,
+      notice18_8,
     ],
     title: '2025 ESPERO:HYLIGHT 주점 소개',
     tags: [
@@ -792,5 +831,268 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
 
 
 #봄축제기획단 #2025ESPERO주점팀`,
+  },
+  {
+    id: 19,
+    img: [notice19_0, notice19_1, notice19_2, notice19_3, notice19_4, notice19_5],
+    title: 'YOUTH : SPRING 피크닉존 안내',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ YOUTH : SPRING 피크닉존 소개
+
+✨NOW OR NEVER, HYLIGHT✨
+
+안녕하세요! 2025 봄축제기획단 콘텐츠 팀입니다!
+
+화창한 햇빛, 푸르른 잔디밭과 함께 펼쳐진 청춘을 만끽할 ✨YOUTH : SPRING 피크닉존✨을 소개합니다🥳
+
+📍 피크닉존 대여 물품 & 대여 시간
+
+- 인디언텐트 120분
+- 돗자리 60분
+- 밀크박스
+
+📍 피크닉존 대여 방법
+
+1️⃣ 스태프의 안내에 따라 명단을 작성 후 신분증을 맡긴다.
+2️⃣ 안내된 대여시간에 맞춰 피크닉을 즐긴다.
+3️⃣ 사용 완료한 대여 물품은 잘 정리해 본부에 반납한다.
+
+🕛 행사 일시: 2025년 5월 27일 (화) ~ 2025년 5월 29일 (목) 11:00 ~ 18:00
+
+자세한 내용은 카드뉴스를 참고해 주세요 📩✨
+
+📌문의사항
+2025 ESPERO 콘텐츠팀 카카오 채널
+콘텐츠 팀장 이다성 010-3127-3462`,
+  },
+  {
+    id: 20,
+    img: [
+      notice20_0,
+      notice20_1,
+      notice20_2,
+      notice20_3,
+      notice20_4,
+      notice20_5,
+      notice20_6,
+      notice20_7,
+      notice20_8,
+      notice20_9,
+    ],
+    title: '2025 ESPERO:HYLIGHT 포토존 소개',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ 포토존 ’青春기록‘ 콘텐츠 소개
+
+✨NOW OR NEVER, HYLIGHT✨
+
+안녕하세요! 2025 봄축제기획단 콘텐츠 팀입니다!
+
+우리 청춘의 한 페이지로 기록될 ✨️봄축제✨️의 포토존, 📸青春기록📸을 소개합니다!
+
+📌 잔디공터
+1️⃣ 방명록
+2️⃣ HY-LIGHT
+3️⃣ 에어벌룬
+4️⃣ 잡지 포토월
+
+📌 호수공원
+1️⃣ 시상식 포토월
+2️⃣ 포토부스
+3️⃣ 타투스티커
+
+📌 학술정보관 옆
+1️⃣ 포토부스
+
+📌 HIDDEN! - 📸주접 판넬📸
+캠퍼스 곳곳에 있는 주접 판넬을 찾아보세요!
+
+🌟 青春기록의 모든 콘텐츠는 ‼️방명록을 제외하고‼️ 모두 축제기간동안 상시 운영됩니다.
+🌟 방명록은 축제기간 내 ‼️11:00 ~ 17:00‼️에만 운영됩니다.
+
+자세한 내용은 카드뉴스를 참고해 주세요 📩✨
+
+📌문의사항
+2025 ESPERO 콘텐츠팀 카카오톡 채널
+콘텐츠 팀장 이다성 010-3127-3462`,
+  },
+  {
+    id: 21,
+    img: [notice21_0, notice21_1, notice21_2, notice21_3, notice21_4, notice21_5, notice21_6],
+    title: '2025 ESPERO:HYLIGHT 프로모션존 소개',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'bl130', text: '프로모션' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO
+“ESPERO: HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하세요! 한양대학교 ERICA 2025 봄축제기획단 프로모션팀 프로틴 (PRO:TEEN) 입니다.
+
+
+2025년 ESPERO:HYLIGHT 프로모션존 💪🏻 PRO:TEEN 💪🏻을 소개합니다!
+
+
+⚡ PRO:TEEN 운영 시간
+2025.05.27 (화) - 2025.05.29 (목) 11:00~17:00
+
+
+⚡ PRO:TEEN 위치 안내
+학술정보관과 제4공학관 사이 큰 도로
+
+
+자세한 사항은 카드뉴스를 참고해 주시길 바라며, 2025 ESPERO:HYLIGHT와 함께 하는 프로모션 기업들에 많은 관심 바랍니다 🤩
+
+
+📍문의사항
+• ESPERO_프로모션팀 카카오톡 채널
+• 프로모션팀장 김원빈 010-6462-2464
+
+
+#봄축제기획단 #2025ESPERO프로모션팀`,
+  },
+  {
+    id: 22,
+    img: [
+      notice22_0,
+      notice22_1,
+      notice22_2,
+      notice22_3,
+      notice22_4,
+      notice22_5,
+      notice22_6,
+      notice22_7,
+      notice22_8,
+    ],
+    title: 'PRO:TEEN 스탬프랠리 이벤트',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO
+“ESPERO: HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하세요! 한양대학교 ERICA 2025 봄축제기획단 프로모션팀 프로틴(PRO:TEEN) 입니다.
+
+
+2025 ERPERO:HYLIGHT 프로모션 본부 프로틴 💪🏻과 함께하는 게임부스를 소개합니다!
+
+
+🥤 일화 부스 <축제 관련 퀴즈 이벤트>
+축제와 관련된 퀴즈 풀고 일화 부르르 탄산 음료 가져가세요!
+
+
+🍜 더미식 부스 <라면의 달인>
+유행하는 바로 그 게임! 5초 동안 꼬치에 라면 재료들을 재빠르게!!
+
+
+🥥 광동 부스 <톡 투 리치!>
+날아가라 병뚜껑~~! 뚜껑 날리기는 자신있지! 썬키스트 코코리치🌴 최대 3개나?!
+
+
+자세한 사항은 카드뉴스를 참고해 주시기 바랍니다.
+
+
+📍문의사항
+• ESPERO_프로모션팀 카카오톡 채널
+• 프로모션팀장 김원빈 010-6462-2464
+
+
+#봄축제기획단 #2025ESPERO프로모션팀`,
+  },
+  {
+    id: 23,
+    img: [notice23_0, notice23_1, notice23_2, notice23_3, notice23_4],
+    title: '매표소 안내',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'or100', text: '공연무대' },
+    ],
+    body: `2025 한양대학교 ERICA 봄 축제 “ESPERO:HYLIGHT”
+
+
+✨지금이 아니면 안되는 순간. NOW OR NEVER, HYLIGHT!✨
+
+
+🎟️2025년 ESPERO:HYLIGHT 매표 안내🎟️
+
+
+📌매표소 위치
+제2공학관 주차장 통로
+
+
+📌소지품 검사소 위치
+대운동장 (공연장) 입구 앞
+
+
+📌티켓 구매 및 입장 가능시간
+05.27(화) ~ 05.29(목) 13:00~21:00
+*입장 시작 및 마감 시간은 현장 상황에 따라 변동될 수 있습니다.
+*공연장으로 바로 입장하지 않는 경우, 별도의 소지품 검사 없이 매표 후 바로 퇴장 가능합니다.
+
+
+📌티켓 가격
+- 에리카인 (재학생, 휴학생, 졸업생, 대학원생, 교직원) : 무료
+[학생증(모바일/실물)과 신분증(모바일/실물)을 반드시 준비해주세요]
+
+
+- 외부인 : 10,000원 (현금 및 계좌이체만 가능)
+*에리카인만 에리카존 입장 가능합니다.
+
+
+※당일 입장권은 당일만 사용 가능합니다.
+
+
+소지품 검사 등 자세한 내용은 카드뉴스를 참고해 주시기 바랍니다.
+
+
+#봄축제기획단 #2025ESPERO:HYLIGHT`,
+  },
+  {
+    id: 24,
+    img: [notice24_0, notice24_1, notice24_2],
+    title: 'ESPERO:HYLIGHT 축제 타임테이블',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'or100', text: '공연무대' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO “ESPERO:HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+⏰ESPERO:HYLIGHT 타임테이블 안내⏰
+
+
+여러분이 기다리셨던 ESPERO:HYLIGHT의 축제 타임테이블을 지금 공개합니다!
+
+
+* 에리카인만 ERICA존에 입장 가능합니다.
+* 에리카인은 재학생, 휴학생, 졸업생, 본교 직원으로 제한됩니다.
+* 에리카인의 경우 반드시 본인 확인이 가능한 신분증과 학생증을 모두 준비해주셔야 합니다. (신분증과 학생증은 실물, 모바일 둘 다 가능)
+* 신분증과 학생증 모두 현장에서 직접 보여주셔야 하며 캡쳐본으로는 인증 불가합니다.
+* 공연장 반입 금지 물품을 반드시 확인해주시길 바랍니다.
+* 매표소에서 티켓만 수령한 뒤 퇴장이 가능합니다.
+* 밴드 공연의 경우 악기 세팅 및 조정 시간이 포함되어 있습니다.
+
+
+자세한 내용은 카드뉴스를 참고해주시길 바랍니다.
+
+
+#봄축제기획단 #2025ESPERO #HYLIGHT`,
   },
 ];

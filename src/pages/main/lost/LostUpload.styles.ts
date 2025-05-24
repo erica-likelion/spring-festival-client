@@ -43,7 +43,7 @@ export const Input = styled.input`
   align-self: stretch;
   border-radius: 0.75rem;
   border: 1px solid ${(props) => props.theme.colors.grayScale.gy600};
-  ${(props) => props.theme.fonts.body.small400};
+  ${(props) => props.theme.fonts.body.medium500};
   background-color: transparent;
   color: ${(props) => props.theme.colors.grayScale.white};
 
@@ -101,14 +101,14 @@ export const DescriptionBox = styled.div`
 export const DescriptionInput = styled.textarea`
   display: flex;
   height: 10.25rem;
-  padding: 1.125rem;
+  padding: 1rem;
   align-items: flex-start;
   gap: 0.625rem;
   resize: none;
   align-self: stretch;
   border-radius: 0.75rem;
   border: 1px solid ${(props) => props.theme.colors.grayScale.gy600};
-  ${(props) => props.theme.fonts.body.small400};
+  ${(props) => props.theme.fonts.body.medium500};
   background-color: transparent;
   color: ${(props) => props.theme.colors.grayScale.white};
 

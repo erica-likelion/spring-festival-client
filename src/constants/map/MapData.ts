@@ -1,6 +1,47 @@
 import { ImageTextFrameWithTimeProps } from '@/components/image-text-frame/ImageTextFrame.types';
 import { CATEGORIES, DAYS } from '@/constants/map';
 
+// 주점
+import AI from '@/assets/images/booth/ai.webp';
+import TRAFFIC from '@/assets/images/booth/traffic.webp';
+import BIO from '@/assets/images/booth/bio.webp';
+import CHEMICAL from '@/assets/images/booth/chemical.webp';
+import COMPUTER from '@/assets/images/booth/computer.webp';
+import CONVERGENCE from '@/assets/images/booth/convergence.webp';
+import DESIGN from '@/assets/images/booth/design.webp';
+import ELECTRON from '@/assets/images/booth/electron.webp';
+import ENERGY from '@/assets/images/booth/energy.webp';
+import MEDIA from '@/assets/images/booth/media.webp';
+import MACHINE from '@/assets/images/booth/machine.webp';
+import HORIZON from '@/assets/images/booth/horizontal.webp';
+import PARMACY from '@/assets/images/booth/pharmacy.webp';
+import STATEGY from '@/assets/images/booth/strategy.webp';
+import ROBOT from '@/assets/images/booth/robot.webp';
+import INTELLIGENCE from '@/assets/images/booth/intelligence.webp';
+import ARCHITECTURE from '@/assets/images/booth/architecture.webp';
+import MARINE from '@/assets/images/booth/marine.webp';
+import SMART from '@/assets/images/booth/smart.webp';
+import OCC from '@/assets/images/booth/occ.webp';
+import INDUSTRIAL from '@/assets/images/booth/industrial.webp';
+import SPORT from '@/assets/images/booth/sport.webp';
+import MAHA from '@/assets/images/booth/maha.webp';
+import INSURANCE from '@/assets/images/booth/insurance.webp';
+import SEMI from '@/assets/images/booth/semiconductor.webp';
+import ARCHITECTURE_ENV from '@/assets/images/booth/architecture-env.webp';
+
+// 이외 이미지들
+import LIQUOR_STORE from '@/assets/images/map/liquorstore.webp';
+import FLEA_MARKET from '@/assets/images/map/fleamarket.webp';
+import PROMOTION from '@/assets/images/map/promotion.webp';
+import RACE from '@/assets/images/map/race.webp';
+import PICNIC from '@/assets/images/map/picnic.webp';
+import VIKING from '@/assets/images/map/viking.webp';
+import PERFORMANCE from '@/assets/images/map/performance.webp';
+import TOILET from '@/assets/images/map/toilet.webp';
+import BUS_STOP from '@/assets/images/map/busstop.webp';
+import FOOD_TRUCK from '@/assets/images/map/foodtruck.webp';
+import SMOKING from '@/assets/images/map/smoking.webp';
+
 // 각 카테고리별 항목 타입 정의
 export interface MapDataItem extends ImageTextFrameWithTimeProps {
   id?: number; // 고유 ID
@@ -17,7 +58,7 @@ export const MapData: MapDataProps = {
   주점: [
     {
       id: 1,
-      image: 'media',
+      image: MEDIA,
       title: '차린건 여정도 지만',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -28,7 +69,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 2,
-      image: 'electron',
+      image: ELECTRON,
       title: '폭싹 취EE했수다',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -39,7 +80,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 3,
-      image: 'machine',
+      image: MACHINE,
       title: '나는 술로',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -50,7 +91,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 4,
-      image: 'bio',
+      image: ENERGY,
       title: '에바레스트 산악회',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -61,7 +102,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 5,
-      image: 'horizontal',
+      image: HORIZON,
       title: '그 시절 우리가 사랑했던 수사',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -72,7 +113,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 6,
-      image: 'pharmacy',
+      image: PARMACY,
       title: '냥약랜드',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -83,7 +124,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 7,
-      image: 'chemical',
+      image: CHEMICAL,
       title: '백설공주와 화목한 난쟁이들',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -94,7 +135,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 8,
-      image: 'computer',
+      image: COMPUTER,
       title: '전 어때요',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -105,7 +146,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 9,
-      image: 'traffic',
+      image: TRAFFIC,
       title: 'Kㅛ통에Bㅏㅂ과 술 Oㅣㅆ어요',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -116,7 +157,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 10,
-      image: 'strategy',
+      image: STATEGY,
       title: '마구먹고 마구마셔',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -127,7 +168,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 11,
-      image: 'robot',
+      image: ROBOT,
       title: '(주) 로봇산업',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -138,7 +179,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 12,
-      image: '',
+      image: CONVERGENCE,
       title: '시선',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -149,7 +190,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 13,
-      image: 'intelligence',
+      image: INTELLIGENCE,
       title: '냥자역학:주량측정불가',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -160,7 +201,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 14,
-      image: '',
+      image: ARCHITECTURE_ENV,
       title: '13주차 술체역학',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -171,7 +212,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 15,
-      image: 'insurance',
+      image: INSURANCE,
       title: '냉3 4먹으러 5것지',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -182,7 +223,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 16,
-      image: 'maha',
+      image: MAHA,
       title: '그시절 캔마하(CANMAHA)',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -193,7 +234,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 17,
-      image: 'ai',
+      image: AI,
       title: '나 지피틴데 안 추ㅣㅎㅆ다',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -204,7 +245,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 18,
-      image: 'marine',
+      image: MARINE,
       title: '폭주어선',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -215,7 +256,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 19,
-      image: 'occ',
+      image: OCC,
       title: '닭치고 한 잔',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -226,7 +267,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 20,
-      image: '',
+      image: BIO,
       title: '모여봐요 술꾼의 숲',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -237,7 +278,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 21,
-      image: 'smart',
+      image: SMART,
       title: "이랏'스융'마세",
       subtitle: '주점',
       time: '18:00-24:00',
@@ -248,7 +289,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 22,
-      image: 'architecture',
+      image: ARCHITECTURE,
       title: '홍문으로들었소',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -259,7 +300,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 23,
-      image: 'design',
+      image: DESIGN,
       title: '디대는 못말려! - 오늘도 과제는 ...',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -270,7 +311,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 24,
-      image: 'industrial',
+      image: INDUSTRIAL,
       title: '응답하라 일구구산',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -281,7 +322,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 25,
-      image: 'sport',
+      image: SPORT,
       title: '뭉쳐야 예체대',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -292,7 +333,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 26,
-      image: 'semiconductor',
+      image: SEMI,
       title: 'semi azit',
       subtitle: '주점',
       time: '18:00-24:00',
@@ -305,7 +346,7 @@ export const MapData: MapDataProps = {
   '주류 구매 위치': [
     {
       id: 200,
-      image: 'liquorstore',
+      image: LIQUOR_STORE,
       title: '마셔라잇(Light)',
       subtitle: '주류 구매 위치',
       time: '18:00-23:30',
@@ -318,7 +359,7 @@ export const MapData: MapDataProps = {
   플리마켓: [
     {
       id: 300,
-      image: 'pleamarket',
+      image: FLEA_MARKET,
       title: '플리마켓',
       subtitle: '',
       time: '11:00-17:00',
@@ -330,7 +371,7 @@ export const MapData: MapDataProps = {
   프로모션: [
     {
       id: 400,
-      image: 'promotion',
+      image: PROMOTION,
       title: '프로모션',
       subtitle: '',
       time: '11:00-17:00',
@@ -342,7 +383,7 @@ export const MapData: MapDataProps = {
   콘텐츠: [
     {
       id: 501,
-      image: 'race',
+      image: RACE,
       title: '호공 레이스',
       subtitle: '콘텐츠',
       time: '10:00-18:00',
@@ -352,7 +393,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 502,
-      image: 'picnic',
+      image: PICNIC,
       title: '피크닉존',
       subtitle: '콘텐츠',
       time: '10:00-18:00',
@@ -362,7 +403,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 503,
-      image: 'viking',
+      image: VIKING,
       title: '바이킹',
       subtitle: '콘텐츠',
       time: '19:00-22:00',
@@ -374,7 +415,7 @@ export const MapData: MapDataProps = {
   공연장: [
     {
       id: 600,
-      image: 'performance',
+      image: PERFORMANCE,
       title: '공연 무대',
       subtitle: '공연장',
       time: '19:00-22:00',
@@ -386,7 +427,7 @@ export const MapData: MapDataProps = {
   화장실: [
     {
       id: 701,
-      image: 'toilet',
+      image: TOILET,
       title: '공용 화장실',
       subtitle: '화장실',
       time: '11:00~17:00',
@@ -396,7 +437,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 702,
-      image: 'toilet',
+      image: TOILET,
       title: '공용 화장실',
       subtitle: '화장실',
       time: '11:00~17:00',
@@ -406,7 +447,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 703,
-      image: 'toilet',
+      image: TOILET,
       title: '공용 화장실',
       subtitle: '화장실',
       time: '11:00~17:00',
@@ -418,7 +459,7 @@ export const MapData: MapDataProps = {
   셔틀콕: [
     {
       id: 800,
-      image: 'busstop',
+      image: BUS_STOP,
       title: '버스 탑승 위치',
       subtitle: '',
       time: '7:50-23:00',
@@ -430,7 +471,7 @@ export const MapData: MapDataProps = {
   푸드트럭: [
     {
       id: 900,
-      image: 'foodtruck',
+      image: FOOD_TRUCK,
       title: '푸드트럭',
       subtitle: '',
       time: '10:00-23:00',
@@ -443,7 +484,7 @@ export const MapData: MapDataProps = {
   흡연구역: [
     {
       id: 1101,
-      image: 'smoking',
+      image: SMOKING,
       title: '흡연구역',
       subtitle: '',
       time: '24시간',
@@ -453,7 +494,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 1102,
-      image: 'smoking',
+      image: SMOKING,
       title: '흡연구역',
       subtitle: '',
       time: '24시간',
@@ -463,7 +504,7 @@ export const MapData: MapDataProps = {
     },
     {
       id: 1103,
-      image: 'smoking',
+      image: SMOKING,
       title: '흡연구역',
       subtitle: '',
       time: '24시간',

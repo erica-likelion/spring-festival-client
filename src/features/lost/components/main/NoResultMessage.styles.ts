@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const NoResultMessageWrap = styled.div`
   display: flex;
-  width: 19.6875rem;
+  width: 100%;
   height: 4.375rem;
   flex-direction: column;
   align-items: center;

@@ -7,6 +7,7 @@ import { Indicator } from '@/components/indicator';
 import Cursor from '@/assets/icons/cursor.svg?react';
 import { EventCard } from '../cards';
 import { useNavigate } from 'react-router-dom';
+import { EventCardData } from '@/types/eventCardData.type';
 /**
  * Carousels 컴포넌트
  * - MainEventData를 기반으로 UI를 렌더링
@@ -14,6 +15,8 @@ import { useNavigate } from 'react-router-dom';
  * - swipeTo: 슬라이더를 특정 방향으로 이동
  * - handleDragEnd: 드래그 종료 시 동작
  * - getVariant: 각 카드의 애니메이션 상태
+ * - nightOn: 현재 시간에 따른 밤/낮 아이콘 구분
+ * - liveOn: 현재 시간에 따른 공연무대 라이브 태그
  */
 
 export default function EventCarousels() {
@@ -23,9 +26,42 @@ export default function EventCarousels() {
   const eventCardLinkMap: Record<string, string> = {
     '1': '/main/notice/14',
     '2': '/main/notice/8',
-    '3': '/main/notice/12',
-    '4': '/main/notice/15',
+    '10': '/main/notice/12',
+    '14': '/main/notice/15',
   };
+
+  const now = new Date();
+  const todayStr = now.toISOString().split('T')[0];
+  const todayEvents: EventCardData[] = MainEventData[todayStr] ?? [];
+
+  const nightOn = (card: EventCardData, now: Date): boolean => {
+    const startHour = Number(card.startTime.split(':')[0]);
+    const endHour = Number(card.endTime.split(':')[0]);
+    if (startHour < 18 && endHour > 18 && now.getHours() >= 18) {
+      return false;
+    }
+    return card.isSun;
+  };
+
+  const liveOn = (card: EventCardData, now: Date) => {
+    const tags = card.tags;
+    const Perfomance = tags.some((tag) => tag.text === '공연무대');
+    if (!Perfomance) return tags;
+
+    const nowMin = now.getHours() * 60 + now.getMinutes();
+    const startMin =
+      Number(card.startTime.split(':')[0]) * 60 + Number(card.startTime.split(':')[1]);
+    const endMin = Number(card.endTime.split(':')[0]) * 60 + Number(card.endTime.split(':')[1]);
+
+    const isLive = nowMin >= startMin && nowMin <= endMin;
+    const hasLive = tags.some((tag) => tag.text === 'LIVE');
+
+    if (isLive && !hasLive) {
+      return [{ color: 'rd500', text: 'LIVE' }, ...tags];
+    }
+    return tags;
+  };
+
   const handleDragStart = () => setIsDragging(true);
   const handleDragEndWrapper = (
     e: MouseEvent | TouchEvent | PointerEvent,
@@ -40,7 +76,7 @@ export default function EventCarousels() {
    */
   const swipeTo = (dir: number) => {
     setIndex(([prev]) => {
-      const max = MainEventData.length - 1;
+      const max = todayEvents.length - 1;
       if (dir === -1 && prev === 0) return [prev, 0];
       if (dir === 1 && prev === max) return [prev, 0];
 
@@ -59,7 +95,7 @@ export default function EventCarousels() {
     info: { offset: { x: number } },
   ) => {
     const swipe = info.offset.x;
-    const max = MainEventData.length - 1;
+    const max = todayEvents.length - 1;
 
     if (swipe > 50 && index > 0) {
       swipeTo(-1);
@@ -99,10 +135,15 @@ export default function EventCarousels() {
     <S.Wrapper>
       <S.CardWrap>
         <AnimatePresence initial={false} custom={direction}>
-          {MainEventData.map((card, i) => ({ card, index: i, relative: i - index }))
+          {todayEvents
+            .map((card, i) => ({ card, index: i, relative: i - index }))
             .slice(Math.max(0, index - 3), index + 4)
             .map(({ card, index: i }) => {
               const variant = getVariant(i);
+
+              const isSun = nightOn(card, now);
+              const tags = liveOn(card, now);
+
               return (
                 <S.MotionCard
                   key={i}
@@ -119,6 +160,8 @@ export default function EventCarousels() {
                 >
                   <EventCard
                     {...card}
+                    isSun={isSun}
+                    tags={tags}
                     onClick={() => {
                       if (!isDragging) {
                         const link = eventCardLinkMap[card.id];
@@ -134,7 +177,7 @@ export default function EventCarousels() {
       <S.CursorBox>
         <Cursor width={'12.625rem'} height={'3.72063rem'} />
       </S.CursorBox>
-      <Indicator currentPage={index} totalPages={MainEventData.length} />
+      <Indicator currentPage={index} totalPages={todayEvents.length} />
     </S.Wrapper>
   );
 }
