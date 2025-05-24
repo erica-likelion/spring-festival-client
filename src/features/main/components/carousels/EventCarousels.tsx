@@ -7,6 +7,7 @@ import { Indicator } from '@/components/indicator';
 import Cursor from '@/assets/icons/cursor.svg?react';
 import { EventCard } from '../cards';
 import { useNavigate } from 'react-router-dom';
+import { EventCardData } from '@/types/eventCardData.type.ts';
 /**
  * Carousels 컴포넌트
  * - MainEventData를 기반으로 UI를 렌더링
@@ -15,15 +16,6 @@ import { useNavigate } from 'react-router-dom';
  * - handleDragEnd: 드래그 종료 시 동작
  * - getVariant: 각 카드의 애니메이션 상태
  */
-interface EventCardData {
-  id: string;
-  tags: { color: string; text: string }[];
-  title: string;
-  startTime: string;
-  endTime: string;
-  location: string;
-  isSun: boolean;
-}
 
 export default function EventCarousels() {
   const [[index, direction], setIndex] = useState<[number, number]>([0, 0]);

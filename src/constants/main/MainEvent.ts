@@ -1,32 +1,37 @@
-// pk200: '#FBA7FD',
-// ye200: '#F9F79F',
-// rd500: '#F55353',
-// gr500: '#45E02A',
-export interface EventCardDate {
-  [date: string]: {
-    id: string;
-    tags: { color: string; text: string }[];
-    title: string;
-    startTime: string;
-    endTime: string;
-    location: string;
-    isSun: boolean;
-  }[];
+import { EventCardData } from '@/types/eventCardData.type';
+
+/**
+ * 날짜별 이벤트 카드 배열 정의
+ * @param {Object[]} [date] - 날짜별 이벤트 카드 배열
+ * @param {string} id - id
+ * @param {{ color: string; text: string }[]} tags - 태그(색상, 텍스트)
+ * @param {string} title - 이벤트 제목
+ * @param {string} startTime - 시작 시간
+ * @param {string} endTime - 종료 시간
+ * @param {string} location - 장소
+ * @param {boolean} isSun - 낮/밤 구분
+ */
+interface EventCardDate {
+  [date: string]: EventCardData[];
 }
 
+const readyEvent = [
+  {
+    id: '0',
+    tags: [{ color: 'pk200', text: '준비중' }],
+    title: 'REARY TO OPEN∙∙∙',
+    startTime: '24:00',
+    endTime: '24:00',
+    location: '어디선가',
+    isSun: true,
+  },
+];
+
 export const MainEventData: EventCardDate = {
-  '2025-05-25': [
-    {
-      id: '0',
-      tags: [{ color: 'ye200', text: '콘텐츠' }],
-      title: '없음',
-      startTime: '11:00',
-      endTime: '17:00',
-      location: '잔디공터',
-      isSun: true,
-    },
-  ],
-  '2025-05-24': [
+  '2025-05-24': readyEvent,
+  '2025-05-25': readyEvent,
+  '2025-05-26': readyEvent,
+  '2025-05-27': [
     {
       id: '1',
       tags: [{ color: 'ye200', text: '콘텐츠' }],
@@ -147,7 +152,7 @@ export const MainEventData: EventCardDate = {
       isSun: false,
     },
   ],
-  '2025-05-23': [
+  '2025-05-29': [
     {
       id: '14',
       tags: [{ color: 'ye200', text: '콘텐츠' }],
@@ -213,56 +218,3 @@ export const MainEventData: EventCardDate = {
     },
   ],
 };
-
-// export const MainEventData = [
-//   {
-//     id: '1',
-//     tags: [{ color: 'ye200', text: '콘텐츠' }],
-//     title: '한 대 빵!!',
-//     startTime: '11:00',
-//     endTime: '17:00',
-//     location: '잔디공터',
-//     isSun: true,
-//   },
-
-//   {
-//     id: '2',
-//     tags: [{ color: 'ye200', text: '콘텐츠' }],
-//     title: '호공 레이스',
-//     startTime: '13:00',
-//     endTime: '15:00',
-//     location: '호수공원',
-//     isSun: true,
-//   },
-
-//   {
-//     id: '3',
-//     tags: [{ color: 'ye200', text: '콘텐츠' }],
-//     title: '바이킹',
-//     startTime: '13:00',
-//     endTime: '19:00',
-//     location: '제2과학기술관 옆 주차장',
-//     isSun: true,
-//   },
-//   {
-//     id: '4',
-//     tags: [{ color: 'ye200', text: '콘텐츠' }],
-//     title: '삐에로 아저씨',
-//     startTime: '13:00',
-//     endTime: '17:00',
-//     location: '잔디 공터 일대',
-//     isSun: true,
-//   },
-//   {
-//     id: '5',
-//     tags: [
-//       { color: 'rd500', text: 'LIVE' },
-//       { color: 'or100', text: '공연무대' },
-//     ],
-//     title: '10CM',
-//     startTime: '19:00',
-//     endTime: '19:30',
-//     location: '공연장',
-//     isSun: false,
-//   },
-// ];
