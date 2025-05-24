@@ -7,14 +7,14 @@ export const GlobalStyle = createGlobalStyle`
     ${fontFaces}
 
     :root {
-        font-size: 24px;
+        font-size: 18px;
 
-        @media screen and (width <= 1024px) {
-            font-size: 20px;
-        }  
+        @media (width <= 427.98px) {
+        font-size: 17px;
+        }
 
-        @media screen and (width <= 768px) {
-            font-size: 16px;
+        @media (width <= 399.98px) {
+        font-size: 16px;
         }
     }
 
@@ -37,7 +37,6 @@ export const GlobalStyle = createGlobalStyle`
         width: 100%;
         height: 100%;
         background-color: ${(props) => props.theme.colors.grayScale.black};
-        position: fixed;
 
         ${(props) => props.theme.media.browser} {
             @media screen and (width >= 1024px) {
