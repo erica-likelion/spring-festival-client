@@ -40,6 +40,15 @@ export default function EventCarousels() {
   const todayStr = now.toISOString().split('T')[0];
   const todayEvents: EventCardData[] = MainEventData[todayStr] ?? [];
 
+  const nightOn = (card: EventCardData, now: Date): boolean => {
+    const startHour = Number(card.startTime.split(':')[0]);
+    const endHour = Number(card.endTime.split(':')[0]);
+    if (startHour < 18 && endHour > 18 && now.getHours() >= 18) {
+      return false;
+    }
+    return card.isSun;
+  };
+
   const liveOn = (card: EventCardData, now: Date) => {
     const tags = card.tags;
     const Perfomance = tags.some((tag) => tag.text === '공연무대');
@@ -137,14 +146,8 @@ export default function EventCarousels() {
             .slice(Math.max(0, index - 3), index + 4)
             .map(({ card, index: i }) => {
               const variant = getVariant(i);
-              let isSun = card.isSun;
-              if (
-                Number(card.startTime.split(':')[0]) < 18 &&
-                Number(card.endTime.split(':')[0]) > 18 &&
-                now.getHours() >= 18
-              ) {
-                isSun = false;
-              }
+
+              const isSun = nightOn(card, now);
               const tags = liveOn(card, now);
 
               return (
