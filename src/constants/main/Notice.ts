@@ -160,9 +160,6 @@ import notice21_3 from '@/assets/images/notice/notice21 (4).png';
 import notice21_4 from '@/assets/images/notice/notice21 (5).png';
 import notice21_5 from '@/assets/images/notice/notice21 (6).png';
 import notice21_6 from '@/assets/images/notice/notice21 (7).png';
-import notice21_7 from '@/assets/images/notice/notice21 (8).png';
-import notice21_8 from '@/assets/images/notice/notice21 (9).png';
-import notice21_9 from '@/assets/images/notice/notice21 (10).png';
 import notice22_0 from '@/assets/images/notice/notice22 (1).png';
 import notice22_1 from '@/assets/images/notice/notice22 (2).png';
 import notice22_2 from '@/assets/images/notice/notice22 (3).png';
@@ -172,17 +169,11 @@ import notice22_5 from '@/assets/images/notice/notice22 (6).png';
 import notice22_6 from '@/assets/images/notice/notice22 (7).png';
 import notice22_7 from '@/assets/images/notice/notice22 (8).png';
 import notice22_8 from '@/assets/images/notice/notice22 (9).png';
-import notice22_9 from '@/assets/images/notice/notice22 (10).png';
 import notice23_0 from '@/assets/images/notice/notice23 (1).png';
 import notice23_1 from '@/assets/images/notice/notice23 (2).png';
 import notice23_2 from '@/assets/images/notice/notice23 (3).png';
 import notice23_3 from '@/assets/images/notice/notice23 (4).png';
 import notice23_4 from '@/assets/images/notice/notice23 (5).png';
-import notice23_5 from '@/assets/images/notice/notice23 (6).png';
-import notice23_6 from '@/assets/images/notice/notice23 (7).png';
-import notice23_7 from '@/assets/images/notice/notice23 (8).png';
-import notice23_8 from '@/assets/images/notice/notice23 (9).png';
-import notice23_9 from '@/assets/images/notice/notice23 (10).png';
 import notice24_0 from '@/assets/images/notice/notice24 (1).png';
 import notice24_1 from '@/assets/images/notice/notice24 (2).png';
 import notice24_2 from '@/assets/images/notice/notice24 (3).png';
@@ -932,18 +923,7 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
   },
   {
     id: 21,
-    img: [
-      notice21_0,
-      notice21_1,
-      notice21_2,
-      notice21_3,
-      notice21_4,
-      notice21_5,
-      notice21_6,
-      notice21_7,
-      notice21_8,
-      notice21_9,
-    ],
+    img: [notice21_0, notice21_1, notice21_2, notice21_3, notice21_4, notice21_5, notice21_6],
     title: '2025 ESPERO:HYLIGHT 프로모션존 소개',
     tags: [
       { color: 'pk200', text: '공지사항' },
@@ -992,7 +972,6 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
       notice22_6,
       notice22_7,
       notice22_8,
-      notice22_9,
     ],
     title: 'PRO:TEEN 스탬프랠리 이벤트',
     tags: [
@@ -1036,18 +1015,7 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
   },
   {
     id: 23,
-    img: [
-      notice23_0,
-      notice23_1,
-      notice23_2,
-      notice23_3,
-      notice23_4,
-      notice23_5,
-      notice23_6,
-      notice23_7,
-      notice23_8,
-      notice23_9,
-    ],
+    img: [notice23_0, notice23_1, notice23_2, notice23_3, notice23_4],
     title: '매표소 안내',
     tags: [
       { color: 'pk200', text: '공지사항' },
