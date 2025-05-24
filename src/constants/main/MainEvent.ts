@@ -127,6 +127,15 @@ export const MainEventData: EventCardDate = {
     {
       id: '11',
       tags: [{ color: 'or100', text: '공연무대' }],
+      title: 'STARLIGHT 본선공연',
+      startTime: '17:30',
+      endTime: '20:00',
+      location: '공연장',
+      isSun: true,
+    },
+    {
+      id: '12',
+      tags: [{ color: 'or100', text: '공연무대' }],
       title: '잭팟',
       startTime: '20:00',
       endTime: '20:20',
@@ -134,7 +143,7 @@ export const MainEventData: EventCardDate = {
       isSun: false,
     },
     {
-      id: '12',
+      id: '13',
       tags: [{ color: 'or100', text: '공연무대' }],
       title: '다비치',
       startTime: '20:30',
@@ -143,7 +152,7 @@ export const MainEventData: EventCardDate = {
       isSun: false,
     },
     {
-      id: '13',
+      id: '14',
       tags: [{ color: 'or100', text: '공연무대' }],
       title: '하이라이트',
       startTime: '21:00',
@@ -154,7 +163,7 @@ export const MainEventData: EventCardDate = {
   ],
   '2025-05-29': [
     {
-      id: '14',
+      id: '15',
       tags: [{ color: 'ye200', text: '콘텐츠' }],
       title: '바이킹',
       startTime: '13:00',
@@ -163,7 +172,7 @@ export const MainEventData: EventCardDate = {
       isSun: true,
     },
     {
-      id: '15',
+      id: '16',
       tags: [{ color: 'or100', text: '공연무대' }],
       title: '학생 특별공연',
       startTime: '17:30',
@@ -172,7 +181,7 @@ export const MainEventData: EventCardDate = {
       isSun: true,
     },
     {
-      id: '16',
+      id: '17',
       tags: [{ color: 'or100', text: '공연무대' }],
       title: 'ifeye',
       startTime: '18:00',
@@ -181,7 +190,7 @@ export const MainEventData: EventCardDate = {
       isSun: false,
     },
     {
-      id: '17',
+      id: '18',
       tags: [{ color: 'or100', text: '공연무대' }],
       title: '히든 스타',
       startTime: '18:30',
@@ -190,7 +199,7 @@ export const MainEventData: EventCardDate = {
       isSun: false,
     },
     {
-      id: '18',
+      id: '19',
       tags: [{ color: 'or100', text: '공연무대' }],
       title: '청하',
       startTime: '19:45',
@@ -199,7 +208,7 @@ export const MainEventData: EventCardDate = {
       isSun: false,
     },
     {
-      id: '19',
+      id: '20',
       tags: [{ color: 'or100', text: '공연무대' }],
       title: 'YB',
       startTime: '20:15',
@@ -208,7 +217,7 @@ export const MainEventData: EventCardDate = {
       isSun: false,
     },
     {
-      id: '20',
+      id: '21 ',
       tags: [{ color: 'or100', text: '공연무대' }],
       title: 'DJ 주디',
       startTime: '21:15',
