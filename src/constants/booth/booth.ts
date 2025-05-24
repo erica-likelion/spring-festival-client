@@ -53,7 +53,7 @@ import ARCHITECTURE_ENV_POSTER from '@/assets/images/booth/architecture-env-post
 export const BOOTH_LIST = [
   {
     id: 1,
-    locate: '',
+    locate: 'EP.04',
     type: '학생회 주점',
     affiliation: '인공지능학과 학생회',
     pubName: '나 지피틴데 안 추ㅣㅎㅆ다',
@@ -124,7 +124,7 @@ export const BOOTH_LIST = [
   {
     id: 2,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.18',
     affiliation: '미디어학과 학생회',
     pubName: '차린건 여정도 지만',
     menu: {
@@ -159,7 +159,7 @@ export const BOOTH_LIST = [
   {
     id: 3,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.05',
     affiliation: '기계공학과 학생회',
     pubName: '나는 술로',
     menu: {
@@ -207,7 +207,7 @@ export const BOOTH_LIST = [
   {
     id: 4,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.24',
     affiliation: '에너지바이오학과 학생회',
     pubName: '에바레스트 산악회',
     menu: {
@@ -247,7 +247,7 @@ export const BOOTH_LIST = [
   {
     id: 5,
     type: '학회 주점',
-    locate: '',
+    locate: 'EP.20',
     affiliation: '경제학부 학회 수평사고',
     pubName: '그 시절 우리가 사랑했던 수사',
     menu: {
@@ -289,7 +289,7 @@ export const BOOTH_LIST = [
   {
     id: 6,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.21',
     affiliation: '약학대학 학생회',
     pubName: '냥약랜드',
     menu: {
@@ -362,7 +362,7 @@ export const BOOTH_LIST = [
   {
     id: 7,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.11',
     affiliation: '배터리소재화학공학과 학생회',
     pubName: '백설공주와 화목한 난쟁이들',
     menu: {
@@ -417,7 +417,7 @@ export const BOOTH_LIST = [
   {
     id: 8,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.17',
     affiliation: '컴퓨터학부 학생회',
     pubName: '전 어때요',
     menu: {
@@ -505,7 +505,7 @@ export const BOOTH_LIST = [
   {
     id: 9,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.15',
     affiliation: '교통물류공학과 학생회',
     pubName: 'Kㅛ통에Bㅏㅂ과 술 Oㅣㅆ어요',
     menu: {
@@ -568,7 +568,7 @@ export const BOOTH_LIST = [
   {
     id: 10,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.01',
     affiliation: '국방전략기술공학과 학생회',
     pubName: '마구먹고 마구마셔',
     menu: {
@@ -646,7 +646,7 @@ export const BOOTH_LIST = [
   {
     id: 11,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.12',
     affiliation: '로봇공학과 학생회',
     pubName: '(주) 로봇산업',
     menu: {
@@ -683,6 +683,7 @@ export const BOOTH_LIST = [
     type: '학생회 주점',
     affiliation: '융합시스템공학과 학생회',
     pubName: '시선',
+    locate: 'EP.23',
     menu: {
       main: [
         { name: '야끼우동', describtion: '', price: '17,900' },
@@ -703,7 +704,7 @@ export const BOOTH_LIST = [
   {
     id: 13,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.19',
     affiliation: '지능정보양자공학전공 학생회',
     pubName: '냥자역학: 주량측정불가',
     menu: {
@@ -735,6 +736,7 @@ export const BOOTH_LIST = [
   },
   {
     id: 14,
+    locate: 'EP.06',
     type: '학생회 주점',
     affiliation: '건설환경공학과 학생회',
     pubName: '13주차 술체역학',
@@ -823,7 +825,7 @@ export const BOOTH_LIST = [
   {
     id: 15,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.26',
     affiliation: '보험계리학과 학생회',
     pubName: '냉3 4먹으러 5것지',
     menu: {
@@ -849,7 +851,7 @@ export const BOOTH_LIST = [
   {
     id: 16,
     type: '동아리 주점',
-    locate: '',
+    locate: 'EP.14',
     affiliation: '중앙동아리 MAHA',
     pubName: '그시절 캔마하(CANMAHA)',
     menu: {
@@ -917,7 +919,7 @@ export const BOOTH_LIST = [
   {
     id: 17,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.16',
     affiliation: '전자공학부 학생회',
     pubName: '폭싹 취EE했수다',
     menu: {
@@ -970,7 +972,7 @@ export const BOOTH_LIST = [
   {
     id: 18,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.03',
     affiliation: '해양융합공학과 학생회',
     pubName: '폭주어선',
     menu: {
@@ -1040,7 +1042,7 @@ export const BOOTH_LIST = [
   {
     id: 19,
     type: '학회 주점',
-    locate: '',
+    locate: 'EP.22',
     affiliation: '건설환경공학과 OCC 학회',
     pubName: '닭치고 한 잔',
     menu: {
@@ -1118,7 +1120,7 @@ export const BOOTH_LIST = [
   {
     id: 20,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.08',
     affiliation: '바이오신약융합학부 학생회',
     pubName: '모여봐요 술꾼의 숲',
     menu: {
@@ -1206,7 +1208,7 @@ export const BOOTH_LIST = [
   {
     id: 21,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.07',
     affiliation: '스마트융합공학부 학생회',
     pubName: "이랏'스융'마세",
     menu: {
@@ -1289,7 +1291,7 @@ export const BOOTH_LIST = [
   {
     id: 22,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.02',
     affiliation: '건축학부 학생회',
     pubName: '홍문으로들었소',
     menu: {
@@ -1335,7 +1337,7 @@ export const BOOTH_LIST = [
   {
     id: 23,
     type: '디자인대학 주점',
-    locate: '',
+    locate: 'EP.09',
     affiliation: '디자인대학 연합',
     pubName: '디대는 못말려! - 오늘도 과제는 미제출?! 전설의 주점 대작전!',
     menu: {
@@ -1408,7 +1410,7 @@ export const BOOTH_LIST = [
   {
     id: 24,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.13',
     affiliation: '산업경영공학과 학생회',
     pubName: '응답하라 일구구산',
     menu: {
@@ -1486,7 +1488,7 @@ export const BOOTH_LIST = [
   {
     id: 25,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.10',
     affiliation: '예체능대학 학생회',
     pubName: '뭉쳐야 예체대',
     menu: {
@@ -1564,7 +1566,7 @@ export const BOOTH_LIST = [
   {
     id: 26,
     type: '학생회 주점',
-    locate: '',
+    locate: 'EP.25',
     affiliation: '차세대반도체융합공학부 학생회',
     pubName: 'śemi ázit',
     menu: {
