@@ -25,6 +25,7 @@ export default function BoothInfo({ id }: { id: number }) {
             __html: newlineToBr(booth.pubName),
           }}
         />
+        {booth.takeout && <S.TakeOut>포장가능</S.TakeOut>}
       </S.TextSection>
     </S.Container>
   );

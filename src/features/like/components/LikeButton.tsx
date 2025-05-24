@@ -15,7 +15,7 @@ type AnimInstance = {
 export default function LikeButton({
   id,
   top = '-5.14rem',
-  left = '-1.30rem',
+  left = '-1.22rem',
 }: {
   id: number;
   top?: string;

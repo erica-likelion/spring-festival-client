@@ -18,7 +18,7 @@ export default function BoothDetail() {
     return null; // or handle the case when the booth is not found
   }
   return (
-    <>
+    <S.Container>
       <NavBar isBack title="주점" backPath={fromRef.current} />
       <S.BackgroundImg src={booth.posterImage} />
       <S.Section style={{ marginTop: '-2rem' }}>
@@ -27,11 +27,13 @@ export default function BoothDetail() {
       </S.Section>
       <S.BorderSection>
         <MenuList id={booth.id} />
+        <S.HorizontalLine />
       </S.BorderSection>
       <S.BorderSection>
         <BoothLocation id={booth.id} boothLocation={booth.locate} />
+        <S.HorizontalLine />
       </S.BorderSection>
       <S.BottomPadding />
-    </>
+    </S.Container>
   );
 }
