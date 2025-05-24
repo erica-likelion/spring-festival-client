@@ -15,6 +15,8 @@ import { EventCardData } from '@/types/eventCardData.type.ts';
  * - swipeTo: 슬라이더를 특정 방향으로 이동
  * - handleDragEnd: 드래그 종료 시 동작
  * - getVariant: 각 카드의 애니메이션 상태
+ * - nightOn: 현재 시간에 따른 밤/낮 아이콘 구분
+ * - liveOn: 현재 시간에 따른 공연무대 라이브 태그
  */
 
 export default function EventCarousels() {
