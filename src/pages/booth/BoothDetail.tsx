@@ -11,6 +11,7 @@ export default function BoothDetail() {
   const location = useLocation();
   const fromRef = useRef(location.state?.from || '/booth');
   const booth = BOOTH_LIST.find((booth) => booth.id === Number(id)); // ✅ 타입 일치
+
   if (!booth) {
     return null; // or handle the case when the booth is not found
   }
@@ -26,7 +27,7 @@ export default function BoothDetail() {
         <MenuList id={booth.id} />
       </S.Section>
       <S.Section>
-        <BoothLocation />
+        <BoothLocation id={booth.id} boothLocation={booth.locate} />
       </S.Section>
       <S.BottomPadding />
     </>
