@@ -67,7 +67,7 @@ export const allMembers = [
     label: 'PM',
     backgroundColor: 'bl400',
     name: '이종원',
-    description: '우리가 만들었지만, \n우린 책임지지 않아요',
+    description: '축제 재밌게\n즐겨주세요~!',
   },
   {
     part: '프론트',
