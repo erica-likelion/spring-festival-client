@@ -1,13 +1,13 @@
-import HS from '@/assets/images/madeby/hs_1.svg?url';
-import JM from '@/assets/images/madeby/jm_1.svg?url';
-import HJ from '@/assets/images/madeby/hj_1.svg?url';
-import SY from '@/assets/images/madeby/sy_1.svg?url';
-import SG from '@/assets/images/madeby/sge_1.svg?url';
-import LG from '@/assets/images/madeby/lge_1.svg?url';
-import JW from '@/assets/images/madeby/jw_1.svg?url';
-import SH from '@/assets/images/madeby/sh_1.svg?url';
-import SM from '@/assets/images/madeby/sm_1.svg?url';
-import JH from '@/assets/images/madeby/jh_1.svg?url';
+import HS from '@/assets/images/madeby/hs_1.webp';
+import JM from '@/assets/images/madeby/jm_1.webp';
+import HJ from '@/assets/images/madeby/hj_1.webp';
+import SY from '@/assets/images/madeby/se_1.webp';
+import SG from '@/assets/images/madeby/sg_1.webp';
+import LG from '@/assets/images/madeby/lg_1.webp';
+import JW from '@/assets/images/madeby/jw_1.webp';
+import SH from '@/assets/images/madeby/sh_1.webp';
+import SM from '@/assets/images/madeby/sm_1.webp';
+import JH from '@/assets/images/madeby/jh_1.webp';
 
 export const allMembers = [
   // 기획&디자인
@@ -67,7 +67,7 @@ export const allMembers = [
     label: 'PM',
     backgroundColor: 'bl400',
     name: '이종원',
-    description: '우리가 만들었지만, \n우린 책임지지 않아요',
+    description: '축제 재밌게\n즐겨주세요~!',
   },
   {
     part: '프론트',
