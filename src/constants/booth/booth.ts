@@ -122,7 +122,7 @@ export const BOOTH_LIST = [
         },
       ],
     },
-    takeout: false,
+    takeout: true,
     profileImage: AI,
     posterImage: AI_POSTER,
   },
