@@ -2,32 +2,19 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as S from './SearchPage.styles';
 import { Tabs } from '@/components/tabs';
-import { Chips } from '@/components/chips';
 import { SearchNavBar } from '@/components/nav-bar';
 import { ImageTextFrameWithTime } from '@/components/image-text-frame';
-import { SearchHistoryItem } from '@/types/search-history.types';
-import { MAP_SEARCH_HISTORY_KEY, MAX_SEARCH_HISTORY, RECOMMENDED_WORDS } from '@/constants/search';
+import { RECOMMENDED_WORDS } from '@/constants/search';
 import { useLayoutStore } from '@/stores/useLayoutStore';
 import { MapData, MapDataItem } from '@/constants/map/MapData';
 import { useDebounce } from '@/hooks/useDebounce';
-import {
-  loadSearchHistory,
-  addSearchHistory,
-  removeSearchHistory,
-} from '@/utils/searchHistoryUtils';
 
 export default function MapSearch() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
   const navigate = useNavigate();
   const [searchKeyword, setSearchKeyword] = useState('');
-  const [searchHistory, setSearchHistory] = useState<SearchHistoryItem[]>([]);
   const [searchResults, setSearchResults] = useState<MapDataItem[]>([]);
   const debouncedSearchTerm = useDebounce(searchKeyword, 300);
-
-  // 검색 기록을 로컬 스토리지에서 불러오기
-  useEffect(() => {
-    setSearchHistory(loadSearchHistory(MAP_SEARCH_HISTORY_KEY));
-  }, []);
 
   // 내비바 숨기기 및 언마운트 시 내비바 보이기
   useEffect(() => {
@@ -64,20 +51,6 @@ export default function MapSearch() {
     setSearchKeyword(e.target.value);
   };
 
-  const handleSearch = () => {
-    if (!searchKeyword.trim()) return;
-
-    const newHistory = addSearchHistory(
-      searchKeyword,
-      searchHistory,
-      MAP_SEARCH_HISTORY_KEY,
-      MAX_SEARCH_HISTORY,
-    );
-
-    setSearchHistory(newHistory);
-    // 검색 버튼을 누르면 검색어가 저장됨
-  };
-
   const handleResultClick = useCallback(
     (item: MapDataItem) => {
       if (item.id) {
@@ -87,15 +60,9 @@ export default function MapSearch() {
     [navigate],
   );
 
-  // 검색 기록 항목 클릭시 처리
-  const handleHistoryItemClick = (keyword: string) => {
+  // 추천 항목 클릭시 처리
+  const handleRecommendedClick = (keyword: string) => {
     setSearchKeyword(keyword);
-  };
-
-  const handleHistoryItemClose = (keyword: string) => {
-    // 검색 기록에서 해당 항목을 제거
-    const updatedHistory = removeSearchHistory(keyword, searchHistory, MAP_SEARCH_HISTORY_KEY);
-    setSearchHistory(updatedHistory);
   };
 
   return (
@@ -103,49 +70,40 @@ export default function MapSearch() {
       <SearchNavBar
         placeholder="궁금한 것을 검색해보세요!"
         onChange={handleInputChange}
-        onClick={handleSearch}
         value={searchKeyword}
+        backPath={`/map`} // 항상 지도로 돌아가도록 설정
       />
       {searchKeyword ? (
-        <S.SearchResultsContainer>
-          {searchResults.map((item, index) => (
-            <React.Fragment key={item.id}>
-              <ImageTextFrameWithTime
-                image={item.image}
-                title={item.title}
-                subtitle={item.subtitle || ''}
-                time={item.time}
-                onClick={() => handleResultClick(item)}
-              />
-              {index < searchResults.length - 1 && <S.Divider />}
-            </React.Fragment>
-          ))}
-        </S.SearchResultsContainer>
+        searchResults.length > 0 ? (
+          <S.SearchResultsContainer>
+            {searchResults.map((item, index) => (
+              <React.Fragment key={item.id}>
+                <ImageTextFrameWithTime
+                  image={item.image}
+                  title={item.title}
+                  subtitle={item.subtitle || ''}
+                  time={item.time}
+                  onClick={() => handleResultClick(item)}
+                />
+                {index < searchResults.length - 1 && <S.Divider />}
+              </React.Fragment>
+            ))}
+          </S.SearchResultsContainer>
+        ) : (
+          <S.NoSearchDataSection>
+            <h3>검색 결과가 없어요 T.T</h3>
+            <h4>정확한 키워드를 입력하셨는지 </h4>
+            <h4>다시 한 번 확인해주세요!</h4>
+          </S.NoSearchDataSection>
+        )
       ) : (
         <>
-          <S.RecentSearchSection>
-            <S.RecentSearchHeader>최근 검색어</S.RecentSearchHeader>
-            {searchHistory.length > 0 ? (
-              <S.HistoryItemsContainer>
-                <Chips
-                  chips={searchHistory.map((item) => {
-                    return item.keyword;
-                  })}
-                  onChipClick={handleHistoryItemClick}
-                  onChipClose={handleHistoryItemClose}
-                  margin="1.25rem"
-                />
-              </S.HistoryItemsContainer>
-            ) : (
-              <S.EmptyHistoryMessage>최근 검색 내역이 없습니다.</S.EmptyHistoryMessage>
-            )}
-          </S.RecentSearchSection>
           <S.RecommendedSearchSection>
             <S.RecommendedSearchHeader>추천 검색어</S.RecommendedSearchHeader>
             <Tabs
               tabs={[...RECOMMENDED_WORDS]}
               activeTab=""
-              onTabClick={(tab) => handleHistoryItemClick(tab)}
+              onTabClick={(tab) => handleRecommendedClick(tab)}
               autoWidth={true}
               margin="1.25rem"
             />
