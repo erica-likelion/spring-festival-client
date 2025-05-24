@@ -3,7 +3,7 @@ import { useState } from 'react';
 import * as S from './MenuList.styles';
 import { MenuFrame } from '@/components/image-text-frame';
 import { BOOTH_LIST } from '@/constants/booth/booth';
-const MENU_CATEGORY = ['메인', '사이드', '서브'];
+const MENU_CATEGORY = ['메인', '사이드', '음료'];
 
 export default function MenuList({ id }: { id: number }) {
   const [activeTab, setActiveTab] = useState<string[]>([]);
@@ -50,9 +50,9 @@ export default function MenuList({ id }: { id: number }) {
           </S.MenuList>
         </S.MenuFrame>
       )}
-      {(activeTab.includes('서브') || activeTab.length === 0) && (
+      {(activeTab.includes('음료') || activeTab.length === 0) && (
         <S.MenuFrame>
-          <S.MenuItem>서브메뉴</S.MenuItem>
+          <S.MenuItem>음료</S.MenuItem>
           <S.MenuList>
             {booth.menu.sub.map((menu) => (
               <MenuFrame
