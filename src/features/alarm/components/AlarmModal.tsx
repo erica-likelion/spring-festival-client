@@ -15,7 +15,7 @@ function AlarmModal({ close }: { close: () => void }) {
         기능들을 이용하려면 허용 버튼을 눌러주세요!
       </S.Text>
       <BlueButton label="확인" onClick={handleAllowNotifications} />
-      <S.BottomText onClick={close}>알림 허용안하고 겁나게 엄청 불편하게 이용하기</S.BottomText>
+      <S.BottomText onClick={close}>불편해도 알람없이 이용하기</S.BottomText>
     </S.Container>
   );
 }
