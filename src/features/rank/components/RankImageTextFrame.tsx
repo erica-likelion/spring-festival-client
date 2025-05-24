@@ -1,4 +1,3 @@
-import { ImageTextFrameWithOrganization } from '@/components/image-text-frame';
 import * as S from './RankImageTextFrame.styles';
 import { LikeButton } from '@/features/like';
 import { BOOTH_LIST } from '@/constants/booth/booth';
@@ -26,7 +25,7 @@ export default function RankImageTextFrame({
   const diff = prevRank !== undefined && currentRank !== undefined ? prevRank - currentRank : 0;
   return (
     <S.Container $first={index === 1}>
-      <S.Wrapper>
+      <S.Wrapper whileTap={{ backgroundColor: '#212526' }}>
         <S.Rank>
           <S.RankNumber>{index}</S.RankNumber>
           {diff === 0 ? (
@@ -45,16 +44,19 @@ export default function RankImageTextFrame({
             </S.RankFrame>
           )}
         </S.Rank>
-        <ImageTextFrameWithOrganization
-          image={booth.profileImage}
-          title={booth.pubName}
-          organization={booth.affiliation}
-          canPickup={false}
-          width="100%"
+        <S.Frame
           onClick={() => {
             navigate(`/booth/${booth.id}`);
           }}
-        />
+        >
+          <S.Image src={booth.profileImage} alt="" />
+          <S.ContentsWrap>
+            <S.Title>{booth.pubName}</S.Title>
+            <S.ContentsFooter>
+              <S.Organization>{booth.affiliation}</S.Organization>
+            </S.ContentsFooter>
+          </S.ContentsWrap>
+        </S.Frame>
         <LikeButton id={id} key={id + likeCount} />
       </S.Wrapper>
     </S.Container>

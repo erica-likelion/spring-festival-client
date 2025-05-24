@@ -53,6 +53,7 @@ export const ContentsWrap = styled.div`
   flex-direction: column;
   justify-content: center;
   text-align: left;
+  flex: 1;
   flex-grow: 1;
   min-width: 0;
   gap: 0.25rem;
@@ -84,7 +85,7 @@ export const TitleWrap = styled.div`
 export const Title = styled.p`
   ${(props) => props.theme.fonts.header.h4}
   color: ${(props) => props.theme.colors.grayScale.white};
-  max-width: 8.8125rem;
+  width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -154,7 +155,7 @@ export const Pickup = styled.div`
   text-align: center;
   gap: 0.625rem;
   background-color: ${(props) => props.theme.colors.primary.bl400};
-  ${(props) => props.theme.fonts.body.xsmall400};
+  ${(props) => props.theme.fonts.body.xsmall500};
   border-radius: 0.375rem;
   color: ${(props) => props.theme.colors.grayScale.black};
   flex-shrink: 0;
