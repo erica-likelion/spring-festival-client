@@ -10,12 +10,18 @@ export const BackgroundImg = styled.img`
 
 export const Section = styled.div`
   padding: 1rem 1rem 1.75rem;
-  border-bottom: 0.5rem solid ${(props) => props.theme.colors.grayScale.gy900};
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
 `;
 
+export const BorderSection = styled.div`
+  border-bottom: 0.5rem solid ${(props) => props.theme.colors.grayScale.gy900};
+  padding: 1rem 1rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+`;
+
 export const BottomPadding = styled.div`
-  height: 6.25rem;
+  height: 6.65rem;
 `;

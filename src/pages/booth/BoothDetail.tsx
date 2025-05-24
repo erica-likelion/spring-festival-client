@@ -23,12 +23,12 @@ export default function BoothDetail() {
         <BoothInfo id={booth.id} />
         {/*<Waiting id={booth.id} />*/}
       </S.Section>
-      <S.Section>
+      <S.BorderSection>
         <MenuList id={booth.id} />
-      </S.Section>
-      <S.Section>
+      </S.BorderSection>
+      <S.BorderSection>
         <BoothLocation id={booth.id} boothLocation={booth.locate} />
-      </S.Section>
+      </S.BorderSection>
       <S.BottomPadding />
     </>
   );
