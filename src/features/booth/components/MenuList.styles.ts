@@ -6,6 +6,12 @@ export const MenuList = styled.div`
   gap: 1rem;
 `;
 
+export const MenuFrame = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: '100%';
+`;
+
 export const MenuItem = styled.div`
   display: flex;
   flex-direction: column;

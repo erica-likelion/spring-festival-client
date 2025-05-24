@@ -11,8 +11,7 @@ import {
   Performance,
   Booth,
   BoothDetail,
-  User,
-  TimeTable,
+  //User,
   PerformanceDetail,
   LostSearch,
   LostPost,
@@ -28,7 +27,6 @@ import {
 import Layout from '@/layout';
 import 'firebase/compat/app';
 import '@/services/fcm/foregroundMessage';
-
 if (window.Kakao && !window.Kakao.isInitialized()) {
   window.Kakao.init('b3f17a02c1f339facee6125f903e309e');
 }
@@ -92,10 +90,10 @@ const routes = createBrowserRouter([
         path: 'login/success',
         element: <Redirection />,
       },
-      {
+      /*{
         path: 'user',
         element: <User />,
-      },
+      },*/
       {
         path: 'map',
         element: <Map />,
@@ -112,10 +110,7 @@ const routes = createBrowserRouter([
         path: 'performance',
         element: <Performance />,
       },
-      {
-        path: 'performance/timetable',
-        element: <TimeTable />,
-      },
+
       {
         path: 'performance/detail',
         element: <PerformanceDetail />,

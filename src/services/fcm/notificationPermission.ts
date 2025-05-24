@@ -1,8 +1,9 @@
 import { getToken } from 'firebase/messaging';
 import { messaging } from '@/services/fcm/firebase';
 import { sendToken } from '@/services/alarm';
+import { axiosInstance } from '@/lib';
 
-export async function handleAllowNotification() {
+export async function handleAllowNotification({ currentAccess }: { currentAccess?: string }) {
   try {
     console.log('푸시 알림 권한 요청');
     const permission = await Notification.requestPermission();
@@ -11,8 +12,22 @@ export async function handleAllowNotification() {
         vapidKey: import.meta.env.VITE_FIREBASE_VAPID_KEY,
       });
       if (token) {
-        const response = await sendToken(token);
-        if (response.status === 200) {
+        const response = (await currentAccess)
+          ? axiosInstance.post(
+              '/fcm/token',
+              {
+                token,
+              },
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                  Authorization: `Bearer ${currentAccess}`,
+                },
+              },
+            )
+          : sendToken(token);
+
+        if ((await response).status === 200) {
           console.log('푸시 토큰 등록 성공');
           localStorage.setItem('deviceToken', token);
         } else {

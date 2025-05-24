@@ -15,7 +15,7 @@ export const login = async (code: string) => {
       await localStorage.setItem('access_token', accessToken);
       useWaitingStore.getState().loadWaitings();
       useAuthStore.getState().setLoggedIn(true); // 전역 상태 갱신
-      await handleAllowNotification();
+      await handleAllowNotification(accessToken);
       return true;
     } else {
       console.error('access token 없음');

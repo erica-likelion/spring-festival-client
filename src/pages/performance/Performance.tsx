@@ -38,7 +38,7 @@ export default function Performance() {
       <NavBar isBack={false} />
       <S.InfoWrap>
         <S.TodayPerformanceText>오늘의 공연</S.TodayPerformanceText>
-        <Notification title="미성년자 입장 제한 안내" onClick={() => navigate('/main/notice')} />
+        <Notification title="미취학 아동 입장 제한" onClick={() => navigate('/main/notice')} />
       </S.InfoWrap>
       <S.DayWrap>
         <S.TextWrap>

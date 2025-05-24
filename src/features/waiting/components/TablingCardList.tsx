@@ -17,7 +17,11 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
   const [items, setItems] = useState<UserWaitingType[]>(tablingCards);
   const [openId, setOpenId] = useState<number | null>(null);
   const navigate = useNavigate();
-  const Modal = WaitingCancelModal as React.ComponentType<{ id: number; title: string }>;
+  const Modal = WaitingCancelModal as React.ComponentType<{
+    id: number;
+    title: string;
+    pubId: number;
+  }>;
   const { open } = useModal(Modal);
 
   useEffect(() => {
@@ -29,11 +33,12 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
     setOpenId((prev) => (prev === id ? null : id));
   };
 
-  const handleCancelClick = (e: React.MouseEvent<HTMLButtonElement>, id: number) => {
+  const handleCancelClick = (e: React.MouseEvent<HTMLButtonElement>, id: number, pubId: number) => {
     e.stopPropagation();
     open({
       title: '웨이팅 취소',
       id: id,
+      pubId,
     });
   };
 
@@ -103,7 +108,7 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
                   </S.NumTextFrame>
                 </S.TextFrame>
               </S.TextSection>
-              {openId === item.waitingId && (
+              {openId === item.pubId && (
                 <S.Expendable
                   key="expand"
                   initial={{ opacity: 0, maxHeight: 0 }}
@@ -131,7 +136,7 @@ export default function TablingCardList({ tablingCards }: TablingCardListProps) 
                     <BlueButton
                       label="웨이팅 취소"
                       size="small"
-                      onClick={(e) => handleCancelClick(e, item.waitingId)}
+                      onClick={(e) => handleCancelClick(e, item.waitingId, item.pubId)}
                     />
                   </S.SelectedFrame>
                 </S.Expendable>
