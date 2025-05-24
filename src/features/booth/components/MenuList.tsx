@@ -6,7 +6,7 @@ import { BOOTH_LIST } from '@/constants/booth/booth';
 const MENU_CATEGORY = ['메인', '사이드', '음료'];
 
 export default function MenuList({ id }: { id: number }) {
-  const [activeTab, setActiveTab] = useState<string>('메인인');
+  const [activeTab, setActiveTab] = useState<string>('');
   const booth = BOOTH_LIST.find((booth) => booth.id === Number(id)); // ✅ 타입 일치
   if (!booth) {
     return null; // or handle the case when the booth is not found
@@ -15,7 +15,7 @@ export default function MenuList({ id }: { id: number }) {
     <>
       <Tabs tabs={MENU_CATEGORY} activeTab={activeTab} onTabClick={setActiveTab} />
 
-      {activeTab.includes('메인') && (
+      {(activeTab === '' || activeTab === '메인') && (
         <S.MenuFrame>
           <S.MenuItem>메인메뉴</S.MenuItem>
           <S.MenuList>
@@ -30,7 +30,8 @@ export default function MenuList({ id }: { id: number }) {
           </S.MenuList>
         </S.MenuFrame>
       )}
-      {activeTab.includes('사이드') && (
+
+      {(activeTab === '' || activeTab === '사이드') && (
         <S.MenuFrame>
           <S.MenuItem>사이드메뉴</S.MenuItem>
           <S.MenuList>
@@ -45,7 +46,8 @@ export default function MenuList({ id }: { id: number }) {
           </S.MenuList>
         </S.MenuFrame>
       )}
-      {activeTab.includes('음료') && (
+
+      {(activeTab === '' || activeTab === '음료') && (
         <S.MenuFrame>
           <S.MenuItem>음료</S.MenuItem>
           <S.MenuList>
