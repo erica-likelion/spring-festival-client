@@ -1,5 +1,5 @@
 import { MultiTabs } from '@/components/tabs';
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import * as S from './MenuList.styles';
 import { MenuFrame } from '@/components/image-text-frame';
 import { BOOTH_LIST } from '@/constants/booth/booth';
@@ -21,34 +21,49 @@ export default function MenuList({ id }: { id: number }) {
       />
 
       {(activeTab.includes('메인') || activeTab.length === 0) && (
-        <Fragment>
+        <S.MenuFrame>
           <S.MenuItem>메인메뉴</S.MenuItem>
           <S.MenuList>
             {booth.menu.main.map((menu) => (
-              <MenuFrame menu={menu.name} price={menu.price} description={menu.describtion} />
+              <MenuFrame
+                menu={menu.name}
+                price={menu.price}
+                description={menu.describtion}
+                width="100%"
+              />
             ))}
           </S.MenuList>
-        </Fragment>
+        </S.MenuFrame>
       )}
       {(activeTab.includes('사이드') || activeTab.length === 0) && (
-        <Fragment>
+        <S.MenuFrame>
           <S.MenuItem>사이드메뉴</S.MenuItem>
           <S.MenuList>
             {booth.menu.side.map((menu) => (
-              <MenuFrame menu={menu.name} price={menu.price} description={menu.describtion} />
+              <MenuFrame
+                menu={menu.name}
+                price={menu.price}
+                description={menu.describtion}
+                width="100%"
+              />
             ))}
           </S.MenuList>
-        </Fragment>
+        </S.MenuFrame>
       )}
       {(activeTab.includes('서브') || activeTab.length === 0) && (
-        <Fragment>
+        <S.MenuFrame>
           <S.MenuItem>서브메뉴</S.MenuItem>
           <S.MenuList>
             {booth.menu.sub.map((menu) => (
-              <MenuFrame menu={menu.name} price={menu.price} description={menu.describtion} />
+              <MenuFrame
+                menu={menu.name}
+                price={menu.price}
+                description={menu.describtion}
+                width="100%"
+              />
             ))}
           </S.MenuList>
-        </Fragment>
+        </S.MenuFrame>
       )}
     </>
   );

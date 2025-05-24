@@ -11,7 +11,7 @@ import {
   Performance,
   Booth,
   BoothDetail,
-  User,
+  //User,
   PerformanceDetail,
   LostSearch,
   LostPost,
@@ -90,10 +90,10 @@ const routes = createBrowserRouter([
         path: 'login/success',
         element: <Redirection />,
       },
-      {
+      /*{
         path: 'user',
         element: <User />,
-      },
+      },*/
       {
         path: 'map',
         element: <Map />,

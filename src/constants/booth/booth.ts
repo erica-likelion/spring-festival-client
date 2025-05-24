@@ -44,10 +44,12 @@ import SPORT from '@/assets/images/booth/sport.webp';
 import SPORT_POSTER from '@/assets/images/booth/sport-poster.webp';
 import MAHA from '@/assets/images/booth/maha.webp';
 import MAHA_POSTER from '@/assets/images/booth/maha-poster.webp';
+import INSURANCE from '@/assets/images/booth/insurance.webp';
 import INSURANCE_POSTER from '@/assets/images/booth/insurance-poster.webp';
 import SEMI from '@/assets/images/booth/semiconductor.webp';
 import SEMI_POSTER from '@/assets/images/booth/semiconductor-poster.webp';
-
+import ARCHITECTURE_ENV from '@/assets/images/booth/architecture-env.webp';
+import ARCHITECTURE_ENV_POSTER from '@/assets/images/booth/architecture-env-poster.webp';
 export const BOOTH_LIST = [
   {
     id: 1,
@@ -815,8 +817,8 @@ export const BOOTH_LIST = [
       ],
     },
     takeout: false,
-    profileImage: ARCHITECTURE,
-    posterImage: ARCHITECTURE_POSTER,
+    profileImage: ARCHITECTURE_ENV,
+    posterImage: ARCHITECTURE_ENV_POSTER,
   },
   {
     id: 15,
@@ -841,7 +843,7 @@ export const BOOTH_LIST = [
       sub: [],
     },
     takeout: false,
-    profileImage: 'N',
+    profileImage: INSURANCE,
     posterImage: INSURANCE_POSTER,
   },
   {
