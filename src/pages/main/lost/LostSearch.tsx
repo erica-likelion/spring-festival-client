@@ -7,7 +7,7 @@ import { LostItem } from '@/features/lost/components/main/ItemList.types';
 import { ItemCard, NoResultMessage, SkeletonCard } from '@/features/lost';
 import axios from 'axios';
 import { Tabs } from '@/components/tabs';
-// import { useAuthStore } from '@/stores/useAuthStore';
+import { useAuthStore } from '@/stores/useAuthStore';
 
 export default function LostSearch() {
   const setIsNav = useLayoutStore((state) => state.setIsNav);
@@ -16,8 +16,7 @@ export default function LostSearch() {
   const [filteredItems, setFilteredItems] = useState<LostItem[]>([]);
   const [step, setStep] = useState<'input' | 'result'>('input');
   const [loading, setLoading] = useState(false);
-  // const loginStatus = useAuthStore((state) => state.isLoggedIn);
-  const loginStatus: number = 1; // 0: 로그아웃, 1: 로그인
+  const loginStatus = useAuthStore((state) => state.isLoggedIn);
 
   useEffect(() => {
     setIsNav(false);
@@ -78,7 +77,7 @@ export default function LostSearch() {
         >
           <S.RecentSearchSection>
             <S.RecentSearchHeader>추천 검색어</S.RecentSearchHeader>
-            {loginStatus === 0 ? (
+            {!loginStatus ? (
               <S.LoginInfoBox>
                 <S.LoginInfoText>최근 검색어를 확인하려면 로그인해주세요!</S.LoginInfoText>
                 <S.LoginInfoButton onClick={() => navigate('/login')}>
