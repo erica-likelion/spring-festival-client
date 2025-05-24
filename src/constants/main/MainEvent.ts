@@ -19,7 +19,7 @@ const readyEvent = [
   {
     id: '0',
     tags: [{ color: 'pk200', text: '준비중' }],
-    title: 'REARY TO OPEN∙∙∙',
+    title: 'READY TO OPEN∙∙∙',
     startTime: '24:00',
     endTime: '24:00',
     location: '어디선가',

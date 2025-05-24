@@ -7,7 +7,7 @@ import { Indicator } from '@/components/indicator';
 import Cursor from '@/assets/icons/cursor.svg?react';
 import { EventCard } from '../cards';
 import { useNavigate } from 'react-router-dom';
-import { EventCardData } from '@/types/eventCardData.type.ts';
+import { EventCardData } from '@/types/eventCardData.type';
 /**
  * Carousels 컴포넌트
  * - MainEventData를 기반으로 UI를 렌더링
