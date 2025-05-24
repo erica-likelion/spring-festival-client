@@ -60,42 +60,42 @@ export const BOOTH_LIST = [
         {
           name: '항정삼합',
           describtion: '항정업! 두부업! 김치업! 삼합업!',
-          price: '21,000',
+          price: '20,900',
         },
         {
           name: '우삼겹 숙주볶음',
           describtion: '현숙이가 지숙이 머리볶아주다 잘못 볶은 우삼겹숙주볶음',
-          price: '16,000',
+          price: '15,900',
         },
         {
           name: '오징어 김치전',
           describtion: '안먹으면 마담에게 싹싹 빌어야하는 오징어싹싹김치전',
-          price: '13,000',
+          price: '14,900',
         },
+        { name: '칼칼오뎅탕', describtion: '홍박사의 칼칼오뎅탕을 아세요?', price: '14,900' },
       ],
       side: [
-        { name: '얼큰오뎅탕', describtion: '홍박사의 얼큰오뎅탕을 아세요?', price: '15,000' },
-        { name: '치즈계란말이', describtion: '관식이의 폭싹 계란말았수다', price: '10,000' },
         {
           name: '모듬소세지(사이드감튀)',
           describtion: '봉쥬르 모듬 소세쥬 드 라따뚜이',
-          price: '15,000',
+          price: '13,900',
         },
         {
           name: '해장라면',
           describtion: '파괴왕의 숙취 파괴 라면',
-          price: '6,000',
+          price: '5,900',
         },
+        { name: '치즈계란말이', describtion: '관식이의 폭싹 계란말았수다', price: '12,900' },
       ],
       sub: [
         {
           name: '알고리주',
-          describtion: '',
+          describtion: '알고리주',
           price: '5,000',
         },
         {
           name: '미숫가루',
-          describtion: '',
+          describtion: '미숫가루',
           price: '5,000',
         },
         {
@@ -109,7 +109,12 @@ export const BOOTH_LIST = [
           price: '2,000',
         },
         {
-          name: '콜라, 사이다',
+          name: '콜라',
+          describtion: '',
+          price: '2,000',
+        },
+        {
+          name: '사이다',
           describtion: '',
           price: '2,000',
         },
@@ -127,23 +132,23 @@ export const BOOTH_LIST = [
     pubName: '차린건 여정도 지만',
     menu: {
       main: [
-        { name: '관자 버터 야채 볶음', describtion: '#달달고소 #맥주안주', price: '18,000' },
-        { name: '무뼈 국물 닭발', describtion: '#매콤쫄깃야들 #소주안주200%', price: '20,000' },
+        { name: '관자버터야채볶음', describtion: '#달달고소 #맥주안주', price: '18,000' },
         {
           name: '오징어&골뱅이 무침',
           describtion: '#매콤달콤 #젓가락_멈추지_않는',
           price: '16,000',
         },
+        { name: '삼겹두부김치', describtion: '#기본에충실한 #안주의정석', price: '15,000' },
+        { name: '무뼈국물닭발', describtion: '#매콤쫄깃야들 #소주안주200%', price: '20,000' },
       ],
       side: [
-        { name: '삼겹두부김치', describtion: '#기본에충실한 #안주의정석', price: '15,000' },
         { name: '콘치즈', describtion: "#직원's PICK #퍼먹", price: '5,000' },
-        { name: '김가루 주먹밥', describtion: '#햇반2개양 #한국인은_밥심', price: '5,000' },
+        { name: '김가루주먹밥', describtion: '#햇반2개양 #한국인은_밥심', price: '5,000' },
       ],
       sub: [
         { name: '칵테일 3종', describtion: '#피치피치 #모히토 #블루큐라소', price: '4,500' },
         {
-          name: '캔 콜라 & 사이다',
+          name: '탄산음료 뚱캔 350ml',
           describtion: '#콜라 #사이다',
           price: '3,000',
         },
@@ -164,36 +169,35 @@ export const BOOTH_LIST = [
       main: [
         {
           name: "나만 '지쿄바'",
-          describtion: '닭갈비의 고장 사람이 만든 특제 양념소스를 이용한 닭다리살 요리',
+          describtion: '매콤한 숯불맛 치킨',
           price: '20,000',
         },
         {
-          name: '삼겹’먹고 나랑 사겹',
-          describtion: '만능간장소스를 이용한 대패삼겹살 숙주볶음. 여기에 불맛까지 더하니 금상첨화',
+          name: "'삼겹’먹고 나랑 사겹",
+          describtion: '부드러운 대패삼겹과 아삭한 숙주의 만남',
           price: '20,000',
         },
       ],
       side: [
         {
           name: "왜 자꾸 '튀ㅇ김’",
-          describtion: '케이준 양념감자와 테이터토츠, 가라아게까지 더했다!',
+          describtion: '바삭바삭 모듬 튀김',
           price: '13,000',
         },
         {
+          name: "너랑 '황 도'망칠까?",
+          describtion: '입 안 가득 퍼지는 시원한 황도',
+          price: '6,000',
+        },
+        {
           name: "언제든지 너'라면'",
-          describtion: '라면과 물만두의 만남. 술과 해장을 동시에?',
+          describtion: '속이 확 풀리는 기계식 라면',
           price: '8,000',
         },
         {
           name: "고백해볼'레 몬'난나지만",
-          describtion:
-            '레몬가루와 레몬즙을 이용한 원액을 제공, 소주와 섞어 마시면 이것은 음료수인가 술인가.',
+          describtion: '상큼하게 톡! 레몬 소주',
           price: '5,000',
-        },
-        {
-          name: "너랑 '황 도'망칠까?",
-          describtion: '술자리에서 시키면 욕먹지만 사실 모두 사랑하는 대표 메뉴',
-          price: '6,000',
         },
       ],
       sub: [],
@@ -293,17 +297,17 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         {
-          name: '우삼겹숙주볶음',
+          name: '우삼겹 숙주 볶음',
           describtion: '간장과 굴소스로 볶아낸 고소한 우삼겹과 숙주 안주',
           price: '18,000',
         },
         {
-          name: '치즈김치볶음밥',
+          name: '치즈김치 볶음밥',
           describtion: '시판 김치볶음밥에 고소한 치즈를 더한 메뉴',
           price: '10,000',
         },
         {
-          name: '모듬소세지',
+          name: '모듬 소세지',
           describtion: '여러 가지 시판 소세지를 조리한 간단한 안주',
           price: '16,000',
         },
@@ -334,15 +338,15 @@ export const BOOTH_LIST = [
           describtion: '나초 과자에 치즈소스를 얹어 서빙하는 간단한 안주',
           price: '5,000',
         },
-        {
-          name: '솜사탕',
-          describtion: '부드럽고 달콤한 간식용 솜사탕',
-          price: '',
-        },
       ],
       sub: [
         {
-          name: '음료수',
+          name: '제로콜라',
+          describtion: '',
+          price: '3,000',
+        },
+        {
+          name: '사이다',
           describtion: '',
           price: '3,000',
         },
@@ -371,13 +375,8 @@ export const BOOTH_LIST = [
           price: '19,000',
         },
         {
-          name: '닭다리살구이',
+          name: '닭다리살 구이',
           describtion: '백설공주가 직접 사냥한 닭구이',
-          price: '18,000',
-        },
-        {
-          name: '우삼겹숙주볶음',
-          describtion: '잠자는 공주 깨우삼겹숙주볶음',
           price: '18,000',
         },
         {
@@ -385,27 +384,32 @@ export const BOOTH_LIST = [
           describtion: '난쟁이가 캐온 스팸감자전',
           price: '15,000',
         },
+        {
+          name: '우삼겹 숙주볶음',
+          describtion: '잠자는 공주 깨우삼겹숙주볶음',
+          price: '18,000',
+        },
       ],
       side: [
         {
-          name: '숙주라면',
+          name: '숙주 라면',
           describtion: '내가 배화공주라면~?',
           price: '5,000',
         },
         {
-          name: '불닭볶음면',
+          name: '불닭',
           describtion: '맵부심 왕비의 불닭볶음면',
           price: '5,000',
         },
         {
-          name: '타코나쵸',
+          name: '타코 나쵸',
           describtion: '난쟁이의 비상식량',
           price: '7,000',
         },
       ],
       sub: [
-        { name: '물', describtion: '', price: '1,000' },
-        { name: '음료수', describtion: '', price: '2,000' },
+        { name: '물', describtion: '깊은 산속 옹달샘', price: '1,000' },
+        { name: '음료수', describtion: '공주도 탄산은 못참지', price: '2,000' },
       ],
     },
     takeout: false,
@@ -426,18 +430,6 @@ export const BOOTH_LIST = [
           price: '12,000',
         },
         {
-          name: '두부김치',
-          describtion: '김치, 대패삼겹살, 두부, 마늘과 각종 조미료로 조리한 메뉴',
-          price: '15,000',
-        },
-        {
-          name: '대패삼겹숙주볶음',
-          describtion: '대패삼겹살, 숙주, 양파, 청양고추, 조미료와 함께 볶은 메뉴',
-          price: '15,000',
-        },
-      ],
-      side: [
-        {
           name: '김치전',
           describtion: '부침가루, 튀김가루, 전분가루, 오징어, 김치로 만든 전',
           price: '12,000',
@@ -448,10 +440,22 @@ export const BOOTH_LIST = [
           price: '10,000',
         },
         {
+          name: '두부김치',
+          describtion: '김치, 대패삼겹살, 두부, 마늘과 각종 조미료로 조리한 메뉴',
+          price: '15,000',
+        },
+        {
           name: '순대볶음',
           describtion: '찰순대, 깻잎, 양파, 양배추, 조미료와 함께 볶은 메뉴',
           price: '15,000',
         },
+        {
+          name: '대패삼겹숙주볶음',
+          describtion: '대패삼겹살, 숙주, 양파, 청양고추, 조미료와 함께 볶은 메뉴',
+          price: '15,000',
+        },
+      ],
+      side: [
         {
           name: '황도',
           describtion: '황도 통조림을 접시에 담아 제공하는 디저트 메뉴',
@@ -485,7 +489,12 @@ export const BOOTH_LIST = [
       ],
       sub: [
         {
-          name: '탄산음료',
+          name: '펩시제로',
+          describtion: '',
+          price: '2,500',
+        },
+        {
+          name: '칠성사이다',
           describtion: '',
           price: '2,500',
         },
@@ -523,13 +532,13 @@ export const BOOTH_LIST = [
           describtion: '이대호 선수도 이거 먹고 복귀각 세우게 하는 그 맛',
           price: '18,000',
         },
-      ],
-      side: [
         {
           name: '곱창볶음',
           describtion: '김도영 선수가 말하다. "곱창아 니땀시 살어야"',
           price: '15,000',
         },
+      ],
+      side: [
         {
           name: '치즈 계란말이',
           describtion: '치즈와 함께 늘어나는 우리 구단 승률',
@@ -548,8 +557,8 @@ export const BOOTH_LIST = [
       ],
       sub: [
         {
-          name: '음료수',
-          describtion: '',
+          name: '음료',
+          describtion: '제로콜라, 갈배, 사이다',
           price: '2,000',
         },
         {
@@ -577,21 +586,14 @@ export const BOOTH_LIST = [
           price: '17,900',
         },
         {
-          name: '두부삼겹도루치기',
-          describtion: '두부, 삼겹살, 김치를 함께 볶은 안주',
-          price: '15,900',
-        },
-        {
-          name: '육회말 투아웃',
-          describtion: '신선한 육회를 듬뿍 담은 메뉴',
-          price: '19,900',
-        },
-      ],
-      side: [
-        {
           name: '불빠따꼬치',
           describtion: '매운맛 닭꼬치',
           price: '17,600',
+        },
+        {
+          name: '염통빠따꼬치',
+          describtion: '쫄깃한 염통꼬치',
+          price: '12,900',
         },
         {
           name: '염통빠따세트',
@@ -604,17 +606,24 @@ export const BOOTH_LIST = [
           price: '19,900',
         },
         {
-          name: '염통빠따꼬치',
-          describtion: '쫄깃한 염통꼬치',
-          price: '12,900',
+          name: '육회말 투아웃',
+          describtion: '신선한 육회를 듬뿍 담은 메뉴',
+          price: '19,900',
         },
         {
-          name: '축구보단야구가나쵸',
+          name: '두부삼겹도루치기',
+          describtion: '두부, 삼겹살, 김치를 함께 볶은 안주',
+          price: '15,900',
+        },
+      ],
+      side: [
+        {
+          name: '축구보단 야구가 나쵸',
           describtion: '야구 안주에 딱 맞는 바삭한 나쵸',
           price: '11,900',
         },
         {
-          name: '이대호홈런볼아이스크림',
+          name: '이대호오옴런볼아이스크림',
           describtion: '홈런볼이 들어간 시원한 아이스크림',
           price: '8,900',
         },
@@ -649,17 +658,20 @@ export const BOOTH_LIST = [
     pubName: '(주) 로봇산업',
     menu: {
       main: [
+        { name: '중장비 콤보세트 - 숯불 닭꼬치, 어묵탕', describtion: '', price: '28,000' },
+        { name: '야간 작업 야식세트 - 닭발, 주먹밥, 계란찜', describtion: '', price: '23,000' },
+        { name: '조기퇴근세트 - 냉제육, 골뱅이소면', describtion: '', price: '27,000' },
         { name: '레전드 닭꼬치', describtion: '', price: '16,000' },
+        { name: '레전드 닭발', describtion: '', price: '18,000' },
         { name: '레전드 훈제오리', describtion: '', price: '18,000' },
         { name: '레전드 냉제육', describtion: '', price: '18,000' },
-      ],
-      side: [
-        { name: '레전드 닭발', describtion: '', price: '18,000' },
         { name: '레전드 김치찌개', describtion: '', price: '13,000' },
         { name: '레전드 어묵탕', describtion: '', price: '15,000' },
         { name: '레전드 순두부 해장라면', describtion: '', price: '7,000' },
         { name: '레전드 감자튀김 (뿌링클 시즈닝 +1,000원)', describtion: '', price: '8,000' },
         { name: '레전드 크리스피 순살 치킨', describtion: '', price: '14,000' },
+      ],
+      side: [
         { name: '레전드 설탕토마토', describtion: '', price: '5,000' },
         { name: '레전드 빙수', describtion: '', price: '6,000' },
         { name: '레전드 골뱅이 소면', describtion: '', price: '13,000' },
@@ -667,9 +679,8 @@ export const BOOTH_LIST = [
         { name: '레전드 주먹밥', describtion: '', price: '4,000' },
       ],
       sub: [
-        { name: '중장비 콤보세트 - 숯불 닭꼬치, 어묵탕', describtion: '', price: '28,000' },
-        { name: '야간 작업 야식세트 - 닭발, 주먹밥, 계란찜', describtion: '', price: '23,000' },
-        { name: '조기퇴근세트 - 냉제육, 골뱅이소면', describtion: '', price: '27,000' },
+        { name: '레전드 음료', describtion: '콜라, 사이다, 갈배, 식혜', price: '2,000' },
+        { name: '레전드 물', describtion: '', price: '1,000' },
       ],
     },
     takeout: false,
@@ -684,13 +695,13 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         { name: '야끼우동', describtion: '', price: '17,900' },
-        { name: '나가사끼 짬뽕', describtion: '', price: '17,900' },
         { name: '대패숙주볶음', describtion: '', price: '15,900' },
+        { name: '나가사끼 짬뽕', describtion: '', price: '17,900' },
       ],
       side: [
-        { name: '콘치즈', describtion: '', price: '7,900' },
         { name: '계란말이', describtion: '', price: '9,900' },
-        { name: '황도', describtion: '', price: '8,900' },
+        { name: '아이스 황도', describtion: '', price: '8,900' },
+        { name: '콘치즈', describtion: '', price: '7,900' },
       ],
       sub: [],
     },
@@ -718,14 +729,15 @@ export const BOOTH_LIST = [
         { name: '묵사발', describtion: '', price: '10,000' },
         { name: '황도', describtion: '', price: '7,900' },
         { name: '주먹밥(셀프)', describtion: '', price: '3,000' },
-        { name: 'DIY하이볼 - 소주는 셀프', describtion: '', price: '3,500' },
+      ],
+      sub: [
+        { name: 'DIY하이볼 - 소주는 셀프', describtion: '자몽, 청포도', price: '3,500' },
         {
           name: '음료',
-          describtion: '',
+          describtion: '콜라, 제로콜라, 사이다',
           price: '2,000',
         },
       ],
-      sub: [],
     },
     takeout: true,
     profileImage: INTELLIGENCE,
@@ -745,7 +757,7 @@ export const BOOTH_LIST = [
         },
         {
           name: '김치전',
-          describtion: '',
+          describtion: '치즈 추가 시 1000원 추가',
           price: '11,900',
         },
         {
@@ -759,7 +771,7 @@ export const BOOTH_LIST = [
           price: '12,500',
         },
         {
-          name: '공대 3대세트 - 돈까스, 공대라면, 용암볶음밥',
+          name: '공대 3 종 세트 - 돈까스, 공대라면, 용암볶음밥',
           describtion: '3종을 세트로 모두 시킬 시 더 쌈',
           price: '29,900',
         },
@@ -803,7 +815,12 @@ export const BOOTH_LIST = [
       ],
       sub: [
         {
-          name: '음료수',
+          name: '콜라',
+          describtion: '',
+          price: '2,000',
+        },
+        {
+          name: '사이다',
           describtion: '',
           price: '2,000',
         },
@@ -826,8 +843,9 @@ export const BOOTH_LIST = [
     pubName: '냉3 4먹으러 5것지',
     menu: {
       main: [
-        { name: '냉삼 200g (+ 김치 콩나물 볶음 제공)', describtion: '', price: '14,000' },
         { name: '우삼겹 숙주볶음 200g', describtion: '', price: '14,000' },
+        { name: '냉삼 200g', describtion: '(+ 김치 콩나물 볶음 제공)', price: '14,000' },
+
         { name: '김치찌개', describtion: '', price: '9,000' },
       ],
       side: [
@@ -853,8 +871,8 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         {
-          name: '지존 통마늘훈제삼겹살',
-          describtion: '통마늘과 훈제삼겹살을 에어프라이기에 같이 구워 판매',
+          name: '지존통마늘부추삼겹',
+          describtion: '지존장난아니게 맛있는 훈제삼겹살과 부추무침,그리고 구운 통마늘을 곁들인',
           price: '18,000',
         },
         {
@@ -863,19 +881,19 @@ export const BOOTH_LIST = [
           price: '16,000',
         },
         {
-          name: '안습매콤 떡볶이세트',
+          name: '안습매콤떡볶이세트',
           describtion: '떡볶이에 튀김을 에어프라이어에 조리해 함께 판매',
           price: '15,000',
         },
-      ],
-      side: [
         {
           name: '오나전 반반전',
           describtion: '김치전과 감자전을 동시에 반씩 구운 후 위에 고추, 파 등을 올려 판매',
           price: '13,000',
         },
+      ],
+      side: [
         {
-          name: '대박 소문난 해물라면',
+          name: '대박소문난 해물라면',
           describtion: '라면과 해물믹스를 같이 끓여 판매',
           price: '9,000',
         },
@@ -897,13 +915,18 @@ export const BOOTH_LIST = [
       ],
       sub: [
         {
-          name: '음료수',
+          name: '사이다',
           describtion: '',
           price: '3,000',
         },
         {
-          name: '물',
+          name: '제로콜라',
           describtion: '',
+          price: '3,000',
+        },
+        {
+          name: '마N',
+          describtion: '고개 꺾어서 보삼 KIN~',
           price: '1,000',
         },
       ],
@@ -926,7 +949,7 @@ export const BOOTH_LIST = [
           price: '18,900',
         },
         {
-          name: '닭목살 구웠수다',
+          name: '닭목살구웠수다',
           describtion: '닭목살과 파를 불향을 입혀 구운 시그니처 메뉴',
           price: '18,900',
         },
@@ -974,7 +997,12 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         {
-          name: '숙성연어회',
+          name: '모둠세트',
+          describtion: '숙성연어회와 참치타다끼가 함께 나오는 모둠.',
+          price: '22,900',
+        },
+        {
+          name: '숙성연어회(곤부지메)',
           describtion:
             '꿈연에서 직접 공수해온 곤부지메 방식으로 숙성한 연어. 곤부지메란 일본의 전통적인 요리 기법으로, 생선을 다시마에 감싸 숙성시키는 방법.',
           price: '22,900',
@@ -984,11 +1012,6 @@ export const BOOTH_LIST = [
           describtion:
             '겉만 익히고 토치로 불맛을 내어 비린맛 없이 부드러운 참치타다끼. 단, 토치 사용이 불가능하면 통깨를 입혀 겉만 살짝 구운 부드러운 참치타다끼.',
           price: '21,900',
-        },
-        {
-          name: '모둠세트',
-          describtion: '숙성연어회와 참치타다끼가 함께 나오는 모둠.',
-          price: '22,900',
         },
       ],
       side: [
@@ -1154,33 +1177,35 @@ export const BOOTH_LIST = [
           price: '7,800',
         },
         {
-          name: '콘치즈',
+          name: '치즈 옥수수',
           describtion: '달콤치즈 옥수수 온천',
           price: '6,500',
         },
         {
+          name: '나쵸',
+          describtion: '빠삭빠삭 마을나쵸',
+          price: '5,000',
+        },
+        {
           name: '닭꼬치',
-          describtion: '꼬치 꼬치 묻지 마요, 우리 닭꼬치 맛있으니까-_-',
+          describtion: '꼬치 꼬치 묻지 마요, 우리 닭꼬치 맛있으니까 -_-',
           price: '8,000',
         },
-        {
-          name: '매실빛 노을(매실 베이스)',
-          describtion: '과일주(메실) 한잔, 파샵파샵!',
-          price: '6,000',
-        },
-        {
-          name: '새벽의 별똥별(망고 베이스)',
-          describtion: '과일주(망고) 한잔, 파샵파샵!',
-          price: '6,000',
-        },
+
         {
           name: '화채',
           describtion: '‘시원하고 달달해요, 뽀드득!’ 뽀야미의 뽀드득 화채',
           price: '5,000',
         },
+
         {
-          name: '나쵸&소스',
-          describtion: '빠삭빠삭 마을나쵸',
+          name: '매실빛 노을(매실 베이스)',
+          describtion: '과일주(메실) 한잔, 파샵파샵!',
+          price: '5,000',
+        },
+        {
+          name: '새벽의 별똥별(망고 베이스)',
+          describtion: '과일주(망고) 한잔, 파샵파샵!',
           price: '5,000',
         },
       ],
@@ -1210,53 +1235,53 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         {
-          name: '오빠 난 "오뎅? 탕"탕',
-          describtion:
-            '따끈한 국물 한 입에 피로가 풀리는 마법. 탕탕 울리는 맛에, 오늘도 오뎅에게 마음 뺏긴다.',
-          price: '18,900',
+          name: '대패숙죽볶음',
+          describtion: '지금까지 이런 맛은 없었다. 이것은 대패인가 숙주인가 "대패숙주볶음"',
+          price: '22,900',
         },
         {
-          name: '"김치전"나 맛있다',
-          describtion: '비 오는 날엔 나만 찾아줘. 바삭함과 매콤함을 품은 김치전, 자존감 만렙 간식!',
-          price: '14,900',
-        },
-        {
-          name: '심장말고 "불막창"을 바쳐라',
+          name: '불막창',
           describtion:
             '불타는 입맛을 위한 경건한 선택. 고소하고 쫄깃한 불막창, 이건 진심을 담아 먹어야 해.',
           price: '22,900',
         },
         {
-          name: '쵸코민또 요리모 "대.패.숙.주"',
-          describtion: '지금까지 이런 맛은 없었다. 이것은 대패인가 숙주인가 "대패숙주볶음"',
-          price: '22,900',
+          name: '오뎅탕',
+          describtion:
+            '따끈한 국물 한 입에 피로가 풀리는 마법. 탕탕 울리는 맛에, 오늘도 오뎅에게 마음 뺏긴다.',
+          price: '18,900',
+        },
+        {
+          name: '김치전',
+          describtion: '비 오는 날엔 나만 찾아줘. 바삭함과 매콤함을 품은 김치전, 자존감 만렙 간식!',
+          price: '14,900',
         },
       ],
       side: [
         {
-          name: '내가 사장이"라면"',
-          describtion: '사장도 반할 수밖에 없는 한입의 힘! 국룰의 맛!',
-          price: '5,900',
-        },
-        {
-          name: '"주먹밥" 랄프',
-          describtion: '랄프가 만든 왕 큰 "주먹밥". 피곤한 하루, 허기진 마음을 달래줄 힐링 덩어리.',
-          price: '4,900',
-        },
-        {
-          name: '황금연휴 같은 달달한 "연유토스트"',
-          describtion:
-            '입안 가득 퍼지는 달콤함. 빵 위에 눈처럼 내린 연유, 이건 휴식이야. 당 충전 완료.',
-          price: '5,900',
-        },
-        {
-          name: '쟤가 아니라 "계란말이"야',
+          name: '계란말이',
           describtion:
             '말랑말랑하고 촉촉한 그 계란말이. 그냥 계란이 아니야, ‘걔’란말이야. 한 입에 반할 걸?',
           price: '9,900',
         },
         {
-          name: '그라"샤~베트"',
+          name: '연유토스트',
+          describtion:
+            '입안 가득 퍼지는 달콤함. 빵 위에 눈처럼 내린 연유, 이건 휴식이야. 당 충전 완료.',
+          price: '5,900',
+        },
+        {
+          name: '주먹밥',
+          describtion: '랄프가 만든 왕 큰 "주먹밥". 피곤한 하루, 허기진 마음을 달래줄 힐링 덩어리.',
+          price: '4,900',
+        },
+        {
+          name: '라면',
+          describtion: '사장도 반할 수밖에 없는 한입의 힘! 국룰의 맛!',
+          price: '5,900',
+        },
+        {
+          name: '파인샤베트',
           describtion:
             '샤르르 녹는 시원한 매력에 감사하게 돼요. 파인애플 향 가득한 얼음의 여신, 디저트의 피날레.',
           price: '8,900',
@@ -1265,12 +1290,12 @@ export const BOOTH_LIST = [
       sub: [
         {
           name: '타먹는 미숫가루 소주',
-          describtion: '',
+          describtion: '소주는 별도 지참',
           price: '4,900',
         },
         {
           name: '음료수',
-          describtion: '',
+          describtion: '제로콜라, 사이다, 갈아만든배',
           price: '3,000',
         },
         {
@@ -1292,21 +1317,21 @@ export const BOOTH_LIST = [
     pubName: '홍문으로들었소',
     menu: {
       main: [
-        { name: '제육 볶음', describtion: '', price: '16,000' },
-        { name: '숙주 대패볶음', describtion: '', price: '16,000' },
         { name: '두부 김치', describtion: '', price: '16,000' },
+        { name: '제육 볶음', describtion: '', price: '16,000' },
+        { name: '숙주 대패', describtion: '', price: '16,000' },
       ],
       side: [
         { name: '김치전', describtion: '', price: '9,000' },
         { name: '묵사발', describtion: '', price: '9,000' },
-        { name: '주먹밥', describtion: '', price: '4,000' },
-        { name: '불라면', describtion: '', price: '6,000' },
         { name: '황도', describtion: '', price: '9,000' },
+        { name: '불라면', describtion: '', price: '6,000' },
+        { name: '주먹밥', describtion: '', price: '4,000' },
       ],
       sub: [
         {
           name: '건축주',
-          describtion: '',
+          describtion: '홍초 원액 + 사이다',
           price: '4,000',
         },
         {
@@ -1316,11 +1341,11 @@ export const BOOTH_LIST = [
         },
         {
           name: '탄산음료',
-          describtion: '',
+          describtion: '콜라/사이다',
           price: '2,500',
         },
         {
-          name: '생수',
+          name: '생수(500ml)',
           describtion: '',
           price: '1,500',
         },
@@ -1344,31 +1369,26 @@ export const BOOTH_LIST = [
           price: '18,000',
         },
         {
-          name: '치즈추가',
-          describtion: '',
-          price: '2,000',
-        },
-        {
           name: '무뼈닭발',
           describtion: '주먹 돌리기! 봉미선의 분노 무뼈 닭발',
           price: '18,000',
         },
+        {
+          name: '치즈추가',
+          describtion: '테이블 당 메인메뉴 1개 주문 필수입니다.',
+          price: '2,000',
+        },
       ],
       side: [
-        {
-          name: '묵사발',
-          describtion: '두목..아 원장님이 말아주는 묵사발',
-          price: '12,500',
-        },
-        {
-          name: '두부김치',
-          describtion: '와르르 두부김치',
-          price: '12,500',
-        },
         {
           name: '콘치즈',
           describtion: '액션빔으로 녹인 콘치즈',
           price: '7,000',
+        },
+        {
+          name: '짜계치',
+          describtion: '부리부리 짜계치',
+          price: '8,000',
         },
         {
           name: '오뎅탕',
@@ -1376,9 +1396,14 @@ export const BOOTH_LIST = [
           price: '8,000',
         },
         {
-          name: '짜계치',
-          describtion: '부리부리 짜계치',
-          price: '8,000',
+          name: '묵사발',
+          describtion: '두목님이 말아주는 묵사발',
+          price: '12,500',
+        },
+        {
+          name: '두부김치',
+          describtion: '와르르 두부김치',
+          price: '12,500',
         },
         {
           name: '셀프주먹밥',
@@ -1388,14 +1413,39 @@ export const BOOTH_LIST = [
       ],
       sub: [
         {
-          name: '닭갈비 + 콘치즈 + 랜덤음료수',
-          describtion: '',
+          name: '치즈 닭갈비 + 콘치즈 + 랜덤음료수',
+          describtion: 'A+보다 짜릿한 치즈 닭갈비 + 콘치즈 + 랜덤음료수',
           price: '25,000',
         },
         {
-          name: '닭갈비 + 오뎅탕 + 랜덤음료수',
-          describtion: '',
+          name: '치즈 닭갈비 + 오뎅탕 + 랜덤음료수',
+          describtion: 'A+보다 짜릿한 치즈 닭갈비 + 오뎅탕 + 랜덤음료수',
           price: '26,000',
+        },
+        {
+          name: '아이스초코',
+          describtion: '',
+          price: '3,000',
+        },
+        {
+          name: '아이스티',
+          describtion: '',
+          price: '3,000',
+        },
+        {
+          name: '콜라 뚱캔',
+          describtion: '',
+          price: '2,500',
+        },
+        {
+          name: '사이다 뚱캔',
+          describtion: '',
+          price: '2,500',
+        },
+        {
+          name: '토닉워터',
+          describtion: '',
+          price: '4,500',
         },
       ],
     },
@@ -1417,57 +1467,58 @@ export const BOOTH_LIST = [
           price: '15,000',
         },
         {
-          name: '로제 떡볶이',
-          describtion: '“내 맘은 크림 같았는데, 넌 계속 맵게만 굴더라?”',
-          price: '14,000',
-        },
-        {
-          name: '꼬소염세트 (꼬치+소세지+염통)',
-          describtion: '“심장을 쿡 찌르는 맛이랄까…꼬치에 꽂히는 건 줄 알았는데, 너였어.”',
-          price: '14,000',
-        },
-        {
           name: '볶음우동',
-          describtion: '“우동처럼 오동통 불어버린 설레는 내 맘“',
+          describtion: '우동처럼 오동통 불어버린 설레는 내 맘',
+          price: '14,000',
+        },
+        {
+          name: '로제 떡볶이',
+          describtion: '내 맘은 크림 같았는데, 넌 계속 맵게만 굴더라?',
+          price: '14,000',
+        },
+        {
+          name: '꼬소염(꼬치+소시지+염통)',
+          describtion: '심장을 쿡 찌르는 맛이랄까.,. 꼬치에 꽂히는 건 줄 알았는데, 너였어.',
           price: '14,000',
         },
       ],
       side: [
         {
-          name: '연유토마토',
-          describtion: '“연유가 토마토에게 스며들듯 나도 너에게 스며들어…”',
-          price: '5,000',
+          name: '염통꼬치',
+          describtion: '양 염통꼬치 8개',
+          price: '6,000',
+        },
+
+        {
+          name: '콘치즈',
+          describtion: '우리 사이도 치즈처럼… 조금만 더 늘어났으면.',
+          price: '6,000',
         },
         {
           name: '감튀 + 팝콘치킨',
-          describtion: '“같이 먹는 순간, 추억도 바삭해져.”',
+          describtion: '같이 먹는 순간, 추억도 바삭해져.',
           price: '6,000',
+        },
+        {
+          name: '연유 토마토',
+          describtion: '식후엔 연초 말고 연(유)토(마토)',
+          price: '5,000',
+        },
+        {
+          name: '나쵸 프레첼+시즈닝',
+          describtion: '나의 초-크초크한 프레체ㄹ',
+          price: '4,000',
         },
         {
           name: '라면',
-          describtion: '“그 밤에 먹던 라면 기억나? 아직도 끓고 있어, 내 마음.”',
+          describtion: '그 밤에 먹던 라면 기억나? 아직도 끓고 있어, 내 마음',
           price: '4,000',
-        },
-        {
-          name: '콘치즈',
-          describtion: '“우리 사이도 치즈처럼… 조금만 더 늘어났으면.”',
-          price: '6,000',
-        },
-        {
-          name: '나쵸 프레첼',
-          describtion: '나의 쵸크쵸크한 프레첼~',
-          price: '4,000',
-        },
-        {
-          name: '염통꼬치',
-          describtion: '염통꼬치 8개',
-          price: '6,000',
         },
       ],
       sub: [
         {
           name: '음료수',
-          describtion: '',
+          describtion: '사이다 / 콜라 / 제로 콜라',
           price: '2,000',
         },
         {
@@ -1490,7 +1541,7 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         {
-          name: '돼지 GOAL~비 + 주먹밥',
+          name: '돼지 GOAL~비 (+주먹밥)',
           describtion: '양념돼지갈비와 주먹밥 세트',
           price: '21,900',
         },
@@ -1522,9 +1573,9 @@ export const BOOTH_LIST = [
           price: '12,000',
         },
         {
-          name: '아이슛~!크림',
-          describtion: '3색 아이스크림',
-          price: '6,000',
+          name: '음~ 밥해 주먹밥',
+          describtion: '주먹밥 (김가루 + 밥)',
+          price: '4,000',
         },
         {
           name: '황희찬의 황도',
@@ -1532,20 +1583,25 @@ export const BOOTH_LIST = [
           price: '8,000',
         },
         {
-          name: '음~밥해 주먹밥',
-          describtion: '주먹밥 (김가루 + 밥)',
-          price: '4,000',
+          name: '아이슛~!크림',
+          describtion: '3색 아이스크림',
+          price: '6,000',
         },
         {
           name: '가르나쵸',
           describtion: 'DORITOS 위에 토핑과 소스를 얹어서 만들어주는 과자 나쵸',
           price: '10,000',
         },
+        {
+          name: 'HIDDEN MENU',
+          describtion: '발롱도르 세트',
+          price: '159,000',
+        },
       ],
       sub: [
         {
           name: '음료수',
-          describtion: '',
+          describtion: '갈아만든배 / 콜라 / 제로콜라 / 사이다',
           price: '2,500',
         },
         {
@@ -1585,11 +1641,6 @@ export const BOOTH_LIST = [
       ],
       side: [
         {
-          name: '불닭볶음밥',
-          describtion: '',
-          price: '7,900',
-        },
-        {
           name: '라면',
           describtion: '',
           price: '4,900',
@@ -1598,6 +1649,11 @@ export const BOOTH_LIST = [
           name: '어묵칩',
           describtion: '',
           price: '4,900',
+        },
+        {
+          name: '불닭볶음밥',
+          describtion: '',
+          price: '7,900',
         },
         {
           name: '자몽 하이볼',
