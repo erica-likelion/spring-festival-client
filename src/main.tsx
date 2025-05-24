@@ -13,6 +13,7 @@ import {
   BoothDetail,
   //User,
   PerformanceDetail,
+  TimeTable,
   LostSearch,
   LostPost,
   Notice,
@@ -114,6 +115,10 @@ const routes = createBrowserRouter([
       {
         path: 'performance/detail',
         element: <PerformanceDetail />,
+      },
+      {
+        path: '/performance/timetable',
+        element: <TimeTable />,
       },
       {
         path: 'booth',
