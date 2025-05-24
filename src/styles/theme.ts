@@ -6,6 +6,15 @@ const createFontStyle = (
   lineHeightPercent: number,
   letterSpacing: number = 0,
 ) => css`
+  font-family:
+    SUIT,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    'Helvetica Neue',
+    Arial,
+    sans-serif;
   font-size: ${size}rem;
   font-style: normal;
   font-weight: ${weight};

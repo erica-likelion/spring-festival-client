@@ -20,7 +20,7 @@ export const List = styled.ul`
 export const Item = styled(motion.li)<{ $current: boolean }>`
   color: ${(props) =>
     props.$current ? props.theme.colors.grayScale.gy50 : props.theme.colors.grayScale.gy700};
-  ${(props) => props.theme.fonts.body.large400};
+  ${(props) => props.theme.fonts.header.h4};
   position: relative;
   height: 2.5rem;
   display: flex;

@@ -2,9 +2,11 @@ import styled from 'styled-components';
 import BoothImage from '@/assets/images/booth/booth-locate.webp';
 
 export const Container = styled.section`
+  padding: 1rem 0rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  margin-bottom: 2.75rem;
 `;
 
 const Text = styled.p`

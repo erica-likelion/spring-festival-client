@@ -42,7 +42,7 @@ export default function BoothLocation({
 
   return (
     <S.Container>
-      <S.Title>오시는 길</S.Title>
+      <S.Title>위치</S.Title>
       <S.Locate>{boothLocation}</S.Locate>
       <S.Map ref={mapRef}>
         <S.Button onClick={() => navigate(`/map/${id}`, { replace: true })}>

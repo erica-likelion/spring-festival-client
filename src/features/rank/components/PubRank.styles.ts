@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Container = styled.div`
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 0rem;
+  width: 20.9375rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -11,7 +12,7 @@ export const Container = styled.div`
 export const RankList = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0.5rem;
   padding: 0rem 0rem 13.12rem;
 `;
 
@@ -20,7 +21,7 @@ export const RankItem = styled(motion.li)`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.5rem;
 `;
 
 export const HorizontalLine = styled.div`
