@@ -7,7 +7,7 @@ export const Layout = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   width: 100%;
-  height: 28rem;
+  height: 24rem;
   position: absolute;
 `;
 export const Container = styled.div`

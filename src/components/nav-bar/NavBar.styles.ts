@@ -11,6 +11,9 @@ export const Container = styled.header<{ $opacity?: boolean }>`
   flex-shrink: 0;
   background-color: ${(props) =>
     props.$opacity ? 'transparent' : props.theme.colors.grayScale.black};
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 `;
 
 export const LeftSection = styled.div`

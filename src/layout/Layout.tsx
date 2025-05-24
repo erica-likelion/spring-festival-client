@@ -1,4 +1,4 @@
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import * as S from './Layout.styles';
 import Nav from '@/layout/nav';
@@ -15,6 +15,8 @@ import { useAuthStore } from '@/stores/useAuthStore';
  * @returns {JSX.Element}
  */
 export default function Layout() {
+  const location = useLocation();
+  const isMapPage = /^\/map(\/\d+)?$/.test(location.pathname);
   const isNav = useLayoutStore((state) => state.isNav);
   const isLoggined = useAuthStore((state) => state.isLoggedIn);
   const loadWaitings = useWaitingStore((state) => state.loadWaitings);
@@ -26,7 +28,7 @@ export default function Layout() {
     if (isLoggined) loadWaitings();
   }, [loadWaitings, isLoggined, loadlikes, fetchWaitingCounts]);
   return (
-    <S.Container>
+    <S.Container $isMapPage={isMapPage}>
       {isNav && <Nav />}
       <AnimatePresence mode="wait">
         <Main>

@@ -14,6 +14,7 @@ export const Image = styled.img`
   display: flex;
   width: 14.625rem;
   height: 12.75rem;
+  margin-top: 3.26rem;
 `;
 
 export const Image2 = styled.img`
