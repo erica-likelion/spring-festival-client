@@ -137,6 +137,55 @@ import notice18_5 from '@/assets/images/notice/notice18 (6).png';
 import notice18_6 from '@/assets/images/notice/notice18 (7).png';
 import notice18_7 from '@/assets/images/notice/notice18 (8).png';
 import notice18_8 from '@/assets/images/notice/notice18 (9).png';
+import notice19_0 from '@/assets/images/notice/notice19 (1).png';
+import notice19_1 from '@/assets/images/notice/notice19 (2).png';
+import notice19_2 from '@/assets/images/notice/notice19 (3).png';
+import notice19_3 from '@/assets/images/notice/notice19 (4).png';
+import notice19_4 from '@/assets/images/notice/notice19 (5).png';
+import notice19_5 from '@/assets/images/notice/notice19 (6).png';
+import notice20_0 from '@/assets/images/notice/notice20 (1).png';
+import notice20_1 from '@/assets/images/notice/notice20 (2).png';
+import notice20_2 from '@/assets/images/notice/notice20 (3).png';
+import notice20_3 from '@/assets/images/notice/notice20 (4).png';
+import notice20_4 from '@/assets/images/notice/notice20 (5).png';
+import notice20_5 from '@/assets/images/notice/notice20 (6).png';
+import notice20_6 from '@/assets/images/notice/notice20 (7).png';
+import notice20_7 from '@/assets/images/notice/notice20 (8).png';
+import notice20_8 from '@/assets/images/notice/notice20 (9).png';
+import notice20_9 from '@/assets/images/notice/notice20 (10).png';
+import notice21_0 from '@/assets/images/notice/notice21 (1).png';
+import notice21_1 from '@/assets/images/notice/notice21 (2).png';
+import notice21_2 from '@/assets/images/notice/notice21 (3).png';
+import notice21_3 from '@/assets/images/notice/notice21 (4).png';
+import notice21_4 from '@/assets/images/notice/notice21 (5).png';
+import notice21_5 from '@/assets/images/notice/notice21 (6).png';
+import notice21_6 from '@/assets/images/notice/notice21 (7).png';
+import notice21_7 from '@/assets/images/notice/notice21 (8).png';
+import notice21_8 from '@/assets/images/notice/notice21 (9).png';
+import notice21_9 from '@/assets/images/notice/notice21 (10).png';
+import notice22_0 from '@/assets/images/notice/notice22 (1).png';
+import notice22_1 from '@/assets/images/notice/notice22 (2).png';
+import notice22_2 from '@/assets/images/notice/notice22 (3).png';
+import notice22_3 from '@/assets/images/notice/notice22 (4).png';
+import notice22_4 from '@/assets/images/notice/notice22 (5).png';
+import notice22_5 from '@/assets/images/notice/notice22 (6).png';
+import notice22_6 from '@/assets/images/notice/notice22 (7).png';
+import notice22_7 from '@/assets/images/notice/notice22 (8).png';
+import notice22_8 from '@/assets/images/notice/notice22 (9).png';
+import notice22_9 from '@/assets/images/notice/notice22 (10).png';
+import notice23_0 from '@/assets/images/notice/notice23 (1).png';
+import notice23_1 from '@/assets/images/notice/notice23 (2).png';
+import notice23_2 from '@/assets/images/notice/notice23 (3).png';
+import notice23_3 from '@/assets/images/notice/notice23 (4).png';
+import notice23_4 from '@/assets/images/notice/notice23 (5).png';
+import notice23_5 from '@/assets/images/notice/notice23 (6).png';
+import notice23_6 from '@/assets/images/notice/notice23 (7).png';
+import notice23_7 from '@/assets/images/notice/notice23 (8).png';
+import notice23_8 from '@/assets/images/notice/notice23 (9).png';
+import notice23_9 from '@/assets/images/notice/notice23 (10).png';
+import notice24_0 from '@/assets/images/notice/notice24 (1).png';
+import notice24_1 from '@/assets/images/notice/notice24 (2).png';
+import notice24_2 from '@/assets/images/notice/notice24 (3).png';
 export const NoticeData = [
   {
     id: 1,
@@ -791,5 +840,291 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
 
 
 #봄축제기획단 #2025ESPERO주점팀`,
+  },
+  {
+    id: 19,
+    img: [notice19_0, notice19_1, notice19_2, notice19_3, notice19_4, notice19_5],
+    title: 'YOUTH : SPRING 피크닉존 안내',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ YOUTH : SPRING 피크닉존 소개
+
+✨NOW OR NEVER, HYLIGHT✨
+
+안녕하세요! 2025 봄축제기획단 콘텐츠 팀입니다!
+
+화창한 햇빛, 푸르른 잔디밭과 함께 펼쳐진 청춘을 만끽할 ✨YOUTH : SPRING 피크닉존✨을 소개합니다🥳
+
+📍 피크닉존 대여 물품 & 대여 시간
+
+- 인디언텐트 120분
+- 돗자리 60분
+- 밀크박스
+
+📍 피크닉존 대여 방법
+
+1️⃣ 스태프의 안내에 따라 명단을 작성 후 신분증을 맡긴다.
+2️⃣ 안내된 대여시간에 맞춰 피크닉을 즐긴다.
+3️⃣ 사용 완료한 대여 물품은 잘 정리해 본부에 반납한다.
+
+🕛 행사 일시: 2025년 5월 27일 (화) ~ 2025년 5월 29일 (목) 11:00 ~ 18:00
+
+자세한 내용은 카드뉴스를 참고해 주세요 📩✨
+
+📌문의사항
+2025 ESPERO 콘텐츠팀 카카오 채널
+콘텐츠 팀장 이다성 010-3127-3462`,
+  },
+  {
+    id: 20,
+    img: [
+      notice20_0,
+      notice20_1,
+      notice20_2,
+      notice20_3,
+      notice20_4,
+      notice20_5,
+      notice20_6,
+      notice20_7,
+      notice20_8,
+      notice20_9,
+    ],
+    title: '2025 ESPERO:HYLIGHT 포토존 소개',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ 포토존 ’青春기록‘ 콘텐츠 소개
+
+✨NOW OR NEVER, HYLIGHT✨
+
+안녕하세요! 2025 봄축제기획단 콘텐츠 팀입니다!
+
+우리 청춘의 한 페이지로 기록될 ✨️봄축제✨️의 포토존, 📸青春기록📸을 소개합니다!
+
+📌 잔디공터
+1️⃣ 방명록
+2️⃣ HY-LIGHT
+3️⃣ 에어벌룬
+4️⃣ 잡지 포토월
+
+📌 호수공원
+1️⃣ 시상식 포토월
+2️⃣ 포토부스
+3️⃣ 타투스티커
+
+📌 학술정보관 옆
+1️⃣ 포토부스
+
+📌 HIDDEN! - 📸주접 판넬📸
+캠퍼스 곳곳에 있는 주접 판넬을 찾아보세요!
+
+🌟 青春기록의 모든 콘텐츠는 ‼️방명록을 제외하고‼️ 모두 축제기간동안 상시 운영됩니다.
+🌟 방명록은 축제기간 내 ‼️11:00 ~ 17:00‼️에만 운영됩니다.
+
+자세한 내용은 카드뉴스를 참고해 주세요 📩✨
+
+📌문의사항
+2025 ESPERO 콘텐츠팀 카카오톡 채널
+콘텐츠 팀장 이다성 010-3127-3462`,
+  },
+  {
+    id: 21,
+    img: [
+      notice21_0,
+      notice21_1,
+      notice21_2,
+      notice21_3,
+      notice21_4,
+      notice21_5,
+      notice21_6,
+      notice21_7,
+      notice21_8,
+      notice21_9,
+    ],
+    title: '2025 ESPERO:HYLIGHT 프로모션존 소개',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'bl130', text: '프로모션' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO
+“ESPERO: HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하세요! 한양대학교 ERICA 2025 봄축제기획단 프로모션팀 프로틴 (PRO:TEEN) 입니다.
+
+
+2025년 ESPERO:HYLIGHT 프로모션존 💪🏻 PRO:TEEN 💪🏻을 소개합니다!
+
+
+⚡ PRO:TEEN 운영 시간
+2025.05.27 (화) - 2025.05.29 (목) 11:00~17:00
+
+
+⚡ PRO:TEEN 위치 안내
+학술정보관과 제4공학관 사이 큰 도로
+
+
+자세한 사항은 카드뉴스를 참고해 주시길 바라며, 2025 ESPERO:HYLIGHT와 함께 하는 프로모션 기업들에 많은 관심 바랍니다 🤩
+
+
+📍문의사항
+• ESPERO_프로모션팀 카카오톡 채널
+• 프로모션팀장 김원빈 010-6462-2464
+
+
+#봄축제기획단 #2025ESPERO프로모션팀`,
+  },
+  {
+    id: 22,
+    img: [
+      notice22_0,
+      notice22_1,
+      notice22_2,
+      notice22_3,
+      notice22_4,
+      notice22_5,
+      notice22_6,
+      notice22_7,
+      notice22_8,
+      notice22_9,
+    ],
+    title: 'PRO:TEEN 스탬프랠리 이벤트',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'yl140', text: '콘텐츠' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO
+“ESPERO: HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하세요! 한양대학교 ERICA 2025 봄축제기획단 프로모션팀 프로틴(PRO:TEEN) 입니다.
+
+
+2025 ERPERO:HYLIGHT 프로모션 본부 프로틴 💪🏻과 함께하는 게임부스를 소개합니다!
+
+
+🥤 일화 부스 <축제 관련 퀴즈 이벤트>
+축제와 관련된 퀴즈 풀고 일화 부르르 탄산 음료 가져가세요!
+
+
+🍜 더미식 부스 <라면의 달인>
+유행하는 바로 그 게임! 5초 동안 꼬치에 라면 재료들을 재빠르게!!
+
+
+🥥 광동 부스 <톡 투 리치!>
+날아가라 병뚜껑~~! 뚜껑 날리기는 자신있지! 썬키스트 코코리치🌴 최대 3개나?!
+
+
+자세한 사항은 카드뉴스를 참고해 주시기 바랍니다.
+
+
+📍문의사항
+• ESPERO_프로모션팀 카카오톡 채널
+• 프로모션팀장 김원빈 010-6462-2464
+
+
+#봄축제기획단 #2025ESPERO프로모션팀`,
+  },
+  {
+    id: 23,
+    img: [
+      notice23_0,
+      notice23_1,
+      notice23_2,
+      notice23_3,
+      notice23_4,
+      notice23_5,
+      notice23_6,
+      notice23_7,
+      notice23_8,
+      notice23_9,
+    ],
+    title: '매표소 안내',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'or100', text: '공연무대' },
+    ],
+    body: `2025 한양대학교 ERICA 봄 축제 “ESPERO:HYLIGHT”
+
+
+✨지금이 아니면 안되는 순간. NOW OR NEVER, HYLIGHT!✨
+
+
+🎟️2025년 ESPERO:HYLIGHT 매표 안내🎟️
+
+
+📌매표소 위치
+제2공학관 주차장 통로
+
+
+📌소지품 검사소 위치
+대운동장 (공연장) 입구 앞
+
+
+📌티켓 구매 및 입장 가능시간
+05.27(화) ~ 05.29(목) 13:00~21:00
+*입장 시작 및 마감 시간은 현장 상황에 따라 변동될 수 있습니다.
+*공연장으로 바로 입장하지 않는 경우, 별도의 소지품 검사 없이 매표 후 바로 퇴장 가능합니다.
+
+
+📌티켓 가격
+- 에리카인 (재학생, 휴학생, 졸업생, 대학원생, 교직원) : 무료
+[학생증(모바일/실물)과 신분증(모바일/실물)을 반드시 준비해주세요]
+
+
+- 외부인 : 10,000원 (현금 및 계좌이체만 가능)
+*에리카인만 에리카존 입장 가능합니다.
+
+
+※당일 입장권은 당일만 사용 가능합니다.
+
+
+소지품 검사 등 자세한 내용은 카드뉴스를 참고해 주시기 바랍니다.
+
+
+#봄축제기획단 #2025ESPERO:HYLIGHT`,
+  },
+  {
+    id: 24,
+    img: [notice24_0, notice24_1, notice24_2],
+    title: 'ESPERO:HYLIGHT 축제 타임테이블',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'or100', text: '공연무대' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO “ESPERO:HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+⏰ESPERO:HYLIGHT 타임테이블 안내⏰
+
+
+여러분이 기다리셨던 ESPERO:HYLIGHT의 축제 타임테이블을 지금 공개합니다!
+
+
+* 에리카인만 ERICA존에 입장 가능합니다.
+* 에리카인은 재학생, 휴학생, 졸업생, 본교 직원으로 제한됩니다.
+* 에리카인의 경우 반드시 본인 확인이 가능한 신분증과 학생증을 모두 준비해주셔야 합니다. (신분증과 학생증은 실물, 모바일 둘 다 가능)
+* 신분증과 학생증 모두 현장에서 직접 보여주셔야 하며 캡쳐본으로는 인증 불가합니다.
+* 공연장 반입 금지 물품을 반드시 확인해주시길 바랍니다.
+* 매표소에서 티켓만 수령한 뒤 퇴장이 가능합니다.
+* 밴드 공연의 경우 악기 세팅 및 조정 시간이 포함되어 있습니다.
+
+
+자세한 내용은 카드뉴스를 참고해주시길 바랍니다.
+
+
+#봄축제기획단 #2025ESPERO #HYLIGHT`,
   },
 ];
