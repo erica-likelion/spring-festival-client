@@ -140,7 +140,7 @@ export default function LostUpload() {
             <S.DescriptionBox>
               <Title title="물건 설명" />
               <S.DescriptionInput
-                placeholder="ex) 분실물에 대한 자세한 설명이 필요하다면 적어주세요! (최대 100자)"
+                placeholder={`분실물에 대한 자세한 설명이 필요하다면\n적어주세요. (최대 100자)`}
                 maxLength={100}
                 onChange={(e) => updateForm('description', e.target.value)}
               />
