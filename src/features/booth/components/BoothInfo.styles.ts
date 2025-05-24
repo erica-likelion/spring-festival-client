@@ -46,3 +46,17 @@ export const VerticalLine = styled.div`
   width: 0.0625rem;
   background: ${(props) => props.theme.colors.grayScale.gy800};
 `;
+
+export const TakeOut = styled.div`
+  display: flex;
+  width: max-content;
+  height: 1.625rem;
+  padding: 0.0625rem 0.5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background-color: ${(props) => props.theme.colors.primary.bl400};
+  border-radius: 0.375rem;
+  ${(props) => props.theme.fonts.body.xsmall500};
+  color: ${(props) => props.theme.colors.grayScale.black};
+`;

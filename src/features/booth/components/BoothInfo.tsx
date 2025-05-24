@@ -12,7 +12,7 @@ export default function BoothInfo({ id }: { id: number }) {
     <S.Container>
       <S.ImageBtnFrame>
         <S.Image src={booth.profileImage} />
-        <LikeButton id={booth?.id} left="-1.17rem" />
+        <LikeButton id={booth?.id} left="-0.45rem" />
       </S.ImageBtnFrame>
       <S.TextSection>
         <S.TextFrame>
@@ -25,6 +25,7 @@ export default function BoothInfo({ id }: { id: number }) {
             __html: newlineToBr(booth.pubName),
           }}
         />
+        {booth.takeout && <S.TakeOut>포장가능</S.TakeOut>}
       </S.TextSection>
     </S.Container>
   );
