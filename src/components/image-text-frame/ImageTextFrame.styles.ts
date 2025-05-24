@@ -84,7 +84,6 @@ export const TitleWrap = styled.div`
 export const Title = styled.p`
   ${(props) => props.theme.fonts.header.h4}
   color: ${(props) => props.theme.colors.grayScale.white};
-  max-width: 8.8125rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -188,11 +187,8 @@ export const MenuTextWrap = styled.div`
 export const MenuDescription = styled.p`
   ${(props) => props.theme.fonts.body.xsmall400}
   color: ${(props) => props.theme.colors.grayScale.white};
-  height: 2.25rem;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 14rem;
+  min-height: 2.25rem;
+  max-width: 14.5rem;
   text-align: left;
   margin-bottom: auto;
 `;
