@@ -5,6 +5,7 @@ import Lottie from 'react-lottie-player';
 import ONCE_CLICK from '@/assets/lotties/once_like.json';
 import MULTIPLE_CLICK from '@/assets/lotties/multiple_like.json';
 import { useLikeStore } from '@/features/like/stores/useLikeStore';
+import { dotFormatter } from '@/utils/priceFormatter';
 
 type AnimInstance = {
   id: number;
@@ -72,7 +73,11 @@ export default function LikeButton({
           }}
         />
       ))}
-      <S.Text>{likes?.likeCount + userLikeCount}</S.Text>
+      <S.Text>
+        {likes?.likeCount + userLikeCount >= 10000000
+          ? '9,999,999+'
+          : dotFormatter(likes?.likeCount + userLikeCount)}
+      </S.Text>
     </S.Button>
   );
 }

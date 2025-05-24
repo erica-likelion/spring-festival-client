@@ -12,3 +12,10 @@ export const priceFormatter = (price: number) => {
     }).format(price) + ' 원'
   );
 };
+
+export const dotFormatter = (price: number) => {
+  return new Intl.NumberFormat('ko-KR', {
+    style: 'decimal',
+    currency: 'KRW',
+  }).format(price);
+};
