@@ -29,16 +29,18 @@ export default function Notice() {
       <NavBar title="공지사항" isBack={true} />
       <S.Container>
         <S.Flex>
-          {NoticeData.map((notice) => (
-            <NoticeBox
-              key={notice.id}
-              id={notice.id}
-              img={notice.img[0]}
-              title={notice.title}
-              body={notice.body}
-              onClick={handleDetail}
-            />
-          ))}
+          {NoticeData.slice()
+            .reverse()
+            .map((notice) => (
+              <NoticeBox
+                key={notice.id}
+                id={notice.id}
+                img={notice.img[0]}
+                title={notice.title}
+                body={notice.body}
+                onClick={handleDetail}
+              />
+            ))}
         </S.Flex>
       </S.Container>
     </>

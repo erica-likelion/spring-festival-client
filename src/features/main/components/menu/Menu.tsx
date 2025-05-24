@@ -54,7 +54,7 @@ export default function Menu() {
           <ImageTextIconFrame
             image={Form}
             title="축제 문의사항 남기기"
-            description="축기단 구글폼으로 이동"
+            description="축기단 링크트리로 이동"
             onClick={() => window.open(externalLinks.linkTree, '_blank')}
           />
           <ImageTextIconFrame
@@ -71,7 +71,7 @@ export default function Menu() {
           <ImageTextIconFrame
             image={Form}
             title="축제 웹앱 사용후기"
-            description="구글폼 링크"
+            description="구글폼 링크로 이동"
             onClick={() => window.open(externalLinks.googleForm, '_blank')}
           />
           <ImageTextIconFrame
