@@ -92,7 +92,7 @@ export default function MapSearch() {
         ) : (
           <S.NoSearchDataSection>
             <h3>검색 결과가 없어요 T.T</h3>
-            <h4>정확한 키워드를 입력하셨는지 </h4>
+            <h4>지도에서 찾고 싶은 검색어의 키워드가 정확한지</h4>
             <h4>다시 한 번 확인해주세요!</h4>
           </S.NoSearchDataSection>
         )
