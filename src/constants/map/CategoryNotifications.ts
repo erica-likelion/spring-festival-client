@@ -17,7 +17,7 @@ export interface CategoryNotification {
  */
 export const CATEGORY_NOTIFICATIONS: Record<string, CategoryNotification> = {
   주점: {
-    title: '미취학 아동 입장 제한',
-    path: '/main/notice/19',
+    title: '[공지] 미취학 아동 입장 제한',
+    path: '/main/notice/15',
   },
 };
