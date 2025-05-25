@@ -16,6 +16,10 @@ export const GlobalStyle = createGlobalStyle`
         @media (width <= 399.98px) {
         font-size: 16px;
         }
+
+        @media (width <= 320px) {
+        font-size: 12px;
+        }
     }
 
     html, body {
@@ -34,20 +38,10 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     #root {
-        width: 100%;
+        width: 100vw;
         height: 100%;
         background-color: ${(props) => props.theme.colors.grayScale.black};
         position: fixed;
-        
-        ${(props) => props.theme.media.browser} {
-            @media screen and (width >= 1024px) {
-                width: 1024px;
-                height: 100%;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-            }
-        }
     }
 
     * {
