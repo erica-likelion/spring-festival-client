@@ -26,10 +26,6 @@ export default function AppInstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(
     isDeviceIOS ? isIOSPromptActive() : null,
   );
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const isInStandalone = 'standalone' in navigator && (navigator as any).standalone === true;
-  const isDisplayStandalone = window.matchMedia('(display-mode: standalone)').matches;
-
   const handleInstallClick = () => {
     if (deferredPrompt) {
       deferredPrompt.prompt();
@@ -59,7 +55,7 @@ export default function AppInstallPrompt() {
   }, []);
   return (
     <Fragment>
-      {deferredPrompt && (!isInStandalone || !isDisplayStandalone) && (
+      {deferredPrompt && (
         <AppInstallPromptModal
           handleInstallClick={handleInstallClick}
           handleCancelClick={handleCancelClick}
@@ -102,7 +98,6 @@ function AppInstallPromptModal({
         <S.Content>
           {platform === 'ios' ? (
             <S.ModalText>
-              {' '}
               사파리 브라우저신가요?
               <br /> 공유하기, 홈 화면 추가하기를 눌러주세요!
             </S.ModalText>

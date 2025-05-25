@@ -27,12 +27,12 @@ export default function BoothDetail() {
       </S.Section>
       <S.BorderSection>
         <MenuList id={booth.id} />
-        <S.HorizontalLine />
       </S.BorderSection>
+      <S.HorizontalLine />
       <S.BorderSection>
         <BoothLocation id={booth.id} boothLocation={booth.locate} />
-        <S.HorizontalLine />
       </S.BorderSection>
+      <S.HorizontalLine />
       <S.BottomPadding />
     </S.Container>
   );

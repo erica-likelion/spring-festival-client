@@ -18,7 +18,7 @@ export const Section = styled.div`
 
 export const BorderSection = styled.div`
   width: 20.9375rem;
-  padding: 0rem 0rem 1.75rem;
+  padding: 0rem 0rem 2.75rem;
   display: flex;
   flex-direction: column;
 `;
@@ -48,5 +48,4 @@ export const HorizontalLine = styled.div`
   height: 0.5rem;
   width: 100vw;
   background-color: ${(props) => props.theme.colors.grayScale.gy900};
-  margin-left: -1rem;
 `;
