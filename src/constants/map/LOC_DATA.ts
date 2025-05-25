@@ -22,14 +22,14 @@ export const LOCATION_DATA: Record<CATEGORIES, LocationData[]> = {
       lat: 37.295669407307464,
       lng: 126.83489418254456,
       name: '차린건 여정도 지만',
-      id: 1,
+      id: 2,
       closeDay: [],
     },
     {
       lat: 37.296037547941225,
       lng: 126.83558981569682,
       name: '폭싹 취EE했수다',
-      id: 2,
+      id: 17,
       closeDay: [],
     },
     {
@@ -134,7 +134,7 @@ export const LOCATION_DATA: Record<CATEGORIES, LocationData[]> = {
       lat: 37.295964346289615,
       lng: 126.83478639376709,
       name: '나 지피틴데 안 추ㅣㅎㅆ다',
-      id: 17,
+      id: 1,
       closeDay: [],
     },
     {
