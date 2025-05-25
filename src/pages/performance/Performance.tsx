@@ -38,7 +38,7 @@ export default function Performance() {
       <NavBar isBack={false} />
       <S.InfoWrap>
         <S.TodayPerformanceText>오늘의 공연</S.TodayPerformanceText>
-        <Notification title="미취학 아동 입장 제한" onClick={() => navigate('/main/notice')} />
+        <Notification title="미취학 아동 입장 제한" onClick={() => navigate('/main/notice/25')} />
       </S.InfoWrap>
       <S.DayWrap>
         <S.TextWrap>
@@ -68,7 +68,7 @@ export default function Performance() {
             image=""
             title="❗️공연 유의사항 보러가기"
             description="공연 보기 전 필독!"
-            onClick={() => navigate('/main/notice')}
+            onClick={() => navigate('/main/notice/25')}
           />
         </S.FrameBox>
       </S.TableNoteWrap>
