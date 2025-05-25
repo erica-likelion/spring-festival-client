@@ -167,7 +167,7 @@ export default function LostUpload() {
         </S.InputContainer>
         <BlueButton
           label="작성 완료"
-          size="larger"
+          size="large-header"
           disabled={
             !(
               formState.image &&
