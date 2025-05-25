@@ -24,10 +24,10 @@ export default function EventCarousels() {
   const [isDragging, setIsDragging] = useState(false);
   const navigate = useNavigate();
   const eventCardLinkMap: Record<string, string> = {
-    '1': '/main/notice/14',
-    '2': '/main/notice/8',
-    '10': '/main/notice/12',
-    '14': '/main/notice/15',
+    '1': '/main/notice/13',
+    '2': '/main/notice/14',
+    '10': '/main/notice/8',
+    '15': '/main/notice/14',
   };
 
   const now = new Date();
