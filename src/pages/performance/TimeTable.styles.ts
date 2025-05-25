@@ -139,7 +139,7 @@ export const Divider = styled.div`
 `;
 
 export const Line = styled.div`
-  width: 20.6875rem;
+  width: 4.36rem;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.grayScale.gy900};
 `;
