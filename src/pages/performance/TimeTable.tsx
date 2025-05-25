@@ -68,7 +68,9 @@ export default function TimeTable() {
   return (
     <S.Container>
       <NavBar isBack={true} title="타임테이블" />
-      <TabNav tabs={TABS} currentStep={selectedDay} setStep={setSelectedDay} />
+      <S.TabNavWrap>
+        <TabNav tabs={TABS} currentStep={selectedDay} setStep={setSelectedDay} />
+      </S.TabNavWrap>
       <S.TimeWrap>
         <S.Divider>
           <S.Line />
