@@ -1,15 +1,12 @@
 import * as S from './RankImageTextFrame.styles';
 import { LikeButton } from '@/features/like';
 import { BOOTH_LIST } from '@/constants/booth/booth';
-import ArrowIcon from '@/assets/icons/nrk_arrow-dropdown.svg?react';
 import { useNavigate } from 'react-router-dom';
 
 export default function RankImageTextFrame({
   id,
   likeCount,
   index,
-  prevRank,
-  currentRank,
 }: {
   id: number;
   likeCount: number;
@@ -22,27 +19,12 @@ export default function RankImageTextFrame({
   if (!booth) {
     return null; // or handle the case when the booth is not found
   }
-  const diff = prevRank !== undefined && currentRank !== undefined ? prevRank - currentRank : 0;
+  //const diff = prevRank !== undefined && currentRank !== undefined ? prevRank - currentRank : 0;
   return (
     <S.Container $first={index === 1}>
       <S.Wrapper whileTap={{ backgroundColor: '#212526' }}>
         <S.Rank>
           <S.RankNumber>{index}</S.RankNumber>
-          {diff === 0 ? (
-            <S.RankFrame>
-              <S.DrawText>-</S.DrawText>
-            </S.RankFrame>
-          ) : (
-            <S.RankFrame>
-              <ArrowIcon
-                width="0.75rem"
-                height="0.75rem"
-                fill={diff > 0 ? '#45E02A' : '#F55353'}
-                style={diff > 0 ? { rotate: '0deg' } : { rotate: '180deg' }}
-              />
-              {diff > 0 ? <S.UpText>{diff}</S.UpText> : <S.DownText>{Math.abs(diff)}</S.DownText>}
-            </S.RankFrame>
-          )}
         </S.Rank>
         <S.Frame
           onClick={() => {

@@ -13,7 +13,9 @@ export default function Booth() {
     <S.Container>
       <NavBar />
       <S.Main>
-        <TabNav tabs={TABS} currentStep={currentStep} setStep={setStep} />
+        <S.TabNavContainer>
+          <TabNav tabs={TABS} currentStep={currentStep} setStep={setStep} />
+        </S.TabNavContainer>
         <Funnel>
           <Funnel.Step name={TABS[0]}>
             <PubRank />

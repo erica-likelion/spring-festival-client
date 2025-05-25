@@ -16,6 +16,8 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding-bottom: 4.37rem;
+  width: 100%;
+  position: relative;
 `;
 
 export const TimeWrap = styled.div`
@@ -23,8 +25,11 @@ export const TimeWrap = styled.div`
   width: 20.9375rem;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 1.25rem;
   position: relative;
+  flex: 1;
+  margin-top: 3.5rem;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 `;
 
 export const BackgroundDividerWrap = styled.div`
@@ -156,4 +161,13 @@ export const Line = styled.div`
   width: 4.5rem;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.grayScale.gy900};
+`;
+
+export const TabNavWrap = styled.div`
+  position: fixed;
+  top: 3.875rem;
+  left: 0;
+  right: 0;
+  background-color: ${(props) => props.theme.colors.grayScale.black};
+  z-index: 100;
 `;

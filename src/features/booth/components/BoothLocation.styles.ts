@@ -1,12 +1,10 @@
 import styled from 'styled-components';
-import BoothImage from '@/assets/images/booth/booth-locate.webp';
 
 export const Container = styled.section`
-  padding: 1rem 0rem;
+  padding: 2.75rem 0rem 0rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 2.75rem;
 `;
 
 const Text = styled.p`
@@ -22,9 +20,6 @@ export const Locate = styled(Text)`
 `;
 
 export const Map = styled.div`
-  background-image: url(${BoothImage});
-  background-size: cover;
-  background-position: center;
   width: 100%;
   height: 12.5rem;
   border-radius: 0.75rem;

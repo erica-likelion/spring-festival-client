@@ -177,6 +177,13 @@ import notice23_4 from '@/assets/images/notice/notice23 (5).png';
 import notice24_0 from '@/assets/images/notice/notice24 (1).png';
 import notice24_1 from '@/assets/images/notice/notice24 (2).png';
 import notice24_2 from '@/assets/images/notice/notice24 (3).png';
+import notice25_0 from '@/assets/images/notice/notice25 (1).png';
+import notice25_1 from '@/assets/images/notice/notice25 (2).png';
+import notice25_2 from '@/assets/images/notice/notice25 (3).png';
+import notice25_3 from '@/assets/images/notice/notice25 (4).png';
+import notice25_4 from '@/assets/images/notice/notice25 (5).png';
+import notice25_5 from '@/assets/images/notice/notice25 (6).png';
+
 export const NoticeData = [
   {
     id: 1,
@@ -1091,6 +1098,52 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
 
 
 자세한 내용은 카드뉴스를 참고해주시길 바랍니다.
+
+
+#봄축제기획단 #2025ESPERO #HYLIGHT`,
+  },
+  {
+    id: 25,
+    img: [notice25_0, notice25_1, notice25_2, notice25_3, notice25_4, notice25_5],
+    title: '공연관람 유의사항',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'or100', text: '공연무대' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 ESPERO
+“ESPERO:HYLIGHT”
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+✨2025 봄축제 ESPERO:HYLIGHT 즐길 준비 되셨나요?✨
+
+
+📌ESPERO:HYLIGHT 공연장 유의사항
+
+
+✔ 매표소 위치
+제2공학관 주차장 통로
+
+
+✔ 소지품 검사 위치
+대운동장 (공연장) 입구 앞
+
+
+✔ 반입금지 물품
+모든 음식물, 시야를 방해하는 모든 물품, 위험물, 스마트폰을 제외한 모든 촬영기기 등
+
+
+✔ 공연장 배치도
+입구, ERICA ZONE, 외부인 관람석
+
+
+자세한 내용은 카드뉴스를 참고해 주시기 바랍니다.
+
+
+문의사항
+규찰대 카카오톡 - http://pf.kakao.com/_JxbxnPn
 
 
 #봄축제기획단 #2025ESPERO #HYLIGHT`,
