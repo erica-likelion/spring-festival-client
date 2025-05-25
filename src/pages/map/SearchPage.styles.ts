@@ -74,27 +74,12 @@ export const SearchButton = styled.button`
   border: none;
 `;
 
-export const RecentSearchSection = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  justify-content: center;
-  margin-top: 1.69rem;
-`;
-
-export const RecentSearchHeader = styled.h3`
-  margin-left: 1.25rem;
-  margin-bottom: 1rem;
-  ${(props) => props.theme.fonts.header.h3};
-  color: ${(props) => props.theme.colors.grayScale.offwhite};
-`;
-
 export const RecommendedSearchSection = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
   justify-content: center;
-  margin-top: 2.5rem;
+  margin-top: 1rem;
 `;
 
 export const RecommendedSearchHeader = styled.h3`
@@ -102,21 +87,6 @@ export const RecommendedSearchHeader = styled.h3`
   margin-bottom: 1rem;
   ${(props) => props.theme.fonts.header.h3};
   color: ${(props) => props.theme.colors.grayScale.offwhite};
-`;
-
-export const HistoryItemsContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-`;
-
-export const EmptyHistoryMessage = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 1.856rem;
-  ${(props) => props.theme.fonts.body.medium400};
-  color: ${(props) => props.theme.colors.grayScale.gy500};
 `;
 
 export const SearchResultsContainer = styled.div`
@@ -130,4 +100,27 @@ export const Divider = styled.div`
   width: 100%;
   height: 1px;
   background-color: ${(props) => props.theme.colors.grayScale.gy900};
+`;
+
+export const NoSearchDataSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.56rem;
+  gap: 0.25rem;
+  color: ${(props) => props.theme.colors.grayScale.gy200};
+`;
+
+export const NoSearchDataTitle = styled.h3`
+  ${(props) => props.theme.fonts.body.medium400};
+`;
+
+export const NoSearchDataSubtitle = styled.div`
+  ${(props) => props.theme.fonts.body.small400};
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.12rem;
 `;
