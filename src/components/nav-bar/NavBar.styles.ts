@@ -85,3 +85,32 @@ export const InputIcon = styled.button`
   height: 1.5rem;
   margin-right: 0.75rem;
 `;
+
+export const SearchWrapper = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 2.5rem;
+  background-color: ${(props) => props.theme.colors.grayScale.gy950};
+  border: 1px solid ${(props) => props.theme.colors.grayScale.gy800};
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
+
+  input {
+    ${(props) => props.theme.fonts.body.medium500}
+    flex: 1;
+    width: 100%;
+    background-color: ${(props) => props.theme.colors.grayScale.gy950};
+    border: none;
+    color: ${(props) => props.theme.colors.grayScale.white};
+
+    &::placeholder {
+      color: ${(props) => props.theme.colors.grayScale.gy500};
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+`;
