@@ -9,11 +9,10 @@ export const Container = styled.header<{ $opacity?: boolean }>`
   justify-content: space-between;
   align-items: center;
   flex-shrink: 0;
-  background-color: ${(props) =>
-    props.$opacity ? 'transparent' : props.theme.colors.grayScale.black};
+  background-color: ${({ theme }) => theme.colors.grayScale.black};
   position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: 9999;
 `;
 
 export const LeftSection = styled.div`
