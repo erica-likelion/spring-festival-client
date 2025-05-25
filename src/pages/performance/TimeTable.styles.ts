@@ -32,24 +32,6 @@ export const TimeWrap = styled.div`
   -webkit-overflow-scrolling: touch;
 `;
 
-export const BackgroundDividerWrap = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 0;
-  pointer-events: none;
-`;
-
-export const BackgroundLine = styled.div`
-  position: absolute;
-  left: 2.2px;
-  width: 20.4375rem;
-  height: 1px;
-  background-color: ${({ theme }) => theme.colors.grayScale.gy900};
-`;
-
 export const TimeBoxWrap = styled.div`
   display: flex;
   height: 6rem;
@@ -158,7 +140,7 @@ export const Divider = styled.div`
 `;
 
 export const Line = styled.div`
-  width: 4.5rem;
+  width: 4.36rem;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.grayScale.gy900};
 `;
