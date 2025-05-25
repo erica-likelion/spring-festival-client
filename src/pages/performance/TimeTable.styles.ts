@@ -27,6 +27,35 @@ export const TimeWrap = styled.div`
   position: relative;
 `;
 
+export const BackgroundDividerWrap = styled.div`
+  position: absolute;
+  top: 7px;
+  left: 2px;
+  z-index: 0;
+  display: flex;
+  width: 20.9375rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6rem;
+`;
+
+export const BackgroundDivider = styled.div`
+  display: flex;
+  height: 0.5rem;
+  padding: 0rem 0.125rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6rem;
+  align-self: stretch;
+  z-index: -1;
+`;
+
+export const BackgroundLine = styled.div`
+  width: 20.6875rem;
+  height: 1px;
+  background-color: ${({ theme }) => theme.colors.grayScale.gy900};
+`;
+
 export const TimeBoxWrap = styled.div`
   display: flex;
   height: 6rem;
@@ -131,10 +160,11 @@ export const Divider = styled.div`
   padding: 0rem 0.125rem;
   flex-direction: column;
   align-items: flex-start;
+  z-index: 3;
 `;
 
 export const Line = styled.div`
-  width: 20.6875rem;
+  width: 4.5rem;
   height: 1px;
   background-color: ${({ theme }) => theme.colors.grayScale.gy900};
 `;

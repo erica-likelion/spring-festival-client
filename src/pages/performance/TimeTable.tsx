@@ -73,6 +73,11 @@ export default function TimeTable() {
         <S.Divider>
           <S.Line />
         </S.Divider>
+        <S.BackgroundDividerWrap>
+          {time.map((_, index) => (
+            <S.BackgroundLine key={index} />
+          ))}
+        </S.BackgroundDividerWrap>
         {time.map((t, index) => (
           <div key={index}>
             <S.TimeBoxWrap>
