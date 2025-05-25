@@ -136,7 +136,6 @@ export const Divider = styled.div`
   padding: 0rem 0.125rem;
   flex-direction: column;
   align-items: flex-start;
-  z-index: 3;
 `;
 
 export const Line = styled.div`
