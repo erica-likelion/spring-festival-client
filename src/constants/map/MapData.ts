@@ -206,8 +206,8 @@ export const MapData: MapDataProps = {
       subtitle: '주점',
       time: '18:00-24:00',
       path: '/booth/14',
-      lat: 37.295826,
-      lng: 126.834724,
+      lat: 37.29587420751056,
+      lng: 126.83476121468183,
       closeDay: [],
     },
     {
