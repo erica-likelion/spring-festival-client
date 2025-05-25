@@ -1,8 +1,9 @@
 /**
  * 버튼 크기 타입
- * - 'small': 작은 버튼 (폰트 small500)
- * - 'large-body': 큰 버튼 (폰트 medium500)
- * - 'large-header': 큰 버튼 (폰트 header.h4)
+ * - 'small': 7.5rem 버튼 (폰트 small500)
+ * - 'large': 15rem 버튼 (폰트 medium500)
+ * - 'large-header': 20rem 버튼 (폰트 header.h4)
+ * - 'larger': 20 rem 버튼 (폰트 medium500)
  */
 export type BlueButtonSize = 'small' | 'large' | 'large-header' | 'larger';
 

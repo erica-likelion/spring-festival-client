@@ -24,20 +24,20 @@ export const StyledButton = styled.button<StyledButtonProps>`
     switch ($size) {
       case 'small':
         return '7.5rem';
-      case 'larger':
-        return '20.9375rem';
-      default:
+      case 'large':
         return '15rem';
+      default:
+        return '20.9375rem';
     }
   }};
   ${({ $size, theme }) => {
     switch ($size) {
+      case 'small':
+        return theme.fonts.body.small500;
       case 'large-header':
         return theme.fonts.header.h4;
-      case 'large':
-        return theme.fonts.body.medium500;
       default:
-        return theme.fonts.body.small500;
+        return theme.fonts.body.medium500;
     }
   }}
   background-color: ${({ theme }) => theme.colors.primary.bl400};
