@@ -102,14 +102,14 @@ const SearchNavBar: React.FC<SearchNavBarProps> = ({
   };
 
   return (
-    <S.Container>
+    <S.Container style={{ gap: '0.75rem' }}>
       <BackIcon width={'1.5rem'} height={'1.5rem'} onClick={handleBack} />
-      <S.InputWrapper htmlFor="search">
+      <S.SearchWrapper htmlFor="search">
         <input id="search" placeholder={placeholder} onChange={onChange} value={value || ''} />
         <S.Btn whileTap={{ scale: 0.92, backgroundColor: '#212526' }}>
           <SearchIcon width={'1.5rem'} height={'1.5rem'} onClick={onClick} />
         </S.Btn>
-      </S.InputWrapper>
+      </S.SearchWrapper>
     </S.Container>
   );
 };
