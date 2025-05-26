@@ -71,7 +71,7 @@ export const MainEventData: EventCardDate = {
     {
       id: '5',
       tags: [{ color: 'or100', text: '공연무대' }],
-      title: 'HIDDEN ARTIST',
+      title: 'NCT 마크',
       startTime: '18:15',
       endTime: '18:45',
       location: '공연장',
