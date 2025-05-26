@@ -191,15 +191,6 @@
     };
     inappdeny_exec_vanillajs(() => {
       /* Do things after DOM has fully loaded */
-      function copytoclipboard(val) {
-        var t = document.createElement("textarea");
-        document.body.appendChild(t);
-        t.value = val;
-        t.select();
-        document.execCommand('copy');
-        document.body.removeChild(t);
-      };
-
 
       var useragt = navigator.userAgent.toLowerCase();
       var target_url = location.href;
