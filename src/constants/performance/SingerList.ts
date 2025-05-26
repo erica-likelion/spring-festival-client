@@ -3,7 +3,7 @@ export const singers = {
     { start: '17:00', end: '17:30', name: 'KINO' },
     { start: '17:30', end: '18:00', name: '학생 특별공연' },
     { start: '18:00', end: '18:15', name: '' },
-    { start: '18:15', end: '18:45', name: 'HIDDEN ARTIST' },
+    { start: '18:15', end: '18:45', name: 'NCT 마크' },
     { start: '18:45', end: '20:00', name: 'RHOOTERS' },
     { start: '20:00', end: '20:30', name: '10CM' },
     { start: '20:30', end: '21:00', name: 'FTISLAND' },
