@@ -712,8 +712,8 @@ export const BOOTH_LIST = [
     locate: 'EP.23',
     menu: {
       main: [
-        { name: '야끼우동', describtion: '', price: '17,900 원' },
-        { name: '대패숙주볶음', describtion: '오리지널 / 마라', price: '15,900 원' },
+        { name: '야끼우동', describtion: '', price: '15,900 원' },
+        { name: '대패숙주볶음', describtion: '오리지널 / 마라', price: '14,900 원' },
         { name: '나가사끼 짬뽕', describtion: '', price: '17,900 원' },
       ],
       side: [
