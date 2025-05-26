@@ -173,6 +173,14 @@
   </div>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
+  <script defer>
+    window.addEventListener('load', () => {
+      const splashScreen = document.getElementById('splash-screen');
+      if (splashScreen) {
+        splashScreen.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 
 </html>
