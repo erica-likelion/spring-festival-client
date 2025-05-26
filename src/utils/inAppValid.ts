@@ -1,5 +1,9 @@
 export const isInAppBrowser = (userAgent: string) => {
   const ua = userAgent.toLowerCase();
+  if (ua.match(/kakaotalk/i)) {
+    const target_url = location.href;
+    location.href = 'kakaotalk://web/openExternal?url=' + encodeURIComponent(target_url);
+  }
   return (
     ua.includes('instagram') ||
     ua.includes('twitter') ||
