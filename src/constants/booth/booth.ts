@@ -1261,9 +1261,9 @@ export const BOOTH_LIST = [
     menu: {
       main: [
         {
-          name: '대패숙죽볶음',
+          name: '대패숙주볶음',
           describtion: '지금까지 이런 맛은 없었다. 이것은 대패인가 숙주인가 "대패숙주볶음"',
-          price: '22,900 원',
+          price: '18,900 원',
         },
         {
           name: '불막창',
@@ -1704,14 +1704,14 @@ export const BOOTH_LIST = [
           price: '4,900 원',
         },
         {
-          name: '물',
-          describtion: '갈아만든배 / 콜라 / 제로콜라 / 사이다',
-          price: '1,000 원',
+          name: '음료수',
+          describtion: '제로콜라 / 사이다',
+          price: '2,000 원',
         },
         {
-          name: '음료수',
+          name: '물',
           describtion: '',
-          price: '2,000 원',
+          price: '1,000 원',
         },
       ],
     },
