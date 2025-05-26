@@ -5,6 +5,8 @@ export const MapContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100vh;
+  overflow: hidden;
+  touch-action: none; /* 터치 스크롤 방지 */
 
   /* 임시로 지도 영역을 단색으로 표현 */
   background-color: gray;
@@ -47,6 +49,7 @@ export const MapWrapper = styled.div<{ $isBottomSheetOpen?: boolean }>`
 
   z-index: ${Z_INDEX.MAP};
   transition: height 0.3s ease-in-out;
+  touch-action: auto; /* 지도 영역은 터치 허용 */
 `;
 
 export const ContentContainer = styled.div`
