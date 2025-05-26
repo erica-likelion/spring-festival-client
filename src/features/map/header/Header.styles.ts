@@ -36,9 +36,9 @@ export const HeadWrap = styled.div<HeaderProps>`
   align-items: center;
   padding: 1.19rem 0.88rem 1.44rem;
   position: relative;
-  background-color: ${(props) =>
-    props.$expanded ? props.theme.colors.grayScale.black : 'transparent'};
+  background-color: ${(props) => props.theme.colors.grayScale.black};
   transition: background-color 0.2s ease-in-out;
+  height: 3.875rem;
 `;
 
 export const TitleWrap = styled.button`
@@ -101,7 +101,8 @@ export const DropDownWrap = styled.div<HeaderProps>`
   border-radius: 0 0 0.75rem 0.75rem;
   background-color: ${(props) => props.theme.colors.grayScale.black};
   border-bottom: 1px solid ${(props) => props.theme.colors.grayScale.gy900};
-  box-shadow: 0px 3px 5.9px 0px rgb(255 255 255 / 10%);
+  box-shadow: ${(props) => (props.$expanded ? '0px 3px 5.9px 0px rgb(255 255 255 / 10%)' : 'none')};
+  z-index: 2;
 
   /* 애니메이션 */
   max-height: ${(props) => (props.$expanded ? '20rem' : '0')};
@@ -143,9 +144,43 @@ export const DaySelectButton = styled.button`
   }
 `;
 
+export const OverLayWrap = styled.div<HeaderProps>`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const OverLay = styled.div<HeaderProps>`
+  position: absolute;
+  top: 3.875rem;
+  left: 0;
+  width: 100%;
+  height: ${(props) => (props.$expanded ? 'calc(100vh - 3.875rem)' : '10rem')};
+  z-index: 1;
+  pointer-events: none;
+  background: ${(props) =>
+    props.$expanded
+      ? `rgba(0, 0, 0, 0.60);`
+      : `linear-gradient(
+          180deg,
+          ${props.theme.colors.grayScale.black} 0%,
+          rgb(47 47 51 / 89%) 13.84%,
+          rgb(72 72 75 / 79%) 28.59%,
+          rgb(91 91 94 / 71%) 36.9%,
+          rgb(129 129 131 / 54%) 51.65%,
+          rgb(179 179 181 / 33%) 69.18%,
+          rgb(255 255 255 / 0%) 93.84%
+        )`};
+  transition:
+    height 0.3s ease,
+    background 0.3s ease;
+`;
+
 export const CategoryWrap = styled.div<HeaderProps>`
+  position: absolute;
+  top: 4.125rem; /* 3.875rem + 0.25rem */
   display: flex;
   width: 100%;
   align-items: center;
   justify-content: center;
+  z-index: 2;
 `;

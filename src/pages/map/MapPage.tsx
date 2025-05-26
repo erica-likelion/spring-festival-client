@@ -222,7 +222,6 @@ export default function Map() {
 
   return (
     <S.MapContainer>
-      <S.MapOverlay $headerExpanded={headerExpanded} />
       <S.MapWrapper ref={mapRef} $isBottomSheetOpen={isBottomSheetOpen} />
       <S.ReCenterButton $isBottomSheetOpen={isBottomSheetOpen} onClick={handleReCenterClick}>
         {isReCentering ? <ReCenterClickedButtonIcon /> : <ReCenterButtonIcon />}
@@ -244,11 +243,13 @@ export default function Map() {
           onBackButtonClick={handleBackButtonClick} // 뒤로가기 버튼 핸들러 추가
         />
         {isBottomSheetOpen && (
-          <MapPageBottomSheet
-            selectedCategory={selectedCategory}
-            selectedDay={selectedDay}
-            onItemClick={showItemMarker}
-          />
+          <S.BottomSheetContainer>
+            <MapPageBottomSheet
+              selectedCategory={selectedCategory}
+              selectedDay={selectedDay}
+              onItemClick={showItemMarker}
+            />
+          </S.BottomSheetContainer>
         )}
       </S.ContentContainer>
     </S.MapContainer>

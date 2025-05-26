@@ -61,25 +61,28 @@ export default function MapPageHeader({
           </S.DaySelectButton>
         ))}
       </S.DropDownWrap>
-      {showCategory && (
-        <S.CategoryWrap $expanded={expanded}>
-          <Tabs
-            tabs={[...(categories as readonly string[])]}
-            activeTab={selectedCategory || ''}
-            onTabClick={(tab) => {
-              // null이 아닌 경우에만 타입 변환하여 전달
-              if (tab) {
-                onCategoryChange(tab as CATEGORIES);
-              } else {
-                onCategoryChange(null);
-              }
-            }}
-            autoWidth={true}
-            toggle={true}
-            margin="1.25rem"
-          />
-        </S.CategoryWrap>
-      )}
+      <S.OverLayWrap $expanded={expanded}>
+        <S.OverLay $expanded={expanded} />
+        {showCategory && (
+          <S.CategoryWrap $expanded={expanded}>
+            <Tabs
+              tabs={[...(categories as readonly string[])]}
+              activeTab={selectedCategory || ''}
+              onTabClick={(tab) => {
+                // null이 아닌 경우에만 타입 변환하여 전달
+                if (tab) {
+                  onCategoryChange(tab as CATEGORIES);
+                } else {
+                  onCategoryChange(null);
+                }
+              }}
+              autoWidth={true}
+              toggle={true}
+              margin="1.25rem"
+            />
+          </S.CategoryWrap>
+        )}
+      </S.OverLayWrap>
     </S.Container>
   );
 }
