@@ -12,12 +12,12 @@ export const Nav = styled.nav`
 `;
 
 export const List = styled.ul`
-  display: grid;
-  grid-auto-flow: column;
+  display: flex;
   gap: 0.5rem;
 `;
 
 export const Item = styled(motion.li)<{ $current: boolean }>`
+  flex: 1;
   color: ${(props) =>
     props.$current ? props.theme.colors.grayScale.gy50 : props.theme.colors.grayScale.gy700};
   ${(props) => props.theme.fonts.header.h4};
