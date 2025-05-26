@@ -28,6 +28,7 @@ import {
 import Layout from '@/layout';
 import 'firebase/compat/app';
 import '@/services/fcm/foregroundMessage';
+import { isInAppBrowser } from '@/utils/inAppValid';
 if (window.Kakao && !window.Kakao.isInitialized()) {
   window.Kakao.init('b3f17a02c1f339facee6125f903e309e');
 }
@@ -146,7 +147,7 @@ window.addEventListener('DOMContentLoaded', () => {
   if (splash) splash.remove();
 });
 
-if ('serviceWorker' in navigator) {
+if (!isInAppBrowser(navigator.userAgent) && 'serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker
       .register('/sw.js')
