@@ -114,7 +114,7 @@ export default function BottomSheet({
                   title={notification.title}
                   onClick={handleNotificationClick}
                   onClose={handleCloseNotification}
-                  width="20.9375rem"
+                  width="100%"
                 />
               )}
 

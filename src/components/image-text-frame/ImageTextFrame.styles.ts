@@ -97,6 +97,7 @@ export const TitleDivider = styled.div`
   height: 1rem;
   background-color: ${(props) => props.theme.colors.grayScale.gy800};
   flex-shrink: 0;
+  margin: 0 0.125rem;
 `;
 
 export const SubTitle = styled.span`
@@ -137,7 +138,7 @@ export const TimeIcon = styled.img`
 `;
 
 export const Time = styled.p`
-  ${(props) => props.theme.fonts.body.xsmall400}
+  ${(props) => props.theme.fonts.body.small400}
   color: ${(props) => props.theme.colors.grayScale.white};
   overflow: hidden;
   text-overflow: ellipsis;

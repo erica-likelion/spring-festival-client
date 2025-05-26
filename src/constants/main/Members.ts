@@ -36,9 +36,9 @@ export const allMembers = [
     description: '이제 아츄 먹으러\n가겠습니다.',
   },
 
-  // 프론트
+  // 프론트엔드
   {
-    part: '프론트',
+    part: '프론트엔드',
     image: SY as string,
     label: 'PL',
     backgroundColor: 'rd500',
@@ -46,7 +46,7 @@ export const allMembers = [
     description: '다 할 수 있어요!\n일 년만 있으면',
   },
   {
-    part: '프론트',
+    part: '프론트엔드',
     image: SG as string,
     label: 'PE',
     backgroundColor: 'pk200',
@@ -54,7 +54,7 @@ export const allMembers = [
     description: '웃으며 시작했는데\n지금 울고있어요',
   },
   {
-    part: '프론트',
+    part: '프론트엔드',
     image: LG as string,
     label: 'PE',
     backgroundColor: 'pk200',
@@ -62,7 +62,7 @@ export const allMembers = [
     description: '축제는 3일,\n개발은 3달',
   },
   {
-    part: '프론트',
+    part: '프론트엔드',
     image: JW as string,
     label: 'PM',
     backgroundColor: 'bl400',
@@ -70,7 +70,7 @@ export const allMembers = [
     description: '축제 재밌게\n즐겨주세요~!',
   },
   {
-    part: '프론트',
+    part: '프론트엔드',
     image: SH as string,
     label: 'PE',
     backgroundColor: 'pk200',

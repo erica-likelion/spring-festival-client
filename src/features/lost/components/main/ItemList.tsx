@@ -75,7 +75,7 @@ export default function ItemList() {
           />
         </S.TabIconBox>
         <S.Grid style={{ opacity }}>
-          {filteredItems.map((item) => (
+          {filteredItems.reverse().map((item) => (
             <ItemCard key={item.id} item={item} />
           ))}
         </S.Grid>

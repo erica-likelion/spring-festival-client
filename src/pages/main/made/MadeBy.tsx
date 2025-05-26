@@ -13,7 +13,7 @@ import { NavBar } from '@/components/nav-bar';
  */
 
 export default function MadeBy() {
-  const parts = ['기획&디자인', '프론트', '백엔드'];
+  const parts = ['기획&디자인', '프론트엔드', '백엔드'];
   const setIsNav = useLayoutStore((state) => state.setIsNav);
 
   useEffect(() => {
