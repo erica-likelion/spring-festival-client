@@ -25,6 +25,32 @@ export const performanceData = {
     },
     {
       id: '2',
+      backgroundUrl: imageMap.Mark,
+      singer: 'NCT 마크',
+      fcm_singer: 'NCTMark',
+      time: '18:15~18:45',
+      description:
+        '마크는 SM엔터테인먼트 소속 보이그룹 NCT의 멤버로, 다국적 유닛 NCT 127, NCT DREAM, SuperM 등 다양한 팀에서 활약 중인 아티스트이다. 에너지 넘치는 무대 매너와 진정성 있는 메시지로 국내외 두터운 팬층을 보유하고 있다.',
+      songList: [
+        {
+          image: imageMap.Mark1,
+          name: '1999',
+          url: 'https://www.youtube.com/watch?v=c6PeWqj-moU',
+        },
+        {
+          image: imageMap.Mark2,
+          name: '버퍼링 (Glitch Mode)',
+          url: 'https://www.youtube.com/watch?v=oZP2h3WIzqk',
+        },
+        {
+          image: imageMap.Mark3,
+          name: 'Sticker',
+          url: 'https://www.youtube.com/watch?v=1oYWnbTSang',
+        },
+      ],
+    },
+    {
+      id: '3',
       backgroundUrl: imageMap.TenCm,
       singer: '10CM',
       fcm_singer: '10CM',
@@ -50,7 +76,7 @@ export const performanceData = {
       ],
     },
     {
-      id: '3',
+      id: '4',
       backgroundUrl: imageMap.FTISLAND,
       singer: 'FTISLAND',
       fcm_singer: 'FTISLAND',
@@ -76,7 +102,7 @@ export const performanceData = {
       ],
     },
     {
-      id: '4',
+      id: '5',
       backgroundUrl: imageMap.Idle,
       singer: 'i-dle(아이들)',
       fcm_singer: 'i-dle',
@@ -104,7 +130,7 @@ export const performanceData = {
   ],
   '2일차': [
     {
-      id: '5',
+      id: '6',
       backgroundUrl: imageMap.Jackpot,
       singer: '잭팟(WING, Hellcat)',
       fcm_singer: 'JACKPOT',
@@ -130,7 +156,7 @@ export const performanceData = {
       ],
     },
     {
-      id: '6',
+      id: '7',
       backgroundUrl: imageMap.Davichi,
       singer: '다비치',
       fcm_singer: 'Davichi',
@@ -156,7 +182,7 @@ export const performanceData = {
       ],
     },
     {
-      id: '7',
+      id: '8',
       backgroundUrl: imageMap.Highlight,
       singer: '하이라이트',
       fcm_singer: 'Hilight',
@@ -184,7 +210,7 @@ export const performanceData = {
   ],
   '3일차': [
     {
-      id: '8',
+      id: '9',
       backgroundUrl: imageMap.Ifeye,
       singer: 'ifeye',
       fcm_singer: 'IFEYE',
@@ -206,7 +232,7 @@ export const performanceData = {
       ],
     },
     {
-      id: '9',
+      id: '10',
       backgroundUrl: imageMap.Chungha,
       singer: '청하',
       fcm_singer: 'Chungha',
@@ -232,7 +258,7 @@ export const performanceData = {
       ],
     },
     {
-      id: '10',
+      id: '11',
       backgroundUrl: imageMap.YB,
       singer: 'YB',
       fcm_singer: 'YB',
@@ -258,7 +284,7 @@ export const performanceData = {
       ],
     },
     {
-      id: '11',
+      id: '12',
       backgroundUrl: imageMap.DJ,
       singer: 'DJ주디',
       fcm_singer: 'DJ Judy',
