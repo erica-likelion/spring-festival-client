@@ -2,12 +2,15 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Container = styled.div`
-  min-width: 21.25rem;
+  width: 100%;
   background-color: ${(props) => props.theme.colors.grayScale.black};
   height: 2.5rem;
+  display: flex;
+  justify-content: center;
 `;
 
 export const Nav = styled.nav`
+  width: 20.9375rem;
   padding: 0 1rem;
   border-bottom: 2px solid ${(props) => props.theme.colors.grayScale.gy900};
 `;
