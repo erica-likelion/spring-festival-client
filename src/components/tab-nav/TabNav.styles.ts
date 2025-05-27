@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 
 export const Container = styled.div`
   min-width: 21.25rem;
+  background-color: ${(props) => props.theme.colors.grayScale.black};
   height: 2.5rem;
 `;
 
