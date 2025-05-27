@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { BOTTOM_SHEET_HEIGHT } from '@/constants/map/BottomSheetOptions';
-import { Z_INDEX } from '@/constants/map/Z_INDEX';
 
 export const BottomSheetMotionDiv = styled(motion.div)`
   height: ${BOTTOM_SHEET_HEIGHT};
@@ -9,7 +8,6 @@ export const BottomSheetMotionDiv = styled(motion.div)`
   display: flex;
   flex-direction: column;
   position: fixed;
-  z-index: ${Z_INDEX.BOTTOM_SHEET};
   top: calc(100% - 280px); /* 뷰포트 하단 기준 몇 px */
   left: 0;
   right: 0;
@@ -77,7 +75,7 @@ export const ContentUnitWrap = styled.div<{ $isLastItem?: boolean }>`
   padding: 0.5988rem 0;
   border-bottom: ${(props) =>
     props.$isLastItem ? 'none' : `0.0625rem solid ${props.theme.colors.grayScale.gy900}`};
-  margin-bottom: ${(props) => (props.$isLastItem ? '32rem' : '0')};
+  margin-bottom: ${(props) => (props.$isLastItem ? '33rem' : '0')};
 `;
 
 export const NoDataMessage = styled.div`

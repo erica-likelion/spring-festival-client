@@ -11,6 +11,7 @@ export const Button = styled.button`
   background: transparent;
   border: none;
   position: relative;
+  z-index: 80;
 `;
 
 export const Text = styled.p`

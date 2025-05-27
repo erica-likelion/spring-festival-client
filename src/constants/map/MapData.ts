@@ -41,6 +41,13 @@ import TOILET from '@/assets/images/map/toilet.webp';
 import BUS_STOP from '@/assets/images/map/busstop.webp';
 import FOOD_TRUCK from '@/assets/images/map/foodtruck.webp';
 import SMOKING from '@/assets/images/map/smoking.webp';
+import CANDY from '@/assets/images/map/candy.webp';
+// import CLOWN from '@/assets/images/map/clown.webp';
+import HDP from '@/assets/images/map/hdp.webp';
+import PHOTOZONE from '@/assets/images/map/photozone.webp';
+import ONETODOUBLE from '@/assets/images/map/onetodouble.webp';
+import PROTEEN from '@/assets/images/map/proteen.webp';
+import STAMP from '@/assets/images/map/stamp.webp';
 
 // 각 카테고리별 항목 타입 정의
 export interface MapDataItem extends ImageTextFrameWithTimeProps {
@@ -386,7 +393,7 @@ export const MapData: MapDataProps = {
       image: RACE,
       title: '호공 레이스',
       subtitle: '콘텐츠',
-      time: '10:00-18:00',
+      time: '13:00-15:00',
       closeDay: ['1일차', '3일차'],
       lat: 37.297562,
       lng: 126.833907,
@@ -396,10 +403,10 @@ export const MapData: MapDataProps = {
       image: PICNIC,
       title: '피크닉존',
       subtitle: '콘텐츠',
-      time: '10:00-18:00',
+      time: '11:00-18:00',
       closeDay: [],
-      lat: 37.296615,
-      lng: 126.834394,
+      lat: 37.29665075767112,
+      lng: 126.83433657473492,
     },
     {
       id: 503,
@@ -408,9 +415,86 @@ export const MapData: MapDataProps = {
       subtitle: '콘텐츠',
       time: '19:00-22:00',
       closeDay: ['1일차', '2일차'],
-      lat: 37.298122,
-      lng: 126.836277,
+      lat: 37.29812216872291,
+      lng: 126.83629301416545,
     },
+    {
+      id: 504,
+      image: CANDY,
+      title: '사탕처럼 달콤하다는데?',
+      subtitle: '콘텐츠',
+      time: '11:00-17:00',
+      closeDay: [],
+      lat: 37.29724736447557,
+      lng: 126.83410123695744,
+    },
+    // {
+    //   id: 505,
+    //   image: CLOWN,
+    //   title: '삐에로 아저씨',
+    //   subtitle: '콘텐츠',
+    //   time: '13:00-17:00',
+    //   closeDay: [],
+    //   lat: 126.83447501648986,
+    //   lng: 126.83463357460069,
+    // },
+    {
+      id: 506,
+      image: HDP,
+      title: '한 대 빵!!',
+      subtitle: '콘텐츠',
+      time: '11:00-17:00',
+      closeDay: [],
+      lat: 37.295566831523274,
+      lng: 126.83727412255227,
+    },
+    {
+      id: 507,
+      image: PHOTOZONE,
+      title: '포토존',
+      subtitle: '콘텐츠',
+      time: '11:00-17:00',
+      closeDay: ['1일차', '3일차'],
+      lat: 37.29698419132466,
+      lng: 126.8343724985793,
+    },
+    {
+      id: 508,
+      image: ONETODOUBLE,
+      title: '한 대 맞고 더블로 가!',
+      subtitle: '콘텐츠',
+      time: '11:00-17:00',
+      closeDay: [],
+      lat: 37.29670205742794,
+      lng: 126.83397273243898,
+    },
+    {
+      id: 509,
+      image: PROTEEN,
+      title: 'PRO:TEEN 스탬프랠리 이벤트',
+      subtitle: '콘텐츠',
+      time: '11:00-17:00',
+      closeDay: [],
+      lat: 37.29718649484104,
+      lng: 126.83568036283293,
+    },
+    {
+      id: 510,
+      image: STAMP,
+      title: '스탬프랠리',
+      subtitle: '콘텐츠',
+      time: '11:00-21:00',
+      closeDay: [],
+      lat: 37.29686240448319,
+      lng: 126.83588408022645,
+    },
+    // {
+    //   id: 511,
+    //   image: PHOTOZONE,
+    //   title: '청춘기록',
+    // subtitle: '콘텐츠',
+
+    // }
   ],
   공연장: [
     {
@@ -431,8 +515,8 @@ export const MapData: MapDataProps = {
       title: '공용 화장실',
       subtitle: '화장실',
       time: '11:00~17:00',
-      lat: 37.295411,
-      lng: 126.834722,
+      lat: 37.295360594745084,
+      lng: 126.83474542074782,
       closeDay: [],
     },
     {
@@ -441,8 +525,8 @@ export const MapData: MapDataProps = {
       title: '공용 화장실',
       subtitle: '화장실',
       time: '11:00~17:00',
-      lat: 37.296411,
-      lng: 126.835529,
+      lat: 37.296472421919674,
+      lng: 126.83567909650789,
       closeDay: [],
     },
     {
@@ -451,8 +535,8 @@ export const MapData: MapDataProps = {
       title: '공용 화장실',
       subtitle: '화장실',
       time: '11:00~17:00',
-      lat: 37.296042,
-      lng: 126.832668,
+      lat: 37.29589594299737,
+      lng: 126.83259572915954,
       closeDay: [],
     },
   ],
@@ -488,8 +572,8 @@ export const MapData: MapDataProps = {
       title: '흡연구역',
       subtitle: '',
       time: '24시간',
-      lat: 37.295466,
-      lng: 126.834832,
+      lat: 37.295385491240424,
+      lng: 126.83482995313732,
       closeDay: [],
     },
     {
@@ -498,8 +582,8 @@ export const MapData: MapDataProps = {
       title: '흡연구역',
       subtitle: '',
       time: '24시간',
-      lat: 37.296452,
-      lng: 126.835659,
+      lat: 37.29649727861849,
+      lng: 126.83573543450318,
       closeDay: [],
     },
     {
@@ -508,8 +592,8 @@ export const MapData: MapDataProps = {
       title: '흡연구역',
       subtitle: '',
       time: '24시간',
-      lat: 37.296111,
-      lng: 126.832574,
+      lat: 37.2959656853379,
+      lng: 126.83253354377807,
       closeDay: [],
     },
   ],

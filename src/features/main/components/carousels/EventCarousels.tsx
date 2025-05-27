@@ -31,7 +31,8 @@ export default function EventCarousels() {
   };
 
   const now = new Date();
-  const todayStr = now.toISOString().split('T')[0];
+  const korea = new Date(now.getTime() + 9 * 60 * 60 * 1000);
+  const todayStr = korea.toISOString().split('T')[0];
   const todayEvents: EventCardData[] = MainEventData[todayStr] ?? [];
 
   const nightOn = (card: EventCardData, now: Date): boolean => {

@@ -12,7 +12,7 @@ export const Container = styled.header<{ $opacity?: boolean }>`
   background-color: ${({ theme }) => theme.colors.grayScale.black};
   position: fixed;
   top: 0;
-  z-index: 9999;
+  z-index: 99;
 `;
 
 export const LeftSection = styled.div`

@@ -2,11 +2,13 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const Container = styled.div`
-  padding: 1.5rem 0rem;
+  padding: 5rem 0rem 1.5rem;
   width: 20.9375rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative;
+  z-index: 1;
 `;
 
 export const RankList = styled.ul`
