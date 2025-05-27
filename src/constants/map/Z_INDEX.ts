@@ -3,6 +3,7 @@ export const Z_INDEX = {
   MAP_OVERLAY: 100,
   CONTENTS: 200,
   HEADER: 300,
+  RECENTER_BUTTON: 350,
   BOTTOM_SHEET: 400,
 } as const;
 
