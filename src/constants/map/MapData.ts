@@ -562,7 +562,7 @@ export const MapData: MapDataProps = {
       lat: 37.296454,
       lng: 126.833895,
       closeDay: [],
-      path: '/',
+      path: '/main/notice/10.5',
     },
   ],
   흡연구역: [
