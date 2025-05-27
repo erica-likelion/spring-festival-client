@@ -45,7 +45,7 @@ export default function Performance() {
       </S.InfoWrap>
       <S.DayWrap>
         <S.TextWrap>
-          <S.StartText>공연 시작 17:00시</S.StartText>
+          <S.StartText>{`공연 시작 17:${selectedDay === '1일차' ? '00' : '30'}시`}</S.StartText>
           <S.HelpIconStyled onClick={() => handleHelpClick()} />
         </S.TextWrap>
         <Tabs
