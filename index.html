@@ -171,6 +171,24 @@
 <body>
   <div id="splash-screen">
   </div>
+  <script>
+    (function removeSplashImmediately() {
+      const splash = document.getElementById('splash-screen');
+      if (!splash) return;
+      if (document.readyState !== 'loading') {
+        splash.remove();
+      } else {
+        document.addEventListener('readystatechange', () => {
+          if (document.readyState === 'interactive' || document.readyState === 'complete') {
+            splash.remove();
+          }
+        });
+        window.addEventListener('load', () => {
+          splash.remove();
+        });
+      }
+    })();
+  </script>
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
   <script defer>
