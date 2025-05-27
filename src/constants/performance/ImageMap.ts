@@ -2,6 +2,10 @@ import Kino from '@/assets/images/performance/day1-kino.webp';
 import Kino1 from '@/assets/images/performance/song-list/kino-1.webp';
 import Kino2 from '@/assets/images/performance/song-list/kino-2.webp';
 import Kino3 from '@/assets/images/performance/song-list/kino-3.webp';
+import Mark from '@/assets/images/performance/day1-mark.webp';
+import Mark1 from '@/assets/images/performance/song-list/mark-1.webp';
+import Mark2 from '@/assets/images/performance/song-list/mark-2.webp';
+import Mark3 from '@/assets/images/performance/song-list/mark-3.webp';
 import TenCm from '@/assets/images/performance/day1-10cm.webp';
 import TenCm1 from '@/assets/images/performance/song-list/tencm-1.webp';
 import TenCm2 from '@/assets/images/performance/song-list/tencm-2.webp';
@@ -48,6 +52,10 @@ export const imageMap = {
   Kino1,
   Kino2,
   Kino3,
+  Mark,
+  Mark1,
+  Mark2,
+  Mark3,
   TenCm,
   TenCm1,
   TenCm2,
