@@ -11,7 +11,6 @@ export const Container = styled.div`
 
 export const Main = styled.main`
   flex: 1;
-  margin-top: 3.5rem;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 `;
