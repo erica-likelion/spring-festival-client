@@ -35,7 +35,7 @@ export const Item = styled(motion.li)<{ $current: boolean }>`
 
 export const Underline = styled(motion.div)`
   position: absolute;
-  bottom: -2px;
+  bottom: -1px;
   left: 0;
   right: 0;
   height: 2px;
