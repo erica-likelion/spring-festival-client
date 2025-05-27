@@ -68,6 +68,12 @@ import notice10_3 from '@/assets/images/notice/notice10 (4).png';
 import notice10_4 from '@/assets/images/notice/notice10 (5).png';
 import notice10_5 from '@/assets/images/notice/notice10 (6).png';
 import notice10_6 from '@/assets/images/notice/notice10 (7).png';
+import notice105_0 from '@/assets/images/notice/notice105 (1).png';
+import notice105_1 from '@/assets/images/notice/notice105 (2).png';
+import notice105_2 from '@/assets/images/notice/notice105 (3).png';
+import notice105_3 from '@/assets/images/notice/notice105 (4).png';
+import notice105_4 from '@/assets/images/notice/notice105 (5).png';
+import notice105_5 from '@/assets/images/notice/notice105 (6).png';
 import notice11_0 from '@/assets/images/notice/notice11 (1).png';
 import notice11_1 from '@/assets/images/notice/notice11 (2).png';
 import notice11_2 from '@/assets/images/notice/notice11 (3).png';
@@ -183,7 +189,23 @@ import notice25_2 from '@/assets/images/notice/notice25 (3).png';
 import notice25_3 from '@/assets/images/notice/notice25 (4).png';
 import notice25_4 from '@/assets/images/notice/notice25 (5).png';
 import notice25_5 from '@/assets/images/notice/notice25 (6).png';
-
+import notice26_0 from '@/assets/images/notice/notice26 (1).png';
+import notice26_1 from '@/assets/images/notice/notice26 (2).png';
+import notice26_2 from '@/assets/images/notice/notice26 (3).png';
+import notice26_3 from '@/assets/images/notice/notice26 (4).png';
+import notice27_0 from '@/assets/images/notice/notice27 (1).jpg';
+import notice27_1 from '@/assets/images/notice/notice27 (2).jpg';
+import notice27_2 from '@/assets/images/notice/notice27 (3).jpg';
+import notice27_3 from '@/assets/images/notice/notice27 (4).jpg';
+import notice27_4 from '@/assets/images/notice/notice27 (5).jpg';
+import notice27_5 from '@/assets/images/notice/notice27 (6).jpg';
+import notice27_6 from '@/assets/images/notice/notice27 (7).jpg';
+import notice27_7 from '@/assets/images/notice/notice27 (8).jpg';
+import notice27_8 from '@/assets/images/notice/notice27 (9).jpg';
+import notice27_9 from '@/assets/images/notice/notice27 (10).jpg';
+import notice27_10 from '@/assets/images/notice/notice27 (11).jpg';
+import notice27_11 from '@/assets/images/notice/notice27 (12).jpg';
+// ...existing code...
 export const NoticeData = [
   {
     id: 1,
@@ -493,6 +515,30 @@ export const NoticeData = [
 문의사항 : ESPERO_플리마켓팀 카카오톡 채널
 
 #봄축제기획단 #2025ESPERO플리마켓팀`,
+  },
+  {
+    id: 10.5,
+    img: [notice105_0, notice105_1, notice105_2, notice105_3, notice105_4, notice105_5],
+    title: '2025 한양대학교 ERICA 봄축제 푸드트럭 소개',
+    tags: [
+      { color: 'pk200', text: '공지사항' },
+      { color: 'pk100', text: '푸드트럭' },
+    ],
+    body: `2025 한양대학교 ERICA 봄축제 푸드트럭 소개
+
+[ESPERO:HYLIGHT]
+
+”NOW OR NEVER, HYLIGHT!“
+
+‘금강산도 식후경’이란 말이 존재하듯이 열정적으로 놀기 위해서는 든든하게 배를 채워야 한다. 푸드트럭을 바로 잘 즐기는 여러분의 청춘은 바로 지금 ~ !
+
+✴ 푸드트럭 판매 일정 : 2025.05.27(화)~05.29(목) 10:00~23:00 ✴
+
+⭐축제에 다양한 메뉴의 푸드트럭들이 준비되어 있으니 많은 관심 부탁드립니다! ⭐
+
+⭐ 자세한 내용은 카드 뉴스를 참고해 주세요!
+
+#봄축제기획단 #2025ESPERO`,
   },
 
   {
@@ -1147,5 +1193,75 @@ ERICA에 숨어 있던 실력자들이 무대 위에서 ⭐️HYDDEN STAR⭐️�
 
 
 #봄축제기획단 #2025ESPERO #HYLIGHT`,
+  },
+  {
+    id: 26,
+    img: [notice26_0, notice26_1, notice26_2, notice26_3],
+    title: '2025 ESPERO:HYLIGHT 드레스코드 안내',
+    tags: [{ color: 'pk200', text: '공지사항' }],
+    body: `2025 한양대학교 ERICA 봄축제 ”ESPERO:HYLIGHT“ 드레스코드 안내
+
+
+✨ NOW OR NEVER, HYLIGHT ✨
+
+
+안녕하세요! 2025 봄축제기획단 콘텐츠 팀입니다!
+
+
+2025 ESPERO:HYLIGHT에서 ✨HANYANG BLUE✨로 멋진 의상을 매치해보세요! 💙
+푸르른 청춘이 가득한 이 축제에서, 여러분의 스타일을 뽐내는 건 어떨까요?
+
+
+드레스코드는 필수 사항은 아니지만, 함께하는 즐거움을 더해줄 거예요! 🎉
+드레스코드를 맞춰 입고 오시면 드리는 소소한 배내핏까지 즐겨보세요!!
+
+
+자세한 내용은 카드뉴스를 참고해주세요! 📩
+
+
+📌문의사항
+2025 ESPERO 콘텐츠팀 카카오 채널
+콘텐츠 팀장 이다성 010-3127-3462
+
+
+#봄축제기획단 #2025ESPERO콘텐츠팀`,
+  },
+  {
+    id: 27,
+    img: [
+      notice27_0,
+      notice27_1,
+      notice27_2,
+      notice27_3,
+      notice27_4,
+      notice27_5,
+      notice27_6,
+      notice27_7,
+      notice27_8,
+      notice27_9,
+      notice27_10,
+      notice27_11,
+    ],
+    title: '봄 축제 웹앱 출시!',
+    tags: [{ color: 'pk200', text: '공지사항' }],
+    body: `2025 한양대학교 ERICA 봄 축제 “ESPERO:HYLIGHT”
+
+✨지금이 아니면 안되는 순간. NOW OR NEVER, HYLIGHT!✨
+
+📱2025년 ESPERO:HYLIGHT 봄 축제 웹/앱 안내 📱
+
+📌 2025 ESPERO:HYLIGHT를 더 알차게 즐길 수 있도록 도와주는 봄축제 웹/앱 출시 !
+
+📌 현재 진행 중인 이벤트 확인, 분실물 신고, 축제 지도, 공연 일정, 주점 무한좋아요 및 메뉴 등등 다양한 기능 탑재 !
+
+📌 카카오로 간편로그인하고, HYLIGHT 웹앱을 홈 화면에 추가하고 축제를 편리하게 즐겨보세요 !
+
+📌 자세한 내용은 카드뉴스를 참고해주세요:)
+
+📌 웹앱 설치하기
+https://likelion-espero.vercel.app
+(사파리, 크롬으로 접속해야 원활하게 작동됩니다!)
+
+축제기획단 x 멋쟁이사자처럼과 함께 2025 ESPERO:HYLIGHT에서 잊지 못 할 청춘의 하이라이트를 만들어보세요 🌸`,
   },
 ];
