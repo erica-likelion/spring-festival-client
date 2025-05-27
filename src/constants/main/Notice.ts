@@ -193,18 +193,18 @@ import notice26_0 from '@/assets/images/notice/notice26 (1).png';
 import notice26_1 from '@/assets/images/notice/notice26 (2).png';
 import notice26_2 from '@/assets/images/notice/notice26 (3).png';
 import notice26_3 from '@/assets/images/notice/notice26 (4).png';
-import notice27_0 from '@/assets/images/notice/notice27 (1).jpg';
-import notice27_1 from '@/assets/images/notice/notice27 (2).jpg';
-import notice27_2 from '@/assets/images/notice/notice27 (3).jpg';
-import notice27_3 from '@/assets/images/notice/notice27 (4).jpg';
-import notice27_4 from '@/assets/images/notice/notice27 (5).jpg';
-import notice27_5 from '@/assets/images/notice/notice27 (6).jpg';
-import notice27_6 from '@/assets/images/notice/notice27 (7).jpg';
-import notice27_7 from '@/assets/images/notice/notice27 (8).jpg';
-import notice27_8 from '@/assets/images/notice/notice27 (9).jpg';
-import notice27_9 from '@/assets/images/notice/notice27 (10).jpg';
-import notice27_10 from '@/assets/images/notice/notice27 (11).jpg';
-import notice27_11 from '@/assets/images/notice/notice27 (12).jpg';
+import notice27_0 from '@/assets/images/notice/notice27 (1).png';
+import notice27_1 from '@/assets/images/notice/notice27 (2).png';
+import notice27_2 from '@/assets/images/notice/notice27 (3).png';
+import notice27_3 from '@/assets/images/notice/notice27 (4).png';
+import notice27_4 from '@/assets/images/notice/notice27 (5).png';
+import notice27_5 from '@/assets/images/notice/notice27 (6).png';
+import notice27_6 from '@/assets/images/notice/notice27 (7).png';
+import notice27_7 from '@/assets/images/notice/notice27 (8).png';
+import notice27_8 from '@/assets/images/notice/notice27 (9).png';
+import notice27_9 from '@/assets/images/notice/notice27 (10).png';
+import notice27_10 from '@/assets/images/notice/notice27 (11).png';
+import notice27_11 from '@/assets/images/notice/notice27 (12).png';
 // ...existing code...
 export const NoticeData = [
   {
